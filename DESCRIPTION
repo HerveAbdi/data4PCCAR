@@ -1,0 +1,18 @@
+Package: data4PCCAR
+Type: Package
+Title: Some data sets for PCA and CA to accompany Abdi & Beaton (2019) Principal Component and Correspondence Analysis with R
+Version: 0.1.0
+Author: Herve Abdi & Derek Beaton
+Maintainer: Herve Abdi  <herve@utdallas.edu>
+Description: data4PCCAR is  a collection of data files that can be used for
+     Principal Component Analysis and for Correspondence Analysis. 
+     These data files are used to illustrate these techniques in the book of Abdi and Beaton:
+     Abdi H., Beaton, D. (2019). Principal Component and Correspondence Analyses Using R. New York: Springer Verlag. 
+Depends: R (>= 3.0.0)
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+VignetteBuilder: utils
+URL: http://github.com/HerveAbdi/data4PCCAR
+BugReports: http://github.com/HerveAbdi/data4PCCAR/issues
+RoxygenNote: 6.0.1
