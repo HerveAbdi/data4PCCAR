@@ -5,9 +5,7 @@
 \alias{foodOfTheWorld}
 \title{26 world cuisines are described by
 their cooking ingredients.}
-\format{a list containing 9 objects:
- 1) \code{}: a 26 cuisines   by ingredients
- data frame containing the
+\format{A list containing 9 objects:
  1) \code{CT}: a 26 cuisines by 159 ingredients data frame
  containing the contingency table;
  2) \code{logCT}: a 26 cuisines by 159 ingredients
@@ -69,7 +67,7 @@ are, in addition,  followed by the suffix \code{.interger}
 The original post used these data  (the compact version)
 to illustrate
 principal component analysis, but because these data are count
-\emph{correspoondence analysis} is more appropriate.
+\emph{correspondence analysis} is more appropriate.
 
 The large, small, and compact data sets give roughly the
 same first dimension(s), whereas versions
