@@ -44,6 +44,15 @@ The 106 participants who responded "Yes" are called
 with \emph{synesthesia} and the 27
 participants who responded "No" are called
 with \emph{without synesthesia}.
+
+The question asked to the participant was:
+``Here are six colors: red, orange, yellow, blue, and violet.
+What vowel do you think match each color?".
+So the color are the stimuli
+(i.e., the \emph{independent} variable)
+and the vowels are the responses
+(i.e., the \emph{dependent} variable).
+
 The data were obtained by concatenation of the data from
 Tables 1 and 2 from Chastaing (1961).
 The vowels correspond to the following sound(s)

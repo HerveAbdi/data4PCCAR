@@ -19,6 +19,15 @@
 #' with \emph{synesthesia} and the 27
 #' participants who responded "No" are called
 #' with \emph{without synesthesia}.
+#'
+#' The question asked to the participant was:
+#' ``Here are six colors: red, orange, yellow, blue, and violet.
+#' What vowel do you think match each color?".
+#' So the color are the stimuli
+#' (i.e., the \emph{independent} variable)
+#' and the vowels are the responses
+#' (i.e., the \emph{dependent} variable).
+#'
 #' The data were obtained by concatenation of the data from
 #' Tables 1 and 2 from Chastaing (1961).
 #' The vowels correspond to the following sound(s)
@@ -75,17 +84,17 @@ NULL
 print.colorsOfVowels <- function(x, ...){
   ndash = 78 # How many dashes for separation lines
   cat(rep("-", ndash), sep = "")
-  cat("\n A list: 133 French participants associated 6 colors to 6 vowels.  \n")
+  cat("\n A list: 133 French participants associated 6 colors to 6 vowels.\n")
   # cat("\n List name: ",deparse(eval(substitute(substitute(x)))),"\n")
   cat(rep("-", ndash), sep = "")
-  cat("\n$CT                 ","6 vowels by 6 color contingency table:")
+  cat("\n$CT                 ","6 vowels by 6 colors contingency table:")
   cat("\n$CT                 " ,"       133 (all)  participants.")
-  cat("\n$CT.noSynesthesia   ","6 vowels by 6 color contingency table:")
+  cat("\n$CT.noSynesthesia   ","6 vowels by 6 colors contingency table:")
   cat("\n$CT                 " ,"       27 no synesthesia participants.")
-  cat("\n$CT.Synesthesia     ","6 vowels by 6 color contingency table:")
+  cat("\n$CT.Synesthesia     ","6 vowels by 6 colors contingency table:")
   cat("\n$CT                 " ,"       106 synesthesia participants.")
   cat("\n$vowelsDescription  ","Place of articulation of the vowels.")
-  cat("\n$$colorsDescription ","R-color code for the colors.")
+  cat("\n$colorsDescription ","R-color code for the colors.")
   cat("\n",rep("-", ndash), sep = "")
   cat("\n")
   invisible(x)
