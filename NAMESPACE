@@ -2,3 +2,4 @@
 
 S3method(print,colorsOfVowels)
 S3method(print,foodOfTheWorld)
+S3method(print,twentyWines)

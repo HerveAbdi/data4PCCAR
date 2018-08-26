@@ -29,7 +29,7 @@
 #' (i.e., the \emph{dependent} variable).
 #'
 #' The data were obtained by concatenation of the data from
-#' Tables 1 and 2 from Chastaing (1961).
+#' Tables 1 and 2 of Chastaing (1961).
 #' The vowels correspond to the following sound(s)
 #' 1) \emph{i} as in prett\strong{y},
 #' 2) \emph{y} the French "u"-sound as in t\strong{u}t\strong{u},
@@ -58,7 +58,7 @@
 #' and
 #' 5) \code{colorsDescription} a data frame
 #' giving the R-color code for the colors.
-#' #'  @keywords datasets data4PCCAR
+#'  @keywords datasets data4PCCAR
 #'  @author Maxime Chastaing and Herve Abdi
 #'  @references
 #'  The data reported here were obtained from Tables 1 and 2 from
@@ -98,8 +98,8 @@ print.colorsOfVowels <- function(x, ...){
   cat("\n",rep("-", ndash), sep = "")
   cat("\n")
   invisible(x)
-} # end of function print.foodOfTheWorld
-# end print.foodOfTheWorld ----
+} # end of function print.colorsOfVowels
+# end print.colorsOfVowels ----
 #_____________________________________________________________________
 
 #'
