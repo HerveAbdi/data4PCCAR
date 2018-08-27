@@ -37,6 +37,14 @@ To get back a 230*240 image-matrix from the vectorized
 version of the face use, for example:
 
 \code{face1 <- matrix(face.matrix[1,],230,240,byrow = FALSE)}
+
+To visualize an image use, for example:
+
+\code{image(sixFaces$face.array.normed[,,1])}
+
+To fold back an image from the vectorized and vizualize it, use:
+
+\code{image(matrix(sixFaces$face.matrix[1,],230,240,byrow = FALSE))}
 }
 \references{
 The faces have been used in a few publications including:

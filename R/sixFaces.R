@@ -20,6 +20,14 @@
 #'
 #' \code{face1 <- matrix(face.matrix[1,],230,240,byrow = FALSE)}
 #'
+#' To visualize an image use, for example:
+#'
+#' \code{image(sixFaces$face.array.normed[,,1])}
+#'
+#' To fold back an image from the vectorized and vizualize it, use:
+#'
+#' \code{image(matrix(sixFaces$face.matrix[1,],230,240,byrow = FALSE))}
+#'
 #' @name sixFaces
 #' @usage data("sixFaces")
 #' @docType data
@@ -55,4 +63,34 @@ NULL
 #_____________________________________________________________________
 # Print function sixFaces  ----
 #_____________________________________________________________________
+#' Change the print function for the data set:
+#' \code{sixFaces}
+#'
+#' Change the print function for the data set:
+#' \code{sixFaces}.
+#'
+#' @param x a list: the data set: \code{sixFaces}
+#' @param ... the rest
+#' @author Herve Abdi
+#' @export
+print.sixFaces <- function(x, ...){
+  ndash = 78 # How many dashes for separation lines
+  cat(rep("-", ndash), sep = "")
+  cat("\n A list: 6 230*240 grey images of faces (3 Men & 3 Women). For PCA & PLS. \n")
+  # cat("\n List name: ",deparse(eval(substitute(substitute(x)))),"\n")
+  cat(rep("-", ndash), sep = "")
+  cat("\n$face.array.raw    ","A 230*240*6 array. Pixel values from 0 to 253.")
+  cat("\n$face.array.normed ","A 230*240*6 array. Faces have sum of squares of 1.")
+  cat("\n$face.matrix       ","The 6*55,200 (= 230*240) vectorized normalized face matrix.")
+  cat("\n",rep("-", ndash), sep = "")
+  cat("\n")
+  invisible(x)
+} # end of function print.sixFaces
+# end print.sixFaces ----
 #_____________________________________________________________________
+
+#'
+#'
+#'
+#'
+
