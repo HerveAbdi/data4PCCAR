@@ -56,8 +56,9 @@ and the comments are stored in the data frame
 \code{supplementary.variables}.
 }
 \references{
-These ratings were inspired by the
-the \emph{words} example from
+These ratings were (strongly) inspired by the
+the \emph{Words} example from:
+
 Abdi, H., Edelman, B., Valentin, D., & Dowling, W.J. (2009).
 \emph{Experimental Design and Analysis for Psychology}.
 Oxford: Oxford University Press.

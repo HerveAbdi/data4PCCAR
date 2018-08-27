@@ -1,0 +1,5 @@
+load("/Users/herve/Dropbox/RData4PCCAR/data4PCCAR/data/sixFaces.rda")
+ls()
+ls()
+face.array
+dim(face.array)
