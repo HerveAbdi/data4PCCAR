@@ -14,7 +14,7 @@ and the ratings of the 20 wines
 for the \emph{supplementary} variables  \code{Acid, Bitter, Fruity, Woody},
 and the \code{Origin} of the wines (French vs USA).
 \item \code{supplementary.observation} the ratings for the
-mystery wine (Trius Red a wine from Ontario).
+mystery wine (Trius Red: a wine from Ontario).
 }}
 \usage{
 data("twentyWines")
@@ -23,23 +23,24 @@ data("twentyWines")
 \code{twentyWines}:
 20 (imaginary) red wines (10 French, 10 American) are rated,
 from 1 to 20,
-on multiple dimensions.by a (semi-fictitious) expert.
+on multiple dimensions, by a (semi-fictitious) expert.
 }
 \details{
-The data are derived from real data but are arranged
+The data are derived from real data but have been
+"massaged"
 to be nice (e.g., mean, variances, eigenvalues, are integers).
 The 10 French wines were a mix of
-Carbernet Sauvignon and Merlo and the 10 American wines
+Carbernet Sauvignon and Merlot and the 10 American wines
 were made from Zinfandel.
 
 The wines were first evaluated on \code{Sugar} and
-\code{Astringent}; these 2 dimensions are stored in thge
+\code{Astringent}; these 2 dimensions are stored in the
 data frame \code{df.active}.
 
 After the evaluation of the 20 wines was performed,
 the expert was also
 asked to evaluate (on the same dimensions) another red wine
-(\emph{Trius}: a Cabernet-Merlo from Ontario, Canada). The results
+(\emph{Trius}: a Cabernet-Merlot from Ontario, Canada). The results
 for this wine are stored in the data frame:
 \code{supplementary.observation}
 
@@ -47,7 +48,7 @@ After the first evaluation of the 21 wines,
 the (semi-fictitious) expert rated the
 wine on 2 other dimensions: \code{Acid} and \code{Bitter}.
 
-Incidently, the expert (even though semi-fictitious) spontneously
+Incidently, the expert (even though semi-fictitious) spontaneously
 commented that some wines were \code{Fruity} or \code{Woody}.
 
 The long names of the wines, the origin of the wines
