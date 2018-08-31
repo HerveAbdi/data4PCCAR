@@ -3,7 +3,7 @@
 #
 #   sixAuthorsPunctuated
 #  Preambule ----
-#' @title The punctuation used by 6 classical French Writers
+#' @title The punctuation used by six classical French Writers
 #'
 #' @description
 #'  \code{sixAuthorsPunctuated}:

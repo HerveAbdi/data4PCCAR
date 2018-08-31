@@ -1,16 +1,33 @@
 # data4PCCAR
 
-A collection of data sets to accompagny:
+An `R`-package containing a collection of data sets to accompagny:
 Abdi, H., & Beaton, D. (to appear, 2019).
 *Principal Component and Correspondence Analyses Using R*. New York: Springer Verlag. 
+
+In time, `data4PCCAR` will also contain the code used in the book and the resulting figures.
 
 ## Introduction
 
 `data4PCCAR` is a collection of data sets that are used (or could have been used, or should have been used) to illustrate Principal Component Analysis (PCA),  Correspondence Analysis (CA), and related techniques such as Multiplite Correspondence Analysis (MCA), and Multi-Dimensional Scaling (MDS).
 
+## Installation
+
+To install `data4PCCAR` from `Github` use the function `install_github()`  from the pacakge `devtools`:
+
+```{r}
+#install.packages("devtools") #decomment this line if devtools is not yet intalled
+devtools::install_github('HerveAbdi/data4PCCAR') # install data4PCCAR
+```
+
 
 
 ## Current data sets
+
+### colorsOfMusic
+
+12 Children and 10 Adults picked up the color that best describes
+each of 9 pieces of music.
+To be used to illustrate CA and Partial Triadic CA ( a variant of CA, a.k.a. PTCA).
 
 ### colorsOfVowels
 

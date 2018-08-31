@@ -3,14 +3,14 @@
 \docType{data}
 \name{sixAuthorsPunctuated}
 \alias{sixAuthorsPunctuated}
-\title{The punctuation used by 6 classical French Writers}
+\title{The punctuation used by six classical French Writers}
 \format{A list containing 3 data frames:
 \itemize{
-\item \code{df.active}punctuation by the six authors
-\item \code{supplementary.variables} gives the details of the punctuation
+\item \code{df.active:} the punctuation by the six authors
+\item \code{supplementary.variables:} gives the details of the punctuation
 marks included the \code{Other} category:
 ' \code{Exclam, Question, SemiCol, Colon}
-\item \code{supplementary.observation}
+\item \code{supplementary.observation:}
 The punctuation marks used in
 Chapter 1 of \emph{Les Réseaux de Neurones} written
 by Hervé Abdi
@@ -28,7 +28,7 @@ Thus set is used to illustrate Correspondence Analysis.
 \details{
 The punctuation by the six authors constitutes the "active set"
 in correspondence analysis: it is stored
-in the data frame: \code{df.active}
+in the data frame: \code{df.active}.
 
 The category \code{Other} is the sum of 4 punctation marks:
 \code{Exclam, Question, SemiCol, Colon} whose distribution
@@ -37,8 +37,8 @@ is stored in the data frame   \code{supplementary.variables}.
 To illustrate the projection of supplementary onservations,
 the data set also contains the punctutation from
 Chapter 1 of \emph{Les Réseaux de Neurones} written
-by Hervé Abdi. These data are stored in the data frame
-\code{supplementary.observation}
+by Hervé Abdi. These data are stored in the data frame:
+\code{supplementary.observation}.
 }
 \references{
 The active data and supplementary variables come form:
