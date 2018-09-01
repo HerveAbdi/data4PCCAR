@@ -18,7 +18,7 @@ data("foodInFrance")
 \description{
 \code{foodInFrance}: How much typical French families spent for food
 in the 1950's. The families are categorized by social class
-(manual workers, employees and executives)
+(manual workers, employees, and executives)
 and by number of children
 (from 2 to 5).
 Interestingly (for historians of economics), at this
@@ -29,10 +29,10 @@ The measurements give the amount in \emph{Francs}
 spend by a typical (i.e., average) family on 7 items:
 \code{ Bread, Vegetables, Fruits, Meat, Poultry, Milk, Wine}
 
-Because the unit (i.e., Francs spent) is the same all accrosd the table
+Because the unit (i.e., Francs spent) is the same all accross the table
 (and a Franc is a Franc no matter what you buy),
 this example illustrates the
-case when the data should \emph{not} be normalized when when
+case when the data should \emph{not} be normalized when
 performing a PCA.
 }
 \references{
@@ -55,9 +55,9 @@ Principal component analysis.
 433-459.
 
 and in:
+
 Hardle, W., K., & Simar, L.  (2015) \emph{Applied Multivariate
 Statistical Analysis}. New York: Springer.
-#'
 }
 \author{
 Hervé Abdi from Nicole Tabard via  Ludovic Lebart et al.

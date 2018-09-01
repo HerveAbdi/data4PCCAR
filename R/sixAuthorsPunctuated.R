@@ -69,7 +69,7 @@ NULL
 #' Change the print function for the data set:
 #' \code{sixAuthors}.
 #'
-#' @param x a list: the data set: {sixAuthors}
+#' @param x a list: the data set: \code{sixAuthors}
 #' @param ... the rest
 #' @author Herve Abdi
 #' @export
@@ -85,11 +85,6 @@ print.sixAuthors <- function(x, ...){
   cat("\n",rep("-", ndash), sep = "")
   cat("\n")
   invisible(x)
-} # end of function print.tsixAuthors
+} # end of function print.sixAuthors
 # end print.sixAuthors ----
 #_____________________________________________________________________
-
-#'
-#'
-#'
-#'

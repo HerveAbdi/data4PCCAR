@@ -23,9 +23,14 @@ devtools::install_github('HerveAbdi/data4PCCAR') # install data4PCCAR
 
 ## Current data sets
 
+### alcoholInEurope
+
+The average cunsumption of 4 types of alcoholic beverages in 22 European countries and neighboring countries.
+To be used to illustrate the use of CA and Hellinger analysis.
+
 ### colorsOfMusic
 
-12 Children and 10 Adults picked up the color that best describes
+12 children and 10 adults picked up the color that best describes
 each of 9 pieces of music.
 To be used to illustrate CA and Partial Triadic CA ( a variant of CA, a.k.a. PTCA).
 
