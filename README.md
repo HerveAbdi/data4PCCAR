@@ -34,6 +34,12 @@ To be used to illustrate CA and Partial Triadic CA ( a variant of CA, a.k.a. PTC
 133 (French) participants associated 6 colors to 6 vowels (data from Chastaing, 1961).
 To be used to illustrate CA
 
+### foodInFrance
+
+How much  12 typical French families spent on different types of food (including Wine) in the 1950's.
+To be used to illustrate non-nomalized (a.k.a. covariance based) PCA
+
+
 ### foodOfTheWorld
 
 26 world cuisines are described by their cooking ingredients.
