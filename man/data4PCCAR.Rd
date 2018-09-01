@@ -17,7 +17,7 @@ correspondence analysis, and multidimensional scaling.
  (>= 3.0.0)}
 }
 \note{
-The current version of data4PPCCAR needs to be install from
+The current version of data4PPCCAR needs to be installed from
 `Github` with the command
 `devtools::install_github('HerveAbdi/data4PCCAR')``
 }

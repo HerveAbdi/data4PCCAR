@@ -1,6 +1,6 @@
 # data4PCCAR
 
-An `R`-package containing a collection of data sets to accompagny:
+An `R`-package containing a collection of data sets to accompagny and complement:
 Abdi, H., & Beaton, D. (to appear, 2019).
 *Principal Component and Correspondence Analyses Using R*. New York: Springer Verlag. 
 
