@@ -2,6 +2,7 @@
 
 S3method(print,alcoholInEU)
 S3method(print,colorsOfVowels)
+S3method(print,fiveBeersRank)
 S3method(print,foodInFrance)
 S3method(print,foodOfTheWorld)
 S3method(print,sixAuthors)
