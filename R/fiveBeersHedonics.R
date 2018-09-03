@@ -3,7 +3,7 @@
 #
 #  fiveBeersHedonics
 #  Preambule ----
-#' @title  five tasters evaluated (using a 10 point rating scale)
+#' @title  Five tasters evaluated (using a 10 point rating scale)
 #' how much they liked five beers.
 #'
 #' @description

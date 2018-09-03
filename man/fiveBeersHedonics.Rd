@@ -3,8 +3,8 @@
 \docType{data}
 \name{fiveBeersHedonics}
 \alias{fiveBeersHedonics}
-\title{five tasters evaluate how much they like five beers
-using a 10 point rating scale.}
+\title{Five tasters evaluated (using a 10 point rating scale)
+how much they liked five beers.}
 \format{A list containing 2 data frames:
 \itemize{
 \item \code{ratings:} A 5 by 5 data frame with
@@ -41,7 +41,8 @@ data.
 }
 \references{
 These data were obtained from a beer ratings article
-published sometimes in the early 21st century.
+published sometimes in the early 21st century by
+the \emph{Dallas Morning News}.
 }
 \author{
 Hervé Abdi

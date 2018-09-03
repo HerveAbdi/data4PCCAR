@@ -12,11 +12,11 @@ In time, `data4PCCAR` will also contain the code used in the book and the result
 
 ## Installation
 
-To install `data4PCCAR` from `Github` use the function `install_github()`  from the pacakge `devtools`:
+To install `data4PCCAR` from `Github` use the function `install_github()`  from the package `devtools`:
 
 ```{r}
 #install.packages("devtools") #decomment this line if devtools is not yet intalled
-devtools::install_github('HerveAbdi/data4PCCAR') # install data4PCCAR
+devtools::install_github("HerveAbdi/data4PCCAR") # install data4PCCAR
 ```
 
 
@@ -38,6 +38,17 @@ To be used to illustrate CA and Partial Triadic CA ( a variant of CA, a.k.a. PTC
 
 133 (French) participants associated 6 colors to 6 vowels (data from Chastaing, 1961).
 To be used to illustrate CA
+
+### deadInTheUSA
+
+A contingency table storing he causes of death as a function of age in the USA in 2001.
+To be used to illustrate CA.
+
+### fiveBeersHedonics
+
+Five tasters evaluated (using a 10 point rating scale)
+how much they liked five beers.
+To be used to illustrate how to use MCA with "fuzzy coding" with rating scales.
 
 ### foodInFrance
 
