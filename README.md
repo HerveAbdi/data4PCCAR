@@ -41,7 +41,7 @@ To be used to illustrate CA
 
 ### deadInTheUSA
 
-A contingency table storing he causes of death as a function of age in the USA in 2001.
+A contingency table storing the causes of death as a function of age in the USA in 2001.
 To be used to illustrate CA.
 
 ### fiveBeersHedonics
@@ -60,6 +60,13 @@ To be used to illustrate non-nomalized (a.k.a. covariance based) PCA
 
 26 world cuisines are described by their cooking ingredients.
 To be used to illustrate CA 
+
+### graduatingInUSA
+
+A set of contingency tables  showing the number of university graduates in the USA from 1966 to 2001 by fields.
+The grand contingency table gives the The 34 years * 8 fields results. The partial contingency tables
+subset the grand contigency table by gender (women vs men) and by levels (Bachelor, Master, and Ph.D,).
+To  be used to illustrate CA, and PTCA, and variations of these methods.
 
 ### sixFaces
 
