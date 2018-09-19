@@ -1,4 +1,4 @@
-# data4PCCAR
+﻿# data4PCCAR
 
 An `R`-package containing a collection of data sets to accompagny and complement:
 Abdi, H., & Beaton, D. (to appear, 2019).
@@ -37,7 +37,7 @@ To be used to illustrate CA and Partial Triadic CA ( a variant of CA, a.k.a. PTC
 ### colorsOfVowels
 
 133 (French) participants associated 6 colors to 6 vowels (data from Chastaing, 1961).
-To be used to illustrate CA
+To be used to illustrate CA.
 
 ### deadInTheUSA
 
@@ -53,19 +53,19 @@ To be used to illustrate how to use MCA with "fuzzy coding" with rating scales.
 ### foodInFrance
 
 How much  12 typical French families spent on different types of food (including Wine) in the 1950's.
-To be used to illustrate non-nomalized (a.k.a. covariance based) PCA
+To be used to illustrate non-normalized (a.k.a. covariance based) PCA.
 
 
 ### foodOfTheWorld
 
 26 world cuisines are described by their cooking ingredients.
-To be used to illustrate CA 
+To be used to illustrate CA. 
 
 ### graduatingInUSA
 
 A set of contingency tables  showing the number of university graduates in the USA from 1966 to 2001 by fields.
 The grand contingency table gives the The 34 years * 8 fields results. The partial contingency tables
-subset the grand contigency table by gender (women vs men) and by levels (Bachelor, Master, and Ph.D,).
+subset the grand contigency table by gender (women vs men) and by levels (Bachelor, Master, and Ph.D.).
 To  be used to illustrate CA, and PTCA, and variations of these methods.
 
 ### sixFaces
@@ -75,7 +75,7 @@ The (230 by 240 = 55,200 pixels) pictures of six faces (3 men and 3 women). To b
 ### sixAuthorsPunctuated
 
 The punctuation used by 6 classical French Writers (Rousseau, Chateaubrian, Hugo, Zola, Proust, Giraudoux)
-plus the punction of one chapter of Abdi's *Réseaux de Neurones*. A classic examp[le for CA.
+*plus* the punctuation of one chapter of Abdi's *Réseaux de Neurones*. A classic example for CA.
 
 ### twentyWines
 
