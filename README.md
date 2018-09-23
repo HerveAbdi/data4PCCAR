@@ -1,14 +1,16 @@
-﻿# data4PCCAR
+# data4PCCAR
 
-An `R`-package containing a collection of data sets to accompagny and complement:
+An `R`-package containing a collection of data sets and 
+\code{R}-functions to accompagny and complement:
 Abdi, H., & Beaton, D. (to appear, 2019).
 *Principal Component and Correspondence Analyses Using R*. New York: Springer Verlag. 
 
-In time, `data4PCCAR` will also contain the code used in the book and the resulting figures.
+In time, `data4PCCAR` will also contain the code used in the book 
+and the resulting figures.
 
 ## Introduction
 
-`data4PCCAR` is a collection of data sets that are used (or could have been used, or should have been used) to illustrate Principal Component Analysis (PCA),  Correspondence Analysis (CA), and related techniques such as Multiplite Correspondence Analysis (MCA), and Multi-Dimensional Scaling (MDS).
+`data4PCCAR` is a collection of data sets and functions that are used (or could have been used, or should have been used) to illustrate Principal Component Analysis (PCA),  Correspondence Analysis (CA), and related techniques such as Multiple Correspondence Analysis (MCA), and Multi-Dimensional Scaling (MDS).
 
 ## Installation
 
@@ -80,4 +82,17 @@ The punctuation used by 6 classical French Writers (Rousseau, Chateaubrian, Hugo
 ### twentyWines
 
 A baby example: 20 red wines (10 French, 10 American) are rated by an expert on multiple dimensions. Use to illustrate PCA.
+
+## Current functions 
+
+### monteCarlo.eigen ----
+
+Monte Carlo generation of (random) eigenvalues to match
+a data matrix. Use to implement the *parallel* test
+for the number of reliable eigenvalue
+
+### epVari
+
+Varimax rotation on loadings and factor scores.
+Also give the pseudo-eigenvalues and percentage of inertia.
 

@@ -1,10 +1,10 @@
-#' @title A collection of data sets to illustrate
+#' @title A collection of data sets and \eqn{R}-functions to illustrate
 #' and complement:  Abdi and Beaton (2019)
 #' \emph{Principal Component and Correspondence Analyses with R}.
 #' New York: Springer.
 #'
 #'@description
-#' \code{data4PCCAR:}  These data sets are used
+#' \code{data4PCCAR:}  These data sets and \eqn{R}-functions are used
 #' to illustrate principal component analysis,
 #' correspondence analysis, and multidimensional scaling.
 #' \tabular{ll}{ Package: \tab datarPCCAR\cr Type: \tab Package\cr Version: \tab
@@ -16,7 +16,7 @@
 #' `devtools::install_github('HerveAbdi/data4PCCAR')``
 #'
 #' @docType package
-#' @author  Herve Abdi [aut, com, ctb],
+#' @author  Herve Abdi [aut, com, ctb, cre],
 #' Vincent Guillemot  [aut, cre],
 #' & Derek Beaton
 #' [aut, cre]
