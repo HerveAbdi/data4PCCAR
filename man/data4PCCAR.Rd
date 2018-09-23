@@ -4,12 +4,12 @@
 \name{data4PCCAR}
 \alias{data4PCCAR}
 \alias{data4PCCAR-package}
-\title{A collection of data sets to illustrate
+\title{A collection of data sets and \eqn{R}-functions to illustrate
 and complement:  Abdi and Beaton (2019)
 \emph{Principal Component and Correspondence Analyses with R}.
 New York: Springer.}
 \description{
-\code{data4PCCAR:}  These data sets are used
+\code{data4PCCAR:}  These data sets and \eqn{R}-functions are used
 to illustrate principal component analysis,
 correspondence analysis, and multidimensional scaling.
 \tabular{ll}{ Package: \tab datarPCCAR\cr Type: \tab Package\cr Version: \tab
@@ -22,7 +22,7 @@ The current version of data4PPCCAR needs to be installed from
 `devtools::install_github('HerveAbdi/data4PCCAR')``
 }
 \author{
-Herve Abdi [aut, com, ctb],
+Herve Abdi [aut, com, ctb, cre],
 Vincent Guillemot  [aut, cre],
 & Derek Beaton
 [aut, cre]

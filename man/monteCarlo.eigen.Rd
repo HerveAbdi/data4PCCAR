@@ -5,13 +5,17 @@
 \title{Monte Carlo generation of (random) eigenvalues to match
 a data matrix.}
 \usage{
-monteCarlo.eigen(X, nIter = 100, scale = "SS1", FUN = rnorm, ...)
+monteCarlo.eigen(X, nIter = 100, center = TRUE, scale = "SS1",
+  FUN = rnorm, ...)
 }
 \arguments{
 \item{X}{The data matrix to match.}
 
 \item{nIter}{how many random set of eigenvalues
 to generate; Default: \code{100}.}
+
+\item{center}{(Default = \code{TRUE}) if
+\code{TRUE}: center the data (by columns).}
 
 \item{scale}{the type of scaling of the
 data. Can be \code{FALSE} (no scaling),
@@ -21,32 +25,39 @@ of the data matrix have norm 1, and so the eigen-values
 come from a correlation matrix).
 Default: \code{'SS1'}.}
 
-\item{FUN}{the function Default: rnorm (normal distribution).
+\item{FUN}{the function to generate
+random numbers; Default: \code{rnorm} (normal distribution).
 Could be any of the functions provided by \code{R}, such as
 \code{rexp, rlogis,}, etc. Most of these functions require
 additional parameters to be passed via ... (see below).}
 
 \item{...}{Stuff (i.e., parameters)
-to pass the the \code{FUN} if needed
+to pass the \code{FUN} if needed
 (e.g., mean and standard deviation). To find these parameters,
  check the help of the function used for the random number
  generator.}
 }
 \value{
-a \code{nIter} by \code{min(dim(X))}
-(i.e., full rank of \code{X}) matrix with the random
-eigen-values
+a list with 3 elements
+\enumerate{
+\item \code{$fixed.eigs}: the eigen-values of \eqn{X},
+\item \code{$rand.eigs}: an \code{nIter} by rank(\eqn{X}) matrix
+of the eigenvalues of the bootstrapped samples,
+\item \code{$rand.eigs.sorted}:
+an \code{nIter} by rank(\eqn{X}) matrix
+of the eigenvalues of the bootstrapped samples.
+}
 }
 \description{
 \code{monteCarlo.eigen}:
 generates
 Monte Carlo random eigenvalues to match
 a data given matrix. The random numbers can be generated from
-any of the random nymber generators in \code{R}.
-(of course the default is a standard normal distribution).
+any of the random number generators in \code{R}.
+(of course, the default is a standard normal distribution).
 Note that the specific parameters for the random gnerator
 need to be passed as additional arguments to the function
-(i.e., with the  ... procedure).
+(i.e., with the  "..." procedure).
 }
 \details{
 \code{monteCarlo.eigen} can be used
@@ -57,11 +68,10 @@ larger than the average inertia) when the number of rows
 of the data matrix is large enough.
 }
 \examples{
-\dontrun{
 data(iris)
-random.eigen <- monteCarlo.eigen(iris[,1:4])
-}
+random.eigen <- monteCarlo.eigen(iris[,1:4], nIter = 10)
 }
 \seealso{
-\code{\link[stats]{rnorm}}
+\code{\link[stats]{rnorm}} \code{\link{scale0}}
+ \code{\link{boot.eigen}}
 }

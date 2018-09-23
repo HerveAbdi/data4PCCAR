@@ -85,14 +85,35 @@ A baby example: 20 red wines (10 French, 10 American) are rated by an expert on 
 
 ## Current functions 
 
+
+
+### boot.eigen
+
+Generates
+a bootstrap distribution of eigenvalues
+for a given (rectangular) matrix.
+
+
+### epVari
+
+Varimax rotation on loadings and factor scores.
+Also give the pseudo-eigenvalues and percentage of inertia.
+
+
 ### monteCarlo.eigen ----
 
 Monte Carlo generation of (random) eigenvalues to match
 a data matrix. Use to implement the *parallel* test
 for the number of reliable eigenvalue
 
-### epVari
+### scale0
 
-Varimax rotation on loadings and factor scores.
-Also give the pseudo-eigenvalues and percentage of inertia.
+center and normalize a vector to norm 1 or to norm (\eqn{N} - 1).
+\code{scale0} gives the same results as \code{scale}
+except for the option \code{'SS1'} (\code{scale0} normalizes to 1); 
+when \code{x}
+comprises all identical values and when the
+parameter \code{scale = TRUE}, \code{scale} gives back
+a vector of \code{NaN} (because of a division by 0 error),
+whereas \code{scale0} gives back a vector of \code{0}.
 
