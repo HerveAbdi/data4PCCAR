@@ -27,7 +27,7 @@ When \code{x} comprises different values
 \code{scale0} gives the same results as \code{scale}
 except for the option \code{'SS1'}; when \code{x}
 comprises all identical values and when the
-parmater \code{scale = TRUE}, \code{scale} gives back
+paramater \code{scale = TRUE}, \code{scale} gives back
 a vector of \code{NaN} (because of a division by 0 error),
 whereas \code{scale0} gives back a vector of \code{0}.
 }

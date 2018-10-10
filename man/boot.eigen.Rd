@@ -28,10 +28,10 @@ Default: \code{'SS1'}.}
 \value{
 a list with 3 elements
 \enumerate{
-\item \code{$fixed.eigs} the eigen-values of \eqn{X},
-\item \code{$boot.eigs an} \code{nIter} by rank(\eqn{X}) matrix
+\item \code{$fixed.eigs}: the eigen-values of \eqn{X},
+\item \code{$boot.eigs}: an \code{nIter} by rank(\eqn{X}) matrix
 of the eigenvalues of the bootstrapped samples,
-\item \code{$boot.eigs.sorted} an \code{nIter} by rank(\eqn{X}) matrix
+\item \code{$boot.eigs.sorted}: an \code{nIter} by rank(\eqn{X}) matrix
 of the eigenvalues of the bootstrapped samples.
 }
 }
@@ -48,13 +48,11 @@ when the variance of a column is 0 (it will create
 a vector of 0s).
 }
 \examples{
-\dontrun{
 data(iris)
 bootstapped.Eigenvalues <- boot.eigen(iris[,1:4], nIter = 10)
 }
-}
 \seealso{
-scale0 monteCarlo.eigen
+\code{\link{scale0}} \code{\link{monteCarlo.eigen}}
 }
 \author{
 Hervé Abdi
