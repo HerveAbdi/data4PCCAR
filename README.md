@@ -100,7 +100,7 @@ Varimax rotation on loadings and factor scores.
 Also give the pseudo-eigenvalues and percentage of inertia.
 
 
-### monteCarlo.eigen ----
+### monteCarlo.eigen
 
 Monte Carlo generation of (random) eigenvalues to match
 a data matrix. Use to implement the *parallel* test
@@ -108,12 +108,25 @@ for the number of reliable eigenvalue
 
 ### scale0
 
-center and normalize a vector to norm 1 or to norm (\eqn{N} - 1).
-\code{scale0} gives the same results as \code{scale}
-except for the option \code{'SS1'} (\code{scale0} normalizes to 1); 
-when \code{x}
+Center and normalize a vector to norm 1 or to norm ({_N_} - 1).
+`scale0` gives the same results as `scale`
+except for the option `'SS1'` (`scale0` normalizes to 1); 
+when `x`
 comprises all identical values and when the
-parameter \code{scale = TRUE}, \code{scale} gives back
-a vector of \code{NaN} (because of a division by 0 error),
-whereas \code{scale0} gives back a vector of \code{0}.
+parameter `scale = TRUE`, `scale` gives back
+a vector of `NaN` (because of a division by 0 error),
+whereas `scale0` gives back a vector of `0`.
+
+### buildRandomImage4PCA
+ 
+ Makes a random image (with similar PCA loadings) of a matrix of integer data such as Likert scales data.
+ Uses two helper functions: `getRandomFS` and `recode2Integer`:
+ 
+ #### getRandomFS
+ Generate multivariate random observations (i.e., factor scores) that match the variance/eigenvalues of the dimensions.
+ 
+ ####  recode2Integer
+ Recode a vector of real values to integers amtching a given distribution for the integers
+ 
+ 
 
