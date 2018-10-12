@@ -70,6 +70,16 @@ The grand contingency table gives the The 34 years * 8 fields results. The parti
 subset the grand contigency table by gender (women vs men) and by levels (Bachelor, Master, and Ph.D.).
 To  be used to illustrate CA, and PTCA, and variations of these methods.
 
+### mentalImageryOSIQ
+
+A data set storing the (simulated) results of 2,100 participants 
+answering a Likert scale like questionnaire comprising 30 questions 
+about mental imagery 
+(called the Object-Spatial Imagery Questionnaire: OSIQ). 
+Half of the questions concern mental imagery for object 
+and the other half ot the questions concern mental imagery 
+for spatial locations.
+
 ### sixFaces
 
 The (230 by 240 = 55,200 pixels) pictures of six faces (3 men and 3 women). To be used to illustrate PCA or PLS on images.
