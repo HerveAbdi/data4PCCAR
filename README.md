@@ -104,7 +104,7 @@ Also give the pseudo-eigenvalues and percentage of inertia.
 
 Monte Carlo generation of (random) eigenvalues to match
 a data matrix. Use to implement the *parallel* test
-for the number of reliable eigenvalue
+for the number of reliable eigenvalues.
 
 ### scale0
 
@@ -126,7 +126,7 @@ whereas `scale0` gives back a vector of `0`.
  Generate multivariate random observations (i.e., factor scores) that match the variance/eigenvalues of the dimensions.
  
  ####  recode2Integer
- Recode a vector of real values to integers amtching a given distribution for the integers
+ Recode a vector of real values to integers amtching a given distribution for the integers.
  
  
 
