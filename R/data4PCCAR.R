@@ -1,5 +1,5 @@
 #' @title A collection of data sets and \eqn{R}-functions to illustrate
-#' and complement:  Abdi and Beaton (2019)
+#' and complement:  Abdi, H., & Beaton, D. (2019)
 #' \emph{Principal Component and Correspondence Analyses with R}.
 #' New York: Springer.
 #'

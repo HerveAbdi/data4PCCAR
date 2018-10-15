@@ -25,13 +25,13 @@
 #
 #_____________________________________________________________________
 #' @title generate multivariate random observations (i.e.,
-#' factor scores)
-#' that match the variance/eigenvalues of the dimensions.
+#' factor scores) whose variance
+#'  match the variance/eigenvalues of the dimensions of the space.
 #'
 #' @description \code{getRandomFS}:
 #' generate random observations
-#' such as factors scores from a PCA wjose variance
-#' match the variance of the dimensions.
+#' (such as factors scores) from a PCA whose variance
+#' match the variance of the dimensions of the PCA.
 #' .
 #'
 #' @details
@@ -40,13 +40,13 @@
 #' whose variance per dimension
 #' (i.e.,
 #' eigenvalues in PCA) will match a given set of variances.
-#' The function generating the set of number ca be any such function
+#' The function generating the set of number can be any such function
 #' (default is \code{runif}).
 #'
 #' @param ev The variance / eigenvalues per dimension (no default).
 #' @param nObs the number of observationz to generate, Default: 100
 #' @param FUN  the random number generating.
-#' function. Default: \code{runif} (uniform distribution).
+#' function. Default: \code{stats::runif} (uniform distribution).
 #' @param center center the numbers.  Default: \code{FALSE}.
 #' @param scale normalization per dimension prior to
 #' re-nromalize the factor scores with \code{ev}, best to
@@ -61,7 +61,7 @@
 #' variance.
 #' @return A matrix
 #' of multidimensional factor scores
-#' with nObs rows (observations) and number of columns
+#' with \code{nObs} rows (observations) and number of columns
 #' (variables / components)
 #' equal to
 #'  the length of \code{ev}.
@@ -104,13 +104,13 @@ getRandomFS <- function(ev,
 #  sinew::makeOxygen(recode2Integer)
 #_____________________________________________________________________
 # recode2Integer preamble ----
-#' @title Recode a vector of real values to integers amtching
+#' @title Recode a vector of real values to integers matching
 #' a given distribution for the integers
 #' @description \code{recode2Integer}:
-#'  Recodes a vector of real values to integers amtching
+#'  Recodes a vector of real values to integers matching
 #' a given distribution for the integers
 #' @param original.var A vector of integers
-#' (e.g., Likert scale), used to dereive the distribution of the
+#' (e.g., Likert scale), used to derive the distribution of the
 #' integers.
 #' @param toBeScaled.var a vector of real values to be recoded
 #' as integers (with the same distribution as \code{original.var}).
@@ -185,11 +185,12 @@ recode2Integer <- function(original.var, toBeScaled.var){
 #'  to recreate (via the \emph{reconstitution formula})
 #'  a new matrix \code{X.rand} that will store the observations
 #'  that will recreatae the random factor scores. The
-#'  observation in \code{X.rand} are then re-scaled
+#'  observations in \code{X.rand} are then re-scaled
 #'  to match the distribution of the integers in the original matrix.
 #'  Doing so gives a matrix of scores with the same basic statistics
 #'  (i.e., mean and standard deviation) per column whose PCA will give
-#'  roughly the same loadings (not the same factor score of course)
+#'  roughly the same loadings
+#'  (but not the same factor scores, of course)
 #'  as the original matrix.
 #' @author Hervé Abdi
 #' @examples

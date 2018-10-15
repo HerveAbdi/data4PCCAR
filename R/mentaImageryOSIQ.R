@@ -15,12 +15,16 @@
 #' 30 questions about mental imagery
 #' (called the Object-Spatial Imagery Questionnaire: OSIQ).
 #' Half of the questions concern mental imagery for object and
-#' the other half concern mental imagery for spatial locations.
+#' the other half of the questions
+#' concern mental imagery for spatial locations.
 #'
 #' @details
 #' These data are simulated data that roughly match some real data.
 #' Details about the questionnaire and for the actual questions
 #' see the paper by Blajenkova et al. (2006).
+#' The order of the questions
+#'  is the same as in the original paper.
+#'
 #'  The answers to the questions
 #'  were given on a Likert type scale from 1 to 5. One question
 #'  (\code{s27}) has been reversed coded so that a large number
@@ -39,8 +43,9 @@
 #' data frame (\code{mentalImageryOSIQ$OSIQ})
 #' with 2,100 rows (observations)
 #' and 30 columns (questions). The first letter
-#' of the column denotes the type of imagery
-#' (s for spatial and o for object). The questions are
+#' of a column denotes the type of imagery
+#' (\code{s} for spatial and \code{o} for object).
+#' The questions are
 #' in the same order as in the original publication
 #' by Blajenkova et al. (2006). The first letter
 #' of the name of a row can be \code{H, M, L}.
@@ -52,10 +57,10 @@
 #' @keywords datasets data4PCCAR
 #' @author Hervé Abdi & Brian Levine
 #' @references
-#' The original questionnaire can be found in:
+#' The original OSIQ questionnaire can be found in:
 #'
 #' Blajenkova, O.,
-#'Kozhevnikov, M., & Motes, M.A. (2006).
+#' Kozhevnikov, M., & Motes, M.A. (2006).
 #' Object-spatial imagery: a new self-report imagery questionnaire.
 #' \emph{Applied Cognitive Psychology, 20}, 239–263.
 #'
@@ -83,15 +88,15 @@ print.OSIQ <- function(x, ...){
   ndash = 78 # How many dashes for separation lines
   cat(rep("-", ndash), sep = "")
   cat("\n A list with one data.frame (OSIQ): ")
-   cat("\n    the responses of 2,100 participants to the 30 questions from OSIQ")
+   cat("\n    the responses of 2,100 participants to the 30 questions of the OSIQ")
   cat("\n First letter of row (H,M,L) denotes the memory group of the participant.")
   cat("\n First letter of column (s,o) denotes the type of mental imagery.")
-  cat("\n Responses are from 1 to 5.",deparse(eval(substitute(substitute()))),"\n")
+  cat("\n Responses are integers from 1 to 5.",deparse(eval(substitute(substitute()))),"\n")
   cat(rep("-", ndash), sep = "")
   cat("\nOSIQ: ","A 2,100 by 30 data frame with values ranging from 1 to 5.")
   cat("\n",rep("-", ndash), sep = "")
   cat("\n")
   invisible(x)
-} # end of function print.alcoholInEU
+} # end of function print.OSIQ
 # end of print.OSIQ ----
 #_____________________________________________________________________

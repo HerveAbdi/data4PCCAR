@@ -27,14 +27,14 @@ devtools::install_github("HerveAbdi/data4PCCAR") # install data4PCCAR
 
 ### alcoholInEurope
 
-The average cunsumption of 4 types of alcoholic beverages in 22 European countries and neighboring countries.
+The average consumption of 4 types of alcoholic beverages in 22 European countries and neighboring countries.
 To be used to illustrate the use of CA and Hellinger analysis.
 
 ### colorsOfMusic
 
 12 children and 10 adults picked up the color that best describes
 each of 9 pieces of music.
-To be used to illustrate CA and Partial Triadic CA ( a variant of CA, a.k.a. PTCA).
+To be used to illustrate CA and Partial Triadic CA (a variant of CA, a.k.a. PTCA).
 
 ### colorsOfVowels
 
@@ -54,7 +54,7 @@ To be used to illustrate how to use MCA with "fuzzy coding" with rating scales.
 
 ### foodInFrance
 
-How much  12 typical French families spent on different types of food (including Wine) in the 1950's.
+How much 12 typical French families spent on different types of food (including Wine) in the 1950's.
 To be used to illustrate non-normalized (a.k.a. covariance based) PCA.
 
 
@@ -136,7 +136,8 @@ whereas `scale0` gives back a vector of `0`.
  Generate multivariate random observations (i.e., factor scores) that match the variance/eigenvalues of the dimensions.
  
  ####  recode2Integer
- Recode a vector of real values to integers amtching a given distribution for the integers.
+ Recode a vector of real values to integers matching 
+ a given distribution for the integers.
  
  
 
