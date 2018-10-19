@@ -164,6 +164,7 @@ getVarNames <-  function(labelsNames){
   #stripedNames      <-  tools::file_path_sans_ext(labelsNames)[1,]
   stripedNames <- sapply(strsplit(labelsNames,"\\."), function(x) paste0(utils::head(x,-1),collapse=".") )
   variableNames     <- unique(stripedNames)
+  if (!is.null(dim(labelsNames))) labelsNames <- labelsNames[1,]
   return.list <- list(variableNames = variableNames,
                       stripedNames = stripedNames,
                       originalLabelsNames = labelsNames)
