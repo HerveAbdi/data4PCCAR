@@ -40,11 +40,12 @@ From the eigenvalues,
  to recreate (via the \emph{reconstitution formula})
  a new matrix \code{X.rand} that will store the observations
  that will recreatae the random factor scores. The
- observation in \code{X.rand} are then re-scaled
+ observations in \code{X.rand} are then re-scaled
  to match the distribution of the integers in the original matrix.
  Doing so gives a matrix of scores with the same basic statistics
  (i.e., mean and standard deviation) per column whose PCA will give
- roughly the same loadings (not the same factor score of course)
+ roughly the same loadings
+ (but not the same factor scores, of course)
  as the original matrix.
 }
 \examples{

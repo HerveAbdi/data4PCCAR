@@ -3,21 +3,29 @@
 An `R`-package containing a collection of data sets and 
 \code{R}-functions to accompagny and complement:
 Abdi, H., & Beaton, D. (to appear, 2019).
-*Principal Component and Correspondence Analyses Using R*. New York: Springer Verlag. 
+*Principal Component and Correspondence Analyses Using R*.
+New York: Springer Verlag. 
 
 In time, `data4PCCAR` will also contain the code used in the book 
 and the resulting figures.
 
 ## Introduction
 
-`data4PCCAR` is a collection of data sets and functions that are used (or could have been used, or should have been used) to illustrate Principal Component Analysis (PCA),  Correspondence Analysis (CA), and related techniques such as Multiple Correspondence Analysis (MCA), and Multi-Dimensional Scaling (MDS).
+`data4PCCAR` is a collection of data sets and functions 
+that are used (or could have been used, or should have been used) 
+to illustrate Principal Component Analysis (PCA), 
+Correspondence Analysis (CA), and related techniques 
+such as Multiple Correspondence Analysis (MCA), 
+and Multi-Dimensional Scaling (MDS).
 
 ## Installation
 
-To install `data4PCCAR` from `Github` use the function `install_github()`  from the package `devtools`:
+To install `data4PCCAR` from `Github` 
+use the function `install_github()`  from the package `devtools`:
 
 ```{r}
-#install.packages("devtools") #decomment this line if devtools is not yet intalled
+#install.packages("devtools") 
+#decomment this line if  devtools is not yet intalled
 devtools::install_github("HerveAbdi/data4PCCAR") # install data4PCCAR
 ```
 
@@ -95,30 +103,88 @@ A baby example: 20 red wines (10 French, 10 American) are rated by an expert on 
 
 ## Current functions 
 
+### addLines4MCA
 
+ a `ggplot2` based function that
+adds lines to join the levels of
+the qualitative variables in a factorial
+ map of an MCA (e.g., computed with
+`ExPosition::epMCA` and created with
+ `createFactortMap`). Used for MCA maps.
+
+### BinQuant
+
+ creates (roughly) balanced
+factors from quantitative variables.
+Used to create nominal variables from
+quantitative variables for MCA.
 
 ### boot.eigen
 
-Generates
+generates
 a bootstrap distribution of eigenvalues
 for a given (rectangular) matrix.
 
+### buildRandomImage4PCA
+ 
+ makes a random image (with similar PCA loadings) 
+ of a matrix of integer data such as Likert scales data.
+ Uses two helper functions: `getRandomFS` and `recode2Integer`:
+ 
+ #### getRandomFS
+generates multivariate random observations (i.e., factor scores)
+    that match the variance/eigenvalues of the dimensions.
+ 
+ #### recode2Integer
+recodes a vector of real values to integers matching 
+    a given distribution for the integers.
+ 
+
+### coloringLevels
+
+ creates a vector of color names for the levels
+ of an MCA from the color names of the variables.
+ Used for creating mqps in MCA.
+
+### ctr4Variables
+
+ computes contributions (or squared cosines)
+for (qualitatitve)  variables from the contributions
+of the levels of the qualitative variables.
+Used to get contributions in MCA. 
 
 ### epVari
 
-Varimax rotation on loadings and factor scores.
+a Varimax rotation on loadings and factor scores.
 Also give the pseudo-eigenvalues and percentage of inertia.
-
 
 ### monteCarlo.eigen
 
-Monte Carlo generation of (random) eigenvalues to match
+a Monte Carlo generation of (random) eigenvalues to match
 a data matrix. Use to implement the *parallel* test
 for the number of reliable eigenvalues.
 
+
+### phi2CT
+
+a fast function to compute the phi2 for a Contingency table.
+ A helper function,
+ used for CA and MCA.
+ 
+ 
+###  phi2Mat4BurtTable
+
+computes the phi2 (correlation) matrix
+and Burt table
+for data tables suitable for Multiple Correspondence Analysis
+(MCA). Useful to create correlation heatmap 
+for MCA.
+ A helper function,
+ used for MCA.
+
 ### scale0
 
-Center and normalize a vector to norm 1 or to norm ({_N_} - 1).
+centers and normalizes a vector to norm 1 or to norm ({_N_} - 1).
 `scale0` gives the same results as `scale`
 except for the option `'SS1'` (`scale0` normalizes to 1); 
 when `x`
@@ -127,17 +193,6 @@ parameter `scale = TRUE`, `scale` gives back
 a vector of `NaN` (because of a division by 0 error),
 whereas `scale0` gives back a vector of `0`.
 
-### buildRandomImage4PCA
- 
- Makes a random image (with similar PCA loadings) of a matrix of integer data such as Likert scales data.
- Uses two helper functions: `getRandomFS` and `recode2Integer`:
- 
- #### getRandomFS
- Generate multivariate random observations (i.e., factor scores) that match the variance/eigenvalues of the dimensions.
- 
- ####  recode2Integer
- Recode a vector of real values to integers matching 
- a given distribution for the integers.
- 
+
  
 

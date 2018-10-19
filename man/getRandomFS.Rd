@@ -3,8 +3,8 @@
 \name{getRandomFS}
 \alias{getRandomFS}
 \title{generate multivariate random observations (i.e.,
-factor scores)
-that match the variance/eigenvalues of the dimensions.}
+factor scores) whose variance
+ match the variance/eigenvalues of the dimensions of the space.}
 \usage{
 getRandomFS(ev, nObs = 100, FUN = stats::runif, center = FALSE,
   scale = "SS1", sv = FALSE)
@@ -15,7 +15,7 @@ getRandomFS(ev, nObs = 100, FUN = stats::runif, center = FALSE,
 \item{nObs}{the number of observationz to generate, Default: 100}
 
 \item{FUN}{the random number generating.
-function. Default: \code{runif} (uniform distribution).}
+function. Default: \code{stats::runif} (uniform distribution).}
 
 \item{center}{center the numbers.  Default: \code{FALSE}.}
 
@@ -35,7 +35,7 @@ variance.}
 \value{
 A matrix
 of multidimensional factor scores
-with nObs rows (observations) and number of columns
+with \code{nObs} rows (observations) and number of columns
 (variables / components)
 equal to
  the length of \code{ev}.
@@ -43,8 +43,8 @@ equal to
 \description{
 \code{getRandomFS}:
 generate random observations
-such as factors scores from a PCA wjose variance
-match the variance of the dimensions.
+(such as factors scores) from a PCA whose variance
+match the variance of the dimensions of the PCA.
 .
 }
 \details{
@@ -53,7 +53,7 @@ multivariate coordinates of random observations
 whose variance per dimension
 (i.e.,
 eigenvalues in PCA) will match a given set of variances.
-The function generating the set of number ca be any such function
+The function generating the set of number can be any such function
 (default is \code{runif}).
 }
 \examples{

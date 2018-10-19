@@ -10,8 +10,9 @@ a Likert scale like questionnaire about mental imagery
 data frame (\code{mentalImageryOSIQ$OSIQ})
 with 2,100 rows (observations)
 and 30 columns (questions). The first letter
-of the column denotes the type of imagery
-(s for spatial and o for object). The questions are
+of a column denotes the type of imagery
+(\code{s} for spatial and \code{o} for object).
+The questions are
 in the same order as in the original publication
 by Blajenkova et al. (2006). The first letter
 of the name of a row can be \code{H, M, L}.
@@ -29,13 +30,17 @@ a Likert scale like questionnaire comprising
 30 questions about mental imagery
 (called the Object-Spatial Imagery Questionnaire: OSIQ).
 Half of the questions concern mental imagery for object and
-the other half concern mental imagery for spatial locations.
+the other half of the questions
+concern mental imagery for spatial locations.
 }
 \details{
 These data are simulated data that roughly match some real data.
 Details about the questionnaire and for the actual questions
 see the paper by Blajenkova et al. (2006).
-The asnwers to the questions
+The order of the questions
+is the same as in the original paper.
+
+The answers to the questions
 were given on a Likert type scale from 1 to 5. One question
 (\code{s27}) has been reversed coded so that a large number
 indicates a good memory.
@@ -45,7 +50,7 @@ were created with
 the function \code{\link{buildRandomImage4PCA}}.
 }
 \references{
-The original questionnaire can be found in:
+The original OSIQ questionnaire can be found in:
 
 Blajenkova, O.,
 Kozhevnikov, M., & Motes, M.A. (2006).

@@ -2,14 +2,14 @@
 % Please edit documentation in R/buildRandomImage4PCA.R
 \name{recode2Integer}
 \alias{recode2Integer}
-\title{Recode a vector of real values to integers amtching
+\title{Recode a vector of real values to integers matching
 a given distribution for the integers}
 \usage{
 recode2Integer(original.var, toBeScaled.var)
 }
 \arguments{
 \item{original.var}{A vector of integers
-(e.g., Likert scale), used to dereive the distribution of the
+(e.g., Likert scale), used to derive the distribution of the
 integers.}
 
 \item{toBeScaled.var}{a vector of real values to be recoded
@@ -21,7 +21,7 @@ of the integers in \code{original.var}.
 }
 \description{
 \code{recode2Integer}:
- Recodes a vector of real values to integers amtching
+ Recodes a vector of real values to integers matching
 a given distribution for the integers
 }
 \details{
