@@ -4,14 +4,13 @@
 # buildRandomImage4PCA
 #_____________________________________________________________________
 # A set of functions to create PCA-based multidimensional samples
-#   matching a given factorial structure (from the loadings)
+#   matching a given factorial structure (from the loadings).
 # Main idea: Create (random) simulated data
 # whose loadings will match the loadings
 # of a given matrix recording likert scales
 # and have the same distribution of scores
-# Herve Abdi. October 10, 2018.
+# Hervé Abdi. October 10, 2018.
 #-
-
 
 #_____________________________________________________________________
 # getRansomFS: Preamble ----

@@ -155,13 +155,20 @@ ctr4Variables <- function(ctrJ){
 #'  \code{\link[tools]{fileutils}}
 #' @rdname getVarNames
 #' @export
-#' @importFrom tools file_path_sans_ext
+#' @importFrom utils head
+# @importFrom tools file_path_sans_ext
 getVarNames <-  function(labelsNames){
-  stripedNames      <-  tools::file_path_sans_ext(labelsNames)[1,]
+  # file_path_sans_ext works fine
+  # except when there are non standard characters (e.g., ?)
+  # after the last .
+  #stripedNames      <-  tools::file_path_sans_ext(labelsNames)[1,]
+  stripedNames <- sapply(strsplit(labelsNames,"\\."), function(x) paste0(utils::head(x,-1),collapse=".") )
   variableNames     <- unique(stripedNames)
   return.list <- list(variableNames = variableNames,
                       stripedNames = stripedNames,
-                      originalLabelsNames = labelsNames[1,])
+                      originalLabelsNames = labelsNames)
+  # NB changed the old originalLabelsNames = labelsNames[1,]
+  # create problems with vectors
   return(return.list)
 } # end of getVarNames
 #_____________________________________________________________________

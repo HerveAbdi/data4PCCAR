@@ -33,8 +33,9 @@ data("foodOfTheWorld")
 }
 \description{
 \code{foodOfTheWorld}: 26 world cuisines are described by
-their cooking ingredients. The long form of the data comprises
-159 ingredients. A shorter form includes the 68 most relevant
+their cooking ingredients. The long verssion of the data comprises
+159 ingredients.
+A shorter  version includes the 68 most relevant
 ingredients.
 }
 \details{
@@ -66,7 +67,7 @@ are, in addition,  followed by the suffix \code{.interger}
 
 The original post used these data  (the compact version)
 to illustrate
-principal component analysis, but because these data are count
+principal component analysis, but because these data are counts
 \emph{correspondence analysis} is more appropriate.
 
 The large, small, and compact data sets give roughly the
