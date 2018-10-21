@@ -111,7 +111,9 @@ ctr4Variables <- function(ctrJ){
   varCtr <- varCtr.tmp[,-1]
   rownames(varCtr)    <- varCtr.tmp[,1]
   # we need to re-order varCtr to get back to the orginal order
-  varCtr <- varCtr[sort(varNames, index.return = TRUE)$ix,]
+  # varCtr <- varCtr[sort(varNames, index.return = TRUE)$ix,]
+  index <- match(varNames, rownames(varCtr))
+  varCtr <- varCtr[index,, drop = FALSE]
   colnames(varCtr) <- paste0('Dimension ', 1:ncol(varCtr))
   return(varCtr)
 } # end of ctr4Variables

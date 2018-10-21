@@ -2,9 +2,9 @@
 # Hervé Abdi: September 1, 2018.
 #
 #  fiveBeersHedonics
-#  Preambule ----
-#' @title  Five tasters evaluated (using a 10 point rating scale)
-#' how much they liked five beers.
+#  Preamble ----
+#' @title  Five tasters evaluated
+#' how much they liked  (using a 10 point rating scale) five beers.
 #'
 #' @description
 #'  \code{fiveBeersHedonics}:
@@ -15,8 +15,10 @@
 #'
 #' In order to be analyzed with correspondence analysis,
 #' these rating scale data
-#' need to be recoded with what is called fuzzy coding, doubling, or
-#' thermometer coding. With this code, each rating is re-expressed
+#' need to be recoded with what is called
+#' \emph{fuzzy coding, doubling}, or
+#' \emph{thermometer} coding.
+#' With this code, each rating is re-expressed
 #' as two variables: The first one expresses how far the rating
 #' was from the low value of the scale and
 #' the second one expresses how far the rating was
@@ -66,7 +68,7 @@ NULL
 print.fiveBeersRank <- function(x, ...){
   ndash = 78 # How many dashes for separation lines
   cat(rep("-", ndash), sep = "")
-  cat("\n A list: 5 tasters rated (on 10 point scale) how much they liked 5 beers. \n")
+  cat("\n A list: 5 tasters rated (on a 10 point scale) how much they liked 5 beers.\n")
   # cat("\n List name: ",deparse(eval(substitute(substitute(x)))),"\n")
   cat(rep("-", ndash), sep = "")
   cat("\n$ratings      ","The 5*5 data frame with the original ratings.")
@@ -75,6 +77,6 @@ print.fiveBeersRank <- function(x, ...){
   cat("\n")
   invisible(x)
 } # end of function print.fiveBeersRank
-# end print.fiveBeersRan'----
+# end print.fiveBeersRank----
 #_____________________________________________________________________
 

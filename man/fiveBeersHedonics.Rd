@@ -3,8 +3,8 @@
 \docType{data}
 \name{fiveBeersHedonics}
 \alias{fiveBeersHedonics}
-\title{Five tasters evaluated (using a 10 point rating scale)
-how much they liked five beers.}
+\title{Five tasters evaluated
+how much they liked  (using a 10 point rating scale) five beers.}
 \format{A list containing 2 data frames:
 \itemize{
 \item \code{ratings:} A 5 by 5 data frame with
@@ -25,8 +25,10 @@ and "10" \emph{completely like}.
 
 In order to be analyzed with correspondence analysis,
 these rating scale data
-need to be recoded with what is called fuzzy coding, doubling, or
-thermometer coding. With this code, each rating is re-expressed
+need to be recoded with what is called
+\emph{fuzzy coding, doubling}, or
+\emph{thermometer} coding.
+With this code, each rating is re-expressed
 as two variables: The first one expresses how far the rating
 was from the low value of the scale and
 the second one expresses how far the rating was
