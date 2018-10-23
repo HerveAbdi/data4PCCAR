@@ -8,6 +8,9 @@
 # addLines4MCA
 # phi2CT
 # phi2Mat4Burt
+# BR4varMCA
+# print.pseudo.BR
+# Last Edit: HA. October 23.
 #____________________________________________________________________
 # New Functions Here ----
 # to be moved to data4PCCAR
@@ -454,3 +457,88 @@ phi2Mat4BurtTable <- function(DATA,
   return( return.list)
 } # end of phi2Mat4BurtTable -----
 #_____________________________________________________________________
+#_____________________________________________________________________
+# Preamble BR4varMCA ----
+# sinew::makeOxygen(BR4varMCA)
+#_____________________________________________________________________
+#' @title Computes pseudo Bootstrap ratios from pseudo-\eqn{F} for
+#' variables in MCA.
+#' @description \code{BR4varMCA}
+#'  Computes pseudo Bootstrap ratios from pseudo-\eqn{F} for
+#' variables in MCA.
+#' @param BrLevels The bootstrap ratios  for the variables
+#' (i.e., the output from \code{InPosition::epMCA.inference.battery}
+#' @param wJ the masses (i.e. center of gravity of rows)
+#' for the columns, typically obtained from
+#' the output of \code{ExPosition} as
+#' \code{wJ = 1 / resMCA$ExPosition.Data$W}.
+#' @param nIter (Default: 1000) the number of bootstrapped iterations
+#'  used to compute the original Bootstrap ratios.
+#' @return A list with 6 elements
+#' \itemize{
+#'  \item{"pseudoBR.pos"}{The positive pseudo BR ratios (i.e.,
+#'  BRs indicating \emph{differences} between levels)}
+#'  \item{"pseudoBR"}{BR ratios matching the probability of their \eqn{F},
+#' could be positive (indicating \emph{differences} between levels), or
+#' could be negative (indicating \emph{similarities} between levels)
+#' }
+#' \item{F4Var}{The \eqn{F} from the ANOVA testing
+#' the differences between the levels of
+#' the qualitative variable.}
+#' \item{df4Var}{The degrees of freedom for the \eqn{F}
+#' from the ANOVA for the differences between the levels of
+#' the qualitative variable.}
+#' \item{ pF4Var}{Probability associated the \eqn{F}'s}.
+#' }
+#' @author Hervé Abdi
+#' @details The idea here is to get a statistics that
+#' commensurable across designs. So, the BRs from the levels``
+#' are re-combined to give a pseudo-\eqn{F}that tests
+#' if the levels of the variables are reliably different
+#' for a given factor,  the
+#' probability associated to the pseudo\eqn{F}
+#' is then used to compute a pseudo BR whose value
+#' will then match the probability of the pseudo-\eqn{F}.
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @importFrom stats pf qnorm
+#' @rdname BR4varMCA
+#' @export
+BR4varMCA <- function(BrLevels, wJ, nIter = 1000){
+  # test.Br2wj <-  diag(wJ) %*% BrLevels^2
+  Br2wj <-  matrix(wJ, nrow = length(wJ), ncol = ncol(BrLevels),
+                   byrow = FALSE) * BrLevels^2
+  rownames(Br2wj) <- rownames(BrLevels)
+  colnames(Br2wj) <- paste0('Dimension ', 1:ncol(Br2wj))
+  lesNoms <-  getVarNames(rownames(BrLevels)) # from data4PCCAR
+  Jk.raw  <- table(as.factor(lesNoms$stripedNames))
+  index <- match(lesNoms$variableNames, names(Jk.raw) )
+  Jk <- Jk.raw[index,  drop = FALSE]
+  df_k <- Jk - 1 # degrees of freedom
+  BrSums     <-  ctr4Variables(Br2wj) # from data4PCCAR
+  F_k <-  matrix(df_k, nrow = length(df_k), ncol = ncol(BrSums),
+                 byrow = FALSE) *  BrSums
+  # get p(F)
+  pF <- 1 - pf(as.matrix(F_k), df_k, 100)
+  # Now inverse to a Z score
+  # note that a significant negative BR indicates a strawberry basket
+  pseudoBR     <-  -qnorm(as.matrix(pF))
+  # to look at significance as difference between levels:
+  #    keep positive only
+  pseudoBR.pos <- pseudoBR * ((pseudoBR) > 0) # positive only
+  return.list <- structure(list(pseudoBR.pos = pseudoBR.pos,
+                                pseudoBR =  pseudoBR,
+                                F4Var    = F_k,
+                                df4Var   = df_k,
+                                pF4Var   = pF),
+                           class = 'pseudoFBR')
+  return(return.list)
+} # end of  BR4varMCA ----
+#_____________________________________________________________________
+# print.pseudoFBR ----
+# Print here:
+# ********************************************************************
