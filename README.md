@@ -99,7 +99,11 @@ The punctuation used by 6 classical French Writers (Rousseau, Chateaubrian, Hugo
 
 ### twentyWines
 
-A baby example: 20 red wines (10 French, 10 American) are rated by an expert on multiple dimensions. Use to illustrate PCA.
+A baby example: 20 red wines (10 French, 10 American) are rated by an expert on multiple dimensions. Used to illustrate PCA.
+
+### winesOf3Colors
+
+36 wines (from Argentina, Canada, and the USA) are described by a variety of variables (descriptors, chemistry, and Sensory). Used to illustrate PCA with supplementary variables (could also be used for two table methods such as CCCA and PLSC)
 
 ## Current functions 
 
