@@ -1,7 +1,7 @@
 # data4PCCAR
 
 An `R`-package containing a collection of data sets and 
-\code{R}-functions to accompagny and complement:
+`R`-functions to accompagny and complement:
 Abdi, H., & Beaton, D. (to appear, 2019).
 *Principal Component and Correspondence Analyses Using R*.
 New York: Springer Verlag. 
@@ -129,6 +129,14 @@ generates
 a bootstrap distribution of eigenvalues
 for a given (rectangular) matrix.
 
+### Boot4PLSC 
+
+creates a Bootstrap Cube for PLSC (partial least square correlation):
+Creates Bootstrap Cubes for the I and J sets
+of a PLSC
+obtained from bootstraping the rows
+of the two data-tables used for PLSC.
+
 ### buildRandomImage4PCA
  
  makes a random image (with similar PCA loadings) 
@@ -150,6 +158,12 @@ recodes a vector of real values to integers matching
  of an MCA from the color names of the variables.
  Used for creating mqps in MCA.
 
+
+### compS
+
+a helper function for the functions `perm4PLSC` and `Boot4PLSC`, computes the cross=product
+of two comformable matrices with various types of normalization and centering.
+
 ### ctr4Variables
 
  computes contributions (or squared cosines)
@@ -168,6 +182,12 @@ a Monte Carlo generation of (random) eigenvalues to match
 a data matrix. Use to implement the *parallel* test
 for the number of reliable eigenvalues.
 
+###  perm4PLSC
+computes a permutation test for PLSC (as implemented
+ in `TExPosition::tepPLS`.
+Computes an omnibus permutation test and
+specific tests for the eigenvalues when
+performing a PLSC.
 
 ### phi2CT
 
