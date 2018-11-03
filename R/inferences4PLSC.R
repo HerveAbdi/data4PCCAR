@@ -3,9 +3,7 @@
 # 1. Permutation
 # 2. Bootstrap
 # Hervé Abdi. Current version November 23, 2016.
-# Last edit HA. October 30, 2018.
-
-
+# Last edit HA. November 3, 2018.
 #_____________________________________________________________________
 #_____________________________________________________________________
 #'@title  Compute an SCP matrix with several possible
@@ -81,6 +79,29 @@ compS <- function(DATA1,
 } # end of function compS
 #_____________________________________________________________________
 #_____________________________________________________________________
+#_____________________________________________________________________
+# sv2 preamble ----
+#' @title Compute the squared singular values of a matrix.
+#' @description \code{sv2}: computes the squared singular values
+#' of a matrix.
+#' @param X a rectangular matrix (or dataframe)
+#' @return a vector of the squared singular values.
+#' @details \code{sv2} is wraper around \code{eigen}, it is used
+#' for permutation and boostsrap procedures.
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  squared.ev <- sv2(matrix(runif(15), nrow = 3))
+#'  }
+#' }
+#' @author Hervé Abdi
+#' @rdname sv2
+#' @export
+sv2 <- function(X){
+  X <- as.matrix(X)
+  if (NROW(X) > NCOL(X)) {X = t(X)}
+  return(eigen(X %*% t(X), symmetric = TRUE, only.values = TRUE)$values)
+}
 
 #_____________________________________________________________________
 #' @title Permutation for PLSC (as implemented
@@ -189,9 +210,10 @@ perm4PLSC <- function(DATA1,
             scale1 =  scale1, #   'ss1' ,
             scale2 =  scale2)
   fixedEigenvalues <- rep(0,maxRank)
-  fixedEV <- eigen(t(Sfixed) %*% (Sfixed),
-                   symmetric   = TRUE,
-                   only.values = TRUE)$values
+  fixedEV <- sv2(Sfixed)
+  # fixedEV <- eigen(t(Sfixed) %*% (Sfixed),
+  #                  symmetric   = TRUE,
+  #                  only.values = TRUE)$values
   # Make sure that the length fit
   if (length(fixedEV) > maxRank){
     fixedEigenvalues <- fixedEV[1:maxRank]
@@ -222,9 +244,10 @@ perm4PLSC <- function(DATA1,
        Yrand <- apply(Y,2,sample )
      }
      Srand <- compS(Xrand,Yrand)
-     resvp <-   eigen(t(Srand) %*% Srand,
-                     symmetric = TRUE,
-                     only.values = TRUE)$values
+     resvp <- sv2(Srand)
+     # resvp <-   eigen(t(Srand) %*% Srand,
+     #                 symmetric = TRUE,
+     #                 only.values = TRUE)$values
     valP[1:length(resvp)] <- resvp
     return(valP)
           }
@@ -255,20 +278,20 @@ perm4PLSC <- function(DATA1,
 } # End of function perm4PLSC
 
 # *******************************************************************************
-#' Change the print function for perm4PLSC class
+#' Change the print function for \code{perm4PLSC} class
 #'
-#'  Change the print function for perm4PLSC class
+#'  Change the print function for \code{perm4PLSC} class
 #'  objects
-#'  (output of Perm4PLSC)
+#'  (output of Perm4PLSC).
 #'
-#' @param x a list: output of perm4RowCA
+#' @param x a list: output of perm4PLSC
 #' @param ... everything else for the functions
-#' @author Herve Abdi
+#' @author Hervé Abdi
 #' @export
-print.perm4PLSC <- function (x, ...) {
+print.perm4PLSC <- function(x, ...){
   ndash = 78 # How many dashes for separation lines
   cat(rep("-", ndash), sep = "")
-  cat("\n Results of Permutation Tests for CA of Matrix X \n")
+  cat("\n Results of Permutation Test for PLSC of X'*Y = R \n")
   cat(" for Omnibus Inertia and Eigenvalues \n")
   # cat("\n List name: ",deparse(eval(substitute(substitute(x)))),"\n")
   cat(rep("-", ndash), sep = "")
@@ -293,8 +316,8 @@ print.perm4PLSC <- function (x, ...) {
 #' @title  Create a Bootstrap Cube for PLSC
 #'
 #' @description  \code{Boot4PLSC}:
-#' Creates Bootstrap Cubes for the I and J sets
-#' of a PLSC
+#' Creates Bootstrap Cubes for the \eqn{I} and \eqn{J} sets
+#' of a PLSC. The cubes are
 #' obtained from bootstraping the rows
 #' of the two data-tables used for PLSC.
 #' Uses the "transition formula" to get
@@ -345,42 +368,48 @@ print.perm4PLSC <- function (x, ...) {
 #' significant.
 #' @param eig if \code{TRUE} compute bootstraped
 #' confidence intervals (CIs) for the eigenvalues
-#' (default is \code{FALSE}). Not Currently implemented
+#' (default is \code{FALSE}).
 #' @param alphaLevel the alpha level used to compute
 #' the confidence intervals for the eigenvalues
 #' (with CIS at 1-alpha). Default is \code{.05}
-#' @return a list with \code{bootCube.i} the
-#' Bootstraped factor scores (\eqn{I}-set)
-#'  \code{bootRatios.i}: the bootstrap ratios;
-#'  \code{bootRatiosSignificant.i}: the Significant
-#'  BRs;
-#'  a list with \code{bootCube.j}:
-#' An Items * Dimensions * Iterations Brick of
-#' Bootstraped factor scores (\eqn{J}-set);
-#'  \code{bootRatios.j}: the bootstrap ratios;
-#'  \code{bootRatiosSignificant.j}: the Significant
-#'  BRs;
-#'  \code{eigenValues} the nIter * nL table
-#'  of eigenvalues; \code{eigenCIs}: the CIs for the
-#'  eigenvalues.
+#' @return a list with
+#' \itemize{
+#' \item{\code{bootstrapBrick.i}}{the
+#'      Bootstraped factor scores  for the \eqn{I}-set;}
+#'  \item{\code{bootRatios.i}}{the bootstrap ratios
+#'      for the \eqn{I}-set;}
+#' \item{\code{bootRatiosSignificant.i}}{the Significant
+#'    BRs for the \eqn{I}-set;}
+#' \item{\code{bootCube.j}}{
+#'     An \code{Items * Dimensions * Iterations} Brick of
+#'     Bootstraped factor scores for the \eqn{J}-set;}
+#' \item{\code{bootRatios.j}}{the bootstrap ratios for the \eqn{J}-set;}
+#' \item{\code{bootRatiosSignificant.j}}{the Significant
+#'    BRs for the \eqn{J}-set;}
+#'    }
+#'    In addition if \code{eig = TRUE}, the list includes:
+#'\itemize{
+#' \item{\code{eigenValues}}{the \code{nIter * nL} table
+#'  of eigenvalues;}
+#'  \item{\code{eigenCIs}}{the CIs for the
+#'  eigenvalues.}
+#'  }
 #' @author Hervé Abdi
-#' @importFrom  ExPosition expo.scale
+#' @rdname Boot4PLSC
 #' @export
 #'
 Boot4PLSC <- function(DATA1, DATA2,
-                      center1 = TRUE,
-                      center2 = TRUE,
+                     center1 = TRUE,
+                     center2 = TRUE,
                       scale1 = 'ss1',
                       scale2 = 'ss1',
-                        Fi = NULL,
-                        Fj = NULL,
-                        nf2keep = 3,
-                        nIter = 1000,
-                        critical.value = 2,
-                        eig = FALSE,
-                        # To be implemented later
-                        # has no effect currently
-                        alphaLevel = .05){
+                          Fi = NULL,
+                          Fj = NULL,
+                     nf2keep = 3,
+                       nIter = 1000,
+              critical.value = 2,
+                         eig = FALSE,
+                  alphaLevel = .05){# start function BootPLSC
   # NB Internal functions here for coherence
   .boot.ratio.test <- function(boot.cube,
                                critical.value=2){
@@ -395,16 +424,19 @@ Boot4PLSC <- function(DATA1, DATA2,
     rownames(significant.boot.ratios) <- rownames(boot.cube)
     return(list(sig.boot.ratios=significant.boot.ratios,
                 boot.ratios=boot.ratios))
-  }
+      } # end of boot.ratio.test
   #
   # End of .boot.ratio.test
-  X <- ExPosition::expo.scale(DATA1, center = center1,
-                               scale = scale1)
-  Y <- ExPosition::expo.scale(DATA2, center = center2,
-                               scale = scale2)
+  # will need to replaced by scale
+  # X <- ExPosition::expo.scale(DATA1, center = center1,
+  #                              scale = scale1)
+  # Y <- ExPosition::expo.scale(DATA2, center = center2,
+  #                              scale = scale2)
+  X <- scale0(DATA1, center = center1, scale = scale1)
+  Y <- scale0(DATA2, center = center2, scale = scale2)
   nN = NROW(X)
   if (nN != NROW(Y)){stop('input matrices not conformable')}
-  nI= NCOL(X)
+  nI = NCOL(X)
   nJ = NCOL(Y)
   maxRank <- min(nI,nJ)
   if (maxRank < nf2keep) nf2keep = maxRank
@@ -432,31 +464,33 @@ Boot4PLSC <- function(DATA1, DATA2,
   fj.boot    <- array(NA, dim = c(nJ,nf2keep,nIter))
   # Name.
   dimnames(fj.boot)[1] <- list(colnames(Y))
-  dimnames(fj.boot)[2] <- list(paste0("Dimension ",1: nf2keep))
+  dimnames(fj.boot)[2] <- list(paste0("Dimension ", 1: nf2keep))
   dimnames(fj.boot)[3] <- list(paste0("Iteration ", 1:nIter))
   # I-set
   fi.boot    <- array(NA, dim = c(nI,nf2keep,nIter))
   # Name.
   dimnames(fi.boot)[1] <- list(colnames(X))
-  dimnames(fi.boot)[2] <- list(paste0("Dimension ",1: nf2keep))
+  dimnames(fi.boot)[2] <- list(paste0("Dimension ", 1:nf2keep))
   dimnames(fi.boot)[3] <- list(paste0("Iteration ", 1:nIter))
+  if (eig){# if
+            eigenValues <- matrix(0, nrow = nIter, ncol = maxRank )
+            colnames(eigenValues) <- paste0("Dimension ",1: maxRank)
+            rownames(eigenValues) <- paste0("Iteration ", 1:nIter)
+           } # end if
   for (ell in 1:nIter){# ell loop
    boot.index <- sample(nN, replace = TRUE)
    fi.boot[,,ell] <- t(X[boot.index,]) %*% Ly[boot.index,]
    fj.boot[,,ell] <- t(Y[boot.index,]) %*% Lx[boot.index,]
-   ## Code Below taken from BOOTCA. To be used
-   ## to implement the eig option later
-   # if (eig){
-   #   # Xboot <- X[BootIndex,]
-   #   # Check that there are no zero columns
-   #   Xboot <- Xboot[,colSums(Xboot) > 0]
-   #   eigenCA <- .eig4CA(Xboot)
+   # eigenvalues
+   if (eig){# get the eigenvalues ----
+     eigenS <- sv2(compS(
+                X[boot.index,], center1 = center1, scale1 = scale1,
+                Y[boot.index,], center2 = center2, scale2 = scale2) )
    #   # Trick here for the rank of the eigenvalues
-   #   index <- min(maxrank,length(eigenCA))
-   #   eigenValues[ell,1:index] <-
-   #     eigenCA[1:index ]
-   # }
-  }
+    index <- min(maxRank,length(eigenS))
+    eigenValues[ell,1:index] <- eigenS
+       } # end if eig
+  } # end ell loop
   # Boot-ratios
   BR.j <- .boot.ratio.test(fj.boot,critical.value)
   BR.i <- .boot.ratio.test(fi.boot,critical.value)
@@ -470,23 +504,23 @@ Boot4PLSC <- function(DATA1, DATA2,
       bootstrapBrick.j =     fj.boot,
       bootRatios.j =  BR.j$boot.ratios,
       bootRatiosSignificant.j =
-        BR.j$sig.boot.ratios
-    ),
-    class = "bootBrick.ij4plsc")
+        BR.j$sig.boot.ratios),
+      class = "bootBrick.ij4plsc")
 ## Code Below taken from BOOTCA. To be used
 ## to implement the eig option later
-# if (eig){
-#   # eliminate empty eigenvalues
-#   eigenValues <- eigenValues[, colSums(eigenValues) > 0]
-#   return.list$eigenValues = eigenValues
-#   # Get the CI
-#   # order the eigenvalues to get the CIs
-#   sortedEigenValues <- apply(eigenValues,2,sort)
-#   index  =  round(nIter * (alphaLevel /2))
-#   if (index == 0) index <- 1
-#   eigenCI = sortedEigenValues[c(index,nIter-(index-1)),]
-#   return.list$eigenCI <- eigenCI
-# } # end if eigen
+if (eig){#add eig
+   # eliminate empty eigenvalues
+   eigenValues <- eigenValues[, colSums(eigenValues) > 0]
+   return.list$eigenValues = eigenValues
+   # Get the CI
+   #  order the eigenvalues to get the CIs
+   sortedEigenValues <- apply(eigenValues,2,sort)
+   index  =  round(nIter * (alphaLevel / 2))
+   if (index == 0) index <- 1
+   eigenCI = sortedEigenValues[c(index,nIter - (index - 1)),]
+   return.list$eigenCI <- eigenCI
+   class(return.list) <- "bootBrick.ij.eig4plsc"
+      } # end if eigen
   return(return.list)
 } # End of Function
 
@@ -500,7 +534,7 @@ Boot4PLSC <- function(DATA1, DATA2,
 #' @param ... everything else for the function
 #' @author Herve Abdi
 #' @export
-print.bootBrick.ij4plsc <- function (x, ...) {
+print.bootBrick.ij4plsc <- function(x, ...) {
   ndash = 78 # How many dashes for separation lines
   cat(rep("-", ndash), sep = "")
   cat("\n Bootstraped Factor Scores (BFS) and Bootstrap Ratios  (BR) \n")
@@ -520,4 +554,36 @@ print.bootBrick.ij4plsc <- function (x, ...) {
   invisible(x)
 } # end of function print.bootBrick.ij
 #_____________________________________________________________________
+#_____________________________________________________________________
+#' Change the print function for class bootBrick.ij.eig4plsc
+#'
+#'  Change the print function for objects
+#'  of the class \code{bootBrick.ij.eig4plsc}
+#'  (output of \code{Boot4PLSC})
+#'
+#' @param x a list: output of \code{Boot4PLSC}
+#' @param ... everything else for the function
+#' @author Hervé Abdi
+#' @export
+print.bootBrick.ij.eig4plsc <- function(x, ...) {
+  ndash = 78 # How many dashes for separation lines
+  cat(rep("-", ndash), sep = "")
+  cat("\n Bootstraped Factor Scores (BFS), Bootstrap Ratios (BR), eigenvalues \n")
+  cat(" for the I and J-sets of a PLSC (obtained from bootstrapping X & Y) \n")
+  # cat("\n List name: ",deparse(eval(substitute(substitute(x)))),"\n")
+  cat(rep("-", ndash), sep = "")
+  cat("\n$ bootstrapBrick.i        ", "an I*L*nIter Brick of BFSs  for the I-Set")
+  cat("\n$ bootRatios.i            ", "an I*L matrix of BRs for the I-Set")
+  cat("\n$ bootRatiosSignificant.i ", "an I*L logical matrix for significance of the I-Set")
+  cat("\n$ bootstrapBrick.j        ", "a  J*L*nIter Brick of BFSs  for the J-Set")
+  cat("\n$ bootRatios.j            ", "a  J*L matrix of BRs for the J-Set")
+  cat("\n$ bootRatiosSignificant.j ", "a  J*L logical matrix for significance of the J-Set")
+  cat("\n$ eigenValues             ", "a  nIter*L matrix of the bootstraped CA eigenvalues")
+  cat("\n$ eigenCI                 ", "a  2*L with min and max CI for the eigenvalues")
+  cat("\n",rep("-", ndash), sep = "")
+  cat("\n")
+  invisible(x)
+} # end of function print.bootBrick.ij
+#_____________________________________________________________________
+
 

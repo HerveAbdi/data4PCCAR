@@ -2,20 +2,20 @@
 % Please edit documentation in R/inferences4PLSC.R
 \name{print.perm4PLSC}
 \alias{print.perm4PLSC}
-\title{Change the print function for perm4PLSC class}
+\title{Change the print function for \code{perm4PLSC} class}
 \usage{
 \method{print}{perm4PLSC}(x, ...)
 }
 \arguments{
-\item{x}{a list: output of perm4RowCA}
+\item{x}{a list: output of perm4PLSC}
 
 \item{...}{everything else for the functions}
 }
 \description{
-Change the print function for perm4PLSC class
+Change the print function for \code{perm4PLSC} class
  objects
- (output of Perm4PLSC)
+ (output of Perm4PLSC).
 }
 \author{
-Herve Abdi
+Hervé Abdi
 }

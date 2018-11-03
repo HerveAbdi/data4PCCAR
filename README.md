@@ -21,14 +21,14 @@ and Multi-Dimensional Scaling (MDS).
 ## Installation
 
 To install `data4PCCAR` from `Github` 
-use the function `install_github()`  from the package `devtools`:
+use the function `install_github()`  
+from the package `devtools`:
 
 ```{r}
 #install.packages("devtools") 
-#decomment this line if  devtools is not yet intalled
+#decomment the line above ifthe package devtools is not yet intalled
 devtools::install_github("HerveAbdi/data4PCCAR") # install data4PCCAR
 ```
-
 
 
 ## Current data sets
@@ -62,7 +62,7 @@ To be used to illustrate how to use MCA with "fuzzy coding" with rating scales.
 
 ### foodInFrance
 
-How much 12 typical French families spent on different types of food (including Wine) in the 1950's.
+How much 12 typical French families spent on different types of food (including Wine!) in the 1950's.
 To be used to illustrate non-normalized (a.k.a. covariance based) PCA.
 
 
@@ -73,10 +73,10 @@ To be used to illustrate CA.
 
 ### graduatingInUSA
 
-A set of contingency tables  showing the number of university graduates in the USA from 1966 to 2001 by fields.
+A set of contingency tables showing the number of university graduates in the USA from 1966 to 2001 by fields.
 The grand contingency table gives the The 34 years * 8 fields results. The partial contingency tables
 subset the grand contigency table by gender (women vs men) and by levels (Bachelor, Master, and Ph.D.).
-To  be used to illustrate CA, and PTCA, and variations of these methods.
+To  be used to illustrate CA, PTCA, and variations of these methods.
 
 ### mentalImageryOSIQ
 
@@ -95,7 +95,7 @@ The (230 by 240 = 55,200 pixels) pictures of six faces (3 men and 3 women). To b
 ### sixAuthorsPunctuated
 
 The punctuation used by 6 classical French Writers (Rousseau, Chateaubrian, Hugo, Zola, Proust, Giraudoux)
-*plus* the punctuation of one chapter of Abdi's *Réseaux de Neurones*. A classic example for CA.
+*plus* the punctuation of one chapter of Abdi's *Les Réseaux de Neurones*. A classic example for CA.
 
 ### twentyWines
 
@@ -103,7 +103,8 @@ A baby example: 20 red wines (10 French, 10 American) are rated by an expert on 
 
 ### winesOf3Colors
 
-36 wines (from Argentina, Canada, and the USA) are described by a variety of variables (descriptors, chemistry, and Sensory). Used to illustrate PCA with supplementary variables (could also be used for two table methods such as CCCA and PLSC)
+36 wines (from Argentina, Canada, and the USA) are described by a variety of variables (descriptors, chemistry, and sensory). 
+Used to illustrate PCA with supplementary variables (could also be used for two table methods such as CCCA and PLSC).
 
 ## Current functions 
 
@@ -139,15 +140,15 @@ of the two data-tables used for PLSC.
 
 ### buildRandomImage4PCA
  
- makes a random image (with similar PCA loadings) 
+makes a random image (with similar PCA loadings) 
  of a matrix of integer data such as Likert scales data.
  Uses two helper functions: `getRandomFS` and `recode2Integer`:
  
- #### getRandomFS
+#### getRandomFS
 generates multivariate random observations (i.e., factor scores)
     that match the variance/eigenvalues of the dimensions.
  
- #### recode2Integer
+#### recode2Integer
 recodes a vector of real values to integers matching 
     a given distribution for the integers.
  
@@ -161,8 +162,8 @@ recodes a vector of real values to integers matching
 
 ### compS
 
-a helper function for the functions `perm4PLSC` and `Boot4PLSC`, computes the cross=product
-of two comformable matrices with various types of normalization and centering.
+a helper function for the functions `perm4PLSC` and `Boot4PLSC`, computes the cross-product
+of two comformable matrices using various types of normalization and centering.
 
 ### ctr4Variables
 
@@ -174,7 +175,7 @@ Used to get contributions in MCA.
 ### epVari
 
 a Varimax rotation on loadings and factor scores.
-Also give the pseudo-eigenvalues and percentage of inertia.
+Also gives the pseudo-eigenvalues and percentage of inertia.
 
 ### monteCarlo.eigen
 
@@ -191,24 +192,27 @@ performing a PLSC.
 
 ### phi2CT
 
-a fast function to compute the phi2 for a Contingency table.
- A helper function,
- used for CA and MCA.
+a fast function to compute the $\phi^2$  correlation 
+coefficient for a Contingency table.
+Used for CA and MCA and
+as a helper function
+by function `phi2Mat4BurtTable`.
  
  
 ###  phi2Mat4BurtTable
 
-computes the phi2 (correlation) matrix
+computes the $\phi^2$ (correlation) matrix
 and Burt table
-for data tables suitable for Multiple Correspondence Analysis
-(MCA). Useful to create correlation heatmap 
+for data tables suitable for
+MCA. Useful to create correlation heatmap 
 for MCA.
  A helper function,
  used for MCA.
 
 ### scale0
 
-centers and normalizes a vector to norm 1 or to norm ({_N_} - 1).
+centers and normalizes a vector to norm 1 or to norm
+$(N - 1)$.
 `scale0` gives the same results as `scale`
 except for the option `'SS1'` (`scale0` normalizes to 1); 
 when `x`

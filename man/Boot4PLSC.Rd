@@ -60,32 +60,40 @@ significant.}
 
 \item{eig}{if \code{TRUE} compute bootstraped
 confidence intervals (CIs) for the eigenvalues
-(default is \code{FALSE}). Not Currently implemented}
+(default is \code{FALSE}).}
 
 \item{alphaLevel}{the alpha level used to compute
 the confidence intervals for the eigenvalues
 (with CIS at 1-alpha). Default is \code{.05}}
 }
 \value{
-a list with \code{bootCube.i} the
-Bootstraped factor scores (\eqn{I}-set)
- \code{bootRatios.i}: the bootstrap ratios;
- \code{bootRatiosSignificant.i}: the Significant
- BRs;
- a list with \code{bootCube.j}:
-An Items * Dimensions * Iterations Brick of
-Bootstraped factor scores (\eqn{J}-set);
- \code{bootRatios.j}: the bootstrap ratios;
- \code{bootRatiosSignificant.j}: the Significant
- BRs;
- \code{eigenValues} the nIter * nL table
- of eigenvalues; \code{eigenCIs}: the CIs for the
- eigenvalues.
+a list with
+\itemize{
+\item{\code{bootstrapBrick.i}}{the
+     Bootstraped factor scores  for the \eqn{I}-set;}
+ \item{\code{bootRatios.i}}{the bootstrap ratios
+     for the \eqn{I}-set;}
+\item{\code{bootRatiosSignificant.i}}{the Significant
+   BRs for the \eqn{I}-set;}
+\item{\code{bootCube.j}}{
+    An \code{Items * Dimensions * Iterations} Brick of
+    Bootstraped factor scores for the \eqn{J}-set;}
+\item{\code{bootRatios.j}}{the bootstrap ratios for the \eqn{J}-set;}
+\item{\code{bootRatiosSignificant.j}}{the Significant
+   BRs for the \eqn{J}-set;}
+   }
+   In addition if \code{eig = TRUE}, the list includes:
+\itemize{
+\item{\code{eigenValues}}{the \code{nIter * nL} table
+ of eigenvalues;}
+ \item{\code{eigenCIs}}{the CIs for the
+ eigenvalues.}
+ }
 }
 \description{
 \code{Boot4PLSC}:
-Creates Bootstrap Cubes for the I and J sets
-of a PLSC
+Creates Bootstrap Cubes for the \eqn{I} and \eqn{J} sets
+of a PLSC. The cubes are
 obtained from bootstraping the rows
 of the two data-tables used for PLSC.
 Uses the "transition formula" to get
