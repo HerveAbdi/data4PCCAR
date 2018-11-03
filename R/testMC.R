@@ -1,6 +1,8 @@
-#
-#
-#
+# functions in this file
+# monteCarlo.eigen
+# print.randEigen
+# boot.eigen
+# scale0
 #_____________________________________________________________________
 # function monteCarlo.eigen
 # to create eigenvalue from cross-product matrix

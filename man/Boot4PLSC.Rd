@@ -69,30 +69,32 @@ the confidence intervals for the eigenvalues
 \value{
 a list with
 \itemize{
-\item{\code{bootstrapBrick.i}}{the
+\item{\code{bootstrapBrick.i}: }{the
      Bootstraped factor scores  for the \eqn{I}-set;}
- \item{\code{bootRatios.i}}{the bootstrap ratios
+ \item{\code{bootRatios.i}: }{the bootstrap ratios
      for the \eqn{I}-set;}
-\item{\code{bootRatiosSignificant.i}}{the Significant
+\item{\code{bootRatiosSignificant.i}: }{the Significant
    BRs for the \eqn{I}-set;}
-\item{\code{bootCube.j}}{
+\item{\code{bootstrapBrick.j}: }{
     An \code{Items * Dimensions * Iterations} Brick of
     Bootstraped factor scores for the \eqn{J}-set;}
-\item{\code{bootRatios.j}}{the bootstrap ratios for the \eqn{J}-set;}
-\item{\code{bootRatiosSignificant.j}}{the Significant
+\item{\code{bootRatios.j}: }{the bootstrap ratios for the \eqn{J}-set;}
+\item{\code{bootRatiosSignificant.j}: }{the Significant
    BRs for the \eqn{J}-set;}
    }
    In addition if \code{eig = TRUE}, the list includes:
 \itemize{
-\item{\code{eigenValues}}{the \code{nIter * nL} table
+\item{\code{eigenValues}: }{the \code{nIter * nL} table
  of eigenvalues;}
+\item{\code{fixedEigenvalues}: }{the eigenvalues of
+ the cross-product matrix.}
  \item{\code{eigenCIs}}{the CIs for the
  eigenvalues.}
  }
 }
 \description{
 \code{Boot4PLSC}:
-Creates Bootstrap Cubes for the \eqn{I} and \eqn{J} sets
+Creates Bootstrap Bricks for the \eqn{I} and \eqn{J} sets
 of a PLSC. The cubes are
 obtained from bootstraping the rows
 of the two data-tables used for PLSC.
@@ -103,7 +105,15 @@ Gives also the bootstraped eigenvalues
 (if \code{eigen = TRUE}).
 }
 \details{
-Planned development: A compact version that gives only
+\emph{Note}:  \code{Boot4PLSC} gives the
+\emph{eigenvalues} of the matrix
+\eqn{X'Y} even though PLSC
+works with the \emph{singular values}
+(i.e.,, the square roots of the eigenvalues) of
+\eqn{X'Y}. The eigenvalues were chosen because their sum is the
+sum of squares (i.e., Inertia) of \eqn{X'Y}.
+
+\emph{Planned development:} A compact version that gives only
 bootstrap ratios (not BootstrapBricks).
 }
 \author{

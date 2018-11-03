@@ -316,8 +316,8 @@ print.perm4PLSC <- function(x, ...){
 #' @title  Create a Bootstrap Cube for PLSC
 #'
 #' @description  \code{Boot4PLSC}:
-#' Creates Bootstrap Cubes for the \eqn{I} and \eqn{J} sets
-#' of a PLSC. The cubes are
+#' Creates Bootstrap Bricks for the \eqn{I} and \eqn{J} sets
+#' of a PLSC. The bricks are
 #' obtained from bootstraping the rows
 #' of the two data-tables used for PLSC.
 #' Uses the "transition formula" to get
@@ -327,8 +327,17 @@ print.perm4PLSC <- function(x, ...){
 #' (if \code{eigen = TRUE}).
 #'
 #' @details
-#' Planned development: A compact version that gives only
+#' \emph{Note}:  \code{Boot4PLSC} gives the
+#' \emph{eigenvalues} of the matrix
+#' \eqn{X'Y} even though PLSC
+#' works with the \emph{singular values}
+#' (i.e., the square roots of the eigenvalues) of
+#' \eqn{X'Y}. The eigenvalues were chosen because their sum is the
+#' sum of squares (i.e., Inertia) of \eqn{X'Y}.
+#'
+#' \emph{Planned development:} A compact version that gives only
 #' bootstrap ratios (not BootstrapBricks).
+#'
 #' @param DATA1 an \eqn{N*I}  data matrix
 #' @param DATA2 an \eqn{N*J}  data matrix
 #' (measured on the same observations as \code{DATA2})
@@ -337,8 +346,8 @@ print.perm4PLSC <- function(x, ...){
 #' @param center2 when \code{TRUE} (default) \code{DATA2}
 #' will be centered
 #' @param scale1 when \code{TRUE} (default) \code{DATA1}
-#' will be normalized. Depends upon \code{ExPosition}
-#' function \code{expo.scale} whose description is:
+#' will be normalized. Depends upon
+#' function \code{scale0} whose description is:
 #' boolean, text, or (numeric) vector.
 #'If boolean or vector,
 #'it works just as scale.
@@ -352,13 +361,13 @@ print.perm4PLSC <- function(x, ...){
 #' @param scale2 when \code{TRUE} (default) \code{DATA2}
 #' will be normalized
 #'  (same options as for \code{scale1}).
-#' @param Fi = \code{NULL}, the \eqn{I} factor scores
+#' @param Fi (Default = \code{NULL}), the \eqn{I} factor scores
 #' for the columns of \code{DATA1}.
-#' if \code{NULL}, the function computes them.
-#' @param Fj = \code{NULL}, the J factor scores
+#' if \code{NULL},  \code{Boot4RowCA} computes them..
+#' @param Fj = (Default = \code{NULL}, the \eqn{J} factor scores
 #' for the columns of \code{DATA2}.
-#' if \code{NULL} the function computes them.
-#' \code{Boot4RowCA} will compute them.
+#' if \code{NULL} the function
+#' \code{Boot4RowCA} computes them.
 #' @param nf2keep How many factors to
 #' keep for the analysis (Default = \code{3}).
 #' @param nIter (Default = \code{1000}). Number of Iterations
@@ -374,24 +383,27 @@ print.perm4PLSC <- function(x, ...){
 #' (with CIS at 1-alpha). Default is \code{.05}
 #' @return a list with
 #' \itemize{
-#' \item{\code{bootstrapBrick.i}}{the
+#' \item{\code{bootstrapBrick.i}: }{the
+#'  the \code{I * Dimensions * Iterations} Brick of
 #'      Bootstraped factor scores  for the \eqn{I}-set;}
-#'  \item{\code{bootRatios.i}}{the bootstrap ratios
+#'  \item{\code{bootRatios.i}: }{the bootstrap ratios
 #'      for the \eqn{I}-set;}
-#' \item{\code{bootRatiosSignificant.i}}{the Significant
+#' \item{\code{bootRatiosSignificant.i}: }{the Significant
 #'    BRs for the \eqn{I}-set;}
-#' \item{\code{bootCube.j}}{
-#'     An \code{Items * Dimensions * Iterations} Brick of
+#' \item{\code{bootstrapBrick.j}: }{
+#'     the \code{J * Dimensions * Iterations} Brick of
 #'     Bootstraped factor scores for the \eqn{J}-set;}
-#' \item{\code{bootRatios.j}}{the bootstrap ratios for the \eqn{J}-set;}
-#' \item{\code{bootRatiosSignificant.j}}{the Significant
+#' \item{\code{bootRatios.j}: }{the bootstrap ratios for the \eqn{J}-set;}
+#' \item{\code{bootRatiosSignificant.j}: }{the Significant
 #'    BRs for the \eqn{J}-set;}
 #'    }
 #'    In addition if \code{eig = TRUE}, the list includes:
 #'\itemize{
-#' \item{\code{eigenValues}}{the \code{nIter * nL} table
+#' \item{\code{eigenValues}: }{the \code{nIter * nL} table
 #'  of eigenvalues;}
-#'  \item{\code{eigenCIs}}{the CIs for the
+#'\item{\code{fixedEigenvalues}: }{the eigenvalues of
+#'   matrix n\eqn{X'Y}.}
+#'  \item{\code{eigenCIs}: }{the CIs for the
 #'  eigenvalues.}
 #'  }
 #' @author Hervé Abdi
@@ -427,15 +439,15 @@ Boot4PLSC <- function(DATA1, DATA2,
       } # end of boot.ratio.test
   #
   # End of .boot.ratio.test
-  # will need to replaced by scale
+  nN = NROW(DATA1)
+  if (nN != NROW(DATA2)){stop('input matrices not conformable')}
+  # below is replaced by scale0
   # X <- ExPosition::expo.scale(DATA1, center = center1,
   #                              scale = scale1)
   # Y <- ExPosition::expo.scale(DATA2, center = center2,
   #                              scale = scale2)
-  X <- scale0(DATA1, center = center1, scale = scale1)
-  Y <- scale0(DATA2, center = center2, scale = scale2)
-  nN = NROW(X)
-  if (nN != NROW(Y)){stop('input matrices not conformable')}
+  X <- apply(DATA1,2, scale0, center = center1, scale = scale1)
+  Y <- apply(DATA2,2, scale0, center = center2, scale = scale2)
   nI = NCOL(X)
   nJ = NCOL(Y)
   maxRank <- min(nI,nJ)
@@ -476,6 +488,11 @@ Boot4PLSC <- function(DATA1, DATA2,
             eigenValues <- matrix(0, nrow = nIter, ncol = maxRank )
             colnames(eigenValues) <- paste0("Dimension ",1: maxRank)
             rownames(eigenValues) <- paste0("Iteration ", 1:nIter)
+            fixedEigenvalues <-  sv2(compS(
+                X, center1 = center1, scale1 = scale1,
+                Y, center2 = center2, scale2 = scale2) )
+            names(fixedEigenvalues) <- paste0('Dimension ',
+                                          1:length(fixedEigenvalues))
            } # end if
   for (ell in 1:nIter){# ell loop
    boot.index <- sample(nN, replace = TRUE)
@@ -518,6 +535,14 @@ if (eig){#add eig
    index  =  round(nIter * (alphaLevel / 2))
    if (index == 0) index <- 1
    eigenCI = sortedEigenValues[c(index,nIter - (index - 1)),]
+   minCI <- as.character(alphaLevel / 2)
+   substr(minCI,1,2) <- "_"
+   minCI <- paste0("LB",minCI)
+   maxCI <- as.character(1 - (alphaLevel / 2))
+   substr(maxCI,1,2) <- "_"
+   maxCI <- paste0("UB",maxCI)
+   rownames(eigenCI) <- c(minCI,maxCI)
+   return.list$fixedEigenvalues <- fixedEigenvalues
    return.list$eigenCI <- eigenCI
    class(return.list) <- "bootBrick.ij.eig4plsc"
       } # end if eigen
@@ -579,6 +604,7 @@ print.bootBrick.ij.eig4plsc <- function(x, ...) {
   cat("\n$ bootRatios.j            ", "a  J*L matrix of BRs for the J-Set")
   cat("\n$ bootRatiosSignificant.j ", "a  J*L logical matrix for significance of the J-Set")
   cat("\n$ eigenValues             ", "a  nIter*L matrix of the bootstraped CA eigenvalues")
+  cat("\n$ fixedEigenvalues       ", "The fixed eigenvalues")
   cat("\n$ eigenCI                 ", "a  2*L with min and max CI for the eigenvalues")
   cat("\n",rep("-", ndash), sep = "")
   cat("\n")
