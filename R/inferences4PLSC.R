@@ -324,21 +324,23 @@ print.perm4PLSC <- function(x, ...){
 #_____________________________________________________________________
 # BootPLSC Preamble ----
 # function Boot4PLSC
-#' @title  Create a Bootstrap Cube for PLSC
+#' @title  Bootstrap for PLSC.
 #'
 #' @description  \code{Boot4PLSC}:
-#' Creates Bootstrap Bricks for the \eqn{I} and \eqn{J} sets
-#' of a PLSC. The bricks are
+#' Creates "Bootstrap Bricks" and other bootstrqp statistics
+#'=for the \eqn{I} and \eqn{J} sets
+#' of a PLSC.
+#' The bricks are
 #' obtained from bootstraping the rows
 #' of the two data-tables used for PLSC.
-#' Uses the "transition formula" to get
-#' the values of the rows and columns loadings
+#'  \code{Boot4PLSC} uses the "transition formula" to get
+#' the values of the row and column loadings
 #' from multiplication of the latent variables.
 #' Gives also the bootstraped eigenvalues
 #' (if \code{eigen = TRUE}).
 #'
 #' @details
-#' \emph{Note}:  \code{Boot4PLSC} gives the
+#' \emph{Note}: \code{Boot4PLSC} gives the
 #' \emph{eigenvalues} of the matrix
 #' \eqn{X'Y} even though PLSC
 #' works with the \emph{singular values}

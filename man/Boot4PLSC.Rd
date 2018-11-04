@@ -2,7 +2,7 @@
 % Please edit documentation in R/inferences4PLSC.R
 \name{Boot4PLSC}
 \alias{Boot4PLSC}
-\title{Create a Bootstrap Cube for PLSC}
+\title{Bootstrap for PLSC.}
 \usage{
 Boot4PLSC(DATA1, DATA2, center1 = TRUE, center2 = TRUE,
   scale1 = "ss1", scale2 = "ss1", Fi = NULL, Fj = NULL,
@@ -22,8 +22,8 @@ will be centered}
 will be centered}
 
 \item{scale1}{when \code{TRUE} (default) \code{DATA1}
-will be normalized. Depends upon \code{ExPosition}
-function \code{expo.scale} whose description is:
+will be normalized. Depends upon
+function \code{scale0} whose description is:
 boolean, text, or (numeric) vector.
 If boolean or vector,
 it works just as scale.
@@ -39,14 +39,14 @@ The following text options are available:
 will be normalized
  (same options as for \code{scale1}).}
 
-\item{Fi}{= \code{NULL}, the \eqn{I} factor scores
+\item{Fi}{(Default = \code{NULL}), the \eqn{I} factor scores
 for the columns of \code{DATA1}.
-if \code{NULL}, the function computes them.}
+if \code{NULL},  \code{Boot4RowCA} computes them..}
 
-\item{Fj}{= \code{NULL}, the J factor scores
+\item{Fj}{= (Default = \code{NULL}, the \eqn{J} factor scores
 for the columns of \code{DATA2}.
-if \code{NULL} the function computes them.
-\code{Boot4RowCA} will compute them.}
+if \code{NULL} the function
+\code{Boot4RowCA} computes them.}
 
 \item{nf2keep}{How many factors to
 keep for the analysis (Default = \code{3}).}
@@ -70,13 +70,14 @@ the confidence intervals for the eigenvalues
 a list with
 \itemize{
 \item{\code{bootstrapBrick.i}: }{the
+ the \code{I * Dimensions * Iterations} Brick of
      Bootstraped factor scores  for the \eqn{I}-set;}
  \item{\code{bootRatios.i}: }{the bootstrap ratios
      for the \eqn{I}-set;}
 \item{\code{bootRatiosSignificant.i}: }{the Significant
    BRs for the \eqn{I}-set;}
 \item{\code{bootstrapBrick.j}: }{
-    An \code{Items * Dimensions * Iterations} Brick of
+    the \code{J * Dimensions * Iterations} Brick of
     Bootstraped factor scores for the \eqn{J}-set;}
 \item{\code{bootRatios.j}: }{the bootstrap ratios for the \eqn{J}-set;}
 \item{\code{bootRatiosSignificant.j}: }{the Significant
@@ -87,34 +88,40 @@ a list with
 \item{\code{eigenValues}: }{the \code{nIter * nL} table
  of eigenvalues;}
 \item{\code{fixedEigenvalues}: }{the eigenvalues of
- the cross-product matrix.}
- \item{\code{eigenCIs}}{the CIs for the
+  matrix n\eqn{X'Y}.}
+ \item{\code{eigenCIs}: }{the CIs for the
  eigenvalues.}
  }
 }
 \description{
 \code{Boot4PLSC}:
-Creates Bootstrap Bricks for the \eqn{I} and \eqn{J} sets
-of a PLSC. The cubes are
+Creates "Bootstrap Bricks" and other bootstrqp statistics
+=for the \eqn{I} and \eqn{J} sets
+of a PLSC.
+The bricks are
 obtained from bootstraping the rows
 of the two data-tables used for PLSC.
-Uses the "transition formula" to get
-the values of the rows and columns loadings
+ \code{Boot4PLSC} uses the "transition formula" to get
+the values of the row and column loadings
 from multiplication of the latent variables.
 Gives also the bootstraped eigenvalues
 (if \code{eigen = TRUE}).
 }
 \details{
-\emph{Note}:  \code{Boot4PLSC} gives the
+\emph{Note}: \code{Boot4PLSC} gives the
 \emph{eigenvalues} of the matrix
 \eqn{X'Y} even though PLSC
 works with the \emph{singular values}
-(i.e.,, the square roots of the eigenvalues) of
+(i.e., the square roots of the eigenvalues) of
 \eqn{X'Y}. The eigenvalues were chosen because their sum is the
 sum of squares (i.e., Inertia) of \eqn{X'Y}.
 
 \emph{Planned development:} A compact version that gives only
-bootstrap ratios (not BootstrapBricks).
+bootstrap ratios (not BootstrapBricks),
+should be useful for very large data sets.
+}
+\seealso{
+\code{\link{scale0}}
 }
 \author{
 Hervé Abdi

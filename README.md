@@ -108,6 +108,18 @@ Used to illustrate PCA with supplementary variables (could also be used for two 
 
 ## Current functions 
 
+
+### addArrows
+Add arrows to a factorial map
+(best with a circle of correlation as created, e.g., by `addCircleOfCor`).
+Used for loadings for PCA maps.
+
+### addCircleOfCor
+
+Add a *Circle of Correlation* to a PCA-like map
+#' of correlation produced by `{createFactorMap` 
+*et alia.* Used for loadings for PCA maps.
+
 ### addLines4MCA
 
  a `ggplot2` based function that
