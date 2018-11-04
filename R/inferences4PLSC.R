@@ -1,8 +1,20 @@
+# Inferences for PLSC
+#_____________________________________________________________________
+# functions in this file ----
+#   sv2
+#   perm4PLSC
+#          internal function: .truc
+#   print.perm4PLSC
+#   Boot4PLSC
+#          internal function: .boot.ratio.test
+#   print.bootBrick.ij4plsc
+#   print.bootBrick.ij.eig4plsc
 #
+#_____________________________________________________________________
 # Inference battery for PLSC
 # 1. Permutation
 # 2. Bootstrap
-# Hervé Abdi. Current version November 23, 2016.
+# Hervé Abdi. Original version November 23, 2016.
 # Last edit HA. November 3, 2018.
 #_____________________________________________________________________
 #_____________________________________________________________________
@@ -308,10 +320,9 @@ print.perm4PLSC <- function(x, ...){
 #_____________________________________________________________________
 
 #_____________________________________________________________________
-# Bootstrap here
-#
-
+# Bootstrap here ----
 #_____________________________________________________________________
+# BootPLSC Preamble ----
 # function Boot4PLSC
 #' @title  Create a Bootstrap Cube for PLSC
 #'
@@ -336,7 +347,8 @@ print.perm4PLSC <- function(x, ...){
 #' sum of squares (i.e., Inertia) of \eqn{X'Y}.
 #'
 #' \emph{Planned development:} A compact version that gives only
-#' bootstrap ratios (not BootstrapBricks).
+#' bootstrap ratios (not BootstrapBricks),
+#' should be useful for very large data sets.
 #'
 #' @param DATA1 an \eqn{N*I}  data matrix
 #' @param DATA2 an \eqn{N*J}  data matrix
@@ -406,6 +418,7 @@ print.perm4PLSC <- function(x, ...){
 #'  \item{\code{eigenCIs}: }{the CIs for the
 #'  eigenvalues.}
 #'  }
+#' @seealso \code{\link{scale0}}
 #' @author Hervé Abdi
 #' @rdname Boot4PLSC
 #' @export
@@ -523,8 +536,7 @@ Boot4PLSC <- function(DATA1, DATA2,
       bootRatiosSignificant.j =
         BR.j$sig.boot.ratios),
       class = "bootBrick.ij4plsc")
-## Code Below taken from BOOTCA. To be used
-## to implement the eig option later
+# get the eigenvalues
 if (eig){#add eig
    # eliminate empty eigenvalues
    eigenValues <- eigenValues[, colSums(eigenValues) > 0]
@@ -545,7 +557,7 @@ if (eig){#add eig
    return.list$fixedEigenvalues <- fixedEigenvalues
    return.list$eigenCI <- eigenCI
    class(return.list) <- "bootBrick.ij.eig4plsc"
-      } # end if eigen
+      } # end if eig
   return(return.list)
 } # End of Function
 
@@ -597,15 +609,15 @@ print.bootBrick.ij.eig4plsc <- function(x, ...) {
   cat(" for the I and J-sets of a PLSC (obtained from bootstrapping X & Y) \n")
   # cat("\n List name: ",deparse(eval(substitute(substitute(x)))),"\n")
   cat(rep("-", ndash), sep = "")
-  cat("\n$ bootstrapBrick.i        ", "an I*L*nIter Brick of BFSs  for the I-Set")
+  cat("\n$ bootstrapBrick.i        ", "an I*L*nIter Brick of BFSs for the I-Set")
   cat("\n$ bootRatios.i            ", "an I*L matrix of BRs for the I-Set")
   cat("\n$ bootRatiosSignificant.i ", "an I*L logical matrix for significance of the I-Set")
-  cat("\n$ bootstrapBrick.j        ", "a  J*L*nIter Brick of BFSs  for the J-Set")
+  cat("\n$ bootstrapBrick.j        ", "a  J*L*nIter Brick of BFSs for the J-Set")
   cat("\n$ bootRatios.j            ", "a  J*L matrix of BRs for the J-Set")
   cat("\n$ bootRatiosSignificant.j ", "a  J*L logical matrix for significance of the J-Set")
   cat("\n$ eigenValues             ", "a  nIter*L matrix of the bootstraped CA eigenvalues")
   cat("\n$ fixedEigenvalues        ", "a  1*L vector of the fixed eigenvalues")
-  cat("\n$ eigenCI                 ", "a  2*L matrix with min and max CI for the eigenvalues")
+  cat("\n$ eigenCI                 ", "a  2*L matrix with min & max CI of the eigenvalues")
   cat("\n",rep("-", ndash), sep = "")
   cat("\n")
   invisible(x)
