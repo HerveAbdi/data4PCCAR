@@ -7,11 +7,11 @@
 #_____________________________________________________________________
 # sinew::makeOxygen(getImportantCtr.12) # helper for CTR
 #_____________________________________________________________________
-# Preamble:  getImportantCtr.12 -----
+# Preamble:  getImportantCtr -----
 #' @title Get
 #' the items with important contributions for a factorial plane.
 #'
-#' @description \code{getImportantCtr.12}: 
+#' @description \code{getImportantCtr}: 
 #'  Gets the items whose contribution is
 #' important for a factorial plane.
 #' \code{getImportantCtr.12} gives
@@ -19,20 +19,19 @@
 #' important for the plane, and the items important for the plane
 #' or for at least one dimension of the plane.
 #' 
-#' @details \code{getImportantCtr.12} is mostly used to create clean
+#' @details \code{getImportantCtr} is mostly used to create clean
 #' factorial maps by plotting only the important items.
 #' \code{getImportantCtr.12}:
 #' can be used for row or columns of PCA, CA, MCA, etc.
 #' @param ctr The contributions of the items (e.g.,
 #' the output of \code{ExPosition}
 #' such as \code{$ExPosition.Data$ci}).
-#'
 #' @param eig the eigenvalues of the analysis
 #' (e.g.,
 #' the output of \code{ExPosition}
 #'  such as \code{$ExPosition.Data$eigs}).
-#' @param axis1 the horizontal axis, (Default: 1).
-#' @param axis2 the vertical axis  (Default: 2).
+#' @param axis1 the horizontal axis (Default: 1).
+#' @param axis2 the vertical axis (Default: 2).
 #' @return a list with
 #' \itemize{
 #' \item{ctr.12: }{The contributions of the items to the plane;}
@@ -65,7 +64,7 @@ getImportantCtr <- function(ctr, eig, axis1 = 1, axis2 = 2){
                     importantCtr.1or2 = importantVar.1or2 ),
                           class = 'ctr12')
   return(return.list)
-}
+} # end getImportantCtr
 # ********************************************************************
 #' Change the print function for objects of class \code{ctr12}
 #'
