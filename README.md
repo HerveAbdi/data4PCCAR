@@ -11,7 +11,7 @@ and the resulting figures.
 
 ## Introduction
 
-`data4PCCAR` is a collection of data sets and functions 
+`data4PCCAR` is a collection of data sets and `R`-functions 
 that are used (or could have been used, or should have been used) 
 to illustrate Principal Component Analysis (PCA), 
 Correspondence Analysis (CA), and related techniques 
@@ -26,7 +26,7 @@ from the package `devtools`:
 
 ```{r}
 #install.packages("devtools") 
-#decomment the line above ifthe package devtools is not yet intalled
+#decomment the line above if the package devtools is not yet intalled
 devtools::install_github("HerveAbdi/data4PCCAR") # install data4PCCAR
 ```
 
@@ -58,7 +58,8 @@ To be used to illustrate CA.
 
 Five tasters evaluated (using a 10 point rating scale)
 how much they liked five beers.
-To be used to illustrate how to use MCA with "fuzzy coding" with rating scales.
+To be used to illustrate 
+how to use MCA with "fuzzy coding" with rating scales.
 
 ### foodInFrance
 
@@ -86,7 +87,8 @@ about mental imagery
 (called the Object-Spatial Imagery Questionnaire: OSIQ). 
 Half of the questions concern mental imagery for object 
 and the other half ot the questions concern mental imagery 
-for spatial locations.
+for spatial locations. 
+To be used to illustrate PCA, Varimax rotation, and also MCA.
 
 ### sixFaces
 
@@ -99,24 +101,26 @@ The punctuation used by 6 classical French Writers (Rousseau, Chateaubrian, Hugo
 
 ### twentyWines
 
-A baby example: 20 red wines (10 French, 10 American) are rated by an expert on multiple dimensions. Used to illustrate PCA.
+A baby example: 20 red wines (10 French, 10 American) are rated by an expert on multiple dimensions.
+To be used to illustrate PCA.
 
 ### winesOf3Colors
 
 36 wines (from Argentina, Canada, and the USA) are described by a variety of variables (descriptors, chemistry, and sensory). 
-Used to illustrate PCA with supplementary variables (could also be used for two table methods such as CCCA and PLSC).
+To be used to illustrate PCA with supplementary variables (could also be used for two table methods such as CCCA and PLSC).
 
 ## Current functions 
 
 
 ### addArrows
-Add arrows to a factorial map
-(best with a circle of correlation as created, e.g., by `addCircleOfCor`).
+
+add arrows to a factorial map
+(best with a circle of correlation as created, e.g., by `addCircleOfCor`). 
 Used for loadings for PCA maps.
 
 ### addCircleOfCor
 
-Add a *Circle of Correlation* to a PCA-like map
+add a *Circle of Correlation* to a PCA-like map
 #' of correlation produced by `{createFactorMap` 
 *et alia.* Used for loadings for PCA maps.
 
@@ -157,17 +161,19 @@ makes a random image (with similar PCA loadings)
  Uses two helper functions: `getRandomFS` and `recode2Integer`:
  
 #### getRandomFS
+
 generates multivariate random observations (i.e., factor scores)
     that match the variance/eigenvalues of the dimensions.
  
 #### recode2Integer
+
 recodes a vector of real values to integers matching 
     a given distribution for the integers.
  
 
 ### coloringLevels
 
- creates a vector of color names for the levels
+creates a vector of color names for the levels
  of an MCA from the color names of the variables.
  Used for creating mqps in MCA.
 
@@ -175,7 +181,8 @@ recodes a vector of real values to integers matching
 ### compS
 
 a helper function for the functions `perm4PLSC` and `Boot4PLSC`, computes the cross-product
-of two comformable matrices using various types of normalization and centering.
+of two comformable matrices
+using various types of normalization and centering.
 
 ### ctr4Variables
 
@@ -188,11 +195,21 @@ Used to get contributions in MCA.
 
 a Varimax rotation on loadings and factor scores.
 Also gives the pseudo-eigenvalues and percentage of inertia.
+Used post-PCA to get nice clean components.
+
+### getImportantCtr.12
+
+gets the items with contributions important for a factorial plane.
+`getImportantCtr.12` gives the contributions of the items 
+to the plane, the items important for the plane, 
+and the items important for the plane or 
+for at least one dimension of the plane.
 
 ### monteCarlo.eigen
 
 a Monte Carlo generation of (random) eigenvalues to match
-a data matrix. Use to implement the *parallel* test
+a data matrix. 
+Used to implement the *parallel* test
 for the number of reliable eigenvalues.
 
 ###  perm4PLSC
@@ -216,19 +233,21 @@ by function `phi2Mat4BurtTable`.
 computes the $\phi^2$ (correlation) matrix
 and Burt table
 for data tables suitable for
-MCA. Useful to create correlation heatmap 
+MCA. 
+Useful to create correlation heatmap 
 for MCA.
- A helper function,
+Also a helper function,
  used for MCA.
 
 ### scale0
 
 centers and normalizes a vector to norm 1 or to norm
-$(N - 1)$.
+$(N - 1)$. The function
 `scale0` gives the same results as `scale`
-except for the option `'SS1'` (`scale0` normalizes to 1); 
+except
+1)  for the option `'SS1'` (`scale0` normalizes to 1); 
 when `x`
-comprises all identical values and when the
+comprises all identical values and 2) when the
 parameter `scale = TRUE`, `scale` gives back
 a vector of `NaN` (because of a division by 0 error),
 whereas `scale0` gives back a vector of `0`.
