@@ -46,6 +46,7 @@
 #' @author Hervé Abdi
 #' @rdname getImportantCtr
 #' @export
+#' @export getImportantCtr
 getImportantCtr <- function(ctr, eig, axis1 = 1, axis2 = 2){
   nI <- NROW(ctr)
   le.ctr <- ctr[, c(axis1, axis2)]
@@ -53,8 +54,7 @@ getImportantCtr <- function(ctr, eig, axis1 = 1, axis2 = 2){
   # use sweep to multiply by a diagonal matrix
   absCtrVar <- sweep(le.ctr,2,le.eig, FUN = '*')
   # absCtrVar <- as.matrix(varCtr) %*% diag(resMCA$ExPosition.Data$eigs)
-  varCtr12  <- (absCtrVar[,1] + absCtrVar[,2]) /
-    (le.eig[1] + le.eig[2])
+  varCtr12 <- (absCtrVar[,1] + absCtrVar[,2])/(le.eig[1] + le.eig[2])
   names(varCtr12)   <- rownames(ctr)
   importantVar.12   <- (varCtr12 >=  1/nI)
   importantVar.1or2 <- importantVar.12 | (le.ctr[,1 ] >= 1/nI) | (le.ctr[,2 ] >= 1/nI)
