@@ -8,10 +8,10 @@
 #_____________________________________________________________________
 # Preamble:  getImportantCtr.12 -----
 #' @title
-#' Get the items with contributions important for a factorial plane.
+#' Get the items with important contributions  for a factorial plane.
 #'
-#' @description \code{getImportantCtr.12}:
-#'  Gets the items with contributions
+#' @description \code{getImportantCtr.12}: 
+#'  Gets the items whose contribution is
 #' important for a factorial plane.
 #' \code{getImportantCtr.12} gives
 #' the contributions of the items to the plane, the items
