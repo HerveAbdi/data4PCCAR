@@ -3,12 +3,13 @@
 #  print.ctr12
 #
 # Hervé Abdi. Created 11/06/2018.
+#             last modified: 11/07/2018.
 #_____________________________________________________________________
 # sinew::makeOxygen(getImportantCtr.12) # helper for CTR
 #_____________________________________________________________________
 # Preamble:  getImportantCtr.12 -----
-#' @title
-#' Get the items with important contributions  for a factorial plane.
+#' @title Get
+#' the items with important contributions for a factorial plane.
 #'
 #' @description \code{getImportantCtr.12}: 
 #'  Gets the items whose contribution is
@@ -17,6 +18,7 @@
 #' the contributions of the items to the plane, the items
 #' important for the plane, and the items important for the plane
 #' or for at least one dimension of the plane.
+#' 
 #' @details \code{getImportantCtr.12} is mostly used to create clean
 #' factorial maps by plotting only the important items.
 #' \code{getImportantCtr.12}:
