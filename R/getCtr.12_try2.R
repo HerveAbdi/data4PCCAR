@@ -43,8 +43,8 @@
 #' is larger than the average for at least one of the components.}
 #' }
 #' @author Hervé Abdi
-#' @rdname getImportantCtr.12
-getImportantCtr.12 <- function(ctr, eig, axis1 = 1, axis2 = 2){
+#' @rdname getImportantCtr
+getImportantCtr <- function(ctr, eig, axis1 = 1, axis2 = 2){
   nI <- NROW(ctr)
   le.ctr <- ctr[, c(axis1, axis2)]
   le.eig <- eig[c(axis1, axis2)]
