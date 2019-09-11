@@ -252,6 +252,9 @@ parameter `scale = TRUE`, `scale` gives back
 a vector of `NaN` (because of a division by 0 error),
 whereas `scale0` gives back a vector of `0`.
 
+### theme_ptca()
+A `ggplot2` theme that matches the defaults of the factorial figures in `PTCA4CATA.`
+
 
  
 
