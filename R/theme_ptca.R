@@ -18,7 +18,8 @@
 #' of the factorial figures in \code{PTCA4CATA}.
 #' \code{theme_ptca2} is, obviously, a (slightly smarter) 
 #' cousin of 
-#' \code{PTCA4CATA::theme_ptca} (which will be deprecated in the
+#' \code{PTCA4CATA::theme_ptca} 
+#' (which will be deprecated in the
 #' near future).
 #'
 #' @param mire (Default = \code{TRUE}) when \code{TRUE}
@@ -31,11 +32,13 @@
 #' @param coor.fixed (Default = \code{TRUE}), when \code{TRUE}
 #'  the X and Y axis have the same units, when \code{FALSE} 
 #' the units are set by \code{ggplot2}, if a number is provided
-#' it will give the ratio (i.e., Y/X) to be used.
+#' it will give the aspect ratio 
+#' (i.e., Y/X) to be used to plot the graph..
 #' @param base_family the font family for the text 
 #' (e.g., on a mac \code{'Times', 'Arial', 'Courier', 'Symbol'},
 #' or plain \code{R, 'sans', 'serif', 'mono'}, can also be other fonts 
-#' if installed). Default is "" (i.e., uses the current default).
+#' if installed). Default is "" 
+#' (i.e., \code{theme_ptca2} uses the current default font family).
 #' @author Vincent Guillemot & Hervé Abdi
 #' @import ggplot2
 #' @importFrom grDevices adjustcolor
