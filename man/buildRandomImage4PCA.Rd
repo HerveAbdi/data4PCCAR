@@ -29,17 +29,17 @@ factorial structure roughly matches the original matrix.
 \description{
 \code{buildRandomImage4PCA}:
 Makes a random image (with similar PCA loadings) of a
-matrix of integer data such as Likert scales data..
+matrix of integer data such as Likert scales data.
 }
 \details{
 The procedure starts with a PCA of the original matrix
 \code{X} and gets loadings and factor scores.
 From the eigenvalues,
  \code{buildRandomImage4PCA} generates random observations in
- the factor scores spaces. These observations are then used
+ the factor score space. These observations are then used
  to recreate (via the \emph{reconstitution formula})
  a new matrix \code{X.rand} that will store the observations
- that will recreatae the random factor scores. The
+ that will recreate the random factor scores. The
  observations in \code{X.rand} are then re-scaled
  to match the distribution of the integers in the original matrix.
  Doing so gives a matrix of scores with the same basic statistics

@@ -39,7 +39,8 @@
 #' whose variance per dimension
 #' (i.e.,
 #' eigenvalues in PCA) will match a given set of variances.
-#' The function generating the set of number can be any such function
+#' The function generating the set of numbers 
+#' can be any such function
 #' (default is \code{runif}).
 #'
 #' @param ev The variance / eigenvalues per dimension (no default).
@@ -48,7 +49,7 @@
 #' function. Default: \code{stats::runif} (uniform distribution).
 #' @param center center the numbers.  Default: \code{FALSE}.
 #' @param scale normalization per dimension prior to
-#' re-nromalize the factor scores with \code{ev}, best to
+#' re-normalize the factor scores with \code{ev}, best to
 #' stick with the default.
 #' if \code{FALSE} do not normalize
 #' the numbers, if \code{TRUE} normalize the numbers to Z-scores
@@ -163,7 +164,7 @@ recode2Integer <- function(original.var, toBeScaled.var){
 #'
 #' @description \code{buildRandomImage4PCA}:
 #' Makes a random image (with similar PCA loadings) of a
-#' matrix of integer data such as Likert scales data..
+#' matrix of integer data such as Likert scales data.
 #' @param X The original data
 #' @param nObs  how many observations for the random data
 #'  (Default: \code{NROW(X)}.
@@ -180,10 +181,10 @@ recode2Integer <- function(original.var, toBeScaled.var){
 #' \code{X} and gets loadings and factor scores.
 #' From the eigenvalues,
 #'  \code{buildRandomImage4PCA} generates random observations in
-#'  the factor scores spaces. These observations are then used
+#'  the factor score space. These observations are then used
 #'  to recreate (via the \emph{reconstitution formula})
 #'  a new matrix \code{X.rand} that will store the observations
-#'  that will recreatae the random factor scores. The
+#'  that will recreate the random factor scores. The
 #'  observations in \code{X.rand} are then re-scaled
 #'  to match the distribution of the integers in the original matrix.
 #'  Doing so gives a matrix of scores with the same basic statistics

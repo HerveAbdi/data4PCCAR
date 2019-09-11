@@ -20,7 +20,7 @@ function. Default: \code{stats::runif} (uniform distribution).}
 \item{center}{center the numbers.  Default: \code{FALSE}.}
 
 \item{scale}{normalization per dimension prior to
-re-nromalize the factor scores with \code{ev}, best to
+re-normalize the factor scores with \code{ev}, best to
 stick with the default.
 if \code{FALSE} do not normalize
 the numbers, if \code{TRUE} normalize the numbers to Z-scores
@@ -53,7 +53,8 @@ multivariate coordinates of random observations
 whose variance per dimension
 (i.e.,
 eigenvalues in PCA) will match a given set of variances.
-The function generating the set of number can be any such function
+The function generating the set of numbers 
+can be any such function
 (default is \code{runif}).
 }
 \examples{
