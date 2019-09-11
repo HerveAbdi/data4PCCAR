@@ -41,7 +41,7 @@
 #' y <- c(10, 12, 20, 50)
 #' (p <-  ggplot(as.data.frame(cbind(x, y)),
 #'               aes(x = x, y = y)) +
-#'     geom_point(size = 2, shape = 19) +  coord_fixed() +
+#'     geom_point(size = 2, shape = 19) +
 #'     theme_ptca())
 #' }
 #' @export
