@@ -9,7 +9,7 @@
 # A good place to pick up colors for theme_ptca() and alternative is
 # https://www.w3schools.com/colors/colors_picker.asp
 #_____________________________________________________________________
-# Preambule theme_ptca ----
+# Preambule theme_ptca2 ----
 #' @title  A \code{ggplot2} theme that matches the defaults
 #' of the factorial figures in the package \code{PTCA4CATA}
 #'
