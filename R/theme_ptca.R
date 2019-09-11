@@ -16,10 +16,10 @@
 #' @description \code{theme_ptca2}:
 #' A \code{ggplot2} theme that matches the defaults
 #' of the factorial figures in \code{PTCA4CATA}.
-#' \code{theme_ptca2} is obviously a (slightly smarter) 
+#' \code{theme_ptca2} is, obviously, a (slightly smarter) 
 #' cousin of 
 #' \code{PTCA4CATA::theme_ptca} (which will be deprecated in the
-#' new future).
+#' near future).
 #'
 #' @param mire (Default = \code{TRUE}) when \code{TRUE}
 #' plot the factorial axis at values \code{x0} and \code{y0}.
