@@ -212,6 +212,12 @@ a data matrix.
 Used to implement the *parallel* test
 for the number of reliable eigenvalues.
 
+### nameExpositionResults
+adds dimension names to the results of analyses performed with` ExPosition`
+(recall that column names are needed for plots created with `ggplot2` when
+using `aes()`). Note that if there is a space is a name (as is the case by default),
+`aes_string()` may, in some contexts,  have to be used in lieu of `aes()`.
+
 ###  perm4PLSC
 computes a permutation test for PLSC (as implemented
  in `TExPosition::tepPLS`.
