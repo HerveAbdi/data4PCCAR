@@ -81,7 +81,7 @@ colnames(expoRes$pdq$Dd) <- noms2add
 rownames(expoRes$pdq$Dd) <- noms2add
 names(expoRes$pdq$Dv)    <- noms2add
 # special case get all dimensions
-nf.eig        <- NCOL(expoRes$eigs)
+nf.eig        <- length(expoRes$eigs)
 noms2add.eig  <- paste0(nom2dim, 1:nf.eig)
 names(expoRes$eigs) <- noms2add.eig
 names(expoRes$t)    <- noms2add.eig
@@ -114,7 +114,7 @@ if (!is.null(expoRes$fj)){
 # # library(InPosition)
 # # library(data4PCCAR)
 # df <- twentyWines$df.active
-# resPCA <- epPCA(df, scale = FALSE, graphs = FALSE, k = 1)
+# resPCA <- epPCA(df, scale = FALSE, graphs = FALSE)
 # resPCA.named <- nameExpositionResults(resPCA)
 # resPCA.inf <- epPCA.inference.battery(df, scale = FALSE)
 # toto <- nameExpositionResults(resPCA.inf)
