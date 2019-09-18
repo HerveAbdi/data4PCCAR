@@ -3,6 +3,7 @@
 \name{nameExpositionResults}
 \alias{nameExpositionResults}
 \title{add dimension names to the results from \code{ExPosition}
+or \code{InPosition}
 (for use with \code{ggplot2}).}
 \usage{
 nameExpositionResults(resExpo, names4Dimensions = "Dimension ")
