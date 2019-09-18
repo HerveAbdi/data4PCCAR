@@ -63,6 +63,7 @@
 nameExpositionResults <- function(resExpo, 
               names4Dimensions  = 'Dimension '){
     expoRes   <- resExpo$ExPosition.Data
+      resFromInPo <- FALSE
     if (!is.null(resExpo$Fixed.Data)){# results from InPosition
       resFromInPo <- TRUE
       expoRes <- resExpo$Fixed.Data$ExPosition.Data
