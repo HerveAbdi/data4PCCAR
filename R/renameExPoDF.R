@@ -82,7 +82,7 @@ rownames(expoRes$pdq$Dd) <- noms2add
 names(expoRes$pdq$Dv)    <- noms2add
 # special case get all dimensions
 nf.eig        <- NCOL(expoRes$eigs)
-noms2add.eig  <- paste0(nom2dim, 1:nf)
+noms2add.eig  <- paste0(nom2dim, 1:nf.eig)
 names(expoRes$eigs) <- noms2add.eig
 names(expoRes$t)    <- noms2add.eig
 # check that fj exists (mds special case)
