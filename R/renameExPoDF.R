@@ -24,6 +24,7 @@
 #
 #_____________________________________________________________________
 #' @title add dimension names to the results from \code{ExPosition}
+#' or \code{InPosition}
 #' (for use with \code{ggplot2}).
 #' @description \code{nameExpositionResults}:
 #' adds dimension names to the results of analyses performed with 
@@ -59,17 +60,20 @@
 #' }
 #' @rdname nameExpositionResults
 #' @export 
-
 nameExpositionResults <- function(resExpo, 
               names4Dimensions  = 'Dimension '){
     expoRes   <- resExpo$ExPosition.Data
-    nf        <- NCOL(expoRes$fi)
+    if (!is.null(resExpo$Fixed.Data)){# results from InPosition
+      resFromInPo <- TRUE
+      expoRes <- resExpo$Fixed.Data$ExPosition.Data
+    }
+    nf      <- NCOL(expoRes$fi)
     nom2dim <- names4Dimensions
     noms2add <- paste0(nom2dim, 1:nf)
 # Get the standard ones
-colnames(expoRes$fi) <- noms2add
-colnames(expoRes$ci) <- noms2add
-colnames(expoRes$ri) <- noms2add
+colnames(expoRes$fi)     <- noms2add
+colnames(expoRes$ci)     <- noms2add
+colnames(expoRes$ri)     <- noms2add
 colnames(expoRes$pdq$p)  <- noms2add
 colnames(expoRes$pdq$q)  <- noms2add
 colnames(expoRes$pdq$Dd) <- noms2add
@@ -86,7 +90,19 @@ if (!is.null(expoRes$fj)){
   colnames(expoRes$cj) <- noms2add
   colnames(expoRes$rj) <- noms2add
                          } # end of if
+     if (isTRUE(resFromInPo)){
+    names(resExpo$Inference.Data$components$p.vals)    <- noms2add
+    colnames(resExpo$Inference.Data$components$eigs.perm) <- noms2add
+    names(resExpo$Inference.Data$components$eigs) <- noms2add
+    colnames(resExpo$Inference.Data$fj.boots$tests$sig.boot.ratios) <- noms2add
+    colnames(resExpo$Inference.Data$fj.boots$tests$boot.ratios) <- noms2add
+    dimnames(resExpo$Inference.Data$fj.boots$boots)[[2]] <- noms2add
+       
+    resExpo$Fixed.Data$ExPosition.Data <- expoRes 
+       
+     } else {
      resExpo$ExPosition.Data <- expoRes 
+     }
      return(resExpo)
  } # end of function
 #_____________________________________________________________________
@@ -94,10 +110,13 @@ if (!is.null(expoRes$fj)){
 # test ----
 # # Test of the function below
 # #Get the data
+# # library(InPosition)
+# # library(data4PCCAR)
 # df <- twentyWines$df.active
 # resPCA <- epPCA(df, scale = FALSE, graphs = FALSE, k = 1)
-# #
 # resPCA.named <- nameExpositionResults(resPCA)
+# resPCA.inf <- epPCA.inference.battery(df, scale = FALSE)
+# toto <- nameExpositionResults(resPCA.inf)
 # data(jocn.2005.fmri)
 # #by default, components 1 and 2 will be plotted.
 # mds.res.images <- epMDS(jocn.2005.fmri$images$data)
