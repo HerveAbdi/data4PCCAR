@@ -54,6 +54,13 @@ To be used to illustrate CA.
 A contingency table storing the causes of death as a function of age in the USA in 2001.
 To be used to illustrate CA.
 
+### dimensionsOfDepression
+
+The similarity (measured on a scale from 0 to 1000, with bigger numbers
+meaning more similar)
+between 15 psychometric instruments (i.e. scales)
+ measuring depression.
+
 ### fiveBeersHedonics
 
 Five tasters evaluated (using a 10 point rating scale)

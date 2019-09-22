@@ -1,5 +1,5 @@
 # Description for file sixAuthorsPunctuated example for data4PCCAR
-# Hervé Abdi: Apri 14, 2018.
+# Hervé Abdi: April 14, 2018.
 #
 #   sixAuthorsPunctuated
 #  Preambule ----
@@ -10,7 +10,7 @@
 #'  The punctuation marks (comma, period, and "other marks")
 #'  used by six French authors Rousseau,
 #'  Chateaubrian, Hugo, Zola, Proust, Giraudoux.
-#'  Thus set is used to illustrate Correspondence Analysis.
+#'  This set is used to illustrate Correspondence Analysis.
 #'
 #' @details
 #' The punctuation by the six authors constitutes the "active set"
