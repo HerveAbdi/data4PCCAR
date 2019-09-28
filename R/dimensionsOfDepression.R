@@ -23,7 +23,7 @@
 #  Preambule ----
 #' @title 
 #' The similarity of 15 psychometric instruments 
-#' measuring depression
+#' measuring depression.
 #' 
 #' @description
 #'  \code{dimensionsOfDepression}: gives the 
@@ -33,7 +33,7 @@
 #'  between 15 psychometric instruments (i.e. scales)
 #' measuring depression.
 #' 
-#' These data come from a post of the sapiens lab,
+#' @source These data come from a post of the sapiens lab,
 #' for more details and references see
 #' \url{https://sapienlabs.org/quantitative-similarity-of-depression-tools/}
 #' 
@@ -57,8 +57,8 @@
 #' @keywords datasets data4PCCAR
 #' @author Hervé Abdi 
 #' @references 
-#' for details and more references, see
-#' \url{https://sapienlabs.org/quantitative-similarity-of-depression-tools/}
+#' for details and more references, see the \code{source} url.
+#' # \url{https://sapienlabs.org/quantitative-similarity-of-depression-tools/}
 NULL
 # End of dimensionsOfDepression
 #_____________________________________________________________________

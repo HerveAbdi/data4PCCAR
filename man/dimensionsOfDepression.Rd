@@ -4,7 +4,7 @@
 \name{dimensionsOfDepression}
 \alias{dimensionsOfDepression}
 \title{The similarity of 15 psychometric instruments 
-measuring depression}
+measuring depression.}
 \format{A list containing 2 data frames:
 * \code{df.scaleSimilarity}:
 a 15 * 15 matrix giving the similarity on a scale from 0 to 1000
@@ -18,6 +18,11 @@ scale is targeted toward adults
 (including the geriatric population) 
 or for children or adolescents.
 #' @md}
+\source{
+These data come from a post of the sapiens lab,
+for more details and references see
+\url{https://sapienlabs.org/quantitative-similarity-of-depression-tools/}
+}
 \usage{
 data("dimensionsOfDepression")
 }
@@ -28,14 +33,10 @@ data("dimensionsOfDepression")
 meaning more similar)
  between 15 psychometric instruments (i.e. scales)
 measuring depression.
-
-These data come from a post of the sapiens lab,
-for more details and references see
-\url{https://sapienlabs.org/quantitative-similarity-of-depression-tools/}
 }
 \references{
-for details and more references, see
-\url{https://sapienlabs.org/quantitative-similarity-of-depression-tools/}
+for details and more references, see the \code{source} url.
+# \url{https://sapienlabs.org/quantitative-similarity-of-depression-tools/}
 }
 \author{
 Hervé Abdi
