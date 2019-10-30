@@ -466,9 +466,9 @@ phi2Mat4BurtTable <- function(DATA,
 #' @description \code{BR4varMCA}
 #'  Computes pseudo Bootstrap ratios from pseudo-\eqn{F} for
 #' variables in MCA.
-#' @param BrLevels The bootstrap ratios  for the variables
-#' (i.e., the output from \code{InPosition::epMCA.inference.battery}
-#' @param wJ the masses (i.e. center of gravity of rows)
+#' @param BrLevels The bootstrap ratios for the variables
+#' (i.e., the output from \code{InPosition::epMCA.inference.battery}).
+#' @param wJ the masses (i.e., the center of gravity of the rows)
 #' for the columns, typically obtained from
 #' the output of \code{ExPosition} as
 #' \code{wJ = 1 / resMCA$ExPosition.Data$W}.
@@ -476,9 +476,10 @@ phi2Mat4BurtTable <- function(DATA,
 #'  used to compute the original Bootstrap ratios.
 #' @return A list with 6 elements
 #' \itemize{
-#'  \item{"pseudoBR.pos"}{The positive pseudo BR ratios (i.e.,
+#'  \item{"pseudoBR.pos"}{ The positive pseudo BR ratios (i.e.,
 #'  BRs indicating \emph{differences} between levels)}
-#'  \item{"pseudoBR"}{BR ratios matching the probability of their \eqn{F},
+#'  \item{"pseudoBR"}{ BR ratios matching the probability 
+#'  of their \eqn{F},
 #' could be positive (indicating \emph{differences} between levels), or
 #' could be negative (indicating \emph{similarities} between levels)
 #' }
@@ -491,14 +492,14 @@ phi2Mat4BurtTable <- function(DATA,
 #' \item{ pF4Var}{Probability associated the \eqn{F}'s}.
 #' }
 #' @author Hervé Abdi
-#' @details The idea here is to get a statistics that
-#' commensurable across designs. So, the BRs from the levels``
-#' are re-combined to give a pseudo-\eqn{F}that tests
+#' @details The idea here is to get a statistics that is
+#' commensurable across designs. So, the \eqn{BR}s from the levels
+#' are re-combined to give a pseudo-\eqn{F} that tests
 #' if the levels of the variables are reliably different
-#' for a given factor,  the
-#' probability associated to the pseudo\eqn{F}
-#' is then used to compute a pseudo BR whose value
-#' will then match the probability of the pseudo-\eqn{F}.
+#' for a given factor.  The
+#' probability associated to the pseudo-\eqn{F}
+#' is then used to compute a pseudo-\eqn{BR} whose value
+#' will then have the same probability as the pseudo-\eqn{F}.
 #' @examples
 #' \dontrun{
 #' if(interactive()){

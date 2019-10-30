@@ -161,6 +161,11 @@ of a PLSC
 obtained from bootstraping the rows
 of the two data-tables used for PLSC.
 
+### BR4varMCA 
+
+Computes pseudo Bootstrap Ratios (BR) from pseudo-$F$ for variables in MCA.
+Used to create BR-like histogram comparable to BR such as found for PCA.
+
 ### buildRandomImage4PCA
  
 makes a random image (with similar PCA loadings) 
