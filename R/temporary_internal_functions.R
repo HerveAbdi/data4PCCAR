@@ -278,3 +278,58 @@ tolerance.svd <- function(x, nu=min(dim(x)), nv=min(dim(x)), tol = .Machine$doub
   class(svd_res) <- c("list", "GSVD", "svd")
   return(svd_res)
 }
+
+#' is.diagonal.matrix, authored by Derek Beaton. Cf. package GSVD on GitHub, soon available on the CRAN
+#'
+#' @keywords internal
+
+is.diagonal.matrix <- function(x,tol=.Machine$double.eps){
+  if(is.null(dim(x))){
+    stop("is.diagonal.matrix: X is not a matrix.")
+  }
+  x[ x^2 < tol ] <- 0
+  return(all(x[lower.tri(x)] == 0, x[upper.tri(x)] == 0))
+}
+
+#' power, authored by Derek Beaton. Cf. package GSVD on GitHub, soon available on the CRAN
+#'
+#' @keywords internal
+
+`%^%` <- function(x,power){
+  matrix.exponent(x,power=power)
+}
+
+#' is.empty.matrix, authored by Derek Beaton. Cf. package GSVD on GitHub, soon available on the CRAN
+#'
+#' @keywords internal
+is.empty.matrix <- function(x,tol=.Machine$double.eps){
+  
+  x <- as.matrix(x)
+  x[abs(x) < tol] <- 0
+  
+  if(sum(abs(x))==0){
+    return(TRUE)
+  }else{
+    return(FALSE)
+  }
+  
+}
+
+#' is.identical.matrix, authored by Derek Beaton. Cf. package GSVD on GitHub, soon available on the CRAN
+#'
+#' @keywords internal
+
+is.identical.matrix <- function(x,tol=.Machine$double.eps, round.digits = 12){
+  
+  x <- as.matrix(x)
+  x[abs(x) < tol] <- 0
+  x <- round(x,digits=round.digits)
+  
+  if(length(unique(c(x)))==1){
+    return(TRUE)
+  }else{
+    return(FALSE)
+  }
+  
+}
+
