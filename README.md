@@ -153,6 +153,15 @@ generates
 a bootstrap distribution of eigenvalues
 for a given (rectangular) matrix.
 
+### Boot4CCA
+
+creates a Bootstrap Cube for CCA (Canonical Correlation Analysis):
+Creates Bootstrap Cubes for the I and J sets
+of a CCA
+obtained from bootstraping the rows
+of the two data-tables used for CCA.
+Companion function of  `tepCCA`. 
+
 ### Boot4PLSC 
 
 creates a Bootstrap Cube for PLSC (partial least square correlation):
@@ -230,6 +239,15 @@ adds dimension names to the results of analyses performed with` ExPosition`
 using `aes()`). Note that if there is a space is a name (as is the case by default),
 `aes_string()` may, in some contexts,  have to be used in lieu of `aes()`.
 
+
+###  perm4CCA
+computes a permutation test for Canonical Correlation Analysis 
+(CCA,  (as implemented
+ in `tepCCA`).
+Computes an omnibus permutation test and
+specific tests for the eigenvalues when
+performing a CCA.
+
 ###  perm4PLSC
 computes a permutation test for PLSC (as implemented
  in `TExPosition::tepPLS`.
@@ -269,6 +287,14 @@ comprises all identical values and 2) when the
 parameter `scale = TRUE`, `scale` gives back
 a vector of `NaN` (because of a division by 0 error),
 whereas `scale0` gives back a vector of `0`.
+
+### tepCCA
+
+ A  `TExPosition`-like version of Canonical Correlation
+ Analysis (CCA).  Inputs and outputs are the same as `TExPosition::tepPLS`.
+ Current version uses a clone of `GSVD` from Derek Beaton's 
+ soon-to-be-released-on-CRAN package `GSVD` (see `Github`: 
+ `derekbeaton/GSVD` for details`).
 
 ### theme_ptca2()
 A `ggplot2` theme that matches the defaults of the factorial figures in `PTCA4CATA`.

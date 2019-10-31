@@ -113,8 +113,10 @@ sv2 <- function(X){
   X <- as.matrix(X)
   if (NROW(X) > NCOL(X)) {X = t(X)}
   return(eigen(X %*% t(X), symmetric = TRUE, only.values = TRUE)$values)
-}
+}  # End of Function
 
+#_____________________________________________________________________
+# Preamble perm4PLSC ----
 #_____________________________________________________________________
 #' @title Permutation for PLSC (as implemented
 #' in \code{TExPosition::tepPLS})
@@ -375,10 +377,12 @@ print.perm4PLSC <- function(x, ...){
 #' @param scale2 when \code{TRUE} (default) \code{DATA2}
 #' will be normalized
 #'  (same options as for \code{scale1}).
-#' @param Fi (Default = \code{NULL}), the \eqn{I} factor scores
+#' @param Fi (Default = \code{NULL}), the \eqn{I} 
+#' factor scores
 #' for the columns of \code{DATA1}.
 #' if \code{NULL},  \code{Boot4RowCA} computes them..
-#' @param Fj = (Default = \code{NULL}, the \eqn{J} factor scores
+#' @param Fj = (Default = \code{NULL}, the \eqn{J} 
+#' factor scores
 #' for the columns of \code{DATA2}.
 #' if \code{NULL} the function
 #' \code{Boot4RowCA} computes them.

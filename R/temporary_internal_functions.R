@@ -1,11 +1,17 @@
+# Utilities for GSVD. All from Derek Beaton
+# Github DerekBeaton
+# Will be soon moved to CRAN.
+# Put together on October 31, 2019. by Vincent Guillemot and Hervé
+
+
 #' GSVD, authored by Derek Beaton. Cf. package GSVD on GitHub, soon available on the CRAN
 #'
 #' @keywords internal
 
-gsvd <- function(DAT,
-                 LW,
-                 RW,
-                 k = 0,
+gsvd <- function(DAT, # Data
+                 LW,  # Left weights
+                 RW,  # Right weights
+                 k = 0, # Number of factors to keep
                  tol = .Machine$double.eps) {
   # preliminaries
   DAT.dims <- dim(DAT)
@@ -327,6 +333,32 @@ is.identical.matrix <- function(x,tol=.Machine$double.eps, round.digits = 12){
   
   if(length(unique(c(x)))==1){
     return(TRUE)
+  }else{
+    return(FALSE)
+  }
+  
+}
+
+
+#' is.identity.matrix, authored by Derek Beaton. 
+#' Cf. package GSVD on GitHub, soon available on the CRAN
+#'
+#' @keywords internal
+is.identity.matrix <- function(x,tol=.Machine$double.eps){
+  
+  if(is.null(dim(x))){
+    stop("is.identity.matrix: x is not a matrix.")
+  }
+  
+  x <- as.matrix(x)
+  x[abs(x) < tol] <- 0
+  
+  if(is.diagonal.matrix(x)){
+    if( all(diag(x)==1) ){
+      return(TRUE)
+    }else{
+      return(FALSE)
+    }
   }else{
     return(FALSE)
   }

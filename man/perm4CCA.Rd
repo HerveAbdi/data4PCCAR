@@ -2,34 +2,100 @@
 % Please edit documentation in R/perm4CCA.R
 \name{perm4CCA}
 \alias{perm4CCA}
-\title{Title}
+\title{Permutation for canonical corrrelation analysis (CCA);
+as implemented
+in \code{tepCCA}) (a \code{TExPosition} compatible version).}
 \usage{
 perm4CCA(DATA1, DATA2, center1 = TRUE, center2 = TRUE,
   scale1 = "ss1", scale2 = "ss1", nIter = 1000, permType = "byMat",
   compact = FALSE)
 }
 \arguments{
-\item{DATA1}{}
+\item{DATA1}{an \eqn{N*I} matrix of quantitative data}
 
-\item{DATA2}{}
+\item{DATA2}{an \eqn{N*J} matrix of quantitative data}
 
-\item{center1}{}
+\item{center1}{when \code{TRUE} (default) \code{DATA1}
+will be centered}
 
-\item{center2}{}
+\item{center2}{when \code{TRUE} (default) \code{DATA2}
+will be centered}
 
-\item{scale1}{}
+\item{scale1}{when \code{TRUE} (default) \code{DATA1}
+will be normalized. Depends upon \code{ExPosition}
+function \code{expo.scale} whose description is:
+boolean, text, or (numeric) vector.
+If boolean or vector,
+it works just as scale.
+The following text options are available:
+\code{'z'}: z-score normalization,
+\code{'sd'}: standard deviation normalization,
+\code{'rms'}: root mean square normalization,
+ \code{'ss1'}: sum of squares
+ (of columns) equals 1
+ (i.e., column vector of length of 1).}
 
-\item{scale2}{}
+\item{scale2}{when \code{TRUE} (default) \code{DATA2}
+will be normalized
+ (same options as for \code{scale1}).}
 
-\item{nIter}{}
+\item{nIter}{(Default = \code{1000}). Number of Iterations
+(i.e., number of permuted samples computed).}
 
-\item{permType}{}
+\item{permType}{what type of permutation is used
+if \code{'byMat'} (default) only the labels of the observations
+are permuted, other option is \code{'byColumns'} then
+all columns of each matrix are independently
+permuted.}
 
-\item{compact}{}
+\item{compact}{if \code{TRUE}
+(Default) return only \eqn{p}-values for omnibus test.}
+}
+\value{
+a list with
+\code{fixedInertia}: the inertia of
+\eqn{X'Y} data matrix (i.e., sums of squares)
+\code{fixedEigenvalues}: the  eigenvalues of
+the \eqn{X'Y}  matrix;
+\code{pOmnibus}: the probability associated
+to the inertia.
+If \code{compact} is \code{FALSE}, return also
+\code{permInertia}:
+an \code{nIter} * 1 vector containing the
+permuted inertia;
+\code{pEigenvalues}: The probabilites
+associated to each eigenvalue;
+If \code{compact} is \code{FALSE}, returns also
+\code{permEigenvalues}: an
+\code{nIter} * \code{L} matrix giving
+the permuted eigenvalues.
 }
 \description{
-Title
+\code{perm4CCA}: 
+Permutation for CCA (as implemented
+in \code{tepCCA}).
+Computes an omnibus permutation test and
+specific tests for the eigenvalues when
+performing a CCA from
+2 matrices \eqn{X} and \eqn{Y}.
+Several possible
+combinations of centering and normalizing
+are possible (see paramater \code{scale1,
+scale2, center2, scale2}).
+Used for functions related to CCA /
+The different types of normalization are
+based on the \code{ExPosition::expo.scale}
+function. Two different permutation schemes
+are currently available (see parameter
+\code{permType}).
 }
 \examples{
-\dontrun{}
+\dontrun{ # Some examples here sometimes ****}
+
+}
+\seealso{
+compS
+}
+\author{
+Vincent Guillemot & Hervé Abdi
 }
