@@ -172,14 +172,14 @@ gsvd <- function(DAT, # Data
 
 matrix.exponent <- function(x, power = 1, k = 0, ...){
   
-  ##stolen from MASS::ginv()
+  ## stolen from MASS::ginv()
   if (length(dim(x)) > 2L || !(is.numeric(x) || is.complex(x)))
     stop("matrix.exponent: 'x' must be a numeric or complex matrix")
   if (!is.matrix(x))
     x <- as.matrix(x)
   
   k <- round(k)
-  if(k<=0){
+  if(k <= 0){
     k <- min(nrow(x),ncol(x))
   }
   
@@ -365,3 +365,243 @@ is.identity.matrix <- function(x,tol=.Machine$double.eps){
   
 }
 
+#' epGPCA2, authored by Derek Beaton. 
+#' Cf. package GSVD on GitHub, soon available on the CRAN
+#'
+#' @keywords internal
+epGPCA2 <- function (DATA, scale = TRUE, center = TRUE, DESIGN = NULL, 
+                     make_design_nominal = TRUE, 
+                     masses = NULL, weights = NULL, graphs = TRUE, k = 0) {
+  main <- deparse(substitute(DATA))
+  DESIGN <- designCheck(DATA, DESIGN, make_design_nominal)
+  DATA <- as.matrix(DATA)
+  DATA <- expo.scale(DATA, scale = scale, center = center)
+  this.center <- attributes(DATA)$`scaled:center`
+  this.scale <- attributes(DATA)$`scaled:scale`
+  MW <- computeMW(DATA, masses = masses, weights = weights)
+  print('In epGPCA. MS')
+  print(MW$M)
+  print(MW$W)
+  print('In epGPCA. masses & weights')
+  print(masses)
+  print(weights)
+  #res <- corePCA(DATA, M = MW$M, W = MW$W, k = k)
+  #MW <- computeMW(DATA, masses = masses, weights = weights)
+  res <- corePCA2(DATA, M = masses, W = weights, k = k)
+  res$center <- this.center
+  res$scale <- this.scale
+  class(res) <- c("epGPCA", "list")
+  epPlotInfo <- epGraphs(res = res, DESIGN = DESIGN, main = main, 
+                         graphs = graphs)
+  return(epOutputHandler(res = res, epPlotInfo = epPlotInfo))
+}
+
+#' corePCA2, authored by Derek Beaton. 
+#' Cf. package GSVD on GitHub, soon available on the CRAN
+#'
+#' @keywords internal
+corePCA2 <- function (DATA, M = NULL, W = NULL, 
+                      decomp.approach = "svd", 
+                      k = 0)  {
+  DATA_dims <- dim(DATA)
+  # if (is.null(M)) {
+  #   M <- rep(1, nrow(DATA))
+  # }
+  # if (is.null(W)) {
+  #   W <- rep(1, ncol(DATA))
+  # }
+  # if ((!is.null(dim(M))) && (length(M) == (nrow(M) * ncol(M)))) {
+  #   M <- diag(M)
+  # }
+  # if ((!is.null(dim(W))) && (length(W) == (nrow(W) * ncol(W)))) {
+  #   W <- diag(W)
+  # }
+  print('In corePCA')
+  print(M)
+  print(W)
+  pdq_results <- genPDQ2(datain = DATA, M = M, W = W, is.mds = FALSE, 
+                        decomp.approach = decomp.approach, k = k)
+  print('in corePCA')
+  print(pdq_results$Dv)
+  print(pdq_results$p)
+  
+  if (is.diagMat(M)){
+    fi <- matrix(M, nrow(pdq_results$p), ncol(pdq_results$p)) * 
+      pdq_results$p * matrix(pdq_results$Dv, nrow(pdq_results$p), 
+                             ncol(pdq_results$p), byrow = TRUE)
+    ci <- matrix(1/M, nrow(fi), ncol(fi), byrow = FALSE) *
+      (fi^2)/matrix(pdq_results$Dv^2,
+                    nrow(fi), ncol(fi), byrow = TRUE)
+  } else {
+    fi <- M %*%  pdq_results$p *
+      matrix(pdq_results$Dv, nrow(pdq_results$p), 
+             ncol(pdq_results$p), byrow = TRUE)
+    ci <- matrix.exponent(M, power = -1) %*% 
+      (fi^2)/matrix(pdq_results$Dv^2, 
+                    nrow(fi), ncol(fi), byrow = TRUE)
+  }
+  rownames(fi) <- rownames(DATA)
+  di <- rowSums(fi^2)
+  ri <- matrix(1/di, nrow(fi), ncol(fi)) * (fi^2)
+  ri <- replace(ri, is.nan(ri), 0)
+  ci <- replace(ci, is.nan(ci), 0)
+  di <- as.matrix(di)
+  if (is.diagMat(W)){
+    fj <- matrix(W, nrow(pdq_results$q), ncol(pdq_results$q)) * 
+      pdq_results$q * matrix(pdq_results$Dv, nrow(pdq_results$q), 
+                             ncol(pdq_results$q), byrow = TRUE)
+    cj <- matrix(1/W, nrow(pdq_results$q), ncol(pdq_results$q), 
+                 byrow = FALSE) * (fj^2)/matrix(pdq_results$Dv^2, nrow(fj), 
+                                                ncol(fj), byrow = TRUE)
+  } else {
+    fj <- W %*% pdq_results$q * 
+      matrix(pdq_results$Dv, nrow(pdq_results$q), 
+             ncol(pdq_results$q), byrow = TRUE)
+    cj <- matrix.exponent(W, power = -1) %*% 
+      (fj^2)/matrix(pdq_results$Dv^2, nrow(fj), 
+                    ncol(fj), byrow = TRUE)         
+  }
+  rownames(fj) <- colnames(DATA)
+  dj <- rowSums(fj^2)
+  rj <- matrix(1/dj, nrow(fj), ncol(fj)) * (fj^2)
+  rj <- replace(rj, is.nan(rj), 0)
+  cj <- replace(cj, is.nan(cj), 0)
+  dj <- as.matrix(dj)
+  print("Checking the values for tau in corePCA")
+  res <- list(fi = fi, di = di, ci = ci, ri = ri, fj = fj, 
+              cj = cj, rj = rj, dj = dj, 
+              t = pdq_results$tau, 
+              eigs = pdq_results$eigs, 
+              pdq = pdq_results, 
+              X = DATA, M = M, W = W)
+}
+
+#' epOutputHandler, authored by Derek Beaton. 
+#' Cf. package GSVD on GitHub, soon available on the CRAN
+#'
+#' @keywords internal
+epOutputHandler <- function (res = NULL, epPlotInfo = NULL) 
+{
+  if (!is.null(res) && !is.null(epPlotInfo)) {
+    final.output <- list(ExPosition.Data = res, Plotting.Data = epPlotInfo)
+    class(final.output) <- c("expoOutput", "list")
+    return(final.output)
+  }
+  else {
+    print("Unknown inputs. epOutputHandler must exit.")
+    return(0)
+  }
+  print("It is unknown how this was executed. epOutputHandler must exit.")
+  return(0)
+}
+
+
+#' genPDQ2, authored by Derek Beaton. 
+#' Cf. package GSVD on GitHub, soon available on the CRAN
+#'
+#' @keywords internal
+genPDQ2 <- function (datain, M = NULL, W = NULL, is.mds = FALSE, decomp.approach = "svd", 
+                     k = 0) {
+  na.check <- is.na(datain)
+  nan.check <- is.nan(datain)
+  inf.check <- is.infinite(datain)
+  if (sum(na.check | nan.check | inf.check) > 0) {
+    stop("ExPosition must stop. There are NA, NaN, or Infinite values.")
+  }
+  if (is.null(M)) {
+    M <- rep(1, nrow(datain))
+  }
+  if (is.null(W)) {
+    W <- rep(1, ncol(datain))
+  }
+  if ((is.null(dim(M)) &&  is.null(dim(W))) && 
+      (length(W) >  0 && length(M) > 0)) {
+    vectorflag <- TRUE
+    M <- sqrt(M)
+    W <- sqrt(W)
+  }
+  else if (length(dim(M)) == 2 && length(dim(W)) == 2) {
+    vectorflag <- FALSE
+    M <-  sqrt.mat(M)
+    W <-  sqrt.mat(W)
+  } else {
+    stop("There is an error in the formatting of your masses or weights")
+  }
+  if (vectorflag) {
+    datain <- matrix(M, length(M), dim(datain)[2], byrow = FALSE) * 
+      datain * matrix(W, dim(datain)[1], length(W), byrow = TRUE)
+  }
+  else {
+    datain <- M %*% datain %*% W
+  }
+  svdOUT <- pickSVD(datain, is.mds = is.mds, decomp.approach = decomp.approach,
+                    k = k)
+  # svdOUT <- svd(datain)
+  P <- svdOUT$u
+  d <- as.vector(svdOUT$d)
+  D <- diag(d)
+  Q <- svdOUT$v
+  tau <- svdOUT$tau
+  eigs <- svdOUT$eigs
+  rank <- length(eigs)
+  if (vectorflag) {
+    P <- matrix(1/M, dim(P)[1], dim(P)[2], byrow = FALSE) * 
+      P
+    Q <- matrix(1/W, dim(Q)[1], dim(Q)[2], byrow = FALSE) * 
+      Q
+  }
+  else {
+    if (!is.diagMat(P)) {
+      P <- solve(M) %*% P
+    } else {
+      P <- (1/M) %*% P
+    }
+    if (!is.diagMat(P)) {
+      Q <- solve(W) %*% Q
+    } else {
+      Q <- (1/W) %*% Q
+    }
+  }
+  res <- list(p = P, q = Q, Dv = d, Dd = D, ng = length(d), 
+              rank = rank, tau = tau, eigs = eigs)
+  class(res) <- c("epSVD", "list")
+  return(res)
+}
+
+
+#' sqrt.mat, authored by Derek Beaton. 
+#' Cf. ExPosition CRAN
+#'
+#' @keywords internal
+# sqrt.mat from ExPosition 
+sqrt.mat <- function (X) 
+{
+  if (!isSymmetric.matrix(X)) {
+    stop("Weight/Mass matrix is not symmetric")
+  }
+  if (isDiagonal.matrix(X)) {
+    return(sqrt(diag(X)))
+  }
+  else {
+    A <- eigen(X)
+    A$values[which(A$values < .Machine$double.eps)] <- 0
+    if (sum(A$values < 0) > 0) {
+      stop("Weight/Mass matrix not positive definite. Some eigenvalues are less than 0")
+    }
+    else {
+      return(A$vectors %*% diag(sqrt(A$values)) %*% t(A$vectors))
+    }
+  }
+}
+
+#' sqrt.mat, authored by Derek Beaton. 
+#' Cf. ExPosition CRAN
+#'
+#' @keywords internal
+isDiagonal.matrix <-function (X) 
+{
+  if (is.null(dim(X))) {
+    stop("X is not a matrix.")
+  }
+  return(all(X[lower.tri(X)] == 0, X[upper.tri(X)] == 0))
+}

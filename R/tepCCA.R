@@ -1,23 +1,25 @@
 # tepCCA -----
 #' @title A \code{TExPosition}-type version of Canonical Correlation
-#' Analysis (CCA). 
+#' Analysis (CCA).\emph{Temporary Version (11-04-2019)}.
 #' 
 #' @description \code{tepCCA}:
 #'  A \code{TExPosition}-type version of Canonical Correlation
-#' Analysis (CCA). 
+#' Analysis (CCA). \emph{Temporary Version. 
+#' This version will soon be revised to take into account 
+#' the new \code{GSVD}-package from Derek Beaton}.
 #'
-#' @param DATA1  an \eqn{N*I} matrix of quantitative data
-#' @param DATA2  an \eqn{N*J} matrix of quantitative data
+#' @param DATA1  an \eqn{N*I} matrix of quantitative data.
+#' @param DATA2  an \eqn{N*J} matrix of quantitative data.
 #' @param center1 when \code{TRUE} (default) \code{DATA1}
-#' will be centered
+#' will be centered.
 #' @param center2 when \code{TRUE} (default) \code{DATA2}
-#' will be centered
+#' will be centered.
 #' @param scale1 when \code{TRUE} (default) \code{DATA1}
 #' will be normalized. Depends upon \code{ExPosition}
 #' function \code{expo.scale} whose description is:
 #'boolean, text, or (numeric) vector.
 #'If boolean or vector,
-#'it works just as scale.
+#'it works just like \code{scale}.
 #'The following text options are available:
 #' \code{'z'}: z-score normalization,
 #' \code{'sd'}: standard deviation normalization,
@@ -28,7 +30,8 @@
 #' @param scale2 when \code{TRUE} (default) \code{DATA2}
 #' will be normalized
 #'  (same options as for \code{scale1}).
-#' @param DESIGN a design matrix to indicate if rows belong to groups
+#' @param DESIGN a design matrix 
+#' to indicate if the rows comprise several groups.
 #' @param make_design_nominal 
 #' a boolean. If \code{TRUE} (default), 
 #' DESIGN is a vector that indicates groups 
@@ -36,7 +39,8 @@
 #' If \code{FALSE}, \code{DESIGN} is a dummy-coded matrix.
 #' @param graphs 
 #' a boolean. If \code{TRUE}, 
-#' graphs and plots are provided (via \code{TExPosition::tepGraphs}).
+#' graphs and plots are provided 
+#' (via \code{TExPosition::tepGraphs}).
 #' @param k 	number of components to return.
 #' @author Vincent Guillemot, Derek Beaton, Hervé Abdi
 #' @return
@@ -67,18 +71,16 @@
 #' @examples
 #' \dontrun{
 #' # Sime example here ***}
-tepCCA <- function (DATA1, DATA2, center1 = TRUE, 
-                    scale1 = "SS1", center2 = TRUE, 
-          scale2 = "SS1", DESIGN = NULL, 
-          make_design_nominal = TRUE, 
-          graphs = TRUE, k = 0) 
-{
+tepCCA <- function (DATA1, DATA2, 
+                    center1 = TRUE, scale1 = "SS1", 
+                    center2 = TRUE, scale2 = "SS1", 
+                    DESIGN = NULL, make_design_nominal = TRUE, 
+          graphs = TRUE, k = 0) {
   if (nrow(DATA1) != nrow(DATA2)) {
     stop("DATA1 and DATA2 must have the same number of rows.")
   }
   # Internal function ----
-  tepOutputHandler <-  function (res = NULL, tepPlotInfo = NULL) 
-  {
+  tepOutputHandler <-  function (res = NULL, tepPlotInfo = NULL) {
     if (!is.null(res) && !is.null(tepPlotInfo)) {
       final.output <- list(TExPosition.Data = res, 
                                Plotting.Data = tepPlotInfo)
@@ -107,13 +109,26 @@ tepCCA <- function (DATA1, DATA2, center1 = TRUE,
   DATA1 <- expo.scale(DATA1, scale = scale1, center = center1)
   DATA2 <- expo.scale(DATA2, scale = scale2, center = center2)
   R <- t(DATA1) %*% DATA2
+  # R <- cor(DATA1, DATA2)
   M <- t(DATA1) %*% DATA1
+  # M <- cor(DATA1)
   W <- t(DATA2) %*% DATA2
-  Mm12 <- matrix.exponent(M, power = -1/2)
-  Wm12 <- matrix.exponent(W, power = -1/2)
-  res <- ExPosition::epGPCA(DATA = R, k = k, 
-                             graphs = FALSE, scale = FALSE, 
-               center = FALSE, masses = Mm12, weights = Wm12)
+  # W <- cor(DATA2)
+  Mm1 <- matrix.exponent(M, power = -1)
+  Wm1 <- matrix.exponent(W, power = -1)
+  print(R[1:3, 1:3])
+  print(cor(DATA1, DATA2)[1:3, 1:3])
+  print(M)
+  res <- epGPCA2(DATA = R,
+                 k = k,
+                 graphs = FALSE,
+                 masses = Mm1,
+                 weights = Wm1,
+                 scale = FALSE,
+                 center = FALSE)
+# res <- ExPosition::epGPCA(DATA = R, k = k,
+# graphs = FALSE, scale = FALSE, 
+# center = FALSE, masses = Mm12, weights = Wm12)
   res <- res$ExPosition.Data
   res$center <- NULL
   res$scale <- NULL
@@ -129,9 +144,9 @@ tepCCA <- function (DATA1, DATA2, center1 = TRUE,
   res$ly <- ExPosition::supplementalProjection(DATA2, res$fj, 
                                              Dv = res$pdq$Dv)$f.out
   class(res) <- c("tepPLS", "list")
-  tepPlotInfo <- TExPosition::tepGraphs(res = res, 
-                                        DESIGN = DESIGN, main = main, 
-                                        graphs = graphs)
-  return(tepOutputHandler(res = res,
-                                        tepPlotInfo = tepPlotInfo))
+  # tepPlotInfo <- TExPosition::tepGraphs(res = res, 
+  #                                       DESIGN = DESIGN, main = main, 
+  #                                       graphs = graphs)
+  # return(tepOutputHandler(res = res, tepPlotInfo = tepPlotInfo))
+  return(tepOutputHandler(res = res, tepPlotInfo = NULL))
 }

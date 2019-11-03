@@ -3,26 +3,26 @@
 \name{tepCCA}
 \alias{tepCCA}
 \title{A \code{TExPosition}-type version of Canonical Correlation
-Analysis (CCA).}
+Analysis (CCA).\emph{Temporary Version (11-04-2019)}.}
 \usage{
 tepCCA(DATA1, DATA2, center1 = TRUE, scale1 = "SS1", center2 = TRUE,
   scale2 = "SS1", DESIGN = NULL, make_design_nominal = TRUE,
   graphs = TRUE, k = 0)
 }
 \arguments{
-\item{DATA1}{an \eqn{N*I} matrix of quantitative data}
+\item{DATA1}{an \eqn{N*I} matrix of quantitative data.}
 
-\item{DATA2}{an \eqn{N*J} matrix of quantitative data}
+\item{DATA2}{an \eqn{N*J} matrix of quantitative data.}
 
 \item{center1}{when \code{TRUE} (default) \code{DATA1}
-will be centered}
+will be centered.}
 
 \item{scale1}{when \code{TRUE} (default) \code{DATA1}
 will be normalized. Depends upon \code{ExPosition}
 function \code{expo.scale} whose description is:
 boolean, text, or (numeric) vector.
 If boolean or vector,
-it works just as scale.
+it works just like \code{scale}.
 The following text options are available:
 \code{'z'}: z-score normalization,
 \code{'sd'}: standard deviation normalization,
@@ -32,13 +32,14 @@ The following text options are available:
  (i.e., column vector of length of 1).}
 
 \item{center2}{when \code{TRUE} (default) \code{DATA2}
-will be centered}
+will be centered.}
 
 \item{scale2}{when \code{TRUE} (default) \code{DATA2}
 will be normalized
  (same options as for \code{scale1}).}
 
-\item{DESIGN}{a design matrix to indicate if rows belong to groups}
+\item{DESIGN}{a design matrix 
+to indicate if the rows comprise several groups.}
 
 \item{make_design_nominal}{a boolean. If \code{TRUE} (default), 
 DESIGN is a vector that indicates groups 
@@ -46,7 +47,8 @@ DESIGN is a vector that indicates groups
 If \code{FALSE}, \code{DESIGN} is a dummy-coded matrix.}
 
 \item{graphs}{a boolean. If \code{TRUE}, 
-graphs and plots are provided (via \code{TExPosition::tepGraphs}).}
+graphs and plots are provided 
+(via \code{TExPosition::tepGraphs}).}
 
 \item{k}{number of components to return.}
 }
@@ -69,7 +71,9 @@ center and scale information for \code{DATA2}.
 \description{
 \code{tepCCA}:
  A \code{TExPosition}-type version of Canonical Correlation
-Analysis (CCA).
+Analysis (CCA). \emph{Temporary Version. 
+This version will soon be revised to take into account 
+the new \code{GSVD}-package from Derek Beaton}.
 }
 \examples{
 \dontrun{
