@@ -166,5 +166,5 @@ tepCCA <- function (DATA1, DATA2,
                                          DESIGN = DESIGN, main = main, 
                                          graphs = graphs)
   # return(tepOutputHandler(res = res, tepPlotInfo = tepPlotInfo))
-  return(tepOutputHandler(res = res, tepPlotInfo = NULL))
+  return(tepOutputHandler(res = res, tepPlotInfo = tepPlotInfo))
 }
