@@ -53,9 +53,9 @@ graphs and plots are provided
 \item{k}{number of components to return.}
 }
 \value{
-Value
 See \code{ExPosition::epGPCA} (and also \code{ExPosition::corePCA}) 
-for details on what is returned. In addition to the values returned:
+for details on what is returned. 
+In addition to the values returned:
 \code{tepCCA} returns  
 
 \code{lx}: 

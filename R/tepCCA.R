@@ -44,9 +44,9 @@
 #' @param k 	number of components to return.
 #' @author Vincent Guillemot, Derek Beaton, Hervé Abdi
 #' @return
-#' Value
 #' See \code{ExPosition::epGPCA} (and also \code{ExPosition::corePCA}) 
-#' for details on what is returned. In addition to the values returned:
+#' for details on what is returned. 
+#' In addition to the values returned:
 #' \code{tepCCA} returns  
 #' 
 #' \code{lx}: 
@@ -116,9 +116,9 @@ tepCCA <- function (DATA1, DATA2,
   # W <- cor(DATA2)
   Mm1 <- matrix.exponent(M, power = -1)
   Wm1 <- matrix.exponent(W, power = -1)
-  print(R[1:3, 1:3])
-  print(cor(DATA1, DATA2)[1:3, 1:3])
-  print(M)
+  # print(R[1:3, 1:3])
+  # print(cor(DATA1, DATA2)[1:3, 1:3])
+  # print(M)
   res <- epGPCA2(DATA = R,
                  k = k,
                  graphs = FALSE,
@@ -129,19 +129,20 @@ tepCCA <- function (DATA1, DATA2,
 # res <- ExPosition::epGPCA(DATA = R, k = k,
 # graphs = FALSE, scale = FALSE, 
 # center = FALSE, masses = Mm12, weights = Wm12)
-  res <- res$ExPosition.Data
-  res$center <- NULL
-  res$scale <- NULL
-  res$W1 <- res$M
-  res$W2 <- res$W
-  res$M <- res$W <- NULL
-  res$data1.norm <- list(center = attributes(DATA1)$`scaled:center`, 
+  res <- list()
+  res$ExPosition.Data <- list()
+  res$ExPosition.Data$center <- NULL
+  res$ExPosition.Data$scale <- NULL
+  res$ExPosition.Data$W1 <- res$M
+  res$ExPosition.Data$W2 <- res$W
+  res$ExPosition.Data$M <- res$W <- NULL
+  res$ExPosition.Data$data1.norm <- list(center = attributes(DATA1)$`scaled:center`, 
                          scale = attributes(DATA1)$`scaled:scale`)
-  res$data2.norm <- list(center = attributes(DATA2)$`scaled:center`, 
+  res$ExPosition.Data$data2.norm <- list(center = attributes(DATA2)$`scaled:center`, 
                          scale = attributes(DATA2)$`scaled:scale`)
-  res$lx <- ExPosition::supplementalProjection(DATA1, res$fi, 
+  res$ExPosition.Data$lx <- ExPosition::supplementalProjection(DATA1, res$fi, 
                                              Dv = res$pdq$Dv)$f.out
-  res$ly <- ExPosition::supplementalProjection(DATA2, res$fj, 
+  res$ExPosition.Data$ly <- ExPosition::supplementalProjection(DATA2, res$fj, 
                                              Dv = res$pdq$Dv)$f.out
   class(res) <- c("tepPLS", "list")
   # tepPlotInfo <- TExPosition::tepGraphs(res = res, 

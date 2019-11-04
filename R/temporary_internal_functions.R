@@ -24,7 +24,8 @@ gsvd <- function(DAT, # Data
     RW.is.missing <-
     LW.is.missing <- F ##asuming everything is a matrix.
   
-  ### These are here out of convenience for the tests below. They started to get too long.
+  ### These are here out of convenience for the tests below. 
+  ### They started to get too long.
   if (!missing(LW)) {
     if (is.empty.matrix(LW)) {
       stop("gsvd: LW is empty (i.e., all 0s")
@@ -36,7 +37,8 @@ gsvd <- function(DAT, # Data
     }
   }
   
-  # check if LW and RW are missing, if they are vectors, or if they are diagonal matrices.
+  # check if LW and RW are missing, if they are vectors, 
+  # or if they are diagonal matrices.
   if (missing(LW)) {
     LW.is.missing <- T
   } else{
@@ -259,7 +261,7 @@ tolerance.svd <- function(x, nu=min(dim(x)), nv=min(dim(x)), tol = .Machine$doub
   
   svd_res$d <- svd_res$d[svs.to.keep]
   
-  ## are these checks necessary? problably...
+  ## are these checks necessary? probably...
   if(nu >= length(svs.to.keep)){
     svd_res$u <- as.matrix(svd_res$u[,svs.to.keep])
   }else{
@@ -379,12 +381,12 @@ epGPCA2 <- function (DATA, scale = TRUE, center = TRUE, DESIGN = NULL,
   this.center <- attributes(DATA)$`scaled:center`
   this.scale <- attributes(DATA)$`scaled:scale`
   MW <- computeMW(DATA, masses = masses, weights = weights)
-  print('In epGPCA. MS')
-  print(MW$M)
-  print(MW$W)
-  print('In epGPCA. masses & weights')
-  print(masses)
-  print(weights)
+  #print('In epGPCA. MS')
+  #print(MW$M)
+  #print(MW$W)
+  #print('In epGPCA. masses & weights')
+  #print(masses)
+  #print(weights)
   #res <- corePCA(DATA, M = MW$M, W = MW$W, k = k)
   #MW <- computeMW(DATA, masses = masses, weights = weights)
   res <- corePCA2(DATA, M = masses, W = weights, k = k)
