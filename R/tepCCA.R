@@ -119,14 +119,16 @@ tepCCA <- function (DATA1, DATA2,
   # print(R[1:3, 1:3])
   # print(cor(DATA1, DATA2)[1:3, 1:3])
   # print(M)
-  res <- epGPCA2(DATA = R,
+  res1 <- epGPCA2(DATA = R,
                  k = k,
                  graphs = FALSE,
                  masses = Mm1,
                  weights = Wm1,
                  scale = FALSE,
                  center = FALSE)
-  res <- res$ExPosition.Data
+  res <- list()
+  #res <- res$ExPosition.Data
+  res$ExPosition.Data <- res1
   res$center <- NULL
   res$scale <- NULL
   res$W1 <- res$M
