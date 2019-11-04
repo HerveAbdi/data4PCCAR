@@ -74,6 +74,7 @@ center and scale information for \code{DATA2}.
 Analysis (CCA). \emph{Temporary Version. 
 This version will soon be revised to take into account 
 the new \code{GSVD}-package from Derek Beaton}.
+\emph{Note: This is a temporary version}.
 }
 \examples{
 \dontrun{
