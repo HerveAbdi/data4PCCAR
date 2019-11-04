@@ -141,10 +141,10 @@ tepCCA <- function (DATA1, DATA2,
                          scale = attributes(DATA1)$`scaled:scale`)
   res$ExPosition.Data$data2.norm <- list(center = attributes(DATA2)$`scaled:center`, 
                          scale = attributes(DATA2)$`scaled:scale`)
-  res$ExPosition.Data$lx <- ExPosition::supplementalProjection(DATA1, res$fi, 
-                                             Dv = res$pdq$Dv)$f.out
-  res$ExPosition.Data$ly <- ExPosition::supplementalProjection(DATA2, res$fj, 
-                                             Dv = res$pdq$Dv)$f.out
+  res$ExPosition.Data$lx <- ExPosition::supplementalProjection(DATA1, res$ExPosition.Data$fi, 
+                                             Dv = res$ExPosition.Data$pdq$Dv)$f.out
+  res$ExPosition.Data$ly <- ExPosition::supplementalProjection(DATA2, res$ExPosition.Data$fj, 
+                                             Dv = res$ExPosition.Data$pdq$Dv)$f.out
   class(res) <- c("tepPLS", "list")
   # tepPlotInfo <- TExPosition::tepGraphs(res = res, 
   #                                       DESIGN = DESIGN, main = main, 
