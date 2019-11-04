@@ -418,14 +418,14 @@ corePCA2 <- function (DATA, M = NULL, W = NULL,
   # if ((!is.null(dim(W))) && (length(W) == (nrow(W) * ncol(W)))) {
   #   W <- diag(W)
   # }
-  print('In corePCA')
-  print(M)
-  print(W)
+  #print('In corePCA')
+  #print(M)
+  #print(W)
   pdq_results <- genPDQ2(datain = DATA, M = M, W = W, is.mds = FALSE, 
                         decomp.approach = decomp.approach, k = k)
-  print('in corePCA')
-  print(pdq_results$Dv)
-  print(pdq_results$p)
+  #print('in corePCA')
+  #print(pdq_results$Dv)
+  #print(pdq_results$p)
   
   if (is.diagMat(M)){
     fi <- matrix(M, nrow(pdq_results$p), ncol(pdq_results$p)) * 
@@ -469,7 +469,7 @@ corePCA2 <- function (DATA, M = NULL, W = NULL,
   rj <- replace(rj, is.nan(rj), 0)
   cj <- replace(cj, is.nan(cj), 0)
   dj <- as.matrix(dj)
-  print("Checking the values for tau in corePCA")
+  #print("Checking the values for tau in corePCA")
   res <- list(fi = fi, di = di, ci = ci, ri = ri, fj = fj, 
               cj = cj, rj = rj, dj = dj, 
               t = pdq_results$tau, 
