@@ -2,7 +2,7 @@
 # Github DerekBeaton
 # Will be soon moved to CRAN.
 # Put together on October 31, 2019. by Vincent Guillemot and Hervé
-
+# Last Modification. Hervé 11/03/2019.
 
 #' GSVD, authored by Derek Beaton. Cf. package GSVD on GitHub, soon available on the CRAN
 #'

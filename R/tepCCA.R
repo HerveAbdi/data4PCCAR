@@ -7,6 +7,7 @@
 #' Analysis (CCA). \emph{Temporary Version. 
 #' This version will soon be revised to take into account 
 #' the new \code{GSVD}-package from Derek Beaton}.
+#' \emph{Note: This is a temporary version}.
 #'
 #' @param DATA1  an \eqn{N*I} matrix of quantitative data.
 #' @param DATA2  an \eqn{N*J} matrix of quantitative data.
