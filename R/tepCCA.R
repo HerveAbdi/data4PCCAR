@@ -119,33 +119,46 @@ tepCCA <- function (DATA1, DATA2,
   # print(R[1:3, 1:3])
   # print(cor(DATA1, DATA2)[1:3, 1:3])
   # print(M)
-  res1 <- epGPCA2(DATA = R,
+  res <- epGPCA2(DATA = R,
                  k = k,
                  graphs = FALSE,
                  masses = Mm1,
                  weights = Wm1,
                  scale = FALSE,
                  center = FALSE)
-# res <- ExPosition::epGPCA(DATA = R, k = k,
-# graphs = FALSE, scale = FALSE, 
-# center = FALSE, masses = Mm12, weights = Wm12)
-  res <- list()
-  res$ExPosition.Data <- list()
-  res$ExPosition.Data <- res1
-  res$ExPosition.Data$center <- NULL
-  res$ExPosition.Data$scale <- NULL
-  res$ExPosition.Data$W1 <- res$M
-  res$ExPosition.Data$W2 <- res$W
-  res$ExPosition.Data$M <- res$W <- NULL
-  res$ExPosition.Data$data1.norm <- list(center = attributes(DATA1)$`scaled:center`, 
+  res <- res$ExPosition.Data
+  res$center <- NULL
+  res$scale <- NULL
+  res$W1 <- res$M
+  res$W2 <- res$W
+  res$M <- res$W <- NULL
+  res$data1.norm <- list(center = attributes(DATA1)$`scaled:center`, 
                          scale = attributes(DATA1)$`scaled:scale`)
-  res$ExPosition.Data$data2.norm <- list(center = attributes(DATA2)$`scaled:center`, 
+  res$data2.norm <- list(center = attributes(DATA2)$`scaled:center`, 
                          scale = attributes(DATA2)$`scaled:scale`)
-  res$ExPosition.Data$lx <- ExPosition::supplementalProjection(DATA1, res$ExPosition.Data$fi, 
-                                             Dv = res$ExPosition.Data$pdq$Dv)$f.out
-  res$ExPosition.Data$ly <- ExPosition::supplementalProjection(DATA2, res$ExPosition.Data$fj, 
-                                             Dv = res$ExPosition.Data$pdq$Dv)$f.out
+  res$lx <- ExPosition::supplementalProjection(DATA1, res$fi, Dv = res$pdq$Dv)$f.out
+  res$ly <- ExPosition::supplementalProjection(DATA2, res$fj, Dv = res$pdq$Dv)$f.out
   class(res) <- c("tepPLS", "list")
+# # res <- ExPosition::epGPCA(DATA = R, k = k,
+# # graphs = FALSE, scale = FALSE, 
+# # center = FALSE, masses = Mm12, weights = Wm12)
+#   res <- list()
+#   res$TExPosition.Data <- list()
+#   res$TExPosition.Data <- res1
+#   res$TExPosition.Data$center <- NULL
+#   res$TExPosition.Data$scale <- NULL
+#   res$TExPosition.Data$W1 <- res$M
+#   res$TExPosition.Data$W2 <- res$W
+#   res$TExPosition.Data$M <- res$W <- NULL
+#   res$TExPosition.Data$data1.norm <- list(center = attributes(DATA1)$`scaled:center`, 
+#                          scale = attributes(DATA1)$`scaled:scale`)
+#   res$ExPosition.Data$data2.norm <- list(center = attributes(DATA2)$`scaled:center`, 
+#                          scale = attributes(DATA2)$`scaled:scale`)
+#   res$ExPosition.Data$lx <- ExPosition::supplementalProjection(DATA1, res$TExPosition.Data$fi, 
+#                                              Dv = res$ExPosition.Data$pdq$Dv)$f.out
+#   res$ExPosition.Data$ly <- ExPosition::supplementalProjection(DATA2, res$TExPosition.Data$fj, 
+#                                              Dv = res$ExPosition.Data$pdq$Dv)$f.out
+#   class(res) <- c("tepPLS", "list")
   # tepPlotInfo <- TExPosition::tepGraphs(res = res, 
   #                                       DESIGN = DESIGN, main = main, 
   #                                       graphs = graphs)
