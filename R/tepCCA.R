@@ -162,9 +162,9 @@ tepCCA <- function (DATA1, DATA2,
 #   res$ExPosition.Data$ly <- ExPosition::supplementalProjection(DATA2, res$TExPosition.Data$fj, 
 #                                              Dv = res$ExPosition.Data$pdq$Dv)$f.out
 #   class(res) <- c("tepPLS", "list")
-  # tepPlotInfo <- TExPosition::tepGraphs(res = res, 
-  #                                       DESIGN = DESIGN, main = main, 
-  #                                       graphs = graphs)
+   tepPlotInfo <- TExPosition::tepGraphs(res = res, 
+                                         DESIGN = DESIGN, main = main, 
+                                         graphs = graphs)
   # return(tepOutputHandler(res = res, tepPlotInfo = tepPlotInfo))
   return(tepOutputHandler(res = res, tepPlotInfo = NULL))
 }
