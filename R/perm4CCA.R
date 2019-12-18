@@ -2,7 +2,7 @@
 #_____________________________________________________________________
 # Preamble perm4CCA ----
 #_____________________________________________________________________
-#' @title Permutation for canonical corrrelation analysis (CCA);
+#' @title Permutation for canonical correlation analysis (CCA);
 #'as implemented
 #' in \code{tepCCA}) (a \code{TExPosition} compatible version).
 #' 
@@ -17,7 +17,7 @@
 #' combinations of centering and normalizing
 #' are possible (see paramater \code{scale1,
 #' scale2, center2, scale2}).
-#' Used for functions related to CCA /
+#' Used for functions related to CCA.
 #' The different types of normalization are
 #' based on the \code{ExPosition::expo.scale}
 #' function. Two different permutation schemes

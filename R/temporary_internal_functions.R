@@ -8,9 +8,9 @@
 #'
 #' @keywords internal
 
-gsvd <- function(DAT, # Data
-                 LW,  # Left weights
-                 RW,  # Right weights
+gsvd <- function(DAT,   # Data
+                 LW,    # Left weights
+                 RW,    # Right weights
                  k = 0, # Number of factors to keep
                  tol = .Machine$double.eps) {
   # preliminaries

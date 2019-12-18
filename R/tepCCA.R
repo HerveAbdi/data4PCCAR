@@ -18,7 +18,7 @@
 #' @param scale1 when \code{TRUE} (default) \code{DATA1}
 #' will be normalized. Depends upon \code{ExPosition}
 #' function \code{expo.scale} whose description is:
-#'boolean, text, or (numeric) vector.
+#' boolean, text, or (numeric) vector.
 #'If boolean or vector,
 #'it works just like \code{scale}.
 #'The following text options are available:
@@ -42,7 +42,7 @@
 #' a boolean. If \code{TRUE}, 
 #' graphs and plots are provided 
 #' (via \code{TExPosition::tepGraphs}).
-#' @param k 	number of components to return.
+#' @param k number of components to return.
 #' @author Vincent Guillemot, Derek Beaton, Hervé Abdi
 #' @return
 #' See \code{ExPosition::epGPCA} (and also \code{ExPosition::corePCA}) 
@@ -60,7 +60,7 @@
 #' \code{data2.norm}:	the
 #' center and scale information for \code{DATA2}.
 #' @references 
-#' Abdi H., Eslami, A., & Guillemot, V. (2018). 
+#' Abdi H., Eslami, A., Guillemot, V., & Beaton D. (2018). 
 #' Canonical correlation analysis (CCA). 
 #' In R. Alhajj and J. Rokne (Eds.), 
 #' \emph{Encyclopedia of Social Networks and Mining (2nd Edition)}. 
@@ -71,7 +71,7 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' # Sime example here ***}
+#' # *** Some example here at some point ***}
 tepCCA <- function (DATA1, DATA2, 
                     center1 = TRUE, scale1 = "SS1", 
                     center2 = TRUE, scale2 = "SS1", 
@@ -102,7 +102,7 @@ tepCCA <- function (DATA1, DATA2,
   main <- paste("CCA: ", deparse(substitute(DATA1)), " & ", 
                 deparse(substitute(DATA2)), sep = "")
   DESIGN <- texpoDesignCheck(DATA1, DESIGN,
-                               make_design_nominal = make_design_nominal)
+                           make_design_nominal = make_design_nominal)
   DESIGN <- texpoDesignCheck(DATA2, DESIGN, 
                              make_design_nominal = FALSE)
   DATA1 <- as.matrix(DATA1)
@@ -110,16 +110,13 @@ tepCCA <- function (DATA1, DATA2,
   DATA1 <- expo.scale(DATA1, scale = scale1, center = center1)
   DATA2 <- expo.scale(DATA2, scale = scale2, center = center2)
   R <- t(DATA1) %*% DATA2
-  # R <- cor(DATA1, DATA2)
+  # 
   M <- t(DATA1) %*% DATA1
   # M <- cor(DATA1)
   W <- t(DATA2) %*% DATA2
   # W <- cor(DATA2)
   Mm1 <- matrix.exponent(M, power = -1)
   Wm1 <- matrix.exponent(W, power = -1)
-  # print(R[1:3, 1:3])
-  # print(cor(DATA1, DATA2)[1:3, 1:3])
-  # print(M)
   res <- epGPCA2(DATA = R,
                  k = k,
                  graphs = FALSE,
@@ -127,8 +124,6 @@ tepCCA <- function (DATA1, DATA2,
                  weights = Wm1,
                  scale = FALSE,
                  center = FALSE)
-  #res <- list()
-  #res <- res$ExPosition.Data
   res <- res$ExPosition.Data
   res$center <- NULL
   res$scale <- NULL
@@ -142,29 +137,10 @@ tepCCA <- function (DATA1, DATA2,
   res$lx <- ExPosition::supplementalProjection(DATA1, res$fi, Dv = res$pdq$Dv)$f.out
   res$ly <- ExPosition::supplementalProjection(DATA2, res$fj, Dv = res$pdq$Dv)$f.out
   class(res) <- c("tepPLS", "list")
-# # res <- ExPosition::epGPCA(DATA = R, k = k,
-# # graphs = FALSE, scale = FALSE, 
-# # center = FALSE, masses = Mm12, weights = Wm12)
-#   res <- list()
-#   res$TExPosition.Data <- list()
-#   res$TExPosition.Data <- res1
-#   res$TExPosition.Data$center <- NULL
-#   res$TExPosition.Data$scale <- NULL
-#   res$TExPosition.Data$W1 <- res$M
-#   res$TExPosition.Data$W2 <- res$W
-#   res$TExPosition.Data$M <- res$W <- NULL
-#   res$TExPosition.Data$data1.norm <- list(center = attributes(DATA1)$`scaled:center`, 
-#                          scale = attributes(DATA1)$`scaled:scale`)
-#   res$ExPosition.Data$data2.norm <- list(center = attributes(DATA2)$`scaled:center`, 
-#                          scale = attributes(DATA2)$`scaled:scale`)
-#   res$ExPosition.Data$lx <- ExPosition::supplementalProjection(DATA1, res$TExPosition.Data$fi, 
-#                                              Dv = res$ExPosition.Data$pdq$Dv)$f.out
-#   res$ExPosition.Data$ly <- ExPosition::supplementalProjection(DATA2, res$TExPosition.Data$fj, 
-#                                              Dv = res$ExPosition.Data$pdq$Dv)$f.out
-#   class(res) <- c("tepPLS", "list")
+  #
    tepPlotInfo <- TExPosition::tepGraphs(res = res, 
                                          DESIGN = DESIGN, main = main, 
                                          graphs = graphs)
-  # return(tepOutputHandler(res = res, tepPlotInfo = tepPlotInfo))
+  # 
   return(tepOutputHandler(res = res, tepPlotInfo = tepPlotInfo))
 }

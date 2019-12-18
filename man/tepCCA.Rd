@@ -78,10 +78,10 @@ the new \code{GSVD}-package from Derek Beaton}.
 }
 \examples{
 \dontrun{
-# Sime example here ***}
+# *** Some example here at some point ***}
 }
 \references{
-Abdi H., Eslami, A., & Guillemot, V. (2018). 
+Abdi H., Eslami, A., Guillemot, V., & Beaton D. (2018). 
 Canonical correlation analysis (CCA). 
 In R. Alhajj and J. Rokne (Eds.), 
 \emph{Encyclopedia of Social Networks and Mining (2nd Edition)}. 
