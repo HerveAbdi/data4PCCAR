@@ -2,10 +2,12 @@
 #' @description Changes the sign of the values in two matrices according to the sign of the elements in the first line of the first matrix. This is used to get reproducible results when performing singular value decompositions or eigenvalue decompositions.
 #' @param P A matrix of numeric values
 #' @param Q If not NULL, a matrix of numeric values with the same number of columns as \code{P}
-#' @return 
-#' \code{P} A matrix with the same values as in P, except that the sign of all the values in each column is flipped if the first value of this column is negative.
-#' \code{Q} A matrix with the same values as in Q, except that the sign of all the values in each column is flipped the same way that it is flipped for P.
-#' If Q is NULL, then the function returns only a list with only one element (P)
+#' @return If Q is NULL, then the function returns a only the modified P matrix.
+#' Otherwise, the functions returns a list with two elements:
+#' \itemize{
+#'   \item \code{P} A matrix with the same values as in P, except that the sign of all the values in each column is flipped if the first value of this column is negative.
+#'   \item \code{Q} A matrix with the same values as in Q, except that the sign of all the values in each column is flipped the same way that it is flipped for P.
+#' }
 #' 
 #' @examples 
 #' \dontrun{
