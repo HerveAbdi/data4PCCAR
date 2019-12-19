@@ -5,8 +5,14 @@
 \title{Compute an SCP matrix with several possible
 combinations of centering and normalizing.}
 \usage{
-compS(DATA1, DATA2, center1 = TRUE, center2 = TRUE, scale1 = "ss1",
-  scale2 = "ss1")
+compS(
+  DATA1,
+  DATA2,
+  center1 = TRUE,
+  center2 = TRUE,
+  scale1 = "ss1",
+  scale2 = "ss1"
+)
 }
 \arguments{
 \item{DATA1}{an \eqn{N*I} matrix of quantitative data}

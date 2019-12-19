@@ -5,8 +5,14 @@
 \title{Monte Carlo generation of (random) eigenvalues to match
 a data matrix.}
 \usage{
-monteCarlo.eigen(X, nIter = 100, center = TRUE, scale = "SS1",
-  FUN = rnorm, ...)
+monteCarlo.eigen(
+  X,
+  nIter = 100,
+  center = TRUE,
+  scale = "SS1",
+  FUN = rnorm,
+  ...
+)
 }
 \arguments{
 \item{X}{The data matrix to match.}

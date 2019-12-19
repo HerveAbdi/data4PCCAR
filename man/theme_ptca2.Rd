@@ -5,8 +5,7 @@
 \title{A \code{ggplot2} theme that matches the defaults
 of the factorial figures in the package \code{PTCA4CATA}}
 \usage{
-theme_ptca2(mire = TRUE, x0 = 0, y0 = 0, coor.fixed = TRUE,
-  base_family = "")
+theme_ptca2(mire = TRUE, x0 = 0, y0 = 0, coor.fixed = TRUE, base_family = "")
 }
 \arguments{
 \item{mire}{(Default = \code{TRUE}) when \code{TRUE}

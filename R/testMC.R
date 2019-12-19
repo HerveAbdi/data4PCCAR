@@ -53,7 +53,6 @@
 #' (e.g., mean and standard deviation). To find these parameters,
 #'  check the help of the function used for the random number
 #'  generator.
-#' @rdname monteCarlo.eigen
 #' @importFrom stats rnorm
 #' @return a list with 3 elements
 #' \enumerate{
@@ -161,7 +160,6 @@ print.randEigen <- function (x, ...) {
 #' of the data matrix have norm 1, and so the eigenvalues
 #' come from a correlation matrix).
 #' Default: \code{'SS1'}.
-#' @rdname boot.eigen
 #' @return a list with 3 elements
 #' \enumerate{
 #' \item \code{$fixed.eigs}: the eigen-values of \eqn{X},

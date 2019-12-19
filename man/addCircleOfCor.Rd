@@ -5,8 +5,14 @@
 \title{Add a Circle of Correlation to a PCA-like map
 of correlation produced by \code{createFactorMap()} \emph{et alia.}}
 \usage{
-addCircleOfCor(color = "darkorchid", alpha = 0.3, size = 1,
-  center = c(0, 0), radius = 1, nPoints = 100)
+addCircleOfCor(
+  color = "darkorchid",
+  alpha = 0.3,
+  size = 1,
+  center = c(0, 0),
+  radius = 1,
+  nPoints = 100
+)
 }
 \arguments{
 \item{color}{(\code{Default: 'darkorchid'}) color for the circle.}

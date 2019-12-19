@@ -7,8 +7,17 @@ the qualitative variables in a (variable) factorial
 map of an MCA (e.g., computed with
 \code{ExPosition::epMCA}).}
 \usage{
-addLines4MCA(Fj, col4Var, alpha = 0.7, linetype = 3, size = 0.5,
-  axis_h = 1, axis_v = 2, dimension.names = "Dimension", ...)
+addLines4MCA(
+  Fj,
+  col4Var,
+  alpha = 0.7,
+  linetype = 3,
+  size = 0.5,
+  axis_h = 1,
+  axis_v = 2,
+  dimension.names = "Dimension",
+  ...
+)
 }
 \arguments{
 \item{Fj}{the output for the column set of an

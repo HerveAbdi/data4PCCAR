@@ -6,8 +6,14 @@
 factor scores) whose variance
  match the variance/eigenvalues of the dimensions of the space.}
 \usage{
-getRandomFS(ev, nObs = 100, FUN = stats::runif, center = FALSE,
-  scale = "SS1", sv = FALSE)
+getRandomFS(
+  ev,
+  nObs = 100,
+  FUN = stats::runif,
+  center = FALSE,
+  scale = "SS1",
+  sv = FALSE
+)
 }
 \arguments{
 \item{ev}{The variance / eigenvalues per dimension (no default).}

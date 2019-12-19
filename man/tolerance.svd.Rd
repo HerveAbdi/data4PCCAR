@@ -4,8 +4,7 @@
 \alias{tolerance.svd}
 \title{tolerance.svd, authored by Derek Beaton. Cf. package GSVD on GitHub, soon available on the CRAN}
 \usage{
-tolerance.svd(x, nu = min(dim(x)), nv = min(dim(x)),
-  tol = .Machine$double.eps)
+tolerance.svd(x, nu = min(dim(x)), nv = min(dim(x)), tol = .Machine$double.eps)
 }
 \description{
 tolerance.svd, authored by Derek Beaton. Cf. package GSVD on GitHub, soon available on the CRAN

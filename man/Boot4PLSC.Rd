@@ -4,10 +4,21 @@
 \alias{Boot4PLSC}
 \title{Bootstrap for PLSC.}
 \usage{
-Boot4PLSC(DATA1, DATA2, center1 = TRUE, center2 = TRUE,
-  scale1 = "ss1", scale2 = "ss1", Fi = NULL, Fj = NULL,
-  nf2keep = 3, nIter = 1000, critical.value = 2, eig = FALSE,
-  alphaLevel = 0.05)
+Boot4PLSC(
+  DATA1,
+  DATA2,
+  center1 = TRUE,
+  center2 = TRUE,
+  scale1 = "ss1",
+  scale2 = "ss1",
+  Fi = NULL,
+  Fj = NULL,
+  nf2keep = 3,
+  nIter = 1000,
+  critical.value = 2,
+  eig = FALSE,
+  alphaLevel = 0.05
+)
 }
 \arguments{
 \item{DATA1}{an \eqn{N*I}  data matrix}

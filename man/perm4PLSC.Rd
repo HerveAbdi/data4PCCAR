@@ -5,9 +5,17 @@
 \title{Permutation for PLSC (as implemented
 in \code{TExPosition::tepPLS})}
 \usage{
-perm4PLSC(DATA1, DATA2, center1 = TRUE, center2 = TRUE,
-  scale1 = "ss1", scale2 = "ss1", nIter = 1000, permType = "byMat",
-  compact = FALSE)
+perm4PLSC(
+  DATA1,
+  DATA2,
+  center1 = TRUE,
+  center2 = TRUE,
+  scale1 = "ss1",
+  scale2 = "ss1",
+  nIter = 1000,
+  permType = "byMat",
+  compact = FALSE
+)
 }
 \arguments{
 \item{DATA1}{an \eqn{N*I} matrix of quantitative data}

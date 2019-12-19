@@ -5,9 +5,17 @@
 \title{epGPCA2, authored by Derek Beaton. 
 Cf. package GSVD on GitHub, soon available on the CRAN}
 \usage{
-epGPCA2(DATA, scale = TRUE, center = TRUE, DESIGN = NULL,
-  make_design_nominal = TRUE, masses = NULL, weights = NULL,
-  graphs = TRUE, k = 0)
+epGPCA2(
+  DATA,
+  scale = TRUE,
+  center = TRUE,
+  DESIGN = NULL,
+  make_design_nominal = TRUE,
+  masses = NULL,
+  weights = NULL,
+  graphs = TRUE,
+  k = 0
+)
 }
 \description{
 epGPCA2, authored by Derek Beaton. 

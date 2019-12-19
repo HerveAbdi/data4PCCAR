@@ -5,8 +5,14 @@
 \title{genPDQ2, authored by Derek Beaton. 
 Cf. package GSVD on GitHub, soon available on the CRAN}
 \usage{
-genPDQ2(datain, M = NULL, W = NULL, is.mds = FALSE,
-  decomp.approach = "svd", k = 0)
+genPDQ2(
+  datain,
+  M = NULL,
+  W = NULL,
+  is.mds = FALSE,
+  decomp.approach = "svd",
+  k = 0
+)
 }
 \description{
 genPDQ2, authored by Derek Beaton. 

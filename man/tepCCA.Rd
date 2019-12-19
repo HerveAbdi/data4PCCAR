@@ -5,9 +5,18 @@
 \title{A \code{TExPosition}-type version of Canonical Correlation
 Analysis (CCA).\emph{Temporary Version (11-04-2019)}.}
 \usage{
-tepCCA(DATA1, DATA2, center1 = TRUE, scale1 = "SS1", center2 = TRUE,
-  scale2 = "SS1", DESIGN = NULL, make_design_nominal = TRUE,
-  graphs = TRUE, k = 0)
+tepCCA(
+  DATA1,
+  DATA2,
+  center1 = TRUE,
+  scale1 = "SS1",
+  center2 = TRUE,
+  scale2 = "SS1",
+  DESIGN = NULL,
+  make_design_nominal = TRUE,
+  graphs = TRUE,
+  k = 0
+)
 }
 \arguments{
 \item{DATA1}{an \eqn{N*I} matrix of quantitative data.}

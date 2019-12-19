@@ -5,8 +5,16 @@
 \title{Add arrows to a factorial map
 (best with a circle of Correlation).}
 \usage{
-addArrows(X, axis1 = 1, axis2 = 2, color = "darkorchid",
-  alpha = 0.6, size = 1, center = c(0, 0), arrowLength = 0.3)
+addArrows(
+  X,
+  axis1 = 1,
+  axis2 = 2,
+  color = "darkorchid",
+  alpha = 0.6,
+  size = 1,
+  center = c(0, 0),
+  arrowLength = 0.3
+)
 }
 \arguments{
 \item{X}{a data frame with the coordinates of the points
