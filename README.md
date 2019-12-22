@@ -181,15 +181,7 @@ makes a random image (with similar PCA loadings)
  of a matrix of integer data such as Likert scales data.
  Uses two helper functions: `getRandomFS` and `recode2Integer`:
  
-#### getRandomFS
 
-generates multivariate random observations (i.e., factor scores)
-    that match the variance/eigenvalues of the dimensions.
- 
-#### recode2Integer
-
-recodes a vector of real values to integers matching 
-    a given distribution for the integers.
  
 
 ### coloringLevels
@@ -226,6 +218,7 @@ according to the sign of the elements in the first line
  of the first matrix.  Used to standardize an eigenvector matrix 
  ortwo matched  singular vector matrices.
 
+
 ### getImportantCtr.12
 
 gets the items with contributions important for a factorial plane.
@@ -233,6 +226,11 @@ gets the items with contributions important for a factorial plane.
 to the plane, the items important for the plane, 
 and the items important for the plane or 
 for at least one dimension of the plane.
+
+#### getRandomFS
+
+generates multivariate random observations (i.e., factor scores)
+    that match the variance/eigenvalues of the dimensions.
 
 ### monteCarlo.eigen
 
@@ -282,6 +280,14 @@ Useful to create correlation heatmap
 for MCA.
 Also a helper function,
  used for MCA.
+
+
+
+#### recode2Integer
+
+recodes a vector of real values to integers matching 
+    a given distribution for the integers.
+ 
 
 ### scale0
 

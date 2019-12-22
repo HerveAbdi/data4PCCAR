@@ -2,7 +2,8 @@
 % Please edit documentation in R/firstpos.R
 \name{firstpos}
 \alias{firstpos}
-\title{ensures that the first element of a/twp matrix/matrices
+\title{ensures that the first element of all the columns
+of one/two matrix/matrices
 is positive.}
 \usage{
 firstpos(P, Q = NULL)
@@ -25,7 +26,7 @@ Otherwise, the functions returns a list with two elements:
   \item \code{Q} A matrix with the same values as in 
   \code{Q}, 
   except that the sign of all the values in each column 
-  is flipped the same way that it is flipped for P.
+  is flipped the same way that it is flipped for\code{P}.
 }
 }
 \description{
@@ -34,8 +35,8 @@ Changes the sign of the values of the columns
 in one or two matrices 
 according to the sign of the elements in the first line 
 of the first matrix. 
-After transformation the first element of every colum of the
-matric or matrices will be positve.
+After transformation the first element of every column of the
+matric or matrices will be positive.
 
 This is used to get reproducible 
 results when performing singular value decompositions 
