@@ -218,6 +218,14 @@ a Varimax rotation on loadings and factor scores.
 Also gives the pseudo-eigenvalues and percentage of inertia.
 Used post-PCA to get nice clean components.
 
+### firspos
+
+ Changes the sign of the values of the columns 
+ in one matrix or two matrices 
+according to the sign of the elements in the first line 
+ of the first matrix.  Used to standardize an eigenvector matrix 
+ ortwo matched  singular vector matrices.
+
 ### getImportantCtr.12
 
 gets the items with contributions important for a factorial plane.

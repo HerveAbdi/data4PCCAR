@@ -1,21 +1,49 @@
-#' @title firstpos
-#' @description Changes the sign of the values in two matrices according to the sign of the elements in the first line of the first matrix. This is used to get reproducible results when performing singular value decompositions or eigenvalue decompositions.
+#_____________________________________________________________________
+# File for function firstpos
+# December 18 2019. VG
+# 
+
+# Preamble ----
+#' @title ensures that the first element of a/twp matrix/matrices
+#' is positive.
+#' @description \code{firspos}: 
+#' Changes the sign of the values of the columns 
+#' in one or two matrices 
+#' according to the sign of the elements in the first line 
+#' of the first matrix. 
+#' After transformation the first element of every colum of the
+#' matric or matrices will be positve.
+#' 
+#' This is used to get reproducible 
+#' results when performing singular value decompositions 
+#' or eigenvalue decompositions.
+#' 
+#' Note that when provided tow matrices the signs of the
+#' matrices will match: This is used to unsures that
+#' singular vectors of a given matrix match.
+#' 
 #' @param P A matrix of numeric values
-#' @param Q If not NULL, a matrix of numeric values with the same number of columns as \code{P}
-#' @return If Q is NULL, then the function returns a only the modified P matrix.
+#' @param Q If not \code{NULL}, 
+#' a matrix of numeric values with the 
+#' same number of columns as \code{P}
+#' @return If \code{Q} is \code{NULL}, 
+#' then the function returns a only the modified P matrix.
 #' Otherwise, the functions returns a list with two elements:
 #' \itemize{
-#'   \item \code{P} A matrix with the same values as in P, except that the sign of all the values in each column is flipped if the first value of this column is negative.
-#'   \item \code{Q} A matrix with the same values as in Q, except that the sign of all the values in each column is flipped the same way that it is flipped for P.
+#'   \item \code{P} A matrix with the same values as in \code{P}, 
+#'   except that the sign of all the values in each column
+#'    is flipped if the first value of this column is negative.
+#'   \item \code{Q} A matrix with the same values as in 
+#'   \code{Q}, 
+#'   except that the sign of all the values in each column 
+#'   is flipped the same way that it is flipped for P.
 #' }
 #' 
 #' @examples 
 #' \dontrun{
-#' if(interactive()){
 #'  A <- matrix(rnorm(4), 2, 2)
 #'  B <- matrix(rnorm(6), 3, 2)
 #'  firstpos(A, B)
-#'  }
 #' }
 #' @rdname firstpos
 #' @export
