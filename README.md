@@ -210,7 +210,7 @@ a Varimax rotation on loadings and factor scores.
 Also gives the pseudo-eigenvalues and percentage of inertia.
 Used post-PCA to get nice clean components.
 
-### firspos
+### firstpos
 
  Changes the sign of the values of the columns 
  in one matrix or two matrices 
