@@ -51,8 +51,8 @@ resPCA.mtcars$resPCA.mtcars$ExPosition.Data$fj
 }
 }
 \seealso{
-firstpos
+\code{\link{firstpos}},  \code{\link{renormInertiaExPo}}
 }
 \author{
-Hervee Abdi
+Hervé Abdi
 }

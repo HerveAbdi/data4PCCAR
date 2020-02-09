@@ -16,8 +16,8 @@
 # 
 #' @title Renorm the output of an \code{ExPosition analysis}.
 #' 
-#' @description \code{renormInertiaExPo}:renorms
-#' the output of an n\code{ExPosition} function (e.g., 
+#' @description \code{renormInertiaExPo}: renorms
+#' the output of an \code{ExPosition} function (e.g., 
 #' \code{epCA, epPCA, epMCA}) to a given constant.
 #' After normalization, all the objects whose inertia
 #' depends upon the data will now have their inertia
@@ -42,13 +42,15 @@
 #'  All the dataframes in \code{resExpo}
 #'  whose norm depends upon the data
 #'  (i.e., \code{fi, fj, di, dj, pdq$Dv, pdq$Dd, eigs}) 
-#'   are renormed in the output.
-#'  
-#' @author Hervé Abdi   
+#'  are renormed in the output.
+#'   
+#' @author Hervé Abdi  
+#' @seealso  \code{\link{firstpos}}, \code{\link{firstpos4ExPo}}
+#' 
 #' @examples 
 #' \dontrun{
 #' data("mtcars") # use the mtcars data set 
-#' resPCA.normed  <- renormInertiaExPo(epPCA(mtcars, graphs = FALSE), ncol(mtcars) )
+#' resPCA.normed  <- renormInertiaExPo(epPCA(mtcars, graphs = FALSE), ncol(mtcars))
 #' }
 #' @rdname renormInertiaExPo
 #' @export 
@@ -69,12 +71,12 @@ renormInertiaExPo <- function(resExpo, newNorm = NULL){
   SampleInertia     <- sum(resExpo$ExPosition.Data$eigs)
   normFactor <- sqrt(PopulationInertia / SampleInertia)
   # renorm
-  resExpo$ExPosition.Data$fi <- resExpo$ExPosition.Data$fi * normFactor 
-  resExpo$ExPosition.Data$fj <- resExpo$ExPosition.Data$fj * normFactor 
-  resExpo$ExPosition.Data$Dv <- resExpo$ExPosition.Data$Dv * normFactor 
-  resExpo$ExPosition.Data$Dd <- resExpo$ExPosition.Data$Dd * normFactor
-  resExpo$ExPosition.Data$di <- resExpo$ExPosition.Data$di * normFactor^2 
-  resExpo$ExPosition.Data$dj <- resExpo$ExPosition.Data$dj * normFactor^2 
+  resExpo$ExPosition.Data$fi   <- resExpo$ExPosition.Data$fi * normFactor 
+  resExpo$ExPosition.Data$fj   <- resExpo$ExPosition.Data$fj * normFactor 
+  resExpo$ExPosition.Data$Dv   <- resExpo$ExPosition.Data$Dv * normFactor 
+  resExpo$ExPosition.Data$Dd   <- resExpo$ExPosition.Data$Dd * normFactor
+  resExpo$ExPosition.Data$di   <- resExpo$ExPosition.Data$di * normFactor^2 
+  resExpo$ExPosition.Data$dj   <- resExpo$ExPosition.Data$dj * normFactor^2 
   resExpo$ExPosition.Data$eigs <- resExpo$ExPosition.Data$eigs * normFactor^2 
   return(resExpo)
 }

@@ -45,8 +45,8 @@
 #' Also, a similar
 #' version of \code{firstpos4ExPo} for the \code{InPosition}
 #' family is not yet available.
-#' @author Hervee Abdi
-#' @seealso  firstpos
+#' @author Hervé Abdi
+#' @seealso  \code{\link{firstpos}},  \code{\link{renormInertiaExPo}}
 #' @examples
 #' \dontrun{
 #' data("mtcars") # use the mtcars data set 

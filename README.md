@@ -128,7 +128,7 @@ Used for loadings for PCA maps.
 ### addCircleOfCor
 
 add a *Circle of Correlation* to a PCA-like map
-#' of correlation produced by `{createFactorMap` 
+#' of correlation produced by `createFactorMap` 
 *et alia.* Used for loadings for PCA maps.
 
 ### addLines4MCA
@@ -217,6 +217,13 @@ Used post-PCA to get nice clean components.
 according to the sign of the elements in the first line 
  of the first matrix.  Used to standardize an eigenvector matrix 
  ortwo matched  singular vector matrices.
+ 
+ ### firstpos4ExPo
+  Makes positive the first value of factor scores and
+ singular vectors from the output of functions from
+  the `ExPosition` package such as 
+  `epCA`  (see also `firstpos` 
+  and `renormInertiaExPo` ).
 
 
 ### getImportantCtr.12
@@ -240,6 +247,7 @@ Used to implement the *parallel* test
 for the number of reliable eigenvalues.
 
 ### nameExpositionResults
+
 adds dimension names to the results of analyses performed with` ExPosition`
 (recall that column names are needed for plots created with `ggplot2` when
 using `aes()`). Note that if there is a space is a name (as is the case by default),
@@ -288,8 +296,13 @@ Also a helper function,
 recodes a vector of real values to integers matching 
     a given distribution for the integers.
  
-
-### scale0
+ ### renormInertiaExPo
+ 
+ renorms
+the output of an `ExPosition` function (e.g., 
+`epCA, epPCA, epMCA`) to a given constant.
+ 
+ ### scale0
 
 centers and normalizes a vector to norm 1 or to norm
 $(N - 1)$. The function

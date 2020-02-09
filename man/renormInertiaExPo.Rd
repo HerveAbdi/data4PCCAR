@@ -18,8 +18,8 @@ if \code{newNorm} is a scalar, the data will be nromed}
 The renormed \code{ExPosition} output.
 }
 \description{
-\code{renormInertiaExPo}:renorms
-the output of an n\code{ExPosition} function (e.g., 
+\code{renormInertiaExPo}: renorms
+the output of an \code{ExPosition} function (e.g., 
 \code{epCA, epPCA, epMCA}) to a given constant.
 After normalization, all the objects whose inertia
 depends upon the data will now have their inertia
@@ -36,13 +36,16 @@ of the table used in this previous analysis.
 All the dataframes in \code{resExpo}
  whose norm depends upon the data
  (i.e., \code{fi, fj, di, dj, pdq$Dv, pdq$Dd, eigs}) 
-  are renormed in the output.
+ are renormed in the output.
 }
 \examples{
 \dontrun{
 data("mtcars") # use the mtcars data set 
-resPCA.normed  <- renormInertiaExPo(epPCA(mtcars, graphs = FALSE), ncol(mtcars) )
+resPCA.normed  <- renormInertiaExPo(epPCA(mtcars, graphs = FALSE), ncol(mtcars))
 }
+}
+\seealso{
+\code{\link{firstpos}}, \code{\link{firstpos4ExPo}}
 }
 \author{
 Hervé Abdi

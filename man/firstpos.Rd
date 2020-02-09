@@ -54,8 +54,9 @@ singular vectors of a given matrix match.
 }
 }
 \seealso{
-firstpos4ExPo
+\code{ \link{firstpos4ExPo}},  
+\code{\link{renormInertiaExPo}}
 }
 \author{
-Hervé Abdi
+Vincent Guillemot and Hervé Abdi
 }
