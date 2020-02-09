@@ -1,12 +1,13 @@
-#*****************************************************************
-#-----------------------------------------------------------------
+#_____________________________________________________________________
+# Preamble ----
+#_____________________________________________________________________
 #' Change the print function for the data set: 'str_colorsOfMusic'
 #'
 #' Change the print function for the data set: 'str_colorsOfMusic'
 #'
 #' @param x a list: the data set: 'str_colorsOfMusic'
 #' @param ... the rest
-#' @author Herve Abdi
+#' @author Hervé Abdi
 #' @export
 print.str_colorsOfMusic <- function (x, ...) {
   ndash = 78 # How many dashes for separation lines
@@ -23,7 +24,8 @@ print.str_colorsOfMusic <- function (x, ...) {
   cat("\n")
   invisible(x)
 } # end of function print.str_colorsOfMusic
-#--------------------------------------------------------------------
+#_____________________________________________________________________
+# description ----
 # Description for colorOfMusic
 #' @title 12 Children and 10 Adults picked up
 #' the color that best describes 9 pieces of music.

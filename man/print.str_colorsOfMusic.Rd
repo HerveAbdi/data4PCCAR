@@ -15,5 +15,5 @@
 Change the print function for the data set: 'str_colorsOfMusic'
 }
 \author{
-Herve Abdi
+Hervé Abdi
 }
