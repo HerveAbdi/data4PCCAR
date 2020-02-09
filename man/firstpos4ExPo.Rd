@@ -50,3 +50,9 @@ resPCA.mtcars <- firstpos4ExPo(epPCA(mtcars, graphs = FALSE, k = 3))
 resPCA.mtcars$resPCA.mtcars$ExPosition.Data$fj
 }
 }
+\seealso{
+firstpos
+}
+\author{
+Hervee Abdi
+}

@@ -40,7 +40,8 @@
 #'   except that the sign of all the values in each column 
 #'   is flipped the same way that it is flipped for\code{P}.
 #' }
-#' 
+#' @author Hervé Abdi
+#' @seealso  firstpos4ExPo
 #' @examples 
 #' \dontrun{
 #'  A <- matrix(rnorm(4), 2, 2)

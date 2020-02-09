@@ -10,7 +10,7 @@
 #  sinew::makeOxygen(renormInertiaExPo )
 #_____________________________________________________________________
 #_____________________________________________________________________
-# A  normalization function
+# A normalization function
 # Renormalize the factor scores of an ExPosition output-list
 # to a constant or to the Inertia of another ExPosition analysis.
 # 
@@ -44,11 +44,11 @@
 #'  (i.e., \code{fi, fj, di, dj, pdq$Dv, pdq$Dd, eigs}) 
 #'   are renormed in the output.
 #'  
-#'   
+#' @author Hervé Abdi   
 #' @examples 
 #' \dontrun{
 #' data("mtcars") # use the mtcars data set 
-#'  resPCA.normed  <- renormInertiaExPo(epPCA(mtcars, graphs = FALSE), ncol(mtcars) )
+#' resPCA.normed  <- renormInertiaExPo(epPCA(mtcars, graphs = FALSE), ncol(mtcars) )
 #' }
 #' @rdname renormInertiaExPo
 #' @export 

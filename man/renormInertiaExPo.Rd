@@ -41,6 +41,9 @@ All the dataframes in \code{resExpo}
 \examples{
 \dontrun{
 data("mtcars") # use the mtcars data set 
- resPCA.normed  <- renormInertiaExPo(epPCA(mtcars, graphs = FALSE), ncol(mtcars) )
+resPCA.normed  <- renormInertiaExPo(epPCA(mtcars, graphs = FALSE), ncol(mtcars) )
 }
+}
+\author{
+Hervé Abdi
 }

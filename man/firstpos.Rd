@@ -53,3 +53,9 @@ singular vectors of a given matrix match.
  firstpos(A, B)
 }
 }
+\seealso{
+firstpos4ExPo
+}
+\author{
+Hervé Abdi
+}
