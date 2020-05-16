@@ -5,7 +5,8 @@
 \alias{twentyWines}
 \title{20 red wines (10 French, 10 American) are rated by an expert
 on multiple dimensions.}
-\format{A list containing 3 data frames:
+\format{
+A list containing 3 data frames:
 \itemize{
 \item \code{df.active} the ratings of the 20 wines for
 \code{Sugar} and \code{Astringent}.
@@ -15,7 +16,8 @@ for the \emph{supplementary} variables  \code{Acid, Bitter, Fruity, Woody},
 and the \code{Origin} of the wines (French vs USA).
 \item \code{supplementary.observation} the ratings for the
 mystery wine (Trius Red: a wine from Ontario).
-}}
+}
+}
 \usage{
 data("twentyWines")
 }

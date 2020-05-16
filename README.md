@@ -182,8 +182,6 @@ makes a random image (with similar PCA loadings)
  Uses two helper functions: `getRandomFS` and `recode2Integer`:
  
 
- 
-
 ### coloringLevels
 
 creates a vector of color names for the levels
@@ -209,6 +207,7 @@ Used to get contributions in MCA.
 a Varimax rotation on loadings and factor scores.
 Also gives the pseudo-eigenvalues and percentage of inertia.
 Used post-PCA to get nice clean components.
+`epiVari` Requires an a-priori number of dimensions.
 
 ### firstpos
 

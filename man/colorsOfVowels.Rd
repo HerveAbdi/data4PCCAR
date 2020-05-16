@@ -6,7 +6,8 @@
 \title{133 (French) participants
  associated 6 colors to 6 vowels (data from
 Chastaing, 1961).}
-\format{A list containing 5 objects:
+\format{
+A list containing 5 objects:
 1) \code{CT}: a 6 vowels by 6 colors (pseudo) contingency table
 storing the responses of all 133 participants;
 2) \code{CT.noSynesthesia}: a 6 vowels by 6 colors (pseudo)
@@ -21,12 +22,12 @@ and
 5) \code{colorsDescription} a data frame
 giving the R-color code for the colors.
  @keywords datasets data4PCCAR
- @author Maxime Chastaing and Herve Abdi
+ @author Maxime Chastaing and Hervé Abdi
  @references
  The data reported here were obtained from Tables 1 and 2 from
-
   Chastaing, M (1961). des sons et des couleurs.
-  \emph{Vie et Language, 112}, 358-365.}
+  \emph{Vie et Language, 112}, 358-365.
+}
 \usage{
 data("colorsOfVowels")
 }
@@ -45,10 +46,10 @@ with \emph{synesthesia} and the 27
 participants who responded "No" are called
 with \emph{without synesthesia}.
 
-The question asked to the participant was:
+The question asked to the participants was:
 ``Here are six colors: red, orange, yellow, blue, and violet.
 What vowel do you think match each color?".
-So the color are the stimuli
+So, the color are the stimuli
 (i.e., the \emph{independent} variable)
 and the vowels are the responses
 (i.e., the \emph{dependent} variable).

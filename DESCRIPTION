@@ -16,4 +16,4 @@ LazyData: true
 VignetteBuilder: utils
 URL: http://github.com/HerveAbdi/data4PCCAR
 BugReports: http://github.com/HerveAbdi/data4PCCAR/issues
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0

@@ -20,10 +20,10 @@
 #' participants who responded "No" are called
 #' with \emph{without synesthesia}.
 #'
-#' The question asked to the participant was:
+#' The question asked to the participants was:
 #' ``Here are six colors: red, orange, yellow, blue, and violet.
 #' What vowel do you think match each color?".
-#' So the color are the stimuli
+#' So, the color are the stimuli
 #' (i.e., the \emph{independent} variable)
 #' and the vowels are the responses
 #' (i.e., the \emph{dependent} variable).
@@ -59,10 +59,9 @@
 #' 5) \code{colorsDescription} a data frame
 #' giving the R-color code for the colors.
 #'  @keywords datasets data4PCCAR
-#'  @author Maxime Chastaing and Herve Abdi
+#'  @author Maxime Chastaing and Hervé Abdi
 #'  @references
 #'  The data reported here were obtained from Tables 1 and 2 from
-#'
 #'   Chastaing, M (1961). des sons et des couleurs.
 #'   \emph{Vie et Language, 112}, 358-365.
 NULL

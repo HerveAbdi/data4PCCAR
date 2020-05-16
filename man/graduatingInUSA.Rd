@@ -4,7 +4,8 @@
 \name{graduatingInUSA}
 \alias{graduatingInUSA}
 \title{Number of University Graduates in the USA from 1966 to 2001.}
-\format{A list containing 7 data frames:
+\format{
+A list containing 7 data frames:
 \itemize{
 \item \code{df.all} the grand contingency table
 \item \code{menBachelor}: the contingency table for men bachelors
@@ -13,7 +14,8 @@
 \item \code{womenBachelor}: the contingency table for women bachelors
 \item \code{womenMaster:} the contingency table for women maters
 \item \code{womenPhd} the contingency table for women Ph.D.
-}}
+}
+}
 \usage{
 data("graduatingInUSA")
 }

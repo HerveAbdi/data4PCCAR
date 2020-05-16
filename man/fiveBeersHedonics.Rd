@@ -5,14 +5,16 @@
 \alias{fiveBeersHedonics}
 \title{Five tasters evaluated
 how much they liked  (using a 10 point rating scale) five beers.}
-\format{A list containing 2 data frames:
+\format{
+A list containing 2 data frames:
 \itemize{
 \item \code{ratings:} A 5 by 5 data frame with
 the original ratings performed using a 10 point rating scale.
 \item \code{fuzzyRatings:}
 A 5 by 10 data frame with
 the doubled ratings (with values between 0 and 1).
-}}
+}
+}
 \usage{
 data("fiveBeersHedonics")
 }

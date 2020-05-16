@@ -5,7 +5,8 @@
 \alias{sixFaces}
 \title{The pictures of six faces (3 men and 3 women).
 To be used to illustrate PCA or PLS on images.}
-\format{A list containing 3 objects:
+\format{
+A list containing 3 objects:
 \itemize{
 \item \code{face.array.raw} a 230 * 240 * 6 array storing the 6
 (230 by 240 pixels) raw images of the faces.
@@ -16,7 +17,8 @@ go from 0 to 253.
 The sum of the squared values of a normalized image is now equal to 1.
 \item \code{face.matrix} a matrix of dimensions 6 by 55,220 ( = 230*240)
 storing the vectorized (normalized) pictures of the faces.
-}}
+}
+}
 \usage{
 data("sixFaces")
 }

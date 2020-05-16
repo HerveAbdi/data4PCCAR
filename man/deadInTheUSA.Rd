@@ -4,11 +4,13 @@
 \name{deadInTheUSA}
 \alias{deadInTheUSA}
 \title{The causes of death as a function of age in the USA in 2001.}
-\format{A list containing 1 data frame:
+\format{
+A list containing 1 data frame:
 \itemize{
 \item \code{CT:} the contingency table
 giving the number of death per age and cause.
-}}
+}
+}
 \usage{
 data("deadInTheUSA")
 }

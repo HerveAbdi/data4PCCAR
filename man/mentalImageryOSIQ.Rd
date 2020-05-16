@@ -6,7 +6,8 @@
 \title{(simulated) results of 2,100 participants answering
 a Likert scale like questionnaire about mental imagery
 (called the Object-Spatial Imagery Questionnaire: OSIQ).}
-\format{a list containing one
+\format{
+a list containing one
 data frame (\code{mentalImageryOSIQ$OSIQ})
 with 2,100 rows (observations)
 and 30 columns (questions). The first letter
@@ -19,7 +20,8 @@ of the name of a row can be \code{H, M, L}.
 This letter indicates that the participants identified
 themselves as having \code{H}igh or superior episodic memory,
 \code{M}edium (when they did not mention high nor low), or
-\code{L}ow episodic memory.}
+\code{L}ow episodic memory.
+}
 \usage{
 data("mentalImageryOSIQ")
 }

@@ -4,13 +4,15 @@
 \name{winesOf3Colors}
 \alias{winesOf3Colors}
 \title{36 wines are evaluated on several dimensions orgainzed in 3 blocks.}
-\format{A list with
+\format{
+A list with
 one data frame with three blocks of data:
 \itemize{
 \item \code{1} The descriptors.
 \item \code{2} The chemistry
 \item \code{3} The sensory
-}}
+}
+}
 \usage{
 data("winesOf3Colors")
 }

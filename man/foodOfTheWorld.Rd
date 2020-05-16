@@ -5,7 +5,8 @@
 \alias{foodOfTheWorld}
 \title{26 world cuisines are described by
 their cooking ingredients.}
-\format{A list containing 9 objects:
+\format{
+A list containing 9 objects:
  1) \code{CT}: a 26 cuisines by 159 ingredients data frame
  containing the contingency table;
  2) \code{logCT}: a 26 cuisines by 159 ingredients
@@ -27,7 +28,8 @@ their cooking ingredients.}
  a 26 cuisines by 22 ingredients data frame
  containing the "compact" rounded "logged" contingency table;
  @keywords datasets data4PCCAR
- @author Herve Abdi & Jyothi}
+ @author Herve Abdi & Jyothi
+}
 \usage{
 data("foodOfTheWorld")
 }

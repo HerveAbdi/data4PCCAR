@@ -5,14 +5,16 @@
 \alias{alcoholInEurope}
 \title{The average consumption of 4 types of alcoholic beverages
 in 22 European countries and 3 neighboring countries.}
-\format{A list containing 2 data frames:
+\format{
+A list containing 2 data frames:
 \itemize{
 \item \code{df.active:} the 22 countries by
 4 types of alcoholic beverages active data set.
 \item \code{supplementary.observations:}
 the 3 (non-EU but neighoring) countries by
 4 types of alcoholic beverages supplementary data set.
-}}
+}
+}
 \usage{
 data("alcoholInEurope")
 }

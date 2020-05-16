@@ -4,7 +4,8 @@
 \name{sixAuthorsPunctuated}
 \alias{sixAuthorsPunctuated}
 \title{The punctuation used by six classical French Writers}
-\format{A list containing 3 data frames:
+\format{
+A list containing 3 data frames:
 \itemize{
 \item \code{df.active:} the punctuation by the six authors
 \item \code{supplementary.variables:} gives the details of the punctuation
@@ -14,7 +15,8 @@ marks included the \code{Other} category:
 The punctuation marks used in
 Chapter 1 of \emph{Les Réseaux de Neurones} written
 by Hervé Abdi
-}}
+}
+}
 \usage{
 data("sixAuthorsPunctuated")
 }

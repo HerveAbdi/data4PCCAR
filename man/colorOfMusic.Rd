@@ -5,7 +5,8 @@
 \alias{colorOfMusic}
 \title{12 Children and 10 Adults picked up
 the color that best describes 9 pieces of music.}
-\format{A list with 5 data frames or arrays
+\format{
+A list with 5 data frames or arrays
 describing respectively
 1) the check mark data, 2) the description of the participants,
 3) the names and color codes of the 10 colors used,
@@ -40,7 +41,8 @@ data).}
  color to match this piece of music. This contingency
  table is typically analyzed with correspondence analysis.
  (e.g., see Abdi and Bera, 2018). }
-}}
+}
+}
 \source{
 Abdi, H. and Bera, M. (2018).  Correspondence Analysis.
 \emph{Encyclopedia of Social Network Analysis and Mining} (2nd Edition).

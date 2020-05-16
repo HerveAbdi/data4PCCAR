@@ -5,7 +5,8 @@
 \alias{dimensionsOfDepression}
 \title{The similarity of 15 psychometric instruments 
 measuring depression.}
-\format{A list containing 2 data frames:
+\format{
+A list containing 2 data frames:
 * \code{df.scaleSimilarity}:
 a 15 * 15 matrix giving the similarity on a scale from 0 to 1000
 between the scales (the similarity can be seen as akind
@@ -17,7 +18,8 @@ and one factor variable indicating if he
 scale is targeted toward adults 
 (including the geriatric population) 
 or for children or adolescents.
-#' @md}
+#' @md
+}
 \source{
 These data come from a post of the sapiens lab,
 for more details and references see

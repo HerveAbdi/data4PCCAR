@@ -5,13 +5,15 @@
 \alias{foodInFrance}
 \title{How much typical French families spent on different types
 of food in the 1950's.}
-\format{A list containing 2 data frames:
+\format{
+A list containing 2 data frames:
 \itemize{
 \item \code{df.active:} the data per se
 \item \code{supplementary.variables:} Additional information
 long and short names and factors to expliciely identify
 social class and number of children.
-}}
+}
+}
 \usage{
 data("foodInFrance")
 }
