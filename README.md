@@ -315,13 +315,13 @@ parameter `scale = TRUE`, `scale` gives back
 a vector of `NaN` (because of a division by 0 error),
 whereas `scale0` gives back a vector of `0`.
 
-### Supplementary4Vari
-Computes the projection of supplementary elements 
+### supplementary4Vari
+computes the projection of supplementary elements 
  (rows or columns) for a PCA (computed with
- `ExPosition::epPCA`
+ `ExPosition::epPCA`)
  followed by a `Varimax` rotation 
  (computed with
- `data4PCCAR::epVari`.
+ `data4PCCAR::epVari`).
 
 
 ### tepCCA
@@ -330,7 +330,7 @@ Computes the projection of supplementary elements
  Analysis (CCA).  Inputs and outputs are the same as `TExPosition::tepPLS`.
  Current version uses a clone of `GSVD` from Derek Beaton's 
  soon-to-be-released-on-CRAN package `GSVD` (see `Github`: 
- `derekbeaton/GSVD` for details`).
+ `derekbeaton/GSVD` for details`). Note that this version is still under development.
 
 ### theme_ptca2()
 A `ggplot2` theme that matches the defaults of the factorial figures in `PTCA4CATA`.

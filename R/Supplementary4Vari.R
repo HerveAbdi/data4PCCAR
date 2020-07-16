@@ -1,20 +1,20 @@
 # Head ----
-# File: Supplementary4Vari 
-# Projection of Supplementary ELements after a Varimax Rotation
-# functions in this file: Supplementary4Vari 
+# File: supplementary4Vari 
+# Projection of supplementary eLements after a Varimax Rotation
+# functions in this file: supplementary4Vari 
 #                         print.epVariSup.i,   print.epVariSup.j
 # Hervé Abdi: July 16, 2020. 
 #_____________________________________________________________________
 #_____________________________________________________________________
 # Helper for roxygen2 ----
 #  install.packages('sinew')
-#  sinew::makeOxygen(Supplementary4Vari)
+#  sinew::makeOxygen(supplementary4Vari)
 #_____________________________________________________________________
 ## Preamble ----
 #' @title Compute the projection of supplementary elements 
 #' (rows or columns) for a PCA followed by a \code{Varimax}
 #' rotation.
-#' @description \code{Supplementary4Vari} 
+#' @description \code{supplementary4Vari} 
 #' Computes the projection of supplementary elements 
 #' (rows or columns) for a PCA (computed with
 #' \code{ExPosition::epPCA()})
@@ -65,20 +65,20 @@
 #' library(ExPosition) # for epPCA()
 #' resPCA       <- epPCA(iris[1:4], scale = 'SS1', graphs = FALSE)
 #' resVari      <- epVari(resPCA)
-#' resVariSup.i <- Supplementary4Vari(matrix(c(5,4,2,.5), nrow =1),
+#' resVariSup.i <- supplementary4Vari(matrix(c(5,4,2,.5), nrow = 1),
 #'                                    resPCA, resVari)
 #'  }
 #' }
-#' @rdname Supplementary4Vari
+#' @seealso \code{\link{epVari}} \code{\link[ExPosition]{epPCA}}
+#' @rdname supplementary4Vari
 #' @export 
-# *** 1. test sup I 4 vari ----
-Supplementary4Vari <- function(SUP.DATA, 
+# supplementary4Vari ----
+supplementary4Vari <- function(SUP.DATA, 
                                resPCA, resVari, set = 'rows',
                                center = TRUE, scale = 'SS1'){
-  # *** 2. test sup J 4 vari
-  #  this one should be TRUE
+  #  this one should be TRUE to keep going
   if( (class(resPCA$ExPosition.Data)[1]) != 'epPCA'){
-  stop('Current version of Supplementary4Vari works only with epPCA')
+  stop('Current version of supplementary4Vari works only with epPCA')
   }
   if (!(set %in% c('rows',   'Rows',   'I','Iset',
                    'columns','Columns','J','Jset'))){
@@ -118,11 +118,11 @@ Supplementary4Vari <- function(SUP.DATA,
 # #_____________________________________________________________________
 # print.epVariSup.i ----
 #
-#' Change the print function for createFactorMap
+#' Change the print function for epVariSup.i
 #'
-#'  Change the print function for createFactorMap
+#'  Change the print function for epVariSup.i
 #'
-#' @param x a list: output of createFactorMap
+#' @param x a list: output of supplementary4Vari
 #' @param ... everything else for the functions
 #' @author Hervé Abdi
 #' @export
@@ -140,11 +140,11 @@ print.epVariSup.i <- function(x, ...) {
 # _____________________________________________________________________
 # print.epVariSup.j ----
 #
-#' Change the print function for createFactorMap
+#' Change the print function for epVariSup.j
 #'
-#'  Change the print function for createFactorMap
+#'  Change the print function for epVariSup.j
 #'
-#' @param x a list: output of createFactorMap
+#' @param x a list: output of supplementary4Vari
 #' @param ... everything else for the functions
 #' @author Hervé Abdi
 #' @export
