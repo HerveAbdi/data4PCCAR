@@ -1,3 +1,4 @@
+
 # data4PCCAR
 
 An `R`-package containing a collection of data sets and 
@@ -313,6 +314,15 @@ comprises all identical values and 2) when the
 parameter `scale = TRUE`, `scale` gives back
 a vector of `NaN` (because of a division by 0 error),
 whereas `scale0` gives back a vector of `0`.
+
+### Supplementary4Vari
+Computes the projection of supplementary elements 
+ (rows or columns) for a PCA (computed with
+ `ExPosition::epPCA`
+ followed by a `Varimax` rotation 
+ (computed with
+ `data4PCCAR::epVari`.
+
 
 ### tepCCA
 
