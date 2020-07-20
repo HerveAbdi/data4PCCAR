@@ -289,7 +289,13 @@ for MCA.
 Also a helper function,
  used for MCA.
 
+### projSupplementaryObservations4PLSC
 
+computes latent variables / factor scores for supplementary
+observations in a  `PLSC` analysis. 
+Note: `projSupplementaryObservations4PLSC` is mostly used
+ as a preparatory step for
+`supplementaryObservations4PLSC`.
 
 #### recode2Integer
 
@@ -322,6 +328,12 @@ computes the projection of supplementary elements
  followed by a `Varimax` rotation 
  (computed with
  `data4PCCAR::epVari`).
+ 
+ ### supplementaryObservations4PLSC
+ 
+ compute the latent variables for
+  supplementary observations for a PLSC model 
+  from `TExPsoition::PLS`ß.
 
 
 ### tepCCA
