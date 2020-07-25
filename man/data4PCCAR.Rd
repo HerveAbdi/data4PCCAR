@@ -13,19 +13,19 @@ to illustrate principal component analysis,
 correspondence analysis, and multidimensional scaling.
 \tabular{ll}{ Package: \tab datarPCCAR\cr Type: \tab Package\cr Version: \tab
 0.1.0\cr Date: \tab 2018-03-15\cr License: \tab GPL-2\cr Depends: \tab
- (>= 3.0.0)}
+(>= 3.0.0)}
 }
 \note{
 The current version of data4PPCCAR needs to be installed from
-`Github` with the command
+\code{Github} with the command
 `devtools::install_github('HerveAbdi/data4PCCAR')``
 }
 \author{
-Herve Abdi [aut, com, ctb, cre],
-Vincent Guillemot  [aut, cre],
+Herve Abdi (aut, com, ctb, cre),
+Vincent Guillemot (aut, cre),
 & Derek Beaton
-[aut, cre]
+(aut, cre)
 
-Maintainer: Herve Abdi <herve@utdallas.edu>
+Maintainer: Herve Abdi \href{mailto:herve@utdallas.edu}{herve@utdallas.edu}
 }
 \keyword{package}

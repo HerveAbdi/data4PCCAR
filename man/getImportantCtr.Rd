@@ -15,7 +15,7 @@ such as \code{$ExPosition.Data$ci}).}
 \item{eig}{the eigenvalues of the analysis
 (e.g.,
 the output of \code{ExPosition}
- such as \code{$ExPosition.Data$eigs}).}
+such as \code{$ExPosition.Data$eigs}).}
 
 \item{axis1}{the horizontal axis (Default: 1).}
 
@@ -35,8 +35,8 @@ is larger than the average for at least one of the components.}
 }
 }
 \description{
-\code{getImportantCtr}: 
- Gets the items whose contribution is
+\code{getImportantCtr}:
+Gets the items whose contribution is
 important for a factorial plane.
 \code{getImportantCtr.12} gives
 the contributions of the items to the plane, the items

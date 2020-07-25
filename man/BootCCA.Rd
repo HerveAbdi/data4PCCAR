@@ -42,20 +42,20 @@ The following text options are available:
 \code{'z'}: \eqn{z}-score normalization,
 \code{'sd'}: standard deviation normalization,
 \code{'rms'}: root mean square normalization,
- \code{'ss1'}: sum of squares
- (of columns) equals 1
- (i.e., each column vector has length of 1).}
+\code{'ss1'}: sum of squares
+(of columns) equals 1
+(i.e., each column vector has length of 1).}
 
 \item{scale2}{when \code{TRUE} (default) \code{DATA2}
 will be normalized
- (same options as for \code{scale1}).}
+(same options as for \code{scale1}).}
 
-\item{Fi}{(Default = \code{NULL}), the \eqn{I} 
+\item{Fi}{(Default = \code{NULL}), the \eqn{I}
 factor scores
 for the columns of \code{DATA1}.
 if \code{NULL},  \code{Boot4RowCA} computes them..}
 
-\item{Fj}{= (Default = \code{NULL}, the \eqn{J} 
+\item{Fj}{= (Default = \code{NULL}, the \eqn{J}
 factor scores
 for the columns of \code{DATA2}.
 if \code{NULL} the function
@@ -83,28 +83,28 @@ the confidence intervals for the eigenvalues
 a list with
 \itemize{
 \item{\code{bootstrapBrick.i}: }{the
- the \code{I * Dimensions * Iterations} Brick of
-     Bootstraped factor scores  for the \eqn{I}-set;}
- \item{\code{bootRatios.i}: }{the bootstrap ratios
-     for the \eqn{I}-set;}
+the \code{I * Dimensions * Iterations} Brick of
+Bootstraped factor scores  for the \eqn{I}-set;}
+\item{\code{bootRatios.i}: }{the bootstrap ratios
+for the \eqn{I}-set;}
 \item{\code{bootRatiosSignificant.i}: }{the Significant
-   BRs for the \eqn{I}-set;}
+BRs for the \eqn{I}-set;}
 \item{\code{bootstrapBrick.j}: }{
-    the \code{J * Dimensions * Iterations} Brick of
-    Bootstraped factor scores for the \eqn{J}-set;}
+the \code{J * Dimensions * Iterations} Brick of
+Bootstraped factor scores for the \eqn{J}-set;}
 \item{\code{bootRatios.j}: }{the bootstrap ratios for the \eqn{J}-set;}
 \item{\code{bootRatiosSignificant.j}: }{the Significant
-   BRs for the \eqn{J}-set;}
-   }
-   In addition if \code{eig = TRUE}, the list includes:
+BRs for the \eqn{J}-set;}
+}
+In addition if \code{eig = TRUE}, the list includes:
 \itemize{
 \item{\code{eigenValues}: }{the \code{nIter * nL} table
- of eigenvalues;}
+of eigenvalues;}
 \item{\code{fixedEigenvalues}: }{the eigenvalues of
-  matrix n\eqn{X'Y}.}
- \item{\code{eigenCIs}: }{the CIs for the
- eigenvalues.}
- }
+matrix n\eqn{X'Y}.}
+\item{\code{eigenCIs}: }{the CIs for the
+eigenvalues.}
+}
 }
 \description{
 \code{Boot4CCA}:
@@ -114,7 +114,7 @@ of a CCA
 The bricks are
 obtained from bootstraping the rows
 of the two data-tables used for the  CCA.
- \code{Boot4CCA} uses the "transition formula" to get
+\code{Boot4CCA} uses the "transition formula" to get
 the values of the row and column loadings
 from multiplication of the latent variables.
 Gives also the bootstraped eigenvalues

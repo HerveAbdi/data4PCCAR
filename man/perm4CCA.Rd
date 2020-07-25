@@ -39,13 +39,13 @@ The following text options are available:
 \code{'z'}: z-score normalization,
 \code{'sd'}: standard deviation normalization,
 \code{'rms'}: root mean square normalization,
- \code{'ss1'}: sum of squares
- (of columns) equals 1
- (i.e., column vector of length of 1).}
+\code{'ss1'}: sum of squares
+(of columns) equals 1
+(i.e., column vector of length of 1).}
 
 \item{scale2}{when \code{TRUE} (default) \code{DATA2}
 will be normalized
- (same options as for \code{scale1}).}
+(same options as for \code{scale1}).}
 
 \item{nIter}{(Default = \code{1000}). Number of Iterations
 (i.e., number of permuted samples computed).}
@@ -79,7 +79,7 @@ If \code{compact} is \code{FALSE}, returns also
 the permuted eigenvalues.
 }
 \description{
-\code{perm4CCA}: 
+\code{perm4CCA}:
 Permutation for CCA (as implemented
 in \code{tepCCA}).
 Computes an omnibus permutation test and

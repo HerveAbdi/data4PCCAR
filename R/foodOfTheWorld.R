@@ -32,12 +32,13 @@
 #' (most informative) ingredients.
 #' Because the counts vary greatly,
 #' the contingency tables are also re-scaled by taking the
-#' logarithm of the contingency table [with log(0) set to 0].
+#' logarithm of the contingency table 
+#' (with \code{log(0)} set to \code{0}).
 #' The log tables are also available as a pseudo-integer version
 #' (obtained by multiplying by 10 and rounding the "logged"
-#' contingency table). The log rescaled tables are preceded
+#' contingency table). The log \emph{rescaled} tables are preceded
 #' by the prefix \code{log}, the "log-rounded" tables
-#' are, in addition,  followed by the suffix \code{.interger}
+#' are, in addition,  followed by the suffix \code{.integer}
 #'
 #' The original post used these data  (the compact version)
 #' to illustrate
@@ -46,8 +47,8 @@
 #'
 #' The large, small, and compact data sets give roughly the
 #' same first dimension(s), whereas versions
-#' with more deescriptors give
-#' more signfificant/relevant dimensions than data sets with fewer
+#' with more descriptors give
+#' more significant/relevant dimensions than data sets with fewer
 #' variables.
 #'
 #' @name foodOfTheWorld

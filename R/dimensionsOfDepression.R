@@ -58,7 +58,7 @@
 #' @author Hervé Abdi 
 #' @references 
 #' for details and more references, see the \code{source} url.
-#' # \url{https://sapienlabs.org/quantitative-similarity-of-depression-tools/}
+#' \url{https://sapienlabs.org/quantitative-similarity-of-depression-tools/}
 NULL
 # End of dimensionsOfDepression
 #_____________________________________________________________________

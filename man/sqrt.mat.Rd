@@ -2,13 +2,13 @@
 % Please edit documentation in R/temporary_internal_functions.R
 \name{sqrt.mat}
 \alias{sqrt.mat}
-\title{sqrt.mat, authored by Derek Beaton. 
+\title{sqrt.mat, authored by Derek Beaton.
 Cf. ExPosition CRAN}
 \usage{
 \method{sqrt}{mat}(X)
 }
 \description{
-sqrt.mat, authored by Derek Beaton. 
+sqrt.mat, authored by Derek Beaton.
 Cf. ExPosition CRAN
 }
 \keyword{internal}

@@ -13,8 +13,8 @@
 }
 \description{
 Change the print function for objects
- of the class \code{bootBrick.ij.eig4plsc}
- (output of \code{Boot4PLSC})
+of the class \code{bootBrick.ij.eig4plsc}
+(output of \code{Boot4PLSC})
 }
 \author{
 Hervé Abdi

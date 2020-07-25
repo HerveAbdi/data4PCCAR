@@ -172,7 +172,7 @@ print.supElementsPLS <- function(x, ...) {
   ndash = 78 # How many dashes for separation lines
   cat(rep("-", ndash), sep = "")
   cat("\nLatent Variables for Supplementary Observations for epPLS  \n")
-  # cat("\n List name: ",deparse(eval(substitute(substitute(x)))),"\n")
+  # cat("\n List name: ", deparse(eval(substitute(substitute(x)))),"\n")
   cat(rep("-", ndash), sep = "")
   cat("\n$lx.sup: ", "Latent variables for the X-set (if any)")
   cat("\n$ly.sup: ", "Latent variables for the Y-set (af any)")

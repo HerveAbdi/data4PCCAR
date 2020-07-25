@@ -17,21 +17,21 @@ by \code{ExPosition} with the functions:
 the dimensions, Default: 'Dimension '}
 }
 \value{
-the original results with their dimensions 
+the original results with their dimensions
 named or renamed.
 }
 \description{
 \code{nameExpositionResults}:
-adds dimension names to the results of analyses performed with 
+adds dimension names to the results of analyses performed with
 \code{ExPosition} (column names are needed for plots
 created with \code{ggplot2}).
 }
 \details{
 \code{ExPosition} returns the results of its analysis in a list
 of matrices
-that comprises the factor scores, the contributions, 
+that comprises the factor scores, the contributions,
 the cosines (etc. see documentation for \code{\link{ExPosition}}).
-The columns of these statistics 
+The columns of these statistics
 do not have names and this creates
 a problem when using \code{ggplot2} whose
 syntax  requires names for variables in \code{aes()}.

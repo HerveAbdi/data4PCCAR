@@ -11,35 +11,35 @@ firstpos(P, Q = NULL)
 \arguments{
 \item{P}{A matrix of numeric values}
 
-\item{Q}{If not \code{NULL}, 
-a matrix of numeric values with the 
+\item{Q}{If not \code{NULL},
+a matrix of numeric values with the
 same number of columns as \code{P}}
 }
 \value{
-If \code{Q} is \code{NULL}, 
+If \code{Q} is \code{NULL},
 then the function returns a only the modified P matrix.
 Otherwise, the functions returns a list with two elements:
 \itemize{
-  \item \code{P} A matrix with the same values as in \code{P}, 
-  except that the sign of all the values in each column
-   is flipped if the first value of this column is negative.
-  \item \code{Q} A matrix with the same values as in 
-  \code{Q}, 
-  except that the sign of all the values in each column 
-  is flipped the same way that it is flipped for\code{P}.
+\item \code{P} A matrix with the same values as in \code{P},
+except that the sign of all the values in each column
+is flipped if the first value of this column is negative.
+\item \code{Q} A matrix with the same values as in
+\code{Q},
+except that the sign of all the values in each column
+is flipped the same way that it is flipped for\code{P}.
 }
 }
 \description{
-\code{firspos}: 
-Changes the sign of the values of the columns 
-in one or two matrices 
-according to the sign of the elements in the first line 
-of the first matrix. 
+\code{firspos}:
+Changes the sign of the values of the columns
+in one or two matrices
+according to the sign of the elements in the first line
+of the first matrix.
 After transformation the first element of every column of the
 matric or matrices will be positive.
 
-This is used to get reproducible 
-results when performing singular value decompositions 
+This is used to get reproducible
+results when performing singular value decompositions
 or eigenvalue decompositions.
 
 Note that when provided tow matrices the signs of the
@@ -54,7 +54,7 @@ singular vectors of a given matrix match.
 }
 }
 \seealso{
-\code{ \link{firstpos4ExPo}},  
+\code{ \link{firstpos4ExPo}},
 \code{\link{renormInertiaExPo}}
 }
 \author{

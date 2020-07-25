@@ -23,7 +23,7 @@ and column singular vectors (i.e., pdq$q) of  analyses
 performed with the  \code{ExPosition} package.
 \code{firstpos4ExPo} also insures that the sign of the column
 factor scores and singular vectors agree with
-  the row factors scores (i.e., \code{fi})
+the row factors scores (i.e., \code{fi})
 and singular vectors (i.e., pdq$p).
 
 The transformation implemented by \code{firstpos4ExPo}
@@ -35,7 +35,7 @@ multiplied by -1 is still a singular vector).
 \details{
 Note that only the results of the
 computation are affected by the \code{firstpos4ExPo},
-the graphics are *not* affected. So when using
+the graphics are \emph{not} affected. So when using
 \code{firstpos4ExPo} it is wise to set the option
 \code{graphs = FALSE}.
 Also, a similar

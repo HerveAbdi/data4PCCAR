@@ -35,9 +35,9 @@ The following text options are available:
 \code{'z'}: z-score normalization,
 \code{'sd'}: standard deviation normalization,
 \code{'rms'}: root mean square normalization,
- \code{'ss1'}: sum of squares
- (of columns) equals 1
- (i.e., column vector of length of 1).}
+\code{'ss1'}: sum of squares
+(of columns) equals 1
+(i.e., column vector of length of 1).}
 
 \item{scale2}{when \code{TRUE} (default) \code{DATA2}
 will be normalized
@@ -49,7 +49,7 @@ will be normalized
 }
 \description{
 \code{compS}: Computes an SCP matrix from 2 matrices X and Y
- with several possible
+with several possible
 combinations of centering and normalizing.
 Both \code{X} and \code{Y} are pre-processed
 (i.e., centered / normalized)

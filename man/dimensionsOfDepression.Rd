@@ -3,22 +3,24 @@
 \docType{data}
 \name{dimensionsOfDepression}
 \alias{dimensionsOfDepression}
-\title{The similarity of 15 psychometric instruments 
+\title{The similarity of 15 psychometric instruments
 measuring depression.}
 \format{
 A list containing 2 data frames:
-* \code{df.scaleSimilarity}:
+\itemize{
+\item \code{df.scaleSimilarity}:
 a 15 * 15 matrix giving the similarity on a scale from 0 to 1000
 between the scales (the similarity can be seen as akind
-to a percentage 
+to a percentage
 of common variance rescaled from 0 to 1000).
-* \code{supplementary.information}: a data frame with the
-whole name of the scales 
+\item \code{supplementary.information}: a data frame with the
+whole name of the scales
 and one factor variable indicating if he
-scale is targeted toward adults 
-(including the geriatric population) 
+scale is targeted toward adults
+(including the geriatric population)
 or for children or adolescents.
 #' @md
+}
 }
 \source{
 These data come from a post of the sapiens lab,
@@ -29,16 +31,16 @@ for more details and references see
 data("dimensionsOfDepression")
 }
 \description{
-\code{dimensionsOfDepression}: gives the 
- the similarity  (measured on a scale from 0 to 1000, 
- with bigger numbers
+\code{dimensionsOfDepression}: gives the
+the similarity  (measured on a scale from 0 to 1000,
+with bigger numbers
 meaning more similar)
- between 15 psychometric instruments (i.e. scales)
+between 15 psychometric instruments (i.e. scales)
 measuring depression.
 }
 \references{
 for details and more references, see the \code{source} url.
-# \url{https://sapienlabs.org/quantitative-similarity-of-depression-tools/}
+\url{https://sapienlabs.org/quantitative-similarity-of-depression-tools/}
 }
 \author{
 Hervé Abdi

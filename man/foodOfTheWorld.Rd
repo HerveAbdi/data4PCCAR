@@ -7,28 +7,30 @@
 their cooking ingredients.}
 \format{
 A list containing 9 objects:
- 1) \code{CT}: a 26 cuisines by 159 ingredients data frame
- containing the contingency table;
- 2) \code{logCT}: a 26 cuisines by 159 ingredients
- data frame containing the "logged" contingency table;
- 3) \code{logCT.integer}: a 26 cuisines by 159 ingredients
- data frame containing the rounded"logged" contingency table;
- 4) \code{small.CT}: a 26 cuisines by 68 ingredients data frame
- containing the "small" contingency table;
- 5) \code{small.logCT}: a 26 cuisines by 68 ingredients data frame
- containing the "small" "logged" contingency table;
- 6) \code{small.logCT.integer}:
- a 26 cuisines by 68 ingredients data frame
- containing the "small" rounded "logged" contingency table;
- 7) \code{compact.CT}: a 26 cuisines by 22 ingredients data frame
- containing the "compact" contingency table;
- 8) \code{compact.logCT}: a 26 cuisines by 22 ingredients data frame
- containing the "compact" "logged" contingency table; and
- 9) \code{compact.logCT.integer}:
- a 26 cuisines by 22 ingredients data frame
- containing the "compact" rounded "logged" contingency table;
- @keywords datasets data4PCCAR
- @author Herve Abdi & Jyothi
+\enumerate{
+\item \code{CT}: a 26 cuisines by 159 ingredients data frame
+containing the contingency table;
+\item \code{logCT}: a 26 cuisines by 159 ingredients
+data frame containing the "logged" contingency table;
+\item \code{logCT.integer}: a 26 cuisines by 159 ingredients
+data frame containing the rounded"logged" contingency table;
+\item \code{small.CT}: a 26 cuisines by 68 ingredients data frame
+containing the "small" contingency table;
+\item \code{small.logCT}: a 26 cuisines by 68 ingredients data frame
+containing the "small" "logged" contingency table;
+\item \code{small.logCT.integer}:
+a 26 cuisines by 68 ingredients data frame
+containing the "small" rounded "logged" contingency table;
+\item \code{compact.CT}: a 26 cuisines by 22 ingredients data frame
+containing the "compact" contingency table;
+\item \code{compact.logCT}: a 26 cuisines by 22 ingredients data frame
+containing the "compact" "logged" contingency table; and
+\item \code{compact.logCT.integer}:
+a 26 cuisines by 22 ingredients data frame
+containing the "compact" rounded "logged" contingency table;
+@keywords datasets data4PCCAR
+@author Herve Abdi & Jyothi
+}
 }
 \usage{
 data("foodOfTheWorld")
@@ -46,11 +48,12 @@ These data sets are derived from the work of blogger
 (see \code{https://www.r-bloggers.com/a-visualization-of-world-cuisines/}).
 Here the main data
 consist in a list with three main data frames:
- 1) \code{CT}: a contingency table listing
+\enumerate{
+\item \code{CT}: a contingency table listing
 the number of recipes (from the publicly available
 data base \code{Epicurious}) that mention a given ingredient
 for a given cuisine;
-2) \code{small.CT}
+\item \code{small.CT}
 A short version is also provided that is
 using only 68
 (most discriminant) ingredients;
@@ -60,12 +63,14 @@ a compact version
 (most informative) ingredients.
 Because the counts vary greatly,
 the contingency tables are also re-scaled by taking the
-logarithm of the contingency table [with log(0) set to 0].
+logarithm of the contingency table
+(with \code{log(0)} set to \code{0}).
 The log tables are also available as a pseudo-integer version
 (obtained by multiplying by 10 and rounding the "logged"
-contingency table). The log rescaled tables are preceded
+contingency table). The log \emph{rescaled} tables are preceded
 by the prefix \code{log}, the "log-rounded" tables
-are, in addition,  followed by the suffix \code{.interger}
+are, in addition,  followed by the suffix \code{.integer}
+}
 
 The original post used these data  (the compact version)
 to illustrate
@@ -74,7 +79,7 @@ principal component analysis, but because these data are counts
 
 The large, small, and compact data sets give roughly the
 same first dimension(s), whereas versions
-with more deescriptors give
-more signfificant/relevant dimensions than data sets with fewer
+with more descriptors give
+more significant/relevant dimensions than data sets with fewer
 variables.
 }

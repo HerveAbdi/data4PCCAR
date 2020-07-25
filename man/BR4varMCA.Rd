@@ -22,10 +22,10 @@ used to compute the original Bootstrap ratios.}
 \value{
 A list with 6 elements
 \itemize{
- \item{"pseudoBR.pos"}{ The positive pseudo BR ratios (i.e.,
- BRs indicating \emph{differences} between levels)}
- \item{"pseudoBR"}{ BR ratios matching the probability 
- of their \eqn{F},
+\item{"pseudoBR.pos"}{ The positive pseudo BR ratios (i.e.,
+BRs indicating \emph{differences} between levels)}
+\item{"pseudoBR"}{ BR ratios matching the probability
+of their \eqn{F},
 could be positive (indicating \emph{differences} between levels), or
 could be negative (indicating \emph{similarities} between levels)
 }
@@ -40,7 +40,7 @@ the qualitative variable.}
 }
 \description{
 \code{BR4varMCA}
- Computes pseudo Bootstrap ratios from pseudo-\eqn{F} for
+Computes pseudo Bootstrap ratios from pseudo-\eqn{F} for
 variables in MCA.
 }
 \details{

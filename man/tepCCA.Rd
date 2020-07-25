@@ -36,52 +36,52 @@ The following text options are available:
 \code{'z'}: z-score normalization,
 \code{'sd'}: standard deviation normalization,
 \code{'rms'}: root mean square normalization,
- \code{'ss1'}: sum of squares
- (of columns) equals 1
- (i.e., column vector of length of 1).}
+\code{'ss1'}: sum of squares
+(of columns) equals 1
+(i.e., column vector of length of 1).}
 
 \item{center2}{when \code{TRUE} (default) \code{DATA2}
 will be centered.}
 
 \item{scale2}{when \code{TRUE} (default) \code{DATA2}
 will be normalized
- (same options as for \code{scale1}).}
+(same options as for \code{scale1}).}
 
-\item{DESIGN}{a design matrix 
+\item{DESIGN}{a design matrix
 to indicate if the rows comprise several groups.}
 
-\item{make_design_nominal}{a boolean. If \code{TRUE} (default), 
-DESIGN is a vector that indicates groups 
-(and will be dummy-coded). 
+\item{make_design_nominal}{a boolean. If \code{TRUE} (default),
+DESIGN is a vector that indicates groups
+(and will be dummy-coded).
 If \code{FALSE}, \code{DESIGN} is a dummy-coded matrix.}
 
-\item{graphs}{a boolean. If \code{TRUE}, 
-graphs and plots are provided 
+\item{graphs}{a boolean. If \code{TRUE},
+graphs and plots are provided
 (via \code{TExPosition::tepGraphs}).}
 
 \item{k}{number of components to return.}
 }
 \value{
-See \code{ExPosition::epGPCA} (and also \code{ExPosition::corePCA}) 
-for details on what is returned. 
+See \code{ExPosition::epGPCA} (and also \code{ExPosition::corePCA})
+for details on what is returned.
 In addition to the values returned:
-\code{tepCCA} returns  
+\code{tepCCA} returns
 
-\code{lx}: 
-the latent variables for \code{DATA1}, and 
- \code{ly}: 
+\code{lx}:
+the latent variables for \code{DATA1}, and
+\code{ly}:
 the latent variables for \code{DATA2}'
 
 \code{data1.norm}:	the
-center and scale information for \code{DATA1}. and 
+center and scale information for \code{DATA1}. and
 \code{data2.norm}:	the
 center and scale information for \code{DATA2}.
 }
 \description{
 \code{tepCCA}:
- A \code{TExPosition}-type version of Canonical Correlation
-Analysis (CCA). \emph{Temporary Version. 
-This version will soon be revised to take into account 
+A \code{TExPosition}-type version of Canonical Correlation
+Analysis (CCA). \emph{Temporary Version.
+This version will soon be revised to take into account
 the new \code{GSVD}-package from Derek Beaton}.
 \emph{Note: This is a temporary version}.
 }
@@ -90,10 +90,10 @@ the new \code{GSVD}-package from Derek Beaton}.
 # *** Some example here at some point ***}
 }
 \references{
-Abdi H., Eslami, A., Guillemot, V., & Beaton D. (2018). 
-Canonical correlation analysis (CCA). 
-In R. Alhajj and J. Rokne (Eds.), 
-\emph{Encyclopedia of Social Networks and Mining (2nd Edition)}. 
+Abdi H., Eslami, A., Guillemot, V., & Beaton D. (2018).
+Canonical correlation analysis (CCA).
+In R. Alhajj and J. Rokne (Eds.),
+\emph{Encyclopedia of Social Networks and Mining (2nd Edition)}.
 New York: Springer Verlag.
 }
 \author{

@@ -2,7 +2,7 @@
 % Please edit documentation in R/supplementary4Vari.R
 \name{supplementary4Vari}
 \alias{supplementary4Vari}
-\title{Compute the projection of supplementary elements 
+\title{Compute the projection of supplementary elements
 (rows or columns) for a PCA followed by a \code{Varimax}
 rotation.}
 \usage{
@@ -16,27 +16,27 @@ supplementary4Vari(
 )
 }
 \arguments{
-\item{SUP.DATA}{the supplementary data set. 
-Can be rows (dimensions \eqn{Isup} by \eqn{J}) 
+\item{SUP.DATA}{the supplementary data set.
+Can be rows (dimensions \eqn{Isup} by \eqn{J})
 or columns (dimensions \eqn{I} by \eqn{Jsup}).}
 
-\item{resPCA}{the results of a PCA performed by 
+\item{resPCA}{the results of a PCA performed by
 \code{ExPosition::epPCA()}.}
 
 \item{resVari}{the results of a \code{Varimax} rotation
 performed by \code{data4PCCAR::epiVari} on the same data set
 as \code{resPCA}.}
 
-\item{set}{what set (\code{'rows'} or \code{'columns'}) is projected 
+\item{set}{what set (\code{'rows'} or \code{'columns'}) is projected
 (Default: \code{'rows'})}
 
-\item{center}{value of the \code{center} parameter 
+\item{center}{value of the \code{center} parameter
 that was used for the original  PCA analysis
 for columns (Default: \code{TRUE}).}
 
-\item{scale}{value of the \code{scale} parameter 
+\item{scale}{value of the \code{scale} parameter
 that was used for the original  PCA analysis
-for columns (Default: \code{'SS1'}; 
+for columns (Default: \code{'SS1'};
 look at \code{ExPosition::epPCA} for possible values).}
 }
 \value{
@@ -46,27 +46,27 @@ the rows and \code{$fjj} for
 the  columns.
 }
 \description{
-\code{supplementary4Vari} 
-Computes the projection of supplementary elements 
+\code{supplementary4Vari}
+Computes the projection of supplementary elements
 (rows or columns) for a PCA (computed with
 \code{ExPosition::epPCA()})
-followed by a \code{Varimax} rotation 
+followed by a \code{Varimax} rotation
 (computed with
 \code{data4PCCAR::epVari()}).
 Supplementary elements can be rows or columns:
 If the original data set had dimensions \eqn{I} by \eqn{J},
 supplementary rows should have dimensions \eqn{Isup} by \eqn{J},
-and 
+and
 supplementary columns should have dimensions \eqn{I} by \eqn{Jsup}.
 Note that for  supplementary columns, the parameters
 \code{scale} and \code{center} need to be specified in the call.
 }
 \details{
 The computation of the coordinates
- is obtained by first projecting the data
-as supplementary elements 
+is obtained by first projecting the data
+as supplementary elements
 (using \code{supplementaryCols} or
-\code{supplementaryRows} from \code{ExPosition}) in the 
+\code{supplementaryRows} from \code{ExPosition}) in the
 unrotated space and then rotating in the \code{Varimax}
 space using the rotation matrix from \code{epiVari()}.
 }

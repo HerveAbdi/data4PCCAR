@@ -21,7 +21,7 @@ of the integers in \code{original.var}.
 }
 \description{
 \code{recode2Integer}:
- Recodes a vector of real values to integers matching
+Recodes a vector of real values to integers matching
 a given distribution for the integers
 }
 \details{

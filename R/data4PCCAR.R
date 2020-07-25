@@ -16,10 +16,10 @@
 #' `devtools::install_github('HerveAbdi/data4PCCAR')``
 #'
 #' @docType package
-#' @author  Herve Abdi [aut, com, ctb, cre],
-#' Vincent Guillemot  [aut, cre],
+#' @author  Herve Abdi (aut, com, ctb, cre),
+#' Vincent Guillemot (aut, cre),
 #' & Derek Beaton
-#' [aut, cre]
+#' (aut, cre)
 #'
 #' Maintainer: Herve Abdi <herve@@utdallas.edu>
 #' @keywords package

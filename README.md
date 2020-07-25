@@ -331,9 +331,16 @@ computes the projection of supplementary elements
  
  ### supplementaryObservations4PLSC
  
- compute the latent variables for
+ compute the value  of the latent variables for
   supplementary observations for a PLSC model 
   from `TExPsoition::PLS`ß.
+
+### supplementaryVariables4PLSC
+
+projects supplementary variables (columns) 
+ for a PLSC analysis 
+ (computed with  `TExPosition::tepPLS`.
+ Includes the internal funciton `projOnDualSet4PLS`.
 
 
 ### tepCCA

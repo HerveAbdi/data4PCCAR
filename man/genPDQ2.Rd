@@ -2,7 +2,7 @@
 % Please edit documentation in R/temporary_internal_functions.R
 \name{genPDQ2}
 \alias{genPDQ2}
-\title{genPDQ2, authored by Derek Beaton. 
+\title{genPDQ2, authored by Derek Beaton.
 Cf. package GSVD on GitHub, soon available on the CRAN}
 \usage{
 genPDQ2(
@@ -15,7 +15,7 @@ genPDQ2(
 )
 }
 \description{
-genPDQ2, authored by Derek Beaton. 
+genPDQ2, authored by Derek Beaton.
 Cf. package GSVD on GitHub, soon available on the CRAN
 }
 \keyword{internal}

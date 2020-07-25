@@ -2,7 +2,7 @@
 % Please edit documentation in R/temporary_internal_functions.R
 \name{epGPCA2}
 \alias{epGPCA2}
-\title{epGPCA2, authored by Derek Beaton. 
+\title{epGPCA2, authored by Derek Beaton.
 Cf. package GSVD on GitHub, soon available on the CRAN}
 \usage{
 epGPCA2(
@@ -18,7 +18,7 @@ epGPCA2(
 )
 }
 \description{
-epGPCA2, authored by Derek Beaton. 
+epGPCA2, authored by Derek Beaton.
 Cf. package GSVD on GitHub, soon available on the CRAN
 }
 \keyword{internal}

@@ -7,7 +7,7 @@
 renormInertiaExPo(resExpo, newNorm = NULL)
 }
 \arguments{
-\item{resExpo}{the output of an n\code{ExPosition} function (e.g., 
+\item{resExpo}{the output of an n\code{ExPosition} function (e.g.,
 \code{epCA, epPCA, epMCA}).}
 
 \item{newNorm}{The new norm (Default: \code{NULL}),
@@ -19,24 +19,24 @@ The renormed \code{ExPosition} output.
 }
 \description{
 \code{renormInertiaExPo}: renorms
-the output of an \code{ExPosition} function (e.g., 
+the output of an \code{ExPosition} function (e.g.,
 \code{epCA, epPCA, epMCA}) to a given constant.
 After normalization, all the objects whose inertia
 depends upon the data will now have their inertia
 equal to the new specified inertia.
 
 The normalization constant can be a scalar, or
-can be the output of a previous 
+can be the output of a previous
 \code{ExPosition}
 analysis, in this last case
-the inertia is the inertia 
+the inertia is the inertia
 of the table used in this previous analysis.
 }
 \details{
 All the dataframes in \code{resExpo}
- whose norm depends upon the data
- (i.e., \code{fi, fj, di, dj, pdq$Dv, pdq$Dd, eigs}) 
- are renormed in the output.
+whose norm depends upon the data
+(i.e., \code{fi, fj, di, dj, pdq$Dv, pdq$Dd, eigs})
+are renormed in the output.
 }
 \examples{
 \dontrun{

@@ -22,9 +22,11 @@ otherwise, the data are already in 0/1 form.}
 }
 \value{
 A list with
-1) \code{phi2.mat}: The phi2 correlation matrix
+\enumerate{
+\item \code{phi2.mat}: The phi2 correlation matrix
 and
-2) \code{burt.table}: the Burt table.
+\item \code{burt.table}: the Burt table.
+}
 }
 \description{
 \code{phi2Mat4BurtTable}

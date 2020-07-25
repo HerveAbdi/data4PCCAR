@@ -20,7 +20,7 @@ to generate; Default: \code{100}.}
 data. Can be \code{FALSE} (no scaling),
 \code{TRUE} (scale as \eqn{Z}-scores
 with squared norm = \eqn{I - }1),
- or \code{'SS1'} (all columns
+or \code{'SS1'} (all columns
 of the data matrix have norm 1, and so the eigenvalues
 come from a correlation matrix).
 Default: \code{'SS1'}.}
@@ -38,7 +38,7 @@ of the eigenvalues of the bootstrapped samples.
 \description{
 \code{boot.eigen}:
 generates
- a bootstrap distribution of eigenvalues
+a bootstrap distribution of eigenvalues
 for a given (rectangular) matrix.
 }
 \details{

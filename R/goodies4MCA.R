@@ -300,11 +300,11 @@ coloringLevels <- function(levelsNames, colorOfVariables = NULL){
 #'  because of the way \code{ggplot2} creates graphs,
 #'   all the matrices/dataframe should all
 #'   the have the same column names
-#'   [e.g., \code{colnames()}
-#'   equal to c("Dimension 1", "Dimension 2")].
+#'  (e.g., \code{colnames()}
+#'   equal to \code{c("Dimension 1", "Dimension 2")}).
 #'    When this is not the case,
 #'    some strange and cryptic error may be produced
-#' (e.g., "cannot find Dimension").
+#' (e.g., \code{"cannot find Dimension"}).
 #' @examples
 #' \dontrun{
 #' if(interactive()){

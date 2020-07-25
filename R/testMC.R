@@ -236,7 +236,7 @@ print.bootEigen <- function (x, ...) {
 #' @param center if \code{TRUE} (Default) center if not do nothing.
 #' @param scale if \code{FALSE} do nothing,
 #' if \code{TRUE} normalize like \eqn{Z}-scores
-#' [i.e., norm = \eqn{N} - 1], if \code{'SS1'} (Default) normalise
+#' (i.e., norm = \eqn{N} - 1), if \code{'SS1'} (Default) normalize
 #' to 1 (i.e., norm = 1).
 #' @return a scaled version of \code{x}.
 #' @details

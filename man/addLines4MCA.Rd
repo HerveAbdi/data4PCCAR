@@ -77,14 +77,14 @@ variable \code{toto}.
 
 
 When creating multiple layers graphs,
- because of the way \code{ggplot2} creates graphs,
-  all the matrices/dataframe should all
-  the have the same column names
-  [e.g., \code{colnames()}
-  equal to c("Dimension 1", "Dimension 2")].
-   When this is not the case,
-   some strange and cryptic error may be produced
-(e.g., "cannot find Dimension").
+because of the way \code{ggplot2} creates graphs,
+all the matrices/dataframe should all
+the have the same column names
+(e.g., \code{colnames()}
+equal to \code{c("Dimension 1", "Dimension 2")}).
+When this is not the case,
+some strange and cryptic error may be produced
+(e.g., \code{"cannot find Dimension"}).
 }
 
 \examples{
@@ -101,5 +101,5 @@ baseMap4J <- createFactorMap(Fj)$zeMap +
 }
 \seealso{
 \code{\link[prettyGraphs]{prettyGraphsColorSelection}}
- \code{\link{getVarNames}}
+\code{\link{getVarNames}}
 }

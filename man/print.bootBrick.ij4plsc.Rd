@@ -13,7 +13,7 @@
 }
 \description{
 Change the print function for bootBrick.ij4plsc
- (output of Boot4MultCA)
+(output of Boot4MultCA)
 }
 \author{
 Herve Abdi

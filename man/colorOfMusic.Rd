@@ -8,9 +8,10 @@ the color that best describes 9 pieces of music.}
 \format{
 A list with 5 data frames or arrays
 describing respectively
-1) the check mark data, 2) the description of the participants,
-3) the names and color codes of the 10 colors used,
-4) the binary cube of data  (color by music by participants),
+\enumerate{
+\item the check mark data, 2) the description of the participants,
+\item the names and color codes of the 10 colors used,
+\item the binary cube of data  (color by music by participants),
 and 5)
 the (pseudo) contingency table of data (color by music).
 \describe{
@@ -30,17 +31,18 @@ participants according to \code{Age} (Child vs Adult) and
 of the colors and their color code (useful when plotting the
 data).}
 \item{\code{cubeOfData}}{The 10-Colors by 9-Music pieces
- by 22-Participants
- cube of 0/1 data. A value of 1 (resp. 0) means that the participant
- chose (resp. did not choose)
- the color to match the piece of music}
+by 22-Participants
+cube of 0/1 data. A value of 1 (resp. 0) means that the participant
+chose (resp. did not choose)
+the color to match the piece of music}
 \item{\code{contingencyTable}}{The 10-Colors
- by 9-Music Pieces (pseudo) contingency table.
- The value at the intersection of a row (color) and a column
- (piece of music) is the number of participants who chose this
- color to match this piece of music. This contingency
- table is typically analyzed with correspondence analysis.
- (e.g., see Abdi and Bera, 2018). }
+by 9-Music Pieces (pseudo) contingency table.
+The value at the intersection of a row (color) and a column
+(piece of music) is the number of participants who chose this
+color to match this piece of music. This contingency
+table is typically analyzed with correspondence analysis.
+(e.g., see Abdi and Bera, 2018). }
+}
 }
 }
 \source{
@@ -54,7 +56,7 @@ data("colorOfMusic")
 }
 \description{
 \code{colorOfMusic}. A data set:
- 12 Children and 10 Adults picked up
+12 Children and 10 Adults picked up
 one color to describe 9 pieces of music (one at a time).
 The participants are described by their
 age (children vs adults) and by their gender

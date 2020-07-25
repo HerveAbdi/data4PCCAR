@@ -3,7 +3,7 @@
 \name{BinQuant}
 \alias{BinQuant}
 \title{Recode a quantitative variable
-  as a binned factor.}
+as a binned factor.}
 \usage{
 BinQuant(x, nClass = 4, stem = "", levelNames = NULL)
 }
@@ -23,8 +23,8 @@ a vector factor with bin values.
 }
 \description{
 \code{BinQuant}: a function to recode a quantitative variable
-  as a binned factor with (roughly) the same number of
-  observations per bin.
+as a binned factor with (roughly) the same number of
+observations per bin.
 }
 \details{
 Use to create roughly) balanced

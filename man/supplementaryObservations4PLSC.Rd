@@ -3,7 +3,7 @@
 \name{supplementaryObservations4PLSC}
 \alias{supplementaryObservations4PLSC}
 \title{compute the latent variables for
-supplementary observations for a PLSC model 
+supplementary observations for a PLSC model
 from \code{TExPosition::PLS}.}
 \usage{
 supplementaryObservations4PLSC(resPLSC, Xsup = NULL, Ysup = NULL)
@@ -15,27 +15,27 @@ from \code{TExPosition::tepPLSC}.}
 \item{Xsup}{an \eqn{Nsup} by \eqn{I} matrix of
 supplementary observations matching the \eqn{X} matrix
 (see \code{description for details}).
- When \code{NULL} (Default) noting is computed for \code{Xsup}.}
+When \code{NULL} (Default) noting is computed for \code{Xsup}.}
 
 \item{Ysup}{an \eqn{Nsup} by \eqn{J} matrix of
 supplementary observations matching the \eqn{Y} matrix
 (see \code{description for details}).
- When \code{NULL} (Default) noting is computed for \code{Ysup}.}
+When \code{NULL} (Default) noting is computed for \code{Ysup}.}
 }
 \value{
-A list with \code{lx.sup} and \code{ly.sup} 
-giving the latent variables values 
+A list with \code{lx.sup} and \code{ly.sup}
+giving the latent variables values
 of the supplementary observations
 for (respectively) \eqn{X} and \eqn{Y}.
 }
 \description{
 \code{supplementaryObservations4PLSC}:
 computes the latent variables for
-supplementary observations for a PLSC model 
+supplementary observations for a PLSC model
 from \code{TExPsoition::PLS}.
 }
 \details{
-The original analysis is performed with 
+The original analysis is performed with
 \code{TExPosition::epPLS} on the original data matrices
 \eqn{X} (\eqn{N} by \eqn{I}) and \eqn{Y} (\eqn{N} by \eqn{J}).
 The supplementary data matrices should have \eqn{I}

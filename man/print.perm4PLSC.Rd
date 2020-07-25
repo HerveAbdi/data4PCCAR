@@ -13,8 +13,8 @@
 }
 \description{
 Change the print function for \code{perm4PLSC} class
- objects
- (output of Perm4PLSC).
+objects
+(output of Perm4PLSC).
 }
 \author{
 Hervé Abdi

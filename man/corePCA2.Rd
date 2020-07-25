@@ -2,13 +2,13 @@
 % Please edit documentation in R/temporary_internal_functions.R
 \name{corePCA2}
 \alias{corePCA2}
-\title{corePCA2, authored by Derek Beaton. 
+\title{corePCA2, authored by Derek Beaton.
 Cf. package GSVD on GitHub, soon available on the CRAN}
 \usage{
 corePCA2(DATA, M = NULL, W = NULL, decomp.approach = "svd", k = 0)
 }
 \description{
-corePCA2, authored by Derek Beaton. 
+corePCA2, authored by Derek Beaton.
 Cf. package GSVD on GitHub, soon available on the CRAN
 }
 \keyword{internal}

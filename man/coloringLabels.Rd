@@ -49,7 +49,7 @@ if(interactive()){
 }
 \seealso{
 \code{\link[prettyGraphs]{prettyGraphsColorSelection}}
- \code{\link{getVarNames}}
+\code{\link{getVarNames}}
 }
 \author{
 Hervé Abdi

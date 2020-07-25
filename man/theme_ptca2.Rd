@@ -19,24 +19,24 @@ Relevant only
 when \code{mire = TRUE}.}
 
 \item{coor.fixed}{(Default = \code{TRUE}), when \code{TRUE}
- the X and Y axis have the same units, when \code{FALSE} 
+the X and Y axis have the same units, when \code{FALSE}
 the units are set by \code{ggplot2}, if a number is provided
-it will give the aspect ratio 
+it will give the aspect ratio
 (i.e., Y/X) to be used to plot the graph..}
 
-\item{base_family}{the font family for the text 
+\item{base_family}{the font family for the text
 (e.g., on a mac \code{'Times', 'Arial', 'Courier', 'Symbol'},
-or plain \code{R, 'sans', 'serif', 'mono'}, can also be other fonts 
-if installed). Default is "" 
+or plain \code{R, 'sans', 'serif', 'mono'}, can also be other fonts
+if installed). Default is ""
 (i.e., \code{theme_ptca2} uses the current default font family).}
 }
 \description{
 \code{theme_ptca2}:
 A \code{ggplot2} theme that matches the defaults
 of the factorial figures in \code{PTCA4CATA}.
-\code{theme_ptca2} is, obviously, a (slightly smarter) 
-cousin of 
-\code{PTCA4CATA::theme_ptca} 
+\code{theme_ptca2} is, obviously, a (slightly smarter)
+cousin of
+\code{PTCA4CATA::theme_ptca}
 (which will be deprecated in the
 near future).
 }

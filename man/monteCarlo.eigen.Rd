@@ -40,8 +40,8 @@ additional parameters to be passed via ... (see below).}
 \item{...}{Stuff (i.e., parameters)
 to pass the \code{FUN} if needed
 (e.g., mean and standard deviation). To find these parameters,
- check the help of the function used for the random number
- generator.}
+check the help of the function used for the random number
+generator.}
 }
 \value{
 a list with 3 elements
@@ -79,5 +79,5 @@ random.eigen <- monteCarlo.eigen(iris[,1:4], nIter = 10)
 }
 \seealso{
 \code{\link[stats]{rnorm}} \code{\link{scale0}}
- \code{\link{boot.eigen}}
+\code{\link{boot.eigen}}
 }

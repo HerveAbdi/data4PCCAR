@@ -2,13 +2,13 @@
 % Please edit documentation in R/temporary_internal_functions.R
 \name{is.identity.matrix}
 \alias{is.identity.matrix}
-\title{is.identity.matrix, authored by Derek Beaton. 
+\title{is.identity.matrix, authored by Derek Beaton.
 Cf. package GSVD on GitHub, soon available on the CRAN}
 \usage{
 is.identity.matrix(x, tol = .Machine$double.eps)
 }
 \description{
-is.identity.matrix, authored by Derek Beaton. 
+is.identity.matrix, authored by Derek Beaton.
 Cf. package GSVD on GitHub, soon available on the CRAN
 }
 \keyword{internal}

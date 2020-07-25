@@ -4,7 +4,7 @@
 \alias{getRandomFS}
 \title{generate multivariate random observations (i.e.,
 factor scores) whose variance
- match the variance/eigenvalues of the dimensions of the space.}
+match the variance/eigenvalues of the dimensions of the space.}
 \usage{
 getRandomFS(
   ev,
@@ -34,8 +34,8 @@ per dimension, if \code{'SS1'} (default) normalize to one}
 
 \item{sv}{if \code{TRUE}, \code{ev} gives singular values or
 standard deviation, if
-  \code{FALSE} (default)
-  \code{ev} gives eigenvalues or
+\code{FALSE} (default)
+\code{ev} gives eigenvalues or
 variance.}
 }
 \value{
@@ -44,7 +44,7 @@ of multidimensional factor scores
 with \code{nObs} rows (observations) and number of columns
 (variables / components)
 equal to
- the length of \code{ev}.
+the length of \code{ev}.
 }
 \description{
 \code{getRandomFS}:
@@ -59,7 +59,7 @@ multivariate coordinates of random observations
 whose variance per dimension
 (i.e.,
 eigenvalues in PCA) will match a given set of variances.
-The function generating the set of numbers 
+The function generating the set of numbers
 can be any such function
 (default is \code{runif}).
 }
@@ -70,7 +70,7 @@ randFS <- getRandomFS(ev = c(16, 9, 4, 1), nObs = 10)
 }
 \seealso{
 \code{\link[data4PCCAR]{scale0}}
- @importFrom stats runif
+@importFrom stats runif
 }
 \author{
 Hervé Abdi
