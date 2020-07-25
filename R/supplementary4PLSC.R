@@ -15,17 +15,17 @@
 ## Preamble ----
 #' @title Compute latent variables / factor scores for supplementary
 #' observations in a \code{PLSC} analysis 
-#' computed from \code{TExPosition::tepPLS}.
+#' computed with \code{\link[TExPosition]{tepPLS}}.
 
 #' 
 #' @description \code{projSupplementaryObservations4PLSC}
 #' computes latent variables / factor scores for supplementary
 #' observations in a \code{PLSC} analysis 
-#' computed from \code{TExPosition::tepPLS}. 
+#' computed from \code{TExPosition} \code{\link[TExPosition]{tepPLS}}. 
 #' \code{projSupplementaryObservations4PLSC}
 #' preprocesses and projects supplementary observations for a PLSC
 #' by first preprocessing the variables (i.e., centering and scaling)
-#' and then projecting the preprocess observations 
+#' and then projecting the preprocessed observations 
 #' onto the loadings (a.k.a., saliences) from the original analysis.
 #'  \code{projSupplementaryObservations4PLSC} is mostly used
 #'  as a preparatory step for
@@ -33,15 +33,15 @@
 #' @param mat4sup The observations to be projected
 #' @param center_fixed The barycenter vector (i.e., mean)
 #' used to center the original variables.
-#' @param scale_fixed the normlizing vector
+#' @param scale_fixed the normalizing vector
 #' used to scale the original variables.
 #' @param loadings_fixed the loadings 
 #' used to project the supplementary observations on the 
-#' variables (obtaiined from the original analysis).
+#' variables (obtained from the original analysis).
 #' 
 #' @return the supplementary latent variable values.
 #' @details \code{projSupplementaryObservations4PLSC}
-#' is mostly a subroutine of
+#' is mostly a subroutine for
 #' \code{\link{supplementaryObservations4PLSC}}.
 #'
 #' @author Hervé Abdi
@@ -78,34 +78,34 @@ projSupplementaryObservations4PLSC <- function(mat4sup,
 # function supplementaryObservations4PLSC
 #' @title compute the latent variables for
 #' supplementary observations for a PLSC model 
-#' from \code{TExPosition::PLS}.
+#' computed with  \code{\link[TExPosition]{tepPLS}}.
 #' 
 #' @description \code{supplementaryObservations4PLSC}:
 #' computes the latent variables for
 #' supplementary observations for a PLSC model 
-#' from \code{TExPsoition::PLS}.
+#' computed with  \code{\link[TExPosition]{tepPLS}}.
 #' 
 #' @param resPLSC the results of a \code{PLSC} analysis
-#' from \code{TExPosition::tepPLSC}.
-#' @param Xsup an \eqn{Nsup} by \eqn{I} matrix of
-#' supplementary observations matching the \eqn{X} matrix
+#' from  \code{\link[TExPosition]{tepPLS}}.
+#' @param Xsup an \eqn{N}sup by \eqn{I} matrix of
+#' supplementary observations matching the **X** matrix
 #' (see \code{description for details}).
-#'  When \code{NULL} (Default) noting is computed for \code{Xsup}.
+#'  When \code{NULL} (Default) nothing is computed for \code{Xsup}.
 #' @param Ysup 
-#'  an \eqn{Nsup} by \eqn{J} matrix of
-#' supplementary observations matching the \eqn{Y} matrix
+#'  an \eqn{N}sup by \eqn{J} matrix of
+#' supplementary observations matching the **Y** matrix
 #' (see \code{description for details}).
-#'  When \code{NULL} (Default) noting is computed for \code{Ysup}.
+#'  When \code{NULL} (Default) nothing is computed for \code{Ysup}.
 #' @return A list with \code{lx.sup} and \code{ly.sup} 
 #' giving the latent variables values 
 #' of the supplementary observations
 #' for (respectively) \eqn{X} and \eqn{Y}.
 #' @details The original analysis is performed with 
-#' \code{TExPosition::epPLS} on the original data matrices
-#' \eqn{X} (\eqn{N} by \eqn{I}) and \eqn{Y} (\eqn{N} by \eqn{J}).
+#' \code{\link[TExPosition]{tepPLS}} on the original data matrices
+#' **X** (\eqn{N} by \eqn{I}) and **Y** (\eqn{N} by \eqn{J}).
 #' The supplementary data matrices should have \eqn{I}
-#' columns for \eqn{Xsup} and \eqn{J}
-#' columns for \eqn{Ysup}. 
+#' columns for \eqn{X}sup and \eqn{J}
+#' columns for \eqn{Y}sup. 
 #' 
 # #@examples 
 # #\dontrun{
@@ -174,9 +174,11 @@ print.supElementsPLS <- function(x, ...) {
   cat("\nLatent Variables for Supplementary Observations for epPLS  \n")
   # cat("\n List name: ", deparse(eval(substitute(substitute(x)))),"\n")
   cat(rep("-", ndash), sep = "")
-  cat("\n$lx.sup: ", "Latent variables for the X-set (if any)")
+  if (!is.null(x$lx.sup)){
+  cat("\n$lx.sup: ", "Latent variables for the X-set (if any)")}
+  if (!is.null(x$ly.sup)){
   cat("\n$ly.sup: ", "Latent variables for the Y-set (af any)")
-  cat("\n",rep("-", ndash), sep = "")
+  cat("\n",rep("-", ndash), sep = "") }
   cat("\n")
   invisible(x)
 } # end of function print.supElementsPLS ----

@@ -81,7 +81,7 @@ as the observations measured on the original analysis.
 The original data consisted in 2 matrices denoted
 \strong{X} (dimensions \eqn{N} by \eqn{I})  and
 \strong{Y} (\eqn{N} by \eqn{J}).
-The supplementary data denoted is a
+The supplementary data denoted \strong{V}sup is a
 \eqn{N} by \eqn{K} matrix, that can be considered
 as originating either from \strong{X}
 (and then denoted \strong{X}sup) or \strong{Y}

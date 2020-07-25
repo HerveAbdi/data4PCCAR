@@ -31,7 +31,7 @@
 #' The original data consisted in 2 matrices denoted
 #' **X** (dimensions \eqn{N} by \eqn{I})  and 
 #' **Y** (\eqn{N} by \eqn{J}).
-#' The supplementary data denoted is a
+#' The supplementary data denoted **V**sup is a
 #' \eqn{N} by \eqn{K} matrix, that can be considered 
 #' as originating either from **X**
 #' (and then denoted **X**sup) or **Y**

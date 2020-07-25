@@ -4,7 +4,7 @@
 \alias{projSupplementaryObservations4PLSC}
 \title{Compute latent variables / factor scores for supplementary
 observations in a \code{PLSC} analysis
-computed from \code{TExPosition::tepPLS}.}
+computed with \code{\link[TExPosition]{tepPLS}}.}
 \usage{
 projSupplementaryObservations4PLSC(
   mat4sup,
@@ -19,12 +19,12 @@ projSupplementaryObservations4PLSC(
 \item{center_fixed}{The barycenter vector (i.e., mean)
 used to center the original variables.}
 
-\item{scale_fixed}{the normlizing vector
+\item{scale_fixed}{the normalizing vector
 used to scale the original variables.}
 
 \item{loadings_fixed}{the loadings
 used to project the supplementary observations on the
-variables (obtaiined from the original analysis).}
+variables (obtained from the original analysis).}
 }
 \value{
 the supplementary latent variable values.
@@ -33,11 +33,11 @@ the supplementary latent variable values.
 \code{projSupplementaryObservations4PLSC}
 computes latent variables / factor scores for supplementary
 observations in a \code{PLSC} analysis
-computed from \code{TExPosition::tepPLS}.
+computed from \code{TExPosition} \code{\link[TExPosition]{tepPLS}}.
 \code{projSupplementaryObservations4PLSC}
 preprocesses and projects supplementary observations for a PLSC
 by first preprocessing the variables (i.e., centering and scaling)
-and then projecting the preprocess observations
+and then projecting the preprocessed observations
 onto the loadings (a.k.a., saliences) from the original analysis.
 \code{projSupplementaryObservations4PLSC} is mostly used
 as a preparatory step for
@@ -45,7 +45,7 @@ as a preparatory step for
 }
 \details{
 \code{projSupplementaryObservations4PLSC}
-is mostly a subroutine of
+is mostly a subroutine for
 \code{\link{supplementaryObservations4PLSC}}.
 }
 \seealso{
