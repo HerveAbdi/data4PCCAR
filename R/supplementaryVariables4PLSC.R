@@ -7,7 +7,8 @@
 #   + an internal function
 #       projOnDualSet4PLS    
 # Hervé Abdi: first version July 21, 2020/
-# Current July 23, 2020. ----
+# Current July 26, 2020. ----
+# print('Test 07/26/2020.  16:04')
 #_____________________________________________________________________
 #_____________________________________________________________________
 #_____________________________________________________________________
@@ -78,16 +79,29 @@
 #' supplementary loadings (Default: \code{'Dimension '}).
 #' @return a list with the following elements:
 #' \itemize{
-#'  \item{"\code{cor.lx}": }{The correlations between the supplementary variables
-#'  and the **X** set.}
-#'   \item{"\code{cor.ly}": }{The correlations between the supplementary variables
-#'  and the **Y** set.}
-#'   \item{"\code{loadings.sup.X}": }{The loadings of the supplementary variables
+#' 
+#'   \item{"\code{loadings.sup.X}": }{The loadings 
+#'   of the supplementary variables
 #'  as originating from the \code{Xset} (needs to
 #'  have the dual \code{Yset} to be computed).}
-#'  \item{"\code{loadings.sup.Y}": }{The loadings of the supplementary variables
+#'  \item{"\code{sup.fi}": }{The singular-value-normalized 
+#'  loadings of the supplementary variables
+#'  as originating from the \code{Xset} (needs to
+#'  have the dual \code{Yset} to be computed).}
+#'  \item{"\code{loadings.sup.Y}": }{The loadings 
+#'  of the supplementary variables
 #'  as originating from the \code{Yset} (needs to
 #'  have the dual \code{Xset} to be computed).}
+#'  \item{"\code{sup.fj}": }{The singular-value-normalized 
+#'  loadings of the supplementary variables
+#'  as originating from the \code{Yset} (needs to
+#'  have the dual \code{Xset} to be computed).}
+#'  \item{"\code{cor.lx}": }{The correlations 
+#'  between the supplementary variables
+#'  and the **X** set.}
+#'   \item{"\code{cor.ly}": }{The correlations 
+#'   between the supplementary variables
+#'  and the **Y** set.}
 #' }
 #' 
 #' @details The computation relies on the SVD
@@ -174,6 +188,10 @@ supplementaryVariables4PLSC <- function(var.sup,
                                         Y.scale  = 'SS1',
                                         dimNames = 'Dimension '
 ){
+  # To solve the problem of trying to project only one variable
+  # because it will be treated as a row vector instead of
+  # a column vector
+  var.sup <- as.matrix(var.sup)
   if ((is.null(Xset)) & (is.null(Yset))){
     warning(
 'supplementaryVariables4PLSC needs at least one of "Xset" or "Yset"')
@@ -197,13 +215,18 @@ supplementaryVariables4PLSC <- function(var.sup,
                                        center = dual.center, 
                                        scale  = dual.scale)
     Rsup <- t(Z.sup) %*% Z.active
+    factor.sup   <- Rsup %*% dual.singVectors
     loadings.sup <- Rsup %*% 
-      (dual.singVectors * 
+        ( dual.singVectors * 
+ #    loadings.sup <- factor.sup * ( # <=> multiply by diag
          matrix(1/delta, ncol = length(delta), 
                 nrow = nrow(dual.singVectors), byrow = TRUE))
     noms2col <- paste0(dimNames, 1 : ncol(loadings.sup))
     colnames(loadings.sup) <- noms2col
-    return(loadings.sup)
+    colnames(factor.sup)   <-  noms2col
+    return.list <- list(loadings.sup = loadings.sup,
+                        f.sup = factor.sup)
+    return(return.list)
   } # end of internal function
   #___________________________________________________________________
   if (nrow(var.sup) != nrow(resPLSC$TExPosition.Data$lx)){
@@ -214,7 +237,7 @@ supplementaryVariables4PLSC <- function(var.sup,
   # 1. Project X-variables as sup
   # loadings.sup.x
   delta <- resPLSC$TExPosition.Data$pdq$Dv
-  noms2col <- paste0(dimNames, 1 : length(delta))
+  noms2col <- paste0(dimNames, 1:length(delta))
   # to be moved at the end
   # cor.lx - ly ----
   # loadings4Xsup ----
@@ -225,10 +248,11 @@ supplementaryVariables4PLSC <- function(var.sup,
                                          dual.set = Yset, 
                                          dual.center = Y.center,
                                          dual.scale  = Y.scale,
-                                         dual.singVector = resPLSC$TExPosition.Data$pdq$q,
+                                         dual.singVectors = resPLSC$TExPosition.Data$pdq$q,
                                          delta = delta,
                                          dimNames = dimNames)
-    return.list$loadings.sup.X <- loadings.sup.X
+    return.list$loadings.sup.X <- loadings.sup.X$loadings.sup
+    return.list$sup.fi         <- loadings.sup.X$f.sup
   }
   
   if (!is.null(Xset)){# Get projection as Xset
@@ -238,10 +262,12 @@ supplementaryVariables4PLSC <- function(var.sup,
                                          dual.set = Xset, 
                                          dual.center = X.center,
                                          dual.scale = X.scale,
-                                         dual.singVector = resPLSC$TExPosition.Data$pdq$p,
+                                         dual.singVectors = resPLSC$TExPosition.Data$pdq$p,
                                          delta = delta,
                                          dimNames = dimNames)
-    return.list$loadings.sup.Y <- loadings.sup.Y
+    #return.list$loadings.sup.Y <- loadings.sup.Y
+    return.list$loadings.sup.Y <- loadings.sup.Y$loadings.sup
+    return.list$sup.fj         <- loadings.sup.Y$f.sup
   }
   
   cor.lx <- cor(var.sup, resPLSC$TExPosition.Data$lx)
@@ -321,13 +347,15 @@ print.supVar4PLSC <- function(x, ...) {
   cat("\nSupplementary columns for PLSC \n")
   # cat("\n List name: ", deparse(eval(substitute(substitute(x)))),"\n")
   cat(rep("-", ndash), sep = "")
+  if (!is.null(x$loadings.sup.X)){
+  cat("\n$loadings.sup.X: ", "Supplementary Loadings for the X-set") 
+  cat("\n$sup.fi:         ", "Supplementary fi (for the X-set)")     }
+  if (!is.null(x$loadings.sup.Y)){
+  cat("\n$loadings.sup.Y: ", "Supplementary Loadings for the Y-set") 
+  cat("\n$sup.fj:         ", "Supplementary fj (for the Y-set)")     }
+  cat("\n",rep("-", ndash), sep = "")
   cat("\n$cor.lx        : ", "Supplementary Loadings as correlation with lx")
   cat("\n$cor.ly        : ", "Supplementary Loadings as correlation with ly")
-  if (!is.null(x$loadings.sup.X)){
-  cat("\n$loadings.sup.X: ", "Supplementary Loadings for the X-set") }
-  if (!is.null(x$loadings.sup.Y)){
-  cat("\n$loadings.sup.Y: ", "Supplementary Loadings for the Y-set") }
-  cat("\n",rep("-", ndash), sep = "")
   cat("\n")
   invisible(x)
 } # end of function print. supVar4PLSC ----

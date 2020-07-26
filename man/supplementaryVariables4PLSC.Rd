@@ -59,16 +59,29 @@ supplementary loadings (Default: \code{'Dimension '}).}
 \value{
 a list with the following elements:
 \itemize{
-\item{"\code{cor.lx}": }{The correlations between the supplementary variables
-and the \strong{X} set.}
-\item{"\code{cor.ly}": }{The correlations between the supplementary variables
-and the \strong{Y} set.}
-\item{"\code{loadings.sup.X}": }{The loadings of the supplementary variables
+
+\item{"\code{loadings.sup.X}": }{The loadings
+of the supplementary variables
 as originating from the \code{Xset} (needs to
 have the dual \code{Yset} to be computed).}
-\item{"\code{loadings.sup.Y}": }{The loadings of the supplementary variables
+\item{"\code{sup.fi}": }{The singular-value-normalized
+loadings of the supplementary variables
+as originating from the \code{Xset} (needs to
+have the dual \code{Yset} to be computed).}
+\item{"\code{loadings.sup.Y}": }{The loadings
+of the supplementary variables
 as originating from the \code{Yset} (needs to
 have the dual \code{Xset} to be computed).}
+\item{"\code{sup.fj}": }{The singular-value-normalized
+loadings of the supplementary variables
+as originating from the \code{Yset} (needs to
+have the dual \code{Xset} to be computed).}
+\item{"\code{cor.lx}": }{The correlations
+between the supplementary variables
+and the \strong{X} set.}
+\item{"\code{cor.ly}": }{The correlations
+between the supplementary variables
+and the \strong{Y} set.}
 }
 }
 \description{
