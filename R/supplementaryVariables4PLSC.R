@@ -8,7 +8,7 @@
 #       projOnDualSet4PLS    
 # Hervé Abdi: first version July 21, 2020/
 # Current July 26, 2020. ----
-# print('Test 07/26/2020.  16:04')
+# print('Test 07/26/2020.  16:19')
 #_____________________________________________________________________
 #_____________________________________________________________________
 #_____________________________________________________________________
@@ -356,6 +356,7 @@ print.supVar4PLSC <- function(x, ...) {
   cat("\n",rep("-", ndash), sep = "")
   cat("\n$cor.lx        : ", "Supplementary Loadings as correlation with lx")
   cat("\n$cor.ly        : ", "Supplementary Loadings as correlation with ly")
+  cat("\n",rep("-", ndash), sep = "")
   cat("\n")
   invisible(x)
 } # end of function print. supVar4PLSC ----

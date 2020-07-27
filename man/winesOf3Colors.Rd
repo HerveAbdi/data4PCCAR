@@ -3,14 +3,15 @@
 \docType{data}
 \name{winesOf3Colors}
 \alias{winesOf3Colors}
-\title{36 wines are evaluated on several dimensions orgainzed in 3 blocks.}
+\title{36 wines are evaluated on several dimensions organized in 3 blocks.}
 \format{
 A list with
-one data frame with three blocks of data:
+one data frame with four blocks of data:
 \itemize{
-\item \code{1} The descriptors.
-\item \code{2} The chemistry
-\item \code{3} The sensory
+\item \code{1} The descriptors (origin, color, varietal): columns  1 to 3.
+\item \code{2} The price (in Dollars): column 4.
+\item \code{3} The chemistry properties: columns 5 to 8
+\item \code{4} The sensory properties: columns 9 to 17
 }
 }
 \usage{
@@ -18,17 +19,36 @@ data("winesOf3Colors")
 }
 \description{
 \code{winesOf3Colors}:
-36 wines are evaluated on several dimensions orgainzed in 3 blocks.
+36 wines are evaluated on several dimensions organized in 4 blocks.
+An additional mystery wine is provided
+(to be projected as supplementary observations)
 }
 \details{
-The (fictitious) wines come form 3 countries
-Argentina, Canada and the USA. They also come in three different
-colors: Red, Rosé, and White. They are decribed by
-they characteristic, chemistry and sensory properties
+The (fictitious) wines come from 3 countries
+Argentina, Canada, and the USA. They also come in three different
+colors: Red, Rosé, and White. They are described by
+their characteristics, chemistry, and sensory properties.
+The mystery wine is a French red pinot noir that
+could be though as a "\emph{Bourgogne Rouge}".
 }
 \references{
-Thesedata have been used to illustrate
-PLSC and CCA
+These data have been used to illustrate
+PLSC and CCA. See, e.g.,
+(papers available from \url{https://personal.utdallas.edu/~herve/})
+
+Abdi H., Eslami, A., & Guillemot, V. (2018).
+Canonical correlation analysis (CCA).
+In R. Alhajj and J. Rokne (Eds.),
+\emph{Encyclopedia of Social Networks and Mining (2nd Edition)}.
+New York: Springer Verlag.
+
+Abdi, H., & Williams, L.J. (2013).
+Partial least squares methods:
+Partial least squares correlation
+and partial least square regression.
+In: B. Reisfeld & A. Mayeno (Eds.),
+\emph{Methods in Molecular Biology: Computational Toxicology}.
+New York: Springer Verlag. pp. 549-579.
 }
 \author{
 Hervé Abdi and Dominique Valentin
