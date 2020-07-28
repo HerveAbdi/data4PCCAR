@@ -3,7 +3,7 @@
 \docType{data}
 \name{winesOf3Colors}
 \alias{winesOf3Colors}
-\title{36 wines are evaluated on several dimensions organized in 3 blocks.}
+\title{36  + 1 wines are evaluated on several dimensions organized in 4 blocks.}
 \format{
 A list with
 one data frame with four blocks of data:
@@ -21,7 +21,7 @@ data("winesOf3Colors")
 \code{winesOf3Colors}:
 36 wines are evaluated on several dimensions organized in 4 blocks.
 An additional mystery wine is provided
-(to be projected as supplementary observations)
+(to be projected as supplementary observation).
 }
 \details{
 The (fictitious) wines come from 3 countries
