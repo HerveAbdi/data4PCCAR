@@ -340,8 +340,14 @@ computes the projection of supplementary elements
 projects supplementary variables (columns) 
  for a PLSC analysis 
  (computed with  `TExPosition::tepPLS`.
- Includes the internal funciton `projOnDualSet4PLS`.
+ Includes the internal funciton `projOnDualSet4PLSCA`.
 
+### supplementaryVariables4PLSCA
+
+projects supplementary variables (columns) 
+ for a PLSCA  analysis 
+ (computed with  `TExPosition::tepPLSCA)`.
+ 
 
 ### tepCCA
 
