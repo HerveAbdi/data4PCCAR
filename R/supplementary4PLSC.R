@@ -171,7 +171,7 @@ supplementaryObservations4PLSC <- function(resPLSC,
 print.supElementsPLS <- function(x, ...) {
   ndash = 78 # How many dashes for separation lines
   cat(rep("-", ndash), sep = "")
-  cat("\nLatent Variables for Supplementary Observations for epPLS  \n")
+  cat("\nLatent Variables for Supplementary Observations for epPLS/epPLSCA  \n")
   # cat("\n List name: ", deparse(eval(substitute(substitute(x)))),"\n")
   cat(rep("-", ndash), sep = "")
   if (!is.null(x$lx.sup)){

@@ -337,14 +337,14 @@ supplementaryVariables4PLSC <- function(var.sup,
 #'
 #'  Change the print function for supVar4PLSC
 #'
-#' @param x a list: output of supplementaryVariables4PLSC
+#' @param x a list: output of supplementaryVariables4PLSC/CA
 #' @param ... everything else for the functions
 #' @author Hervé Abdi
 #' @export
 print.supVar4PLSC <- function(x, ...) {
   ndash = 78 # How many dashes for separation lines
   cat(rep("-", ndash), sep = "")
-  cat("\nSupplementary columns for PLSC \n")
+  cat("\nSupplementary columns for PLSC or PLSCA \n")
   # cat("\n List name: ", deparse(eval(substitute(substitute(x)))),"\n")
   cat(rep("-", ndash), sep = "")
   if (!is.null(x$loadings.sup.X)){

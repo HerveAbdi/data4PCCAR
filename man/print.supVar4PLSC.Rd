@@ -7,7 +7,7 @@
 \method{print}{supVar4PLSC}(x, ...)
 }
 \arguments{
-\item{x}{a list: output of supplementaryVariables4PLSC}
+\item{x}{a list: output of supplementaryVariables4PLSC/CA}
 
 \item{...}{everything else for the functions}
 }
