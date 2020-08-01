@@ -96,6 +96,9 @@ projSupplementaryObservations4PLSC <- function(mat4sup,
 #' supplementary observations matching the **Y** matrix
 #' (see \code{description for details}).
 #'  When \code{NULL} (Default) nothing is computed for \code{Ysup}.
+#'@param dimNames Names for the
+#' dimensions (i.e., factors) for the
+#' supplementary loadings (Default: \code{'Dimension '}).
 #' @return A list with \code{lx.sup} and \code{ly.sup} 
 #' giving the latent variables values 
 #' of the supplementary observations
@@ -118,11 +121,13 @@ projSupplementaryObservations4PLSC <- function(mat4sup,
 
 supplementaryObservations4PLSC <- function(resPLSC, 
                                            Xsup = NULL, 
-                                           Ysup = NULL){
+                                           Ysup = NULL,
+                                           dimNames = 'Dimension '){
   # Check parameters around here
   return.list <- structure(list(),
                            class = 'supElementsPLS'
   )
+  noms2col <- paste0(dimNames, 1:ncol(resPLSC$TExPosition.Data$lx))
   # Look at Xsup
   if(!is.null(Xsup)){
     nI <- nrow(resPLSC$TExPosition.Data$fi)
@@ -137,6 +142,7 @@ supplementaryObservations4PLSC <- function(resPLSC,
            loadings_fixed = resPLSC$TExPosition.Data$pdq$p 
            # loadings out of PLSC
     )
+    colnames(lx.sup)   <- noms2col 
     return.list$lx.sup <- lx.sup
   }
   if(!is.null(Ysup)){
@@ -152,6 +158,7 @@ supplementaryObservations4PLSC <- function(resPLSC,
           loadings_fixed = resPLSC$TExPosition.Data$pdq$q 
           # loadings out of PLSC
     )
+    colnames(ly.sup)   <- noms2col 
     return.list$ly.sup <-  ly.sup
   }
   return(return.list)

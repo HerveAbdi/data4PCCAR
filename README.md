@@ -3,7 +3,7 @@
 
 An `R`-package containing a collection of data sets and 
 `R`-functions to accompagny and complement:
-Abdi, H., & Beaton, D. (to appear, 2019).
+Abdi, H., & Beaton, D. (to appear, 2021).
 *Principal Component and Correspondence Analyses Using R*.
 New York: Springer Verlag. 
 

@@ -6,7 +6,12 @@
 supplementary observations for a PLSC model
 computed with  \code{\link[TExPosition]{tepPLS}}.}
 \usage{
-supplementaryObservations4PLSC(resPLSC, Xsup = NULL, Ysup = NULL)
+supplementaryObservations4PLSC(
+  resPLSC,
+  Xsup = NULL,
+  Ysup = NULL,
+  dimNames = "Dimension "
+)
 }
 \arguments{
 \item{resPLSC}{the results of a \code{PLSC} analysis
@@ -21,6 +26,10 @@ When \code{NULL} (Default) nothing is computed for \code{Xsup}.}
 supplementary observations matching the \strong{Y} matrix
 (see \code{description for details}).
 When \code{NULL} (Default) nothing is computed for \code{Ysup}.}
+
+\item{dimNames}{Names for the
+dimensions (i.e., factors) for the
+supplementary loadings (Default: \code{'Dimension '}).}
 }
 \value{
 A list with \code{lx.sup} and \code{ly.sup}
