@@ -129,12 +129,12 @@
 #' The loadings of one set can be obtained 
 #' from the cross-product matrix
 #' **R** and the loadings from the dual set. For example:
-#' if we denote **Delta** the diagona; matrix of
+#' if we denote **Delta** the diagonal matrix of
 #' the singular values,
 #' **F**  (resp. **G**) the singular value normalized 
 #' factor scores (denoted \code{fi}, resp. \code{fj}, 
 #' in \code{PLSCA}),
-#' and **L** (resp. **C**) the row (resp. column profiles) the
+#' and **L** (resp. **C**) the row (resp. column) profiles
 #' the loadings of one set are derived from the other set as:
 #'  
 #' **F** = **LG** inv(**Delta**)  and 

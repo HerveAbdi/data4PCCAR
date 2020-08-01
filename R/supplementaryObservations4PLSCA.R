@@ -17,7 +17,7 @@
 #Preamble supplementaryObservations4PLSCA ----
 # function supplementaryObservations4PLSCA
 #' @title compute the latent variables for
-#' supplementary observations for a PLSC model 
+#' supplementary observations for a PLSCA model 
 #' computed with  \code{\link[TExPosition]{tepPLSCA}}.
 #' 
 #' @description \code{supplementaryObservations4PLSCA}:
@@ -36,16 +36,20 @@
 #' supplementary observations matching the **Y** matrix
 #' (see \code{description} for details).
 #'  When \code{NULL} (Default) nothing is computed for \code{Ysup}.
+#' @param dimNames Names for the
+#' dimensions (i.e., factors) for the
+#' supplementary loadings (Default: \code{'Dimension '}).
 #' @return A list with \code{lx.sup} and \code{ly.sup} 
 #' giving the latent variables values 
 #' of the supplementary observations
 #' for (respectively) \eqn{X} and \eqn{Y}.
+#' 
 #' @details The original analysis is performed with 
 #' \code{\link[TExPosition]{tepPLSCA}} on the original data matrices
 #' **X** (\eqn{N} by \eqn{I}) and **Y** (\eqn{N} by \eqn{J}).
 #' The supplementary data matrices should have \eqn{I}
-#' columns for \eqn{X}sup and \eqn{J}
-#' columns for \eqn{Y}sup. Note that \code{PLSCA} is used
+#' columns for **X**sup and \eqn{J}
+#' columns for **Y**sup. Note that \code{PLSCA} is used
 #' with qualitative variables (i.e., factors) recoded
 #' as 0/1 variables with disjunctive coding
 #' (i.e., with  \code{\link[ExPosition]{makeNominalData}}), 
@@ -54,11 +58,16 @@
 #' 
 #' ## Implementation
 #' 
-#' For \code{PLSCA} the observations needs to be pre-processed in
-#' the same way as the original observations. Often in \code{PLSCA}
+#' For \code{PLSCA} the observations need to be pre-processed in
+#' the same way as the original observations. Often, in \code{PLSCA},
 #' the observations are described by qualitative variables
-#' (in general coded as \emph{factors}) by \code{R}.
-#' When this is the case the supplementary observations should coded
+#' (in general coded as \emph{factors}) which are then recoded
+#' (e.g.,  with the function 
+#' \code{\link[ExPosition]{makeNominalData}}
+#' from \code{\link{ExPosition}}) as a set of 0/1 vectors prior to
+#' ruccing \code{PLSCA}.
+#' So 
+#' When this , the supplementary observations should becoded
 #' as factors too with the same levels (aka modalities) as
 #' the active observations
 #'  (see also  \code{\link[ExPosition]{makeNominalData}}). 
@@ -67,10 +76,54 @@
 #' 
 #' The projections of supplementary observations in \code{PLSC}
 #' is obtained using the standard \emph{transition formulas}
-#' from correspondence analysis.
+#' from correspondence analysis (with an additional scaling factor
+#' to get the covariance of the latent variables equal to their
+#' singular values). 
+#' 
+#' ## Transition formulas
+#' 
+#' The latent variables 
+#' can be obtained from
+#'   the loadings of their set. For example:
+#' if we denote **Delta** the diagonal matrix of
+#' the singular values,
+#' **F**  (resp. **G**) the singular value normalized 
+#' loadings (denoted \code{fi}, resp. \code{fj}, 
+#' in \code{PLSCA}),
+#' and **Lx** (resp. **Ly**) the row (resp. column) 
+#' latent variables (called \code{lx} and \code{ly} in
+#' \code{tepLSCA}), 
+#' the latent variables of one set are derived from the set loadings:
+#'  
+#' **Lx** = sqrt(\eqn{N}) **XF** inv(**Delta**)  and 
+#' **Ly** = sqrt(\eqn{N}) **YG** inv(**Delta**).    Eq.1
+#' 
+#' with: inv(****Delta****) being the inverse of **Delta**, \eqn{N}
+#' being the number of rows (i.e., observations) of **X** and **Y**,
+#' and **X** and **Y** are row profile versions of the original 
+#' data sets.
+#' 
+#' ## Projection of supplementary observations
+#' 
+#' Supplementary observations latent variable values
+#'  are obtained by using the transition formulas from
+#' correspondence analysis (see Eq.1, Section above).
+#' So, the values for the latent variable
+#' for  the supplementary observations
+#' from the \code{Xset} and the \code{Yset} 
+#' can be obtained from their row profiles
+#' (denoted **X**sup and **Y**sup)
+#'  by replacing in Eq.1
+#' **X** by **X**sup and **Y** by **Y**sup:
+#' 
+#' **Lx**sup = sqrt(\eqn{N}) **X**sup **F** inv(**Delta**)  and  
+#' **Ly**sup  = sqrt(\eqn{N}) **Y**sup **G** inv(**Delta**).    Eq.2
+#'
+#' 
+#' 
 #' 
 #' @author Hervé Abdi
-#' #' @references 
+#' @references 
 #' See:
 #' 
 #'  Beaton, D., Dunlop, J., ADNI, & Abdi, H. (2016).
@@ -106,11 +159,13 @@
 
 supplementaryObservations4PLSCA <- function(resPLSCA, 
                                            Xsup = NULL, 
-                                           Ysup = NULL){
+                                           Ysup = NULL,
+                                           dimNames = 'Dimension '){
   # Check parameters around here
   return.list <- structure(list(),
                            class = 'supElementsPLS'
   )
+  noms2col <- paste0(dimNames, 1:ncol(resPLSCA$TExPosition.Data$lx))
   nN  <- nrow(resPLSCA$TExPosition.Data$lx)
   scaling.factor <- 1 / sqrt(nN)
   Dv   <-  resPLSCA$TExPosition.Data$pdq$Dv
@@ -128,6 +183,7 @@ supplementaryObservations4PLSCA <- function(resPLSCA,
        (Fi  * matrix((Dv_1), nrow(Fi),
                     ncol = length(Dv_1), byrow = TRUE))
      # Fi %*% Dd_1 less efficient
+    colnames(lx.sup) <- noms2col 
     return.list$lx.sup <- lx.sup
   }
   if(!is.null(Ysup)){
@@ -139,6 +195,7 @@ supplementaryObservations4PLSCA <- function(resPLSCA,
     ly.sup  <- scaling.factor * C.sup %*% 
       (Fj  * matrix((Dv_1), nrow(Fj),
                     ncol = length(Dv_1), byrow = TRUE))
+    colnames(ly.sup)   <- noms2col 
     return.list$ly.sup <-  ly.sup
   }
   return(return.list)

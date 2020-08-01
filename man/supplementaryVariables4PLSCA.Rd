@@ -131,12 +131,12 @@ are the diagonal matrices of the barycenters of (respectively)
 The loadings of one set can be obtained
 from the cross-product matrix
 \strong{R} and the loadings from the dual set. For example:
-if we denote \strong{Delta} the diagona; matrix of
+if we denote \strong{Delta} the diagonal matrix of
 the singular values,
 \strong{F}  (resp. \strong{G}) the singular value normalized
 factor scores (denoted \code{fi}, resp. \code{fj},
 in \code{PLSCA}),
-and \strong{L} (resp. \strong{C}) the row (resp. column profiles) the
+and \strong{L} (resp. \strong{C}) the row (resp. column) profiles
 the loadings of one set are derived from the other set as:
 
 \strong{F} = \strong{LG} inv(\strong{Delta})  and

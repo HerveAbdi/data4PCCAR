@@ -3,10 +3,15 @@
 \name{supplementaryObservations4PLSCA}
 \alias{supplementaryObservations4PLSCA}
 \title{compute the latent variables for
-supplementary observations for a PLSC model
+supplementary observations for a PLSCA model
 computed with  \code{\link[TExPosition]{tepPLSCA}}.}
 \usage{
-supplementaryObservations4PLSCA(resPLSCA, Xsup = NULL, Ysup = NULL)
+supplementaryObservations4PLSCA(
+  resPLSCA,
+  Xsup = NULL,
+  Ysup = NULL,
+  dimNames = "Dimension "
+)
 }
 \arguments{
 \item{resPLSCA}{the results of a \code{PLSCA} analysis
@@ -21,6 +26,10 @@ When \code{NULL} (Default) nothing is computed for \code{Xsup}.}
 supplementary observations matching the \strong{Y} matrix
 (see \code{description} for details).
 When \code{NULL} (Default) nothing is computed for \code{Ysup}.}
+
+\item{dimNames}{Names for the
+dimensions (i.e., factors) for the
+supplementary loadings (Default: \code{'Dimension '}).}
 }
 \value{
 A list with \code{lx.sup} and \code{ly.sup}
@@ -39,8 +48,8 @@ The original analysis is performed with
 \code{\link[TExPosition]{tepPLSCA}} on the original data matrices
 \strong{X} (\eqn{N} by \eqn{I}) and \strong{Y} (\eqn{N} by \eqn{J}).
 The supplementary data matrices should have \eqn{I}
-columns for \eqn{X}sup and \eqn{J}
-columns for \eqn{Y}sup. Note that \code{PLSCA} is used
+columns for \strong{X}sup and \eqn{J}
+columns for \strong{Y}sup. Note that \code{PLSCA} is used
 with qualitative variables (i.e., factors) recoded
 as 0/1 variables with disjunctive coding
 (i.e., with  \code{\link[ExPosition]{makeNominalData}}),
@@ -48,11 +57,16 @@ the supplementary
 variables need to be recoded in the same way.
 \subsection{Implementation}{
 
-For \code{PLSCA} the observations needs to be pre-processed in
-the same way as the original observations. Often in \code{PLSCA}
+For \code{PLSCA} the observations need to be pre-processed in
+the same way as the original observations. Often, in \code{PLSCA},
 the observations are described by qualitative variables
-(in general coded as \emph{factors}) by \code{R}.
-When this is the case the supplementary observations should coded
+(in general coded as \emph{factors}) which are then recoded
+(e.g.,  with the function
+\code{\link[ExPosition]{makeNominalData}}
+from \code{\link{ExPosition}}) as a set of 0/1 vectors prior to
+ruccing \code{PLSCA}.
+So
+When this , the supplementary observations should becoded
 as factors too with the same levels (aka modalities) as
 the active observations
 (see also  \code{\link[ExPosition]{makeNominalData}}).
@@ -62,18 +76,53 @@ the active observations
 
 The projections of supplementary observations in \code{PLSC}
 is obtained using the standard \emph{transition formulas}
-from correspondence analysis.
+from correspondence analysis (with an additional scaling factor
+to get the covariance of the latent variables equal to their
+singular values).
+}
+
+\subsection{Transition formulas}{
+
+The latent variables
+can be obtained from
+the loadings of their set. For example:
+if we denote \strong{Delta} the diagonal matrix of
+the singular values,
+\strong{F}  (resp. \strong{G}) the singular value normalized
+loadings (denoted \code{fi}, resp. \code{fj},
+in \code{PLSCA}),
+and \strong{Lx} (resp. \strong{Ly}) the row (resp. column)
+latent variables (called \code{lx} and \code{ly} in
+\code{tepLSCA}),
+the latent variables of one set are derived from the set loadings:
+
+\strong{Lx} = sqrt(\eqn{N}) \strong{XF} inv(\strong{Delta})  and
+\strong{Ly} = sqrt(\eqn{N}) \strong{YG} inv(\strong{Delta}).    Eq.1
+
+with: inv(\strong{\strong{Delta}}) being the inverse of \strong{Delta}, \eqn{N}
+being the number of rows (i.e., observations) of \strong{X} and \strong{Y},
+and \strong{X} and \strong{Y} are row profile versions of the original
+data sets.
+}
+
+\subsection{Projection of supplementary observations}{
+
+Supplementary observations latent variable values
+are obtained by using the transition formulas from
+correspondence analysis (see Eq.1, Section above).
+So, the values for the latent variable
+for  the supplementary observations
+from the \code{Xset} and the \code{Yset}
+can be obtained from their row profiles
+(denoted \strong{X}sup and \strong{Y}sup)
+by replacing in Eq.1
+\strong{X} by \strong{X}sup and \strong{Y} by \strong{Y}sup:
+
+\strong{Lx}sup = sqrt(\eqn{N}) \strong{X}sup \strong{F} inv(\strong{Delta})  and
+\strong{Ly}sup  = sqrt(\eqn{N}) \strong{Y}sup \strong{G} inv(\strong{Delta}).    Eq.2
 }
 }
-\seealso{
-\code{\link[TExPosition]{tepPLSCA}}
-\code{\link[ExPosition]{makeRowProfiles}}
-\code{\link{supplementaryVariables4PLSCA}}
-\code{\link{supplementaryObservations4PLSC}}
-}
-\author{
-Hervé Abdi
-#' @references
+\references{
 See:
 
 Beaton, D., Dunlop, J., ADNI, & Abdi, H. (2016).
@@ -92,4 +141,13 @@ and Generalized Singular Value Decomposition (GSVD).
 In N.J. Salkind (Ed.):
 \emph{Encyclopedia of Measurement and Statistics}.
 Thousand Oaks (CA): Sage. pp. 907-912.
+}
+\seealso{
+\code{\link[TExPosition]{tepPLSCA}}
+\code{\link[ExPosition]{makeRowProfiles}}
+\code{\link{supplementaryVariables4PLSCA}}
+\code{\link{supplementaryObservations4PLSC}}
+}
+\author{
+Hervé Abdi
 }
