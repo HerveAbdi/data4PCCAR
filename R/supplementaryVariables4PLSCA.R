@@ -54,31 +54,31 @@
 #'  matrix of \eqn{K} supplementary
 #' variables.
 #' @param make.var.sup.nominal 
-#' logical, when  \code{TRUE}) (default)
+#' logical, when  \code{TRUE} (default)
 #' transforms each column of \code{var.sup} 
 #' from a factor with \eqn{M} levels
-#' to a set of \code{M} 0/1 vectors (to create a group coding,
+#' to a set of \eqn{M} 0/1 vectors (to create a group coding,
 #' also called \emph{complete disjonctive coding}). 
 #' @param resPLSCA the results of 
-#' a PLSC analysis performed with 
+#' a PLSCA analysis performed with 
 #' \code{\link[TExPosition]{tepPLSCA}}.
 #' @param Xset the original **X** (\eqn{N} by \eqn{I})
 #' data matrix. If \code{NULL}, the supplementary data
 #' are projected on the dual set (i.e., **Y**).
 #' See also \code{details} for more.
-#' @param make.Xset.nominal logical, when  \code{TRUE}) (default)
+#' @param make.Xset.nominal logical, when  \code{TRUE} (default)
 #' transforms each column of 
 #' \code{Xset} from a factor with \eqn{M} levels
-#' to a set of \code{M} 0/1 vectors (to create a group coding,
+#' to a set of \eqn{M} 0/1 vectors (to create a group coding,
 #' also called \emph{complete disjonctive coding}). 
 #' @param Yset the original **Y** (\eqn{N} by \eqn{J})
 #' data matrix. If \code{NULL}, the supplementary data
 #' are projected on the dual set (i.e., **X**).
 #' See also \code{details} for more.
-#' @param make.Yset.nominal logical, when  \code{TRUE}) (default)
+#' @param make.Yset.nominal logical, when  \code{TRUE} (default)
 #' transforms each column of \code{Yset} 
 #' from a factor with \eqn{M} levels
-#' to a set of \code{M} 0/1 vectors (to create a group coding,
+#' to a set of \eqn{M} 0/1 vectors (to create a group coding,
 #' also called \emph{complete disjonctive coding}). 
 #' @param dimNames Names for the
 #' dimensions (i.e., factors) for the
@@ -119,7 +119,7 @@
 #'  e.g., transformed into 0/1 vectors) 
 #' and decomposed with the
 #' GSVD as **R** = **PDQ**', with the (metrics) constraints that
-#' **P**'_inv(**Dr**) **P** = **Q**'inv(**Dc**)**Q** = **I** where
+#' **P**'inv(**Dr**) **P** = **Q**'inv(**Dc**)**Q** = **I** where
 #' inv() denotes the inverse matrix and where **Dr** (resp **Dc**)
 #' are the diagonal matrices of the barycenters of (respectively)
 #' **X** and **Y**.

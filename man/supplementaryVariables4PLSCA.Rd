@@ -22,14 +22,14 @@ supplementaryVariables4PLSCA(
 matrix of \eqn{K} supplementary
 variables.}
 
-\item{make.var.sup.nominal}{logical, when  \code{TRUE}) (default)
+\item{make.var.sup.nominal}{logical, when  \code{TRUE} (default)
 transforms each column of \code{var.sup}
 from a factor with \eqn{M} levels
-to a set of \code{M} 0/1 vectors (to create a group coding,
+to a set of \eqn{M} 0/1 vectors (to create a group coding,
 also called \emph{complete disjonctive coding}).}
 
 \item{resPLSCA}{the results of
-a PLSC analysis performed with
+a PLSCA analysis performed with
 \code{\link[TExPosition]{tepPLSCA}}.}
 
 \item{Xset}{the original \strong{X} (\eqn{N} by \eqn{I})
@@ -37,10 +37,10 @@ data matrix. If \code{NULL}, the supplementary data
 are projected on the dual set (i.e., \strong{Y}).
 See also \code{details} for more.}
 
-\item{make.Xset.nominal}{logical, when  \code{TRUE}) (default)
+\item{make.Xset.nominal}{logical, when  \code{TRUE} (default)
 transforms each column of
 \code{Xset} from a factor with \eqn{M} levels
-to a set of \code{M} 0/1 vectors (to create a group coding,
+to a set of \eqn{M} 0/1 vectors (to create a group coding,
 also called \emph{complete disjonctive coding}).}
 
 \item{Yset}{the original \strong{Y} (\eqn{N} by \eqn{J})
@@ -48,10 +48,10 @@ data matrix. If \code{NULL}, the supplementary data
 are projected on the dual set (i.e., \strong{X}).
 See also \code{details} for more.}
 
-\item{make.Yset.nominal}{logical, when  \code{TRUE}) (default)
+\item{make.Yset.nominal}{logical, when  \code{TRUE} (default)
 transforms each column of \code{Yset}
 from a factor with \eqn{M} levels
-to a set of \code{M} 0/1 vectors (to create a group coding,
+to a set of \eqn{M} 0/1 vectors (to create a group coding,
 also called \emph{complete disjonctive coding}).}
 
 \item{dimNames}{Names for the
@@ -122,7 +122,7 @@ have been preprocessed as for the original \code{PLSCA} analysis,
 e.g., transformed into 0/1 vectors)
 and decomposed with the
 GSVD as \strong{R} = \strong{PDQ}', with the (metrics) constraints that
-\strong{P}'_inv(\strong{Dr}) \strong{P} = \strong{Q}'inv(\strong{Dc})\strong{Q} = \strong{I} where
+\strong{P}'inv(\strong{Dr}) \strong{P} = \strong{Q}'inv(\strong{Dc})\strong{Q} = \strong{I} where
 inv() denotes the inverse matrix and where \strong{Dr} (resp \strong{Dc})
 are the diagonal matrices of the barycenters of (respectively)
 \strong{X} and \strong{Y}.
