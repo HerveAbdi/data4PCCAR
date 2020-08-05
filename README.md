@@ -12,8 +12,8 @@ and the resulting figures.
 
 ## Introduction
 
-`data4PCCAR` is a collection of data sets and `R`-functions 
-that are used (or could have been used, or should have been used) 
+`data4PCCAR` is a collection of _data sets_  and `R`-_functions_ 
+that are used (or could have been used, should have been used, or might be used) 
 to illustrate Principal Component Analysis (PCA), 
 Correspondence Analysis (CA), and related techniques 
 such as Multiple Correspondence Analysis (MCA), 
