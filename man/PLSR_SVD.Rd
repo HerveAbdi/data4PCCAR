@@ -2,10 +2,10 @@
 % Please edit documentation in R/PLS_jack_svds_HA.R
 \name{PLSR_SVD}
 \alias{PLSR_SVD}
-\title{version of PLS regression using the Singular
+\title{PLS regression  (PLSR) using the Singular
 Value Decomposition instead of the original NIPALS}
 \usage{
-PLSR_SVD(X, Y, nfactor)
+PLSR_SVD(X, Y, nfactor, inference = TRUE)
 }
 \arguments{
 \item{X}{The \eqn{N} observations by \eqn{I} variables
@@ -16,32 +16,104 @@ matrix (\strong{Y}) to be predicted.}
 
 \item{nfactor}{Number of factors (i.e., \emph{latent variables})
 to be used for the predictions. Note that the solution in PLSR
-is strongly dependentg on the number of factors to keep}
+is strongly dependent on the number of factors to keep.}
+
+\item{inference}{when \code{TRUE} (default)
+run the jackknife based inference battery.
+Note that this step can be very time consuming for large data sets.}
 }
 \value{
-More needed here.
-In the meantime look at the print function.
+A (long) list with results for the fixed and random effects (if
+\code{inference = TRUE})
+
+Fixed effects results:
+\itemize{
+\item{Xhat: }{reconstituted \strong{X} matrix from PLSR
+(with \code{nfact} latent variables: fixed effect).}
+\item{Yhat: }{reconstituted \strong{Y} matrix from PLSR
+(with \code{nfact} latent variables: fixed effect).}
+\item{Yjack: }{reconstituted Y from jackknife
+(with \code{nfact} latent variables: fixed effect).}
+\item{R2x, R2y: }{Proportion of variance of \strong{X}, \strong{Y}
+explained by each latent variable.}
+\item{RESSy: }{ the residual sum of squares:
+\eqn{RESSy = \sum_{i,k} (y_{i,k} - \hat{y}_{i.k})^2} }
+\item{Yhat4Ress :}{
+array of the \code{nfactor} \strong{Y} (fixed effect)
+matrices used to compute \code{RESS}.}
+}
+If
+\code{inference = TRUE},
+these random effect results are also returned:
+\itemize{
+\item{PRESSy: }{the PREDICTED residual sum of squares:
+\code{RESSy} = \eqn{\sum_{i,k} (y_{i,k} - \hat{y}_{-(i.k)})^2}
+where \eqn{\hat{y}_{-(i.k)}} is the value obtained
+without including \eqn{y_{i,j}} in the analysis}
+\item{Q2: }{Values of the \eqn{Q^2} parameter
+\eqn{Q^2 = 1 - PRESSy(n)/(RESSy(n-1))}
+\code{Q2}  is used to choose the number
+of latent variables to  keep with the rule:
+keep latent variable \emph{\eqn{n} if \eqn{Q2_n} > some limit}.
+Rule of thumb:  limit =.05 for
+number of observations < 100, 0 otherwise}
+\item{r2y_random,  rv_random: }{Vector of \eqn{R^2}
+and \eqn{R_V} coefficients between \strong{Y} and \strong{Y}jack
+for each number of latent variable solutions.}
+\item{Yhat4Press: }{
+array of the \code{nfactor} \strong{Y} Jackknifed matrices
+used to compute \code{PRESS}.
+}
+}
+.
 }
 \description{
-\code{PLSR_SVD}: A
-version of PLS regression using the Singular
-Value Decomposition (SVD) instead of the original NIPALS.
+\code{PLSR_SVD}:
+PLS regression (PLSR)
+computed using the Singular
+Value Decomposition (SVD) instead of the original \code{NIPALS}.
+(faster for large data sets). This version is an \code{R}
+version of the original \code{MATLAB} code used in Abdi (2010).
 }
 \details{
 GOAL:
 
 Compute the PLS regression coefficients/decomposition
-\strong{X} = \strong{T} * \strong{P}' Y = \strong{T} * \strong{B} * \strong{C}'
-=  \strong{X} * \strong{B}pls  \strong{X} and \strong{Y} being \eqn{Z}-scores\preformatted{                     **B** = diag(b)
+\strong{Zx} = \strong{T} * \strong{P}'.
+\strong{Zy} = \strong{T} * \strong{B} * \strong{C}' =  \strong{Zx} * \strong{B}pls
+
+\strong{Zx}
+and \strong{Zy} being matrices storing the \eqn{Z}-scores version of
+\strong{X} and \strong{Y}.
+
+with
+
+\strong{B} = diag(\strong{b})
+
+\strong{Y} = \strong{X}  * \strong{B}pls_star with
+
+\strong{X} being augmented with a column of ones
+and \strong{Y} and \strong{X}
+being measured in their original units
+
+In addition
+we have:
+\itemize{
+\item{
+\strong{Y}jack:}{ the jackknifed (LOO)
+random effect estimation of \strong{Y}.
+}
+}
+Also we have the following relationships:
+\itemize{
+\item{ \strong{T}'* \strong{T} = \strong{I}  (NB normalization <> from SAS)}
+\item{ \strong{W}'* \strong{W} = \strong{I} }
+\item{ \strong{C} is unit normalized}
+\item{ \strong{U} and \strong{P} are not normalized.}
 }
 
-Y = X * Bpls_star with X being augmented with a col of ones
-and Y and X having their original units
-Yjack is the jackknifed (LOO) estimation of Y
-T'*T = I (NB normalization <> than SAS)
-W'*W = I
-C is unit normalized,
-U, P are not normalized
+Xhat,Yhat: reconstituted matrices from PLSR
+
 For notations: see Abdi (2003, 2007, 2010),
 available from \code{personal.utdallas.edu/~herve}
 }
@@ -55,24 +127,29 @@ resPLSR <- PLSR_SVD(Xmat, Ymat, 3)
 }
 }
 \references{
-(see also www.utd.edu/~herve)
+(see also \code{https://personal.utdallas.edu/~herve/})
 \enumerate{
 \item Abdi, H. (2010).
 Partial least square regression,
 projection on latent structure regression, PLS-Regression.
-Wiley Interdisciplinary Reviews: Computational Statistics,
-2, 97-106.
+\emph{Wiley Interdisciplinary Reviews: Computational Statistics,
+2}, 97-106.
 \item Abdi, H. (2007).
 Partial least square regression (PLS regression).
 In N.J. Salkind (Ed.):
-Encyclopedia of Measurement and Statistics.
+\emph{Encyclopedia of Measurement and Statistics}.
 Thousand Oaks (CA): Sage. pp. 740-744.
 \item Abdi. H. (2003).
 Partial least squares regression (PLS-regression).
 In M. Lewis-Beck, A. Bryman, T. Futing (Eds):
-Encyclopedia for research methods for the social sciences.
+\emph{Encyclopedia
+for Research Methods for the Social Sciences}.
 Thousand Oaks (CA): Sage. pp. 792-795.
 }
+}
+\seealso{
+\code{\link{PLS4jack}} \code{\link{corrcoef4mat}}
+\code{\link{normaliz}}
 }
 \author{
 Hervé Abdi, Lei Xuan

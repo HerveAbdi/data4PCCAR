@@ -2,27 +2,27 @@
 % Please edit documentation in R/PLS_jack_svds_HA.R
 \name{normaliz}
 \alias{normaliz}
-\title{FUNCTION_TITLE}
+\title{normalize and send back a matrix normalized by column
+(i.e., each column vector has a norm of 1).}
 \usage{
 normaliz(F)
 }
 \arguments{
-\item{F}{PARAM_DESCRIPTION}
+\item{F}{a matrix}
 }
 \value{
-OUTPUT_DESCRIPTION
+the column normalized version of \code{F}
 }
 \description{
-FUNCTION_DESCRIPTION
-}
-\details{
-DETAILS
+\code{normaliz: }
+normalizes and send back a matrix normalized by column
+(i.e., each column vector has a norm of 1).
+\code{normaliz} is used by \code{\link{PLSR_SVD}}.
 }
 \examples{
 \dontrun{
-if(interactive()){
- #EXAMPLE1
- }
+X <-  matrix(c(4,2,8,7), nrow = 2)
+Z <- normaliz(X)
 }
 }
 \author{

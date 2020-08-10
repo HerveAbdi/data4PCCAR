@@ -2,28 +2,24 @@
 % Please edit documentation in R/PLS_jack_svds_HA.R
 \name{print.PLSR_SVD}
 \alias{print.PLSR_SVD}
-\title{FUNCTION_TITLE}
+\title{print function for \code{print.PLSR_SVD}}
 \usage{
 \method{print}{PLSR_SVD}(x, ...)
 }
 \arguments{
-\item{x}{PARAM_DESCRIPTION}
+\item{x}{The input}
 
-\item{...}{PARAM_DESCRIPTION}
+\item{...}{everything else}
 }
 \value{
-OUTPUT_DESCRIPTION
+printed help
 }
 \description{
-FUNCTION_DESCRIPTION
+print function for \code{print.PLSR_SVD} objects.
 }
-\details{
-DETAILS
+\seealso{
+\code{\link{PLSR_SVD}}
 }
-\examples{
-\dontrun{
-if(interactive()){
- #EXAMPLE1
- }
-}
+\author{
+Hervé Abdi
 }

@@ -196,6 +196,10 @@ a helper function for the functions `perm4PLSC` and `Boot4PLSC`, computes the cr
 of two comformable matrices
 using various types of normalization and centering.
 
+### corrcoef4mat
+An efficient routine to compute squared correlation and
+RV coefficient between 2 comformable matrices.
+
 ### ctr4Variables
 
  computes contributions (or squared cosines)
@@ -253,6 +257,11 @@ adds dimension names to the results of analyses performed with` ExPosition`
 using `aes()`). Note that if there is a space is a name (as is the case by default),
 `aes_string()` may, in some contexts,  have to be used in lieu of `aes()`.
 
+### normaliz
+
+normalizes a matrix  by column
+(i.e., each column vector has a norm of 1).
+
 
 ###  perm4CCA
 computes a permutation test for Canonical Correlation Analysis 
@@ -288,6 +297,19 @@ Useful to create correlation heatmap
 for MCA.
 Also a helper function,
  used for MCA.
+ 
+ ### PLS4jack
+ in PLS regression compute a
+ supplementary projection for a jackknifed estimation of
+ one supplementary element.
+ `PLS4jack` is mainly used  by
+ `PLSR_SVD` for computing jackknifed estimates.
+ 
+ ### PLSR_SVD
+ 
+  PLS regression  (PLSR) using the Singular
+ Value Decomposition (SVD) instead of the original NIPALS
+ (faster for large data sets).
 
 ### projSupplementaryObservations4PLSC
 

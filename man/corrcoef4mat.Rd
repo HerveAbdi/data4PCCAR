@@ -2,29 +2,33 @@
 % Please edit documentation in R/PLS_jack_svds_HA.R
 \name{corrcoef4mat}
 \alias{corrcoef4mat}
-\title{FUNCTION_TITLE}
+\title{Compute the squared correlation and
+\eqn{R_V} coefficients between two conformable matrices.}
 \usage{
 corrcoef4mat(Y1, Y2)
 }
 \arguments{
-\item{Y1}{PARAM_DESCRIPTION}
+\item{Y1}{The first \eqn{I} by \eqn{J} matrix}
 
-\item{Y2}{PARAM_DESCRIPTION}
+\item{Y2}{The first \eqn{I} by \eqn{J} matrix}
 }
 \value{
-A list with \eqn{R}2 and the \eqn{RV} coefficient between
-\code{Y1} and \code{Y2}.
+A list with \eqn{R^2} and the \eqn{RV} coefficient between
+the matrices \code{Y1} and \code{Y2}.
 }
 \description{
-\code{corrcoef4mat}
+\code{corrcoef4mat: }
+Computes the squared correlation and
+\eqn{R_V} coefficients between two conformable matrices.
 }
 \details{
-DETAILS
+\code{corrcoef4mat:} is mainly used by
+\code{\link{PLSR_SVD}}.
 }
 \examples{
 \dontrun{
-if(interactive()){
- #EXAMPLE1
- }
+X = matrix(c(4,2,8,7), nrow = 2)
+Y = matrix(c(1,7,2,9), nrow = 2)
+corrXY <- corrcoef4mat(X,Y)
 }
 }

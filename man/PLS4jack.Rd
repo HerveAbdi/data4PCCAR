@@ -2,38 +2,66 @@
 % Please edit documentation in R/PLS_jack_svds_HA.R
 \name{PLS4jack}
 \alias{PLS4jack}
-\title{FUNCTION_TITLE}
+\title{in PLS regression compute a
+supplementary projection for a jackknifed estimation of
+one supplementary element.
+The prediction
+for 1 to \code{nfactor} latent variables.}
 \usage{
 PLS4jack(X, Y, xsup, nfactor)
 }
 \arguments{
-\item{X}{PARAM_DESCRIPTION}
+\item{X}{the \strong{X} matrix of predictors in the PLSR model.}
 
-\item{Y}{PARAM_DESCRIPTION}
+\item{Y}{the \strong{Y} matrix to be predicted by tge PLSR model.}
 
-\item{xsup}{PARAM_DESCRIPTION}
+\item{xsup}{the supplementary elements whose \strong{Y} values
+are to be predicted.}
 
-\item{nfactor}{PARAM_DESCRIPTION}
+\item{nfactor}{number of factors of the model.}
 }
 \value{
-OUTPUT_DESCRIPTION
+\code{Yhatsup} the matrix of the predicted values.
 }
 \description{
-FUNCTION_DESCRIPTION
+\code{PLS4jack}:
+in PLS regression compute a
+supplementary projection for a jackknifed estimation of
+one supplementary element.
+The prediction is computed
+for 1 to \code{nfactor} latent variables.
+\code{PLS4jack} is mainly used  by
+\code{\link{PLSR_SVD}}
+for computing the random effect prediction of jackknifed
+observations in PLSR, but it can also be used to
+project supplementary observation in PLSR.
 }
 \details{
-DETAILS
-}
-\examples{
-\dontrun{
-if(interactive()){
- #EXAMPLE1
- }
-}
+see Abdi (2010) for details and examples.
 }
 \seealso{
-\code{\link[MASS]{ginv}} \code{\link{PLSR_SVD}}
+\code{\link{PLSR_SVD}}
 }
 \author{
 Hervé Abdi, Lei Xuan
+#' @references
+(see also \code{https://personal.utdallas.edu/~herve/})
+\enumerate{
+\item Abdi, H. (2010).
+Partial least square regression,
+projection on latent structure regression, PLS-Regression.
+\emph{Wiley Interdisciplinary Reviews: Computational Statistics,
+2}, 97-106.
+\item Abdi, H. (2007).
+Partial least square regression (PLS regression).
+In N.J. Salkind (Ed.):
+\emph{Encyclopedia of Measurement and Statistics}.
+Thousand Oaks (CA): Sage. pp. 740-744.
+\item Abdi. H. (2003).
+Partial least squares regression (PLS-regression).
+In M. Lewis-Beck, A. Bryman, T. Futing (Eds):
+\emph{Encyclopedia
+for Research Methods for the Social Sciences}.
+Thousand Oaks (CA): Sage. pp. 792-795.
+}
 }
