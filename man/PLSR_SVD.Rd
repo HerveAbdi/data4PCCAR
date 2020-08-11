@@ -5,22 +5,28 @@
 \title{PLS regression  (PLSR) using the Singular
 Value Decomposition instead of the original NIPALS}
 \usage{
-PLSR_SVD(X, Y, nfactor, inference = TRUE)
+PLSR_SVD(X, Y, nfactor, inference = TRUE, displayJack = TRUE)
 }
 \arguments{
 \item{X}{The \eqn{N} observations by \eqn{I} variables
 matrix (\strong{X}) of the predictors.}
 
-\item{Y}{The \eqn{N} observations by \eqn{I} variables
+\item{Y}{The \eqn{N} observations by \eqn{J} variables
 matrix (\strong{Y}) to be predicted.}
 
-\item{nfactor}{Number of factors (i.e., \emph{latent variables})
-to be used for the predictions. Note that the solution in PLSR
-is strongly dependent on the number of factors to keep.}
+\item{nfactor}{Number of factors (a.k.a., \emph{latent variables})
+to be used for the prediction.
+Note that the solution in PLSR
+is strongly dependent upon the number of factors to keep.}
 
 \item{inference}{when \code{TRUE} (default)
 run the jackknife based inference battery.
 Note that this step can be very time consuming for large data sets.}
+
+\item{displayJack}{if \code{TRUE} (default)
+display the current iteration when
+performing jackknife, worth setting it to \code{FALSE}
+for large data sets because it is quite time consuming.}
 }
 \value{
 A (long) list with results for the fixed and random effects (if
@@ -79,22 +85,21 @@ version of the original \code{MATLAB} code used in Abdi (2010).
 GOAL:
 
 Compute the PLS regression coefficients/decomposition
-\strong{Zx} = \strong{T} * \strong{P}'.
-\strong{Zy} = \strong{T} * \strong{B} * \strong{C}' =  \strong{Zx} * \strong{B}pls
-
-\strong{Zx}
+\itemize{
+\item{}{\strong{Zx} = \strong{T} * \strong{P}'.}
+\item{}{
+\strong{Zy} = \strong{T} * \strong{B} * \strong{C}' =  \strong{Zx} * \strong{B}pls}
+\item{with}{}
+\item{}{\strong{Zx}
 and \strong{Zy} being matrices storing the \eqn{Z}-scores version of
-\strong{X} and \strong{Y}.
-
-with
-
-\strong{B} = diag(\strong{b})
-
-\strong{Y} = \strong{X}  * \strong{B}pls_star with
-
+\strong{X} and \strong{Y}. }
+\item{}{\strong{B} = diag(\strong{b})}
+\item{}{    \strong{Y} = \strong{X}  * \strong{B}pls_star}
+\item{with}{
 \strong{X} being augmented with a column of ones
 and \strong{Y} and \strong{X}
-being measured in their original units
+being measured in their original units}
+}
 
 In addition
 we have:

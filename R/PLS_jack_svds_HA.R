@@ -87,14 +87,19 @@
 
 #' @param X The \eqn{N} observations by \eqn{I} variables
 #' matrix (**X**) of the predictors.
-#' @param Y The \eqn{N} observations by \eqn{I} variables
+#' @param Y The \eqn{N} observations by \eqn{J} variables
 #' matrix (**Y**) to be predicted.
-#' @param nfactor Number of factors (i.e., \emph{latent variables})
-#' to be used for the predictions. Note that the solution in PLSR
-#' is strongly dependent on the number of factors to keep.
+#' @param nfactor Number of factors (a.k.a., \emph{latent variables})
+#' to be used for the prediction. 
+#' Note that the solution in PLSR
+#' is strongly dependent upon the number of factors to keep.
 #' @param inference  when \code{TRUE} (default) 
 #' run the jackknife based inference battery.
 #' Note that this step can be very time consuming for large data sets.
+#' @param displayJack if \code{TRUE} (default) 
+#' display the current iteration when
+#' performing jackknife, worth setting it to \code{FALSE}
+#' for large data sets because it is quite time consuming.
 #' 
 #'
 #' @return 
@@ -146,23 +151,21 @@
 #' GOAL:
 #' 
 #' Compute the PLS regression coefficients/decomposition
-#' **Zx** = **T** * **P**'.
-#' **Zy** = **T** * **B** * **C**' =  **Zx** * **B**pls  
-#' 
-
-#' **Zx** 
+#' \itemize{
+#' \item{}{**Zx** = **T** * **P**'.}
+#'\item{}{
+#' **Zy** = **T** * **B** * **C**' =  **Zx** * **B**pls}  
+#' \item{with}{}
+#' \item{}{**Zx** 
 #'     and **Zy** being matrices storing the \eqn{Z}-scores version of
-#'     **X** and **Y**. 
-#' 
-#' with
-#' 
-#' **B** = diag(**b**)
-#' 
-#'    **Y** = **X**  * **B**pls_star with
-#'     
+#'     **X** and **Y**. }
+#' \item{}{**B** = diag(**b**)}
+#'\item{}{    **Y** = **X**  * **B**pls_star} 
+#' \item{with}{
 #'    **X** being augmented with a column of ones
 #'                       and **Y** and **X**
-#'               being measured in their original units
+#'               being measured in their original units}
+#'               }
 #'               
 #' In addition
 #'  we have:
@@ -251,8 +254,11 @@
 # Change for repmat call the local function
 
 
-PLSR_SVD <- function(X,Y,nfactor, inference = TRUE){
-  # First An internal function to mimic matlab's repmat
+PLSR_SVD <- function(X, Y,
+                     nfactor, 
+                     inference = TRUE, 
+                     displayJack = TRUE){
+  # First: An internal function to mimic MATLAB's repmat
   #___________________________________________________________________
   repmat <-  function (a, n, m){kronecker(matrix(1, n, m), a)}
   #___________________________________________________________________
@@ -369,13 +375,14 @@ PLSR_SVD <- function(X,Y,nfactor, inference = TRUE){
 	          repmat(t(S_Y), np, 1)
 	Bpls_star <- rbind(-M_X %*% Bpls_star, Bpls_star)
 	Bpls_star[1,] <- Bpls_star[1,] + M_Y
-	#Y_pred<-cbind(1,X_ori)%*%Bpls_star
+	#Y_pred <- cbind(1,X_ori)%*%Bpls_star
   if (isTRUE(inference)){
 	# Now go to the jackknifed version (cross-validation)
 	Yjack <- matrix(0,n,nq)
-	print('Fixed Model Done. Start Jackknife')
-	for (i in 1:n){
-		print(c('Jackniffing row #:',toString(i)))
+	print(paste0('Fixed Model Done. Start Jackknife for ', n, ' iterations.'))
+	for (i in 1:n){# if inference ----
+	  if (displayJack){
+		print(c('Jackniffing row #:',toString(i))) }
 		X4j <- X_ori
 		Y4j <- Y_ori
 		X4j <- X4j[-i,]
@@ -400,6 +407,7 @@ PLSR_SVD <- function(X,Y,nfactor, inference = TRUE){
 	}
 	# print('After Jackknife and Q')
   }
+	if (isTRUE(inference)){	print('Jackknife done.') }
 	#print('nfactor')
 	#print(nfactor)
 	
