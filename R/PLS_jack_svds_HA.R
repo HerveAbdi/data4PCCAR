@@ -568,13 +568,13 @@ PLSR_SVD <- function(X, Y,
 #  Encyclopedia of Measurement and Statistics. 
 #  Thousand Oaks (CA): Sage. pp. 740-744.
 #
-#' @title in PLS regression compute a
+#' @title in PLS regression (PLSR) compute a
 #' supplementary projection for a jackknifed estimation of
 #' one supplementary element.
-#' The prediction 
+#' The prediction is performed 
 #' for 1 to \code{nfactor} latent variables.
-#' @description \code{PLS4jack}: 
-#' in PLS regression compute a
+#' @description 
+#' in PLS regression (PLSR),\code{PLS4jack}:  computes a
 #' supplementary projection for a jackknifed estimation of
 #' one supplementary element.
 #' The prediction is computed

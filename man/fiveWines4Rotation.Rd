@@ -21,16 +21,19 @@ wines are described by two blocks of variables:
 Sensory and Chemistry.
 }
 \details{
-The five (fictitious) wines are described by two blocks
-of variables sensory and chemistry properties.
-This data set has been used to illustrate  rotations
+The five (rather fictitious) wines
+are described by two blocks
+of variables corresponding (respectively) to
+their  sensory and chemistry properties.
+This data set has been used to illustrate (Varimax) rotation
 for factor analytic methods and also in several papers
 about Partial Least Square Regression.
 }
 \references{
 These data have been used to illustrate
-rotation in factor analysis and PLSR. See, e.g.,
-(papers available from \url{https://personal.utdallas.edu/~herve/})
+rotations in factor analysis and PLSR. See, e.g.,
+(papers available from
+\url{https://personal.utdallas.edu/~herve/}):
 
 Abdi, H. (2010). Partial least square regression,
 projection on latent structure regression, PLS-Regression.
@@ -40,7 +43,7 @@ Computational Statistics, 2}, 97-106.
 Abdi, H. (2003). Factor rotations.
 In M. Lewis-Beck, A. Bryman, T. Futing (Eds):
 \emph{Encyclopedia for research methods for the social sciences}.
-Thousand Oaks (CA): Sage. 978-982..
+Thousand Oaks (CA): Sage. 978-982.
 }
 \author{
 Hervé Abdi

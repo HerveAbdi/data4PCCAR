@@ -69,6 +69,10 @@ how much they liked five beers.
 To be used to illustrate 
 how to use MCA with "fuzzy coding" with rating scales.
 
+### fiveWines4Rotation
+Five (rather fictitious) wines are described by their Sensory and Chemistry variables.
+These wines are used to illustrate `Varimax` rotation and partiall least square regression (PLSR).
+
 ### foodInFrance
 
 How much 12 typical French families spent on different types of food (including Wine!) in the 1950's.
@@ -115,7 +119,8 @@ To be used to illustrate PCA.
 ### winesOf3Colors
 
 36 wines (from Argentina, Canada, and the USA) are described by a variety of variables (descriptors, chemistry, and sensory). 
-To be used to illustrate PCA with supplementary variables (could also be used for two table methods such as CCCA and PLSC).
+To be used to illustrate PCA with supplementary variables (could also be used for two table methods such as CCCA, PLSC),
+PLSCA, and PLSR).
 
 ## Current functions 
 

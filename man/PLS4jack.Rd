@@ -2,10 +2,10 @@
 % Please edit documentation in R/PLS_jack_svds_HA.R
 \name{PLS4jack}
 \alias{PLS4jack}
-\title{in PLS regression compute a
+\title{in PLS regression (PLSR) compute a
 supplementary projection for a jackknifed estimation of
 one supplementary element.
-The prediction
+The prediction is performed
 for 1 to \code{nfactor} latent variables.}
 \usage{
 PLS4jack(X, Y, xsup, nfactor)
@@ -24,8 +24,7 @@ are to be predicted.}
 \code{Yhatsup} the matrix of the predicted values.
 }
 \description{
-\code{PLS4jack}:
-in PLS regression compute a
+in PLS regression (PLSR),\code{PLS4jack}:  computes a
 supplementary projection for a jackknifed estimation of
 one supplementary element.
 The prediction is computed

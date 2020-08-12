@@ -13,12 +13,13 @@
 #' Sensory and Chemistry.
 #'
 #'
-#' @details The five (fictitious) wines are described by two blocks
-#' of variables sensory and chemistry properties.
-#' This data set has been used to illustrate  rotations
+#' @details The five (rather fictitious) wines 
+#' are described by two blocks
+#' of variables corresponding (respectively) to
+#' their  sensory and chemistry properties.
+#' This data set has been used to illustrate (Varimax) rotation
 #' for factor analytic methods and also in several papers 
 #' about Partial Least Square Regression.
-
 #'
 #' @name  fiveWines4Rotation
 #' @usage data("fiveWines4Rotation")
@@ -31,8 +32,9 @@
 #' @keywords datasets data4PCCAR
 #' @author Hervé Abdi 
 #' @references These data have been used to illustrate
-#' rotation in factor analysis and PLSR. See, e.g.,
-#' (papers available from \url{https://personal.utdallas.edu/~herve/})
+#' rotations in factor analysis and PLSR. See, e.g.,
+#' (papers available from 
+#' \url{https://personal.utdallas.edu/~herve/}):
 #' 
 #' Abdi, H. (2010). Partial least square regression, 
 #' projection on latent structure regression, PLS-Regression. 
@@ -42,7 +44,7 @@
 #' Abdi, H. (2003). Factor rotations. 
 #' In M. Lewis-Beck, A. Bryman, T. Futing (Eds): 
 #' \emph{Encyclopedia for research methods for the social sciences}. 
-#' Thousand Oaks (CA): Sage. 978-982..
+#' Thousand Oaks (CA): Sage. 978-982.
 #'
 #'
 NULL
@@ -64,11 +66,11 @@ NULL
 print.fiveWines4Rotation <- function(x, ...){
   ndash = 78 # How many dashes for separation lines
   cat(rep("-", ndash), sep = "")
-  cat("\n A list: 5 wines are evaluated with their chemical and sensory properties.\n")
-  # cat("\n List name: ",deparse(eval(substitute(substitute(x)))),"\n")
+  cat("\n A list: 5 wines are evaluated by their chemical and sensory properties.\n")
+  # cat("\n List name: ", deparse(eval(substitute(substitute(x)))),"\n")
   cat(rep("-", ndash), sep = "")
   cat("\n$Xmat.Chemistry: ","The chemical data.")
-  cat("\n$Ymat.Sensory  : ","The Sensory data.")
+  cat("\n$Ymat.Sensory  : ","The sensory data.")
   cat("\n",rep("-", ndash), sep = "")
   cat("\n")
   invisible(x)
