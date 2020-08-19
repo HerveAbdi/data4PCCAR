@@ -3,7 +3,8 @@
 \docType{data}
 \name{twentyWines}
 \alias{twentyWines}
-\title{20 red wines (10 French, 10 American) are rated by an expert
+\title{20 red wines (10 French, 10 American)
+were rated by an expert
 on multiple dimensions.}
 \format{
 A list containing 3 data frames:
@@ -12,7 +13,8 @@ A list containing 3 data frames:
 \code{Sugar} and \code{Astringent}.
 \item \code{supplementary.variables} stores the long names of the wines,
 and the ratings of the 20 wines
-for the \emph{supplementary} variables  \code{Acid, Bitter, Fruity, Woody},
+for the \emph{supplementary} variables
+\code{Acid, Bitter, Fruity, Woody},
 and the \code{Origin} of the wines (French vs USA).
 \item \code{supplementary.observation} the ratings for the
 mystery wine (Trius Red: a wine from Ontario).
@@ -23,17 +25,18 @@ data("twentyWines")
 }
 \description{
 \code{twentyWines}:
-20 (imaginary) red wines (10 French, 10 American) are rated,
+20 (imaginary) red wines (10 French, 10 American) are rated
+(by a semi-fictitious expert)
 from 1 to 20,
-on multiple dimensions, by a (semi-fictitious) expert.
+on multiple sensory dimensions..
 }
 \details{
 The data are derived from real data but have been
 "massaged"
-to be nice (e.g., mean, variances, eigenvalues, are integers).
+to be nice (e.g., means, variances, eigenvalues, are integers).
 The 10 French wines were a mix of
-Carbernet Sauvignon and Merlot and the 10 American wines
-were made from Zinfandel.
+Carbernet-Sauvignon and Merlot grapes and the 10 American wines
+were made from Zinfandel grapes.
 
 The wines were first evaluated on \code{Sugar} and
 \code{Astringent}; these 2 dimensions are stored in the
@@ -60,7 +63,7 @@ and the comments are stored in the data frame
 }
 \references{
 These ratings were (strongly) inspired by the
-the \emph{Words} example from:
+\emph{Words} example from:
 
 Abdi, H., Edelman, B., Valentin, D., & Dowling, W.J. (2009).
 \emph{Experimental Design and Analysis for Psychology}.
