@@ -1,4 +1,4 @@
-# Description for file fiveWines4Rotation  example for data4PCCAR
+# Description for file fiveWines4Rotation example for data4PCCAR
 # Hervé Abdi: April 14, 2018.
 # Revisited July 26, 2020. (add mysteryWine)
 #
@@ -8,7 +8,7 @@
 #'
 #'
 #' @description
-#'  \code{fiveWines4Rotation}:
+#'  \code{fiveWines4Rotation}: Five
 #' wines are described by two blocks of variables:
 #' Sensory and Chemistry.
 #'
@@ -19,7 +19,7 @@
 #' their  sensory and chemistry properties.
 #' This data set has been used to illustrate (Varimax) rotation
 #' for factor analytic methods and also in several papers 
-#' about Partial Least Square Regression.
+#' about Partial Least Square Regression (PLSR).
 #'
 #' @name  fiveWines4Rotation
 #' @usage data("fiveWines4Rotation")
@@ -32,9 +32,10 @@
 #' @keywords datasets data4PCCAR
 #' @author Hervé Abdi 
 #' @references These data have been used to illustrate
-#' rotations in factor analysis and PLSR. See, e.g.,
-#' (papers available from 
-#' \url{https://personal.utdallas.edu/~herve/}):
+#' PLSR and
+#' rotations in factor analytic methods See, for example,
+#' the papers available from 
+#' \url{https://personal.utdallas.edu/~herve/}:
 #' 
 #' Abdi, H. (2010). Partial least square regression, 
 #' projection on latent structure regression, PLS-Regression. 
