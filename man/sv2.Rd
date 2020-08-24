@@ -14,6 +14,7 @@ a vector of the squared singular values.
 }
 \description{
 \code{sv2}: computes the squared singular values
+(i.e., eigen-values)
 of a matrix.
 }
 \details{

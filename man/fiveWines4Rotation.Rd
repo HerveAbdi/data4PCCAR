@@ -16,7 +16,7 @@ A list with two matrices:
 data("fiveWines4Rotation")
 }
 \description{
-\code{fiveWines4Rotation}:
+\code{fiveWines4Rotation}: Five
 wines are described by two blocks of variables:
 Sensory and Chemistry.
 }
@@ -27,13 +27,14 @@ of variables corresponding (respectively) to
 their  sensory and chemistry properties.
 This data set has been used to illustrate (Varimax) rotation
 for factor analytic methods and also in several papers
-about Partial Least Square Regression.
+about Partial Least Square Regression (PLSR).
 }
 \references{
 These data have been used to illustrate
-rotations in factor analysis and PLSR. See, e.g.,
-(papers available from
-\url{https://personal.utdallas.edu/~herve/}):
+PLSR and
+rotations in factor analytic methods See, for example,
+the papers available from
+\url{https://personal.utdallas.edu/~herve/}:
 
 Abdi, H. (2010). Partial least square regression,
 projection on latent structure regression, PLS-Regression.

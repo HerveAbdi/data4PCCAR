@@ -94,7 +94,8 @@ compS <- function(DATA1,
 #_____________________________________________________________________
 # sv2 preamble ----
 #' @title Compute the squared singular values of a matrix.
-#' @description \code{sv2}: computes the squared singular values
+#' @description \code{sv2}: computes the squared singular values 
+#' (i.e., eigen-values)
 #' of a matrix.
 #' @param X a rectangular matrix (or dataframe)
 #' @return a vector of the squared singular values.
@@ -204,11 +205,16 @@ perm4PLSC <- function(DATA1,
   if (permType != 'byColumns') permType <- 'byMat'
   DATA1 <- as.matrix(DATA1)
   DATA2 <- as.matrix(DATA2)
-  X = DATA1
-  Y = DATA2
-  if (NCOL(X) > NCOL(Y)){
-      X = DATA2
-      Y = DATA1
+  # Preprocess X and Y. In order not to have to do it in compS()
+  X = ExPosition::expo.scale(DATA1, center1, scale1)
+  Y = ExPosition::expo.scale(DATA2, center2, scale2)
+  
+  if (NCOL(X) > NCOL(Y)){# swap X and Y. Horrrrrible solution here
+      tmpoX <- X
+      X <- Y
+      Y <- tmpoX
+      #X = DATA2
+      #Y = DATA1
       }
 
   nN <- NROW(X)
@@ -217,12 +223,13 @@ perm4PLSC <- function(DATA1,
   if( !(nN == NROW(Y))){stop('DATA1 and DATA2 non-conformable')}
   maxRank <- min(nI,nJ)
   # Compute fixed SCP matrix for X & Y
-  Sfixed = compS(DATA1,
-            DATA2,
-            center1 = center1,
-            center2 = center2,
-            scale1 =  scale1, #   'ss1' ,
-            scale2 =  scale2)
+  # X & Y are pre-processed so no need of it here
+  Sfixed = compS(X,
+            Y,
+            center1 = FALSE,
+            center2 = FALSE,
+            scale1 =  FALSE, #
+            scale2 =  FALSE)
   fixedEigenvalues <- rep(0,maxRank)
   fixedEV <- sv2(Sfixed)
   # fixedEV <- eigen(t(Sfixed) %*% (Sfixed),
@@ -257,15 +264,16 @@ perm4PLSC <- function(DATA1,
        Xrand <- apply(X,2,sample )
        Yrand <- apply(Y,2,sample )
      }
-     Srand <- compS(Xrand,Yrand)
+     Srand <- compS(Xrand,Yrand, FALSE, FALSE, FALSE, FALSE)
      resvp <- sv2(Srand)
      # resvp <-   eigen(t(Srand) %*% Srand,
      #                 symmetric = TRUE,
      #                 only.values = TRUE)$values
     valP[1:length(resvp)] <- resvp
     return(valP)
-          }
+          } # End function .truc ----
   laLongueur <- maxRank + 1 # to fix rounding error for ev
+  
   permEigenvalues <- replicate(nIter,
                                .truc(X,Y,laLongueur,permType) )
   permEigenvalues <- t(permEigenvalues[1:maxRank,])
@@ -310,11 +318,11 @@ print.perm4PLSC <- function(x, ...){
   # cat("\n List name: ",deparse(eval(substitute(substitute(x)))),"\n")
   cat(rep("-", ndash), sep = "")
   cat("\n$ fixedInertia     ", "the Inertia of Matrix X")
-  cat("\n$ fixedEigenvalues ", "an L*1 vector of the eigenvalues of X")
+  cat("\n$ fixedEigenvalues ", "the L*1 vector of the eigenvalues of X")
   cat("\n$ pOmnibus         ", "the probablity associated to the Inertia")
-  cat("\n$ pEigenvalues     ", "an L* 1 matrix of p for the eigenvalues of X")
-  cat("\n$ permInertia      ", "vector of the permuted Inertia of X")
-  cat("\n$ permEigenvalues  ", "matrix of the permuted eigenvalues of X")
+  cat("\n$ pEigenvalues     ", "the L*1 vector of the p-values for the eigenvalues of X")
+  cat("\n$ permInertia      ", "the nIter*1 vector of the permuted Inertia of X")
+  cat("\n$ permEigenvalues  ", "the nIter*L matrix of the permuted eigenvalues of X")
   cat("\n",rep("-", ndash), sep = "")
   cat("\n")
   invisible(x)
