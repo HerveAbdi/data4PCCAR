@@ -131,6 +131,10 @@ add arrows to a factorial map
 (best with a circle of correlation as created, e.g., by `addCircleOfCor`). 
 Used for loadings for PCA maps.
 
+### addArrowsAndNames
+Compute the biplot coordinates of variables
+for a PCA computed with `ExPosition::epPCA`.
+
 ### addCircleOfCor
 
 add a *Circle of Correlation* to a PCA-like map
@@ -234,6 +238,9 @@ according to the sign of the elements in the first line
   `epCA`  (see also `firstpos` 
   and `renormInertiaExPo` ).
 
+### getBiplotCoor
+Computes the biplot coordinates of variables
+for a PCA computed with  `ExPosition::epPCA`.
 
 ### getImportantCtr.12
 
@@ -246,7 +253,8 @@ for at least one dimension of the plane.
 #### getRandomFS
 
 generates multivariate random observations (i.e., factor scores)
-    that match the variance/eigenvalues of the dimensions.
+    that match the variance/eigenvalues 
+    of the dimensions (as defined by their loadings). 
 
 ### monteCarlo.eigen
 
@@ -286,7 +294,7 @@ performing a PLSC.
 ### phi2CT
 
 a fast function to compute the $\phi^2$  correlation 
-coefficient for a Contingency table.
+coefficient for a contingency table.
 Used for CA and MCA and
 as a helper function
 by function `phi2Mat4BurtTable`.
