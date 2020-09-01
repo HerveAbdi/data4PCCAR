@@ -3,7 +3,8 @@
 \name{addArrowsAndNames}
 \alias{addArrowsAndNames}
 \title{Add arrows and names
-to a factorial graph created by \code{createFactorMap}
+to a factorial graph created by
+\code{\link[PTCA4CATA]{createFactorMap}}
 and friends.}
 \usage{
 addArrowsAndNames(
@@ -17,7 +18,7 @@ addArrowsAndNames(
 \arguments{
 \item{DATA}{a matrix or data frame with coordinates
 of the items to be plotted
-(NB \emph{need to have row names}).}
+(NB \emph{needs to have row names}).}
 
 \item{axis1}{horizontal axis (\code{Default: 1}).}
 
@@ -41,18 +42,33 @@ items): Uses \code{ggplot2::annotate()}.
 \description{
 \code{addArrowsAndNames}:
 Add arrows and names
-to a factorial graph created by \code{createFactorMap}
-and friends
+to a factorial graph created by
+\code{\link[PTCA4CATA]{createFactorMap}}
+and friends. Use, for example, to create
+a \emph{biplot} by adding variables
+to the observation map
 }
 \details{
-More here later
+To be used as an add-on for map
+created by  \code{\link[PTCA4CATA]{createFactorMap}}.
+Note that for strange reasons (i.e., \code{ggplot2} internals ....),
+the returned list cannot be provided with a \code{class}
+(and so the \code{print} function cannot give a help)
 }
 \examples{
 \dontrun{
-if(interactive()){
- #EXAMPLE1
- }
+data("twentyWines") # get the wine data set
+resPCA <- ExPosition::epPCA(twentyWines$df.active, 
+                            scale = FALSE, graphs = FALSE)
+getCoordinates <- getBiplotCoor(resPCA) # get biplot coordinates
+aMap <- PTCA4CATA::createFactorMap(resPCA$ExPosition.Data$fi, 
+         constraints = getCoordinates$constraints4Biplot) # create base map
+add2Map <- addArrowsAndNames(getCoordinates$coordArrow) # get the arrows
+print(aMap$zeMap + add2Map) # print the biplot map
 }
+}
+\seealso{
+\code{\link{getBiplotCoor}}
 }
 \author{
 Hervé Abdi
