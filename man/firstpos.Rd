@@ -17,8 +17,8 @@ same number of columns as \code{P}}
 }
 \value{
 If \code{Q} is \code{NULL},
-then the function returns a only the modified P matrix.
-Otherwise, the functions returns a list with two elements:
+then the function returns only the modified \code{P} matrix.
+Otherwise, the function returns a list with two elements:
 \itemize{
 \item \code{P} A matrix with the same values as in \code{P},
 except that the sign of all the values in each column
@@ -36,15 +36,15 @@ in one or two matrices
 according to the sign of the elements in the first line
 of the first matrix.
 After transformation the first element of every column of the
-matric or matrices will be positive.
+matrix or matrices will be positive.
 
 This is used to get reproducible
 results when performing singular value decompositions
 or eigenvalue decompositions.
 
-Note that when provided tow matrices the signs of the
-matrices will match: This is used to unsures that
-singular vectors of a given matrix match.
+Note that when provided two matrices the signs of the
+matrices will match: This is used to ensure that
+the sign of the singular vectors of a given matrix match.
 }
 \examples{
 \dontrun{

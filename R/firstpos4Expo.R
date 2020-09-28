@@ -15,20 +15,21 @@
 # now moved to `data4PCCAR`
 #_____________________________________________________________________
 #' @title Makes positive the first value of factor scores and
-#' singular vectors from the output of functions from
+#' singular vectors from the output of functions (e.g.,
+#' \code{epPCA, epCA}) from
 #' the \code{ExPosition} package.
 #'
 #' @description \code{firstpos4ExPo}: makes positive the first element
 #' of the column factor scores (i.e., \code{fj})
-#' and column singular vectors (i.e., pdq$q) of  analyses
+#' and column singular vectors (i.e., \code{pdq$q}) of  analyses
 #' performed with the  \code{ExPosition} package.
 #' \code{firstpos4ExPo} also insures that the sign of the column
 #' factor scores and singular vectors agree with
 #'   the row factors scores (i.e., \code{fi})
-#' and singular vectors (i.e., pdq$p).
+#' and singular vectors (i.e., \code{pdq$p}).
 #'
 #' The transformation implemented by \code{firstpos4ExPo}
-#' makes it easier to compare results from different analysis
+#' makes it easier to compare results from different analyses
 #' because the sign of the factor scores
 #' and singular vectors is arbitrary (i.e., a singular vector
 #' multiplied by -1 is still a singular vector).
@@ -49,7 +50,7 @@
 #' @seealso  \code{\link{firstpos}},  \code{\link{renormInertiaExPo}}
 #' @examples
 #' \dontrun{
-#' data("mtcars") # use the mtcars data set 
+#' data("mtcars") # load the mtcars data set 
 #' resPCA.mtcars <- firstpos4ExPo(epPCA(mtcars, graphs = FALSE, k = 3))
 #' # Check that the first element of the column vectors is positive
 #' resPCA.mtcars$resPCA.mtcars$ExPosition.Data$fj
