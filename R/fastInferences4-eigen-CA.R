@@ -12,7 +12,7 @@
 # for the CA of a data table
 # Functions to be ported to data4PCCAR
 # Current functions ----
-# eig4CA
+# eigCA
 # malinvaudQ4CA.perm
 # eigCA4Multinorm
 # multiNormCV4CA
@@ -21,29 +21,29 @@
 # **********************************************************
 # The functions starts here ----
 # __________________________________________________________
-# Preamble eig4CA ----
+# Preamble eigCA ----
 # First a nice function to get only the CA eigenvalues 
 # from a data matrix
 # 
 #___________________________________________________________ 
-# eig4CA a function to compute 
+# eigCA a function to compute 
 #  the CA-eigenvalues for a matrix
-#  if eig.only is FALSE, eig4CA will also give Fi and Fj
+#  if eig.only is FALSE, eigCA will also give Fi and Fj
 #     (Useful for Booststraping Fi Fj)
 # help starts here 
 # ________________
-# eig4CA
+# eigCA
 #' @title A bare-bones function to compute  the
 #' eigen-values (and if asked row and column factor scores)
 #' of a matrix suitable for correspondence analysis.
-#' @description \code{eig4CA}:
+#' @description \code{eigCA}:
 #' A very fast and bare-bones function that computes
 #' the eigenvalues 
 #' (and possibly the row and column factor scores)
 #' of the Correspondence Analysis (CA)
 #' of a data matrix suitable for CA
 #' (i.e., a matrix whose all entries are non-negative).
-#' \code{eig4CA} is mainly used for cross-validation
+#' \code{eigCA} is mainly used for cross-validation
 #' and resampling methods (e.g., permutation and
 #' bootstrap tests).
 #' @param Xdata a data matrix 
@@ -54,26 +54,26 @@
 #' Otherwise compute also the row and column
 #' CA factor scores (i.e., \code{fi} and \code{fj}).
 #' @return if \code{eig.only} is \code{TRUE}
-#' \code{eig4CA} returns the CA-eigenvalues of
+#' \code{eigCA} returns the CA-eigenvalues of
 #' \code{X}; 
 #' if \code{eig.only} is \code{FALSE}
-#' \code{eig4CA} returns 
+#' \code{eigCA} returns 
 #' a list with: \code{$eigen}: the CA-eigenvalues of
 #' \code{X}, \code{$fi}: the CA row factor scores,
 #' and \code{$fi}: the CA column factor scores.
 #' @details As a fast bare-bones CA based computations
-#' \code{eig4CA} is mainly used for 
+#' \code{eigCA} is mainly used for 
 #' cross-validation for CA methods.
 #' @author  Hervé Abdi
 #' @examples 
 #' \dontrun{
 #' set.seed(87) # set the seed
 #' X <- matrix(round(runif(21)*20), ncol = 3) # good for CA
-#' eigenOfX <- eig4CA(X)
+#' eigenOfX <- eigCA(X)
 #' }
-#' @rdname eig4CA
+#' @rdname eigCA
 #' @export 
-eig4CA <- function(Xdata, # data matrix
+eigCA <- function(Xdata, # data matrix
             eig.only = TRUE # we just want the eigenvalues
                    ){# function starts here
   nI <-  nrow(Xdata)
@@ -116,8 +116,8 @@ eig4CA <- function(Xdata, # data matrix
                       Fj = Fj[,-1]) # drop first dim
     return(ShortCA)
   }
-} # end of function eig4CA
-# eof eig4CA ----
+} # end of function eigCA
+# eof eigCA ----
 #___________________________________________________________
 # Preamble malinvaudQ4CA.perm  ----
 # malinvaudQ4CA.perm computes the Malinvaud/Saporta test for CA
@@ -203,10 +203,10 @@ malinvaudQ4CA.perm <- function(
   #    Technip, Paris. p. 209.  
   #   Val.P <- ResFromExposition$ExPosition.Data$eigs
   N.pp  <- sum(Data) # Grand Total of the data table
-  # if(is.null(Val.P)){Val.P = eig4CA(Data)}
+  # if(is.null(Val.P)){Val.P = eigCA(Data)}
   # OLd Version
   # Compute eigenvalues if not given
-  Val.P = eig4CA(Data) # Now compute the eigenvalues
+  Val.P = eigCA(Data) # Now compute the eigenvalues
   nL <- length(Val.P) # how many eigenvalues
   nI <- nrow(Data)
   nJ <- ncol(Data)
@@ -279,7 +279,7 @@ malinvaudQ4CA.perm <- function(
 # Sample from a multinomial distribution 
 # and compute the eigenvalues
 # of a CA. 
-# NB needs the function eig4CA
+# NB needs the function eigCA
 # Examples of calls
 # 1. Bootstrap of X:   
 #     Boot.eig <- eigCA4Multinorm(sum(X),X,nrow(X),ncol(X))))
@@ -343,7 +343,7 @@ eigCA4Multinorm <- function(nobs, # grandtotal of the table
                   # for the cells. Should be length = nI*nJ
                   nrow, ncol# nrow & ncol of the matrix
 ){ # function starts here
-  CA.Valp  <- eig4CA(matrix(
+  CA.Valp  <- eigCA(matrix(
     as.vector(stats::rmultinom(1, nobs, prob)),
     nrow = nrow, ncol = ncol, byrow = FALSE))
   return(CA.Valp)
