@@ -14,7 +14,7 @@
 # Current functions ----
 # eigCA
 # malinvaudQ4CA.perm
-# eigCA4Multinorm
+# eigCA4Multinom
 # multiNormCV4CA
 # print.Inference4CA
 #
@@ -274,27 +274,27 @@ malinvaudQ4CA.perm <- function(
 } # End of function MalinvaudQ4CA here
 # eof malinvaudQ4CA.perm ----
 #___________________________________________________________
-# Preamble eigCA4Multinorm ----
-# Function eigCA4Multinorm starts here
+# Preamble eigCA4Multinom ----
+# Function eigCA4Multinom starts here
 # Sample from a multinomial distribution 
 # and compute the eigenvalues
 # of a CA. 
 # NB needs the function eigCA
 # Examples of calls
 # 1. Bootstrap of X:   
-#     Boot.eig <- eigCA4Multinorm(sum(X),X,nrow(X),ncol(X))))
+#     Boot.eig <- eigCA4Multinom(sum(X),X,nrow(X),ncol(X))))
 # 2. Permutation of X 
 #      X4H0 <- (1/sum(X)^2)*(as.matrix(rowSums(X))%*%t(as.matrix(colSums(X))))
-#      Perm.eig <- eigCA4Multinorm(sum(X),X4H0,nrow(X),ncol(X))))
+#      Perm.eig <- eigCA4Multinom(sum(X),X4H0,nrow(X),ncol(X))))
 #___________________________________________________________
-# Help for eigCA4Multinorm starts here
+# Help for eigCA4Multinom starts here
 #' @title 
 #' Sample from a multinomial distribution 
 #' (with a given probability distribution)
 #' and compute the eigenvalues
 #' of a correpondence analysis of the simulated
 #' matrix.. 
-#' @description \code{eigCA4Multinorm}:
+#' @description \code{eigCA4Multinom}:
 #' Sample from a multinomial distribution 
 #' (with a given probability distribution)
 #' and compute the eigenvalues
@@ -312,7 +312,7 @@ malinvaudQ4CA.perm <- function(
 #' @param ncol The number of columns of the matrix
 #' to be simulated.
 #' @return OUTPUT_DESCRIPTION
-#' @details  \code{eigCA4Multinorm}
+#' @details  \code{eigCA4Multinom}
 #' is mostly used for computing eigenvalues
 #' of
 #'  created data matrices
@@ -330,15 +330,15 @@ malinvaudQ4CA.perm <- function(
 #' pJ <- as.matrix(colSums(X) / nobs) # probabilites
 #' p4Permutation <- pI %*% t(pJ) # Independence <=> permutation
 #' # Simulated Permutation Probabilities
-#' permEigen <- eigCA4Multinorm(nobs, p4Permutation, nI, nJ)
+#' permEigen <- eigCA4Multinom(nobs, p4Permutation, nI, nJ)
 #' p4Bootstrap   <- X / nobs # Actual prob <=> Bootstrap
-#' permBoots <- eigCA4Multinorm(nobs, p4Bootstrap, nI, nJ)
+#' permBoots <- eigCA4Multinom(nobs, p4Bootstrap, nI, nJ)
 #' }
 #' @importFrom stats rmultinom
-#' @rdname eigCA4Multinorm
+#' @rdname eigCA4Multinom
 #' @export 
 #' @author  Hervé Abdi
-eigCA4Multinorm <- function(nobs, # grandtotal of the table
+eigCA4Multinom <- function(nobs, # grandtotal of the table
                    prob, # probability distribution 
                   # for the cells. Should be length = nI*nJ
                   nrow, ncol# nrow & ncol of the matrix
@@ -347,7 +347,7 @@ eigCA4Multinorm <- function(nobs, # grandtotal of the table
     as.vector(stats::rmultinom(1, nobs, prob)),
     nrow = nrow, ncol = ncol, byrow = FALSE))
   return(CA.Valp)
-} # eof eigCA4Multinorm ----
+} # eof eigCA4Multinom ----
 #___________________________________________________________
 # Preamble multiNormCV4CA ----
 # function multiNormCV4CA
@@ -402,10 +402,10 @@ multiNormCV4CA <- function(Data, # The contingency Table
  # Probability distribution under H0 for permutation
           X4H0 <- (1/sum(X)^2)*
                 (as.matrix(rowSums(X))%*%t(as.matrix(colSums(X))))
-          Perm.ValP <- t(replicate(niter,eigCA4Multinorm(nN,X4H0,nI,nJ)))
+          Perm.ValP <- t(replicate(niter,eigCA4Multinom(nN,X4H0,nI,nJ)))
 # Get bootstraped eigenvalues from multinomial distribution
           Boot.ValP <- t(replicate(niter,
-                            eigCA4Multinorm(nN, X, nI, nJ)))
+                            eigCA4Multinom(nN, X, nI, nJ)))
           nL <-  ncol(Boot.ValP)
    colnames(Perm.ValP) <- paste0('Dimension ',1:nL) -> colnames(Boot.ValP)
    return.list <- structure(
