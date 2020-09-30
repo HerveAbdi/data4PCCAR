@@ -7,7 +7,7 @@
 \method{print}{Inference4CA}(x, ...)
 }
 \arguments{
-\item{x}{a list: output of, e.g.,  multinormCV4CA}
+\item{x}{a list: output of, e.g.,  multinomCV4CA}
 
 \item{...}{everything else for the functions}
 }

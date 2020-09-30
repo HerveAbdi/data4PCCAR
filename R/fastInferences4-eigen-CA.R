@@ -15,7 +15,7 @@
 # eigCA
 # malinvaudQ4CA.perm
 # eigCA4Multinom
-# multiNormCV4CA
+# multinomCV4CA
 # print.Inference4CA
 #
 # **********************************************************
@@ -275,7 +275,7 @@ malinvaudQ4CA.perm <- function(
 # eof malinvaudQ4CA.perm ----
 #___________________________________________________________
 # Preamble eigCA4Multinom ----
-# Function eigCA4Multinom starts here
+# Function eigCA4ultinom starts here
 # Sample from a multinomial distribution 
 # and compute the eigenvalues
 # of a CA. 
@@ -349,18 +349,18 @@ eigCA4Multinom <- function(nobs, # grandtotal of the table
   return(CA.Valp)
 } # eof eigCA4Multinom ----
 #___________________________________________________________
-# Preamble multiNormCV4CA ----
-# function multiNormCV4CA
+# Preamble multinomCV4CA ----
+# function multinomCV4CA
 #  Multinomial distribution Based
 #      Cross Validation for Correspondence Analysis
 #  Assumes a plain model for CA as a contingency table
 #___________________________________________________________
-# Help multiNormCV4CA starts here
+# Help multinomCV4CA starts here
 #' @title Compute the permuted and bootstrapped eigenvalues
 #' of the correspondence analysis (CA) of a matrix suitable
 #' for CA (i.e., a matrix with non negative elements).
 #' 
-#' @description \code{multinormCV4CA}: 
+#' @description \code{multinomCV4CA}: 
 #' a very fast routine that
 #' computes the permuted and bootstrapped eigenvalues
 #' of the correspondence analysis (CA) of a matrix suitable
@@ -377,7 +377,7 @@ eigCA4Multinom <- function(nobs, # grandtotal of the table
 #' \code{niter} by \code{rank(Data)} bootstrapped 
 #' eigenvalues of the data matrix \code{Data}.
 #' 
-#' @details \code{multinormCV4CA}
+#' @details \code{multinomCV4CA}
 #' uses the multinomial distribution to
 #' simulate bootstrap and permutation resampling
 #' for a correspondence analysis.
@@ -385,12 +385,12 @@ eigCA4Multinom <- function(nobs, # grandtotal of the table
 #' \dontrun{
 #' set.seed(87) # set the seed
 #' X <- matrix(round(runif(21)*20), ncol = 3) # good for CA
-#' ResCV <- multiNormCV4CA(X)
+#' ResCV <- multinomCV4CA(X)
 #' }
-#' @rdname multiNormCV4CA
+#' @rdname multinomCV4CA
 #' @export 
 
-multiNormCV4CA <- function(Data, # The contingency Table
+multinomCV4CA <- function(Data, # The contingency Table
                            # data frame or matrix
                   niter = 1000 # How Many Iterations
                           ){
@@ -413,7 +413,7 @@ multiNormCV4CA <- function(Data, # The contingency Table
                         Bootstrapped.ValP = Boot.ValP),
                             class = 'Inference4CA')
    return(return.list)
-       } # eof multiNormCV4CA ----
+       } # eof multinomCV4CA ----
 # Print routines ----
 # print routines ----
 # #_____________________________________________________________________
@@ -423,7 +423,7 @@ multiNormCV4CA <- function(Data, # The contingency Table
 #'
 #'  Change the print function for Inference4CA
 #'
-#' @param x a list: output of, e.g.,  multinormCV4CA
+#' @param x a list: output of, e.g.,  multinomCV4CA
 #' @param ... everything else for the functions
 #' @author Hervé Abdi
 #' @export
