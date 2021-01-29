@@ -61,6 +61,17 @@ The similarity (measured on a scale from 0 to 1000, with bigger numbers
 meaning more similar)
 between 15 psychometric instruments (i.e. scales)
  measuring depression.
+ 
+ ### fiveBeers5Judges
+ 
+ Five tasters evaluated
+ five beers on dimensions 
+ that they had previously chosen.
+ These data can be used to illustrate,
+ (among others) 
+ Multiple Factor Analysis (MFA),
+STATIS,  or Distatis.
+ 
 
 ### fiveBeersHedonics
 
@@ -170,7 +181,7 @@ Creates Bootstrap Cubes for the I and J sets
 of a CCA
 obtained from bootstraping the rows
 of the two data-tables used for CCA.
-Companion function of  `tepCCA`. 
+Companion function of  `tepCCA`.  Note: This function is still in the beta stage.
 
 ### Boot4PLSC 
 
@@ -183,12 +194,12 @@ of the two data-tables used for PLSC.
 ### BR4varMCA 
 
 Computes pseudo Bootstrap Ratios (BR) from pseudo-$F$ for variables in MCA.
-Used to create BR-like histogram comparable to BR such as found for PCA.
+Used to create BR-like histogram comparable to BR such as computed in PCA.
 
 ### buildRandomImage4PCA
  
 makes a random image (with similar PCA loadings) 
- of a matrix of integer data such as Likert scales data.
+ of a matrix of integer data such as Likert scale data.
  Uses two helper functions: `getRandomFS` and `recode2Integer`:
  
 
@@ -206,6 +217,7 @@ of two comformable matrices
 using various types of normalization and centering.
 
 ### corrcoef4mat
+
 An efficient routine to compute squared correlation and
 RV coefficient between 2 comformable matrices.
 
@@ -216,12 +228,41 @@ for (qualitatitve)  variables from the contributions
 of the levels of the qualitative variables.
 Used to get contributions in MCA. 
 
+### eig4CA
+
+A very fast and bare-bone function that computes
+the eigenvalues 
+(and possibly the row and column factor scores)
+of the Correspondence Analysis (CA)
+of a data matrix suitable for CA
+(i.e., a matrix whose all entries are non-negative).
+
 ### epVari
 
 a Varimax rotation on loadings and factor scores.
 Also gives the pseudo-eigenvalues and percentage of inertia.
 Used post-PCA to get nice clean components.
 `epiVari` Requires an a-priori number of dimensions.
+
+### fastBoot4CA
+
+used
+for  Correspondence Analysis
+(CA), creates   a Bootstrap Cube 
+obtained from bootstrapping the observations
+from a true contingency table. `fastBoot4CA` is based  on the base
+`R` function `rmultinom`.
+
+### fastPerm4CA 
+
+used
+for  Correspondence Analysis
+(CA),
+computes a permutation test
+for  CA when CA is performed
+on a true contingency table.
+`fastPerm4CA` is based  on the base
+`R` function `rmultinom`.
 
 ### firstpos
 
@@ -250,11 +291,20 @@ to the plane, the items important for the plane,
 and the items important for the plane or 
 for at least one dimension of the plane.
 
-#### getRandomFS
+### getRandomFS
 
 generates multivariate random observations (i.e., factor scores)
     that match the variance/eigenvalues 
     of the dimensions (as defined by their loadings). 
+
+
+### malinvaudQ4CA.perm 
+
+Computes the Malinvaud / Saporta test for
+the omnibus and dimensions of a correspondence 
+analysis (CA). `malinvaudQ4CA.perm` gives
+the asymptotic Chi2 values and their associated 
+*p*-value under the usual assumptions and from a permutation test.
 
 ### monteCarlo.eigen
 
@@ -262,6 +312,13 @@ a Monte Carlo generation of (random) eigenvalues to match
 a data matrix. 
 Used to implement the *parallel* test
 for the number of reliable eigenvalues.
+
+###  multinomCV4CA 
+
+A very fast function that computes the permuted and bootstrapped eigenvalues
+of the correspondence analysis (CA) of a matrix suitable
+for CA (i.e., a matrix with non negative elements).
+
 
 ### nameExpositionResults
 
@@ -332,7 +389,7 @@ Note: `projSupplementaryObservations4PLSC` is mostly used
  as a preparatory step for
 `supplementaryObservations4PLSC`.
 
-#### recode2Integer
+### recode2Integer
 
 recodes a vector of real values to integers matching 
     a given distribution for the integers.
@@ -370,7 +427,7 @@ computes the projection of supplementary elements
   supplementary observations for a PLSC model 
   from `TExPosition::PLS`.
   
-  ### supplementaryObservations4PLSCA
+### supplementaryObservations4PLSCA
   
   compute the value  of the latent variables for
    supplementary observations for a PLSCA model 

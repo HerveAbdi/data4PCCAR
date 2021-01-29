@@ -9,12 +9,12 @@ obtained from a multinomial distribution.}
 fastPerm4CA(X, nIter = 1000, compact = FALSE)
 }
 \arguments{
-\item{X}{the data matrix (non-negative numbers)}
+\item{X}{the data matrix (non-negative integers)}
 
 \item{nIter}{(Default = 1000). Number of Iterations
 (i.e. number of permuted samples computed).}
 
-\item{compact}{if TRUE return only
+\item{compact}{if \code{TRUE} return only
 \emph{p}-values for omnibus test
 default is \code{FALSE}.}
 }
@@ -31,7 +31,7 @@ an \code{nIter} * 1 vector containing the
 permuted inertia;
 \code{pEigenvalues}: The probabilities
 associated to each eigenvalue;
-If \code{compact} is is \code{FALSE}, return also
+If \code{compact} is  \code{FALSE}, return also
 \code{permEigenvalues}: an
 \code{nIter} * \code{L} matrix giving
 the permuted eigenvalues.
@@ -45,7 +45,7 @@ from a multinomial distribution.
 \code{fastPerm4CA}
 can be used for big tables
 for the omnibus test (i.e., inertia) and for
-the eigenvalues.
+the test on the eigenvalues.
 }
 \author{
 Hervé Abdi

@@ -29,15 +29,15 @@
 # eigCA a function to compute 
 #  the CA-eigenvalues for a matrix
 #  if eig.only is FALSE, eigCA will also give Fi and Fj
-#     (Useful for Booststraping Fi Fj)
+#     (Useful for Booststraping Fi & Fj)
 # help starts here 
 # ________________
 # eigCA
-#' @title A bare-bones function to compute  the
+#' @title A bare-bone function to compute  the
 #' eigen-values (and if asked row and column factor scores)
 #' of a matrix suitable for correspondence analysis.
 #' @description \code{eigCA}:
-#' A very fast and bare-bones function that computes
+#' A very fast and bare-bone function that computes
 #' the eigenvalues 
 #' (and possibly the row and column factor scores)
 #' of the Correspondence Analysis (CA)

@@ -2,9 +2,11 @@
 % Please edit documentation in R/InferencesMultinom4CA-3.R
 \name{fastBoot4CA}
 \alias{fastBoot4CA}
-\title{\code{fastBoot4CA}: create a Bootstrap Cube for a CA
-obtained from bootstrapping the rows of
-the data-table.}
+\title{\code{fastBoot4CA}:
+create for a Correspondence Analysis
+(CA)  a Bootstrap Cube
+obtained from bootstrapping the observations
+from a contingency table.}
 \usage{
 fastBoot4CA(
   X,
@@ -23,26 +25,26 @@ fastBoot4CA(
 
 \item{Fi}{(default = \code{NULL})
 the \eqn{I}-set factor scores
-(for the rows) from the analysis of X.
+(for the rows) from the analysis of \strong{X}.
 if NULL, \code{Boot4RowCA} will compute them.}
 
 \item{Fj}{(default = \code{NULL}),
-the J-set factor scores
-(for the columns) from the analysis of X.
+the  \eqn{J}-set factor scores
+(for the columns) from the analysis of \strong{X}.
 if NULL, \code{Boot4RowCA} will compute them.}
 
 \item{delta}{(default = \code{NULL}),
 the singular values
-from the CA of X. If NULL (default),
+from the CA of \strong{X}. If \code{NULL} (default),
 \code{Boot4RowCA} will compute them.}
 
 \item{nf2keep}{How many factors to
-keep for the analysis (Default = 3).}
+keep for the analysis (\code{Default = 3}).}
 
 \item{nIter}{(Default = 1000). Number of Iterations
 (i.e. number of Bootstrap samples).}
 
-\item{critical.value}{(Default = 2).
+\item{critical.value}{(\code{Default = 2}).
 The critical value for a BR to be considered
 significant.}
 
@@ -56,7 +58,7 @@ confidence intervals for the eigenvalues
 }
 \value{
 a list with 1) \code{bootCube.i} of
-Bootstrapped factor scores (I-set)
+Bootstrapped factor scores (\emph{I}-set)
 2)
 \code{bootRatios.i}: the bootstrap ratios
 (BR)
@@ -65,20 +67,20 @@ for
 BRs;
 a list with \code{bootCube.j}:
 An Items * Dimension * Iteration Brick of
-Bootstrapped factor scores (J-set);
+Bootstrapped factor scores (\emph{J}-set);
 \code{bootRatios.j}: the bootstrap ratios (BR);
 \code{bootRatiosSignificant.j}: the Significant
 BRs;
-\code{eigenValues} the nIter * nL table
+\code{eigenValues} the \code{nIter} * \code{nL} table
 of eigenvalues; \code{eigenCIs}: the CIs for the
 eigenvalues.
 }
 \description{
 \code{fastBoot4CA}:
-Create Bootstrap Cubes for the I and J sets
-of a CA
+Creates Bootstrap cubes for the \emph{I} and \emph{J} sets
+of a CA. The Bootstrap cubes are
 obtained from bootstrapping the entries/cells
-of a real contingency table.
+of the contingency table.
 \code{fastBoot4CA} uses the multinomial distribution
 to generate the
 Bootstrap samples (function \code{rmultinom})
@@ -99,18 +101,21 @@ bootstrap ratios (not the whole brick
 \code{BootstrapBricks}).
 
 \code{fastBoot4CA} should be used only
-when the data are a real contingency table with large N.
+when the data consists in a real
+contingency table with a
+relatively large \eqn{N}.
 Bootstrap estimates are obtained by creating
 bootstrap contingency tables
 from a multinomial distribution.
 Permutation tests are obtained by creating
 contingency tables matching H0
 (i.e., multinomial with \eqn{Pij = Pi*Pj})
-Permutation test will not work though
-because in MCA coded with a 0/1 (complete disjonctive
-coding scheme)
+Permutation tests will not work with MCA though
+because in MCA a variable is coded
+with a set of 0/1 columns (complete disjonctive
+coding scheme)---A coding scheme which implies that
 the columns are not
-independent (but come in blocks).
+independent (because they come in blocks).
 }
 \author{
 Hervé Abdi

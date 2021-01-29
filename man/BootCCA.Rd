@@ -108,16 +108,16 @@ eigenvalues.}
 }
 \description{
 \code{Boot4CCA}:
-Creates "Bootstrap Bricks" and other bootstrqp statistics
-=for the \eqn{I} and \eqn{J} sets
-of a CCA
+Creates "Bootstrap Bricks" and other bootstrap statistics
+for the \eqn{I} and \eqn{J} sets
+of a CCA.
 The bricks are
-obtained from bootstraping the rows
+obtained from bootstrapping the rows
 of the two data-tables used for the  CCA.
 \code{Boot4CCA} uses the "transition formula" to get
 the values of the row and column loadings
 from multiplication of the latent variables.
-Gives also the bootstraped eigenvalues
+Gives also the bootstrapped eigenvalues
 (if \code{eigen = TRUE}).
 }
 \details{
@@ -130,7 +130,7 @@ works with the \emph{singular values}
 }
 \examples{
 \dontrun{
-# Some examples here sometimes ****}
+# Some examples here sometimes in the next future ****}
 }
 \seealso{
 \code{\link{scale0}}

@@ -15,7 +15,8 @@
 # First version  : Lei Xuan 2012
 # Current Version: Hervé Abdi. 06/28/2016 / 
 #       revisited: 08.04/2020 
-#
+#   fix problem with X and Y needed tobe df:
+#       01/28/2021.
 #
 
 ##------------------------------------------------------------##
@@ -67,7 +68,7 @@
 # Yhat4Ress : array of the nfactor Y (fixed effect) matrices used to compute RESS
 # 
 #
-# Herve Abdi original Matlab version 2003. Modifications: 
+# Hervé Abdi original Matlab version 2003. Modifications: 
 #   ->  June 2007  (minimize memory storage)
 #   ->  July 2007 Add RESS and PRESS (not optimized for that!)
 #   ->  September 2008 add svds instead of standard NIPALS
@@ -262,7 +263,9 @@ PLSR_SVD <- function(X, Y,
   #___________________________________________________________________
   repmat <-  function (a, n, m){kronecker(matrix(1, n, m), a)}
   #___________________________________________________________________
-	X <- as.matrix(X) # Make sure that we are dealing with matrices
+	X <- as.data.frame(X) # fixes a strange error
+  Y <- as.data.frame(Y)
+  X <- as.matrix(X) # Make sure that we are dealing with matrices
 	Y <- as.matrix(Y)
 	obs.names  <- rownames(X)
 	Xvar.names <- colnames(X)

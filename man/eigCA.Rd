@@ -2,7 +2,7 @@
 % Please edit documentation in R/fastInferences4-eigen-CA.R
 \name{eigCA}
 \alias{eigCA}
-\title{A bare-bones function to compute  the
+\title{A bare-bone function to compute  the
 eigen-values (and if asked row and column factor scores)
 of a matrix suitable for correspondence analysis.}
 \usage{
@@ -30,7 +30,7 @@ and \code{$fi}: the CA column factor scores.
 }
 \description{
 \code{eigCA}:
-A very fast and bare-bones function that computes
+A very fast and bare-bone function that computes
 the eigenvalues
 (and possibly the row and column factor scores)
 of the Correspondence Analysis (CA)

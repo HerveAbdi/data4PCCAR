@@ -2,6 +2,9 @@
 #  File for fast inferences for bootstrap ratios
 #  for I and J set for plain correspoondence analysis.
 #  Based on multinomial resampling
+#  Functions in this file:
+#  fastBoot4CA  print.BootBrick.ij
+#  fastPerm4CA  print.permCA
 # Current version is 
 # September 27, 2020.
 # Hervé Abdi.
@@ -10,22 +13,25 @@
 # Functions for Inferences for CA based 
 # on the multinomial distribution.
 # To be used only
-# when the data are a real contingency table with large N.
+# when the data consists in a real contingency table 
+# with a large \eqn{N}.
 # Bootstrap estimates are obtained by creating 
 # bootstrap contingency tables
 # from a multinomial distribution.
 # Permutation tests are obtained by creating
 # contingency tables matching H0
 # (i.e., multinomial with \eqn{Pij = Pi*Pj})
-# Permutation test will not work though
-# because in MCA coded a 0/1 the columns are not
+# Permutation tests will not work with MCA though
+# because in MCA a variable is coded 
+# with a set of 0/1 the columns which are not
 # independent (but come in blocks).
 #___________________________________________________________
 #_____________________-------------------
 #___________________________________________________________
 # Preamble ----
 # Hervé Abdi
-# Last Update: November 3, 2016. Revisited October 14, 2017.
+# Last Update: November 3, 2016. 
+# Revisited October 14, 2017.
 # New revision to port to data4PCCAR
 # HA: September 27, 2020.
 #___________________________________________________________
@@ -35,15 +41,18 @@
 #___________________________________________________________
 # Help fastBoot4CA ----
 # function fastBoot4CA
-#' \code{fastBoot4CA}: create a Bootstrap Cube for a CA
-#' obtained from bootstrapping the rows of
-#' the data-table.
+#' \code{fastBoot4CA}: 
+#' create for a Correspondence Analysis 
+#' (CA)  a Bootstrap Cube 
+#' obtained from bootstrapping the observations
+#' from a contingency table.
+#' 
 #' 
 #' \code{fastBoot4CA}:
-#' Create Bootstrap Cubes for the I and J sets 
-#' of a CA
+#' Creates Bootstrap cubes for the *I* and *J* sets 
+#' of a CA. The Bootstrap cubes are
 #' obtained from bootstrapping the entries/cells
-#' of a real contingency table. 
+#' of the contingency table. 
 #' \code{fastBoot4CA} uses the multinomial distribution 
 #' to generate the 
 #' Bootstrap samples (function \code{rmultinom})
@@ -64,36 +73,39 @@
 #' \code{BootstrapBricks}).
 #' 
 #'  \code{fastBoot4CA} should be used only
-#' when the data are a real contingency table with large N.
+#' when the data consists in a real 
+#' contingency table with a
+#' relatively large \eqn{N}.
 #' Bootstrap estimates are obtained by creating 
 #' bootstrap contingency tables
 #' from a multinomial distribution.
 #' Permutation tests are obtained by creating
 #' contingency tables matching H0
 #' (i.e., multinomial with \eqn{Pij = Pi*Pj})
-#' Permutation test will not work though
-#' because in MCA coded with a 0/1 (complete disjonctive 
-#' coding scheme)
+#' Permutation tests will not work with MCA though
+#' because in MCA a variable is coded 
+#' with a set of 0/1 columns (complete disjonctive 
+#' coding scheme)---A coding scheme which implies that
 #' the columns are not
-#' independent (but come in blocks).
+#' independent (because they come in blocks).
 #' @param X the data matrix
 #' @param Fi (default = \code{NULL}) 
 #' the \eqn{I}-set factor scores
-#' (for the rows) from the analysis of X.
+#' (for the rows) from the analysis of **X**.
 #' if NULL, \code{Boot4RowCA} will compute them.
 #' @param Fj (default = \code{NULL}), 
-#' the J-set factor scores
-#' (for the columns) from the analysis of X.
+#' the  \eqn{J}-set factor scores
+#' (for the columns) from the analysis of **X**.
 #' if NULL, \code{Boot4RowCA} will compute them.
 #' @param delta (default = \code{NULL}), 
 #' the singular values
-#' from the CA of X. If NULL (default),
+#' from the CA of **X**. If \code{NULL} (default),
 #' \code{Boot4RowCA} will compute them.
 #' @param nf2keep How many factors to 
-#' keep for the analysis (Default = 3). 
+#' keep for the analysis (\code{Default = 3}). 
 #' @param nIter (Default = 1000). Number of Iterations 
 #' (i.e. number of Bootstrap samples).
-#' @param critical.value (Default = 2).
+#' @param critical.value (\code{Default = 2}).
 #' The critical value for a BR to be considered
 #' significant. 
 #' @param eig if TRUE compute bootstrapped
@@ -103,7 +115,7 @@
 #' confidence intervals for the eigenvalues
 #' (with CIS at 1-alpha). Default is .05 
 #' @return a list with 1) \code{bootCube.i} of
-#' Bootstrapped factor scores (I-set)
+#' Bootstrapped factor scores (*I*-set)
 #' 2) 
 #'  \code{bootRatios.i}: the bootstrap ratios
 #'  (BR)
@@ -112,11 +124,11 @@
 #'  BRs; 
 #'  a list with \code{bootCube.j}: 
 #' An Items * Dimension * Iteration Brick of
-#' Bootstrapped factor scores (J-set);
+#' Bootstrapped factor scores (*J*-set);
 #'  \code{bootRatios.j}: the bootstrap ratios (BR);
 #'  \code{bootRatiosSignificant.j}: the Significant 
 #'  BRs; 
-#'  \code{eigenValues} the nIter * nL table
+#'  \code{eigenValues} the \code{nIter} * \code{nL} table
 #'  of eigenvalues; \code{eigenCIs}: the CIs for the
 #'  eigenvalues.
 #' @author Hervé Abdi
@@ -135,14 +147,17 @@ fastBoot4CA <- function(X,
    # NB Internal function here for coherence
    .boot.ratio.test <- function(boot.cube, critical.value = 2){
     boot.cube.mean <- apply(boot.cube, c(1,2),mean)
-    boot.cube.mean_repeat <- array(boot.cube.mean, dim =c (dim(boot.cube)))
+    boot.cube.mean_repeat <- array(boot.cube.mean, 
+                                   dim =c (dim(boot.cube)))
     boot.cube.dev <- (boot.cube - boot.cube.mean_repeat)^2
     s.boot<-(apply(boot.cube.dev,c(1,2),mean))^(1/2)
     boot.ratios <- boot.cube.mean / s.boot
     significant.boot.ratios <- (abs(boot.ratios) > critical.value)
     rownames(boot.ratios) <- rownames(boot.cube)
     rownames(significant.boot.ratios) <- rownames(boot.cube)
-    return(list(sig.boot.ratios=significant.boot.ratios,boot.ratios=boot.ratios))
+    return(list(
+      sig.boot.ratios = significant.boot.ratios,
+      boot.ratios     = boot.ratios))
   }
   # 
   # End of .boot.ratio.test
@@ -164,9 +179,9 @@ fastBoot4CA <- function(X,
   #
   nL <- min(c(length(delta),ncol(Fi)))
   # make sure that dimensions fit
-  if ( nf2keep > nL){nf2keep = nL}
-  Fi = Fi[,1:nf2keep]
-  Fj = Fj[,1:nf2keep]
+  if ( nf2keep > nL){ nf2keep <-  nL}
+     Fi <-  Fi[,1:nf2keep]
+     Fj <-  Fj[,1:nf2keep]
   delta <- delta[1:nf2keep]
   #
   # Compute the BootstrapBrick
@@ -179,13 +194,13 @@ fastBoot4CA <- function(X,
   fj.boot    <- array(NA, dim = c(nJ,nf2keep,nIter)) 
   # Name.
   dimnames(fj.boot)[1] <- list(colnames(X))
-  dimnames(fj.boot)[2] <- list(paste0("Dimension ",1: nf2keep))
+  dimnames(fj.boot)[2] <- list(paste0("Dimension ",1:nf2keep))
   dimnames(fj.boot)[3] <- list(paste0("Iteration ", 1:nIter))
   # I-set
   fi.boot    <- array(NA, dim = c(nI,nf2keep,nIter)) 
   # Name.
   dimnames(fi.boot)[1] <- list(rownames(X))
-  dimnames(fi.boot)[2] <- list(paste0("Dimension ",1: nf2keep))
+  dimnames(fi.boot)[2] <- list(paste0("Dimension ", 1:nf2keep))
   dimnames(fi.boot)[3] <- list(paste0("Iteration ", 1:nIter))
   
   # Create the matrix of Column Profiles 
@@ -216,11 +231,11 @@ fastBoot4CA <- function(X,
     Xboot <- matrix(
       as.vector( stats::rmultinom(1, nN,
                            X) ),
-      nrow=nI,ncol=nJ,byrow = FALSE)
+      nrow = nI, ncol = nJ, byrow = FALSE)
     # Column Profiles
-    C <-  t(apply(Xboot,2,function(x) x / sum(x)))
+    C <-  t(apply(Xboot, 2, function(x) x / sum(x)))
         # row Profiles
-    R <-  t(apply(Xboot,1,function(x) x / sum(x)))
+    R <-  t(apply(Xboot, 1, function(x) x / sum(x)))
     #
     fj.boot[,,ell] <-  (C  %*%  
                           Fi) * MatExpansion.j
@@ -230,11 +245,11 @@ fastBoot4CA <- function(X,
     if (eig){
       # Xboot <- X[BootIndex,]
       # Check that there are no zero columns
-      Xboot <- Xboot[,colSums(Xboot) > 0]
+      Xboot   <- Xboot[,colSums(Xboot) > 0]
       eigenCA <- eigCA(Xboot) 
       # Trick here for the rank of the eigenvalues
       index <- min(maxrank,length(eigenCA))
-      eigenValues[ell,1:index] <- eigenCA[1:index ]
+      eigenValues[ell, 1:index] <- eigenCA[1:index ]
     }
   }# end of ell loop
   # Boot-ratios
@@ -243,20 +258,18 @@ fastBoot4CA <- function(X,
   #
   return.list <- structure(
     list(
-      bootstrapBrick.i =     fi.boot,
+      bootstrapBrick.i = fi.boot,
       bootRatios.i =  BR.i$boot.ratios,
-      bootRatiosSignificant.i =
-        BR.i$sig.boot.ratios,
-      bootstrapBrick.j =     fj.boot,
-      bootRatios.j =  BR.j$boot.ratios,
-      bootRatiosSignificant.j =
-        BR.j$sig.boot.ratios
+      bootRatiosSignificant.i = BR.i$sig.boot.ratios,
+      bootstrapBrick.j = fj.boot,
+      bootRatios.j = BR.j$boot.ratios,
+      bootRatiosSignificant.j = BR.j$sig.boot.ratios
     ),
     class = "bootBrick.ij")
   if (eig){
     # eliminate empty eigenvalues
     eigenValues <- eigenValues[, colSums(eigenValues) > 0]
-    return.list$eigenValues = eigenValues
+    return.list$eigenValues <-  eigenValues
     # Get the CI
     # order the eigenvalues to get the CIs
     sortedEigenValues <- apply(eigenValues,2,sort)
@@ -293,7 +306,7 @@ print.bootBrick.ij <- function (x, ...){
   cat("\n$ bootstrapBrick.j  ", "a  J*L*nIter Brick of BFSs  for the J-Set")
   cat("\n$ bootRatios.j      ", "a  J*L matrix of BRs for the J-Set")
   cat("\n$ bootRatiosSignificant.j      ", "a  J*L logical matrix for significance of the J-Set")
-  cat("\n$ eigenValues       ", "a  nIter*L matrix of the bootstraped CA eigenvalues")
+  cat("\n$ eigenValues       ", "an nIter*L matrix of the bootstraped CA eigenvalues")
   cat("\n$ eigenCI           ", "a  2*L with min and max CI for the eigenvalues")
   cat("\n",rep("-", ndash), sep = "")
   cat("\n")
@@ -324,9 +337,9 @@ print.bootBrick.ij <- function (x, ...){
 #' \code{fastPerm4CA}
 #' can be used for big tables
 #' for the omnibus test (i.e., inertia) and for 
-#' the eigenvalues.
-#' @param X the data matrix (non-negative numbers)
-#' @param compact if TRUE return only 
+#' the test on the eigenvalues.
+#' @param X the data matrix (non-negative integers)
+#' @param compact if \code{TRUE} return only 
 #' \emph{p}-values for omnibus test
 #' default is \code{FALSE}.
 #' @param nIter (Default = 1000). Number of Iterations 
@@ -343,7 +356,7 @@ print.bootBrick.ij <- function (x, ...){
 #' permuted inertia; 
 #' \code{pEigenvalues}: The probabilities 
 #' associated to each eigenvalue;
-#' If \code{compact} is is \code{FALSE}, return also
+#' If \code{compact} is  \code{FALSE}, return also
 #' \code{permEigenvalues}: an
 #' \code{nIter} * \code{L} matrix giving
 #' the permuted eigenvalues.  
@@ -396,7 +409,7 @@ fastPerm4CA <- function(X,
     resvp <-    eigCA(matrix(
       as.vector( stats::rmultinom(1, nN,
                            X) ),
-      nrow = nI,ncol = nJ,byrow = FALSE))
+      nrow = nI, ncol = nJ, byrow = FALSE))
     valP[1:length(resvp)] <- resvp
     return(valP)
   }
@@ -426,8 +439,8 @@ fastPerm4CA <- function(X,
     ), 
     class = 'perm4CA')
   if (!compact){
-    return.list$permInertia = permInertia
-    return.list$permEigenvalues = permEigenvalues
+    return.list$permInertia     <-  permInertia
+    return.list$permEigenvalues <-  permEigenvalues
   }
   return(return.list)
 } # End of fastPerm4CA

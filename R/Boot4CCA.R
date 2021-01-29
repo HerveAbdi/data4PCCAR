@@ -6,16 +6,16 @@
 # function Boot4CCA. Derived from Boot4PLSC
 #' @title  Bootstrap for Canonical Correlation Analysis (CCA).
 #' @description  \code{Boot4CCA}:
-#' Creates "Bootstrap Bricks" and other bootstrqp statistics
-#'=for the \eqn{I} and \eqn{J} sets
-#' of a CCA
+#' Creates "Bootstrap Bricks" and other bootstrap statistics
+#' for the \eqn{I} and \eqn{J} sets
+#' of a CCA.
 #' The bricks are
-#' obtained from bootstraping the rows
+#' obtained from bootstrapping the rows
 #' of the two data-tables used for the  CCA.
 #'  \code{Boot4CCA} uses the "transition formula" to get
 #' the values of the row and column loadings
 #' from multiplication of the latent variables.
-#' Gives also the bootstraped eigenvalues
+#' Gives also the bootstrapped eigenvalues
 #' (if \code{eigen = TRUE}).
 #' @details
 #' \emph{Note}: \code{Boot4CCA} gives the
@@ -101,10 +101,12 @@
 #' @rdname BootCCA
 #' @examples
 #' \dontrun{
-#' # Some examples here sometimes ****}
-Boot4CCA <- function (DATA1, DATA2, center1 = TRUE, center2 = TRUE, 
-                      scale1 = "SS1", 
-          scale2 = "SS1", Fi = NULL, Fj = NULL, 
+#' # Some examples here sometimes in the next future ****}
+Boot4CCA <- function (
+          DATA1, DATA2, 
+          center1 = TRUE,  center2 = TRUE, 
+          scale1  = "SS1", scale2  = "SS1", 
+          Fi = NULL, Fj = NULL, 
           nf2keep = 3, nIter = 1000, 
           critical.value = 2, eig = FALSE, 
           alphaLevel = 0.05) 
@@ -177,10 +179,8 @@ Boot4CCA <- function (DATA1, DATA2, center1 = TRUE, center2 = TRUE,
   }
   for (ell in 1:nIter) {
     boot.index <- sample(nN, replace = TRUE)
-    fi.boot[, , ell] <- t(X[boot.index, ]) %*% Ly[boot.index, 
-                                                  ]
-    fj.boot[, , ell] <- t(Y[boot.index, ]) %*% Lx[boot.index, 
-                                                  ]
+    fi.boot[, , ell] <- t(X[boot.index, ]) %*% Ly[boot.index, ]
+    fj.boot[, , ell] <- t(Y[boot.index, ]) %*% Lx[boot.index, ]
     if (eig) {
       eigenS <- sv2(compS(X[boot.index, ], center1 = center1, 
                           scale1 = scale1, Y[boot.index, ], center2 = center2, 
@@ -203,10 +203,8 @@ Boot4CCA <- function (DATA1, DATA2, center1 = TRUE, center2 = TRUE,
     return.list$eigenValues = eigenValues
     sortedEigenValues <- apply(eigenValues, 2, sort)
     index = round(nIter * (alphaLevel/2))
-    if (index == 0) 
-      index <- 1
-    eigenCI = sortedEigenValues[c(index, nIter - (index - 
-                                                    1)), ]
+    if (index == 0)  index <- 1
+    eigenCI = sortedEigenValues[c(index, nIter - (index - 1)), ]
     minCI <- as.character(alphaLevel/2)
     substr(minCI, 1, 2) <- "_"
     minCI <- paste0("LB", minCI)

@@ -11,9 +11,9 @@ Change the print function for the data set:
 \method{print}{fiveBeers5Judges}(x, ...)
 }
 \arguments{
-\item{x}{a list: the data set: \code{fiveBeers5Judges}}
+\item{x}{a list: the data set \code{fiveBeers5Judges}.}
 
-\item{...}{the rest}
+\item{...}{the rest.}
 }
 \description{
 Change the print function for the data set:
@@ -23,5 +23,5 @@ Change the print function for the data set:
 \code{fiveBeers5Judges}.
 }
 \author{
-Herve Abdi
+Hervé Abdi
 }

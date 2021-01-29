@@ -6,17 +6,28 @@
 \title{Five tasters evaluated
 five beers on dimensions
 that they  had previously chosen.
-These data can be used to illustrate
+These data can be used to illustrate,
+for example,
 Multiple Factor Analysis (MFA) or Distatis.}
 \format{
-A list containing 1 data frames:
+A list containing one data frame and several vectors:
 \itemize{
-\item \code{ratings:} A 5 by 5 data frame with
-the original ratings performed using a 10 point rating scale.
-\item \code{fuzzyRatings:}
+\item \code{ratings:} A 5 by 26 data frame with
+the original ratings performed using a
+5 point Likert rating scale with
+the beers being rows and the evaluations
+by the judges being the columns.
+\item \code{judgeVector: }
+A vector indicating what judge was rating what variable.
 A 5 by 26 data frame with
-the beers being rows and the evalutions
-by the judges begin the columns.
+\item \code{Var4Judges: } a vector storing
+the number of variables per judge.
+\item \code{namesOfJudges: } A vector storing
+the names of the judges.
+\item \code{color4Products: } A vector storing
+the color names for the beers.
+\item \code{color4Judges: } A vector storing
+the color names for the judges.
 }
 }
 \usage{
@@ -27,10 +38,12 @@ data("fiveBeers5Judges")
 Five tasters evaluated
 five beers on dimensions
 that they had previously chosen.
-These data can be used to illustrate
-Multiple Factor Analysis (MFA) or Distatis.
+These data can be used to illustrate,
+among others,
+Multiple Factor Analysis (MFA),
+STATIS,  or Distatis.
 
-The judges are called \code{J1}
+The judges are named \code{J1}
 to \code{J5}
 }
 \references{
