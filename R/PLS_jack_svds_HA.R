@@ -49,17 +49,18 @@
 #         available from \code{\url{personal.utdallas.edu/~herve}}
 # 
 #  Xhat,Yhat: reconstituted matrices from PLSR 
-#    with nfact latent variables (i.e., fixed effect)
+#    with nfact latent variables (i.e., fixed effect).
 #  Yjack: reconstituted Y from jackknife 
-#   with nfact latent variables (i.e., random effect)
-# R2x, R2y: Proportion of variance of X, Y explained by each latent variable 
+#   with nfact latent variables (i.e., random effect).
+# R2x, R2y: Proportion of variance of X, Y 
+#         explained by each latent variable. 
 # RESSy is the residual sum of squares:
-#       RESSy=\sum_{i,k} (y_{i,k} - \hat{y}_{i.k})^2
+#       RESSy=\sum_{i,k} (y_{i,k} - \hat{y}_{i.k})^2.
 # PRESSy is the PREDICTED residual sum of squares
 #       RESSy=\sum_{i,k} (y_{i,k} - \hat{y}_{-(i.k)})^2
 #       where \hat{y}_{-(i.k)} is the value obtained
 #       without including y_{i,j} in the analysis
-# Q2=1 - PRESSy(n)/(RESSy(n-1))
+# Q2 = 1 - PRESSy(n)/(RESSy(n-1))
 #   ->  Used to choose # of variable keep factor n if Q2_n > limit
 #       rule of thumb:  limit =.05 for # observation<100, 0 otherwise
 # r2y_random/rv_random: Vector of r2/rv between Y and Yjack 
@@ -72,9 +73,9 @@
 #   ->  June 2007  (minimize memory storage)
 #   ->  July 2007 Add RESS and PRESS (not optimized for that!)
 #   ->  September 2008 add svds instead of standard NIPALS
-#                Rewrite jackknife for faster results
+#                Rewrite jackknife for faster results.
 #  WARNING:  Computation of RESS and PRESS 
-#                     have not been thoroughly checked
+#                     have not been thoroughly checked.
 # Prelude to PLSR_SVD ----
 #' @title  PLS regression  (PLSR) using the Singular
 #' Value Decomposition instead of the original NIPALS

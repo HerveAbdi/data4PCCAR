@@ -4,7 +4,7 @@
 \alias{epVari}
 \title{Varimax rotation on loadings and factor scores.}
 \usage{
-epVari(resExpo, dim2keep = 2, ...)
+epVari(resExpo, dim2keep = 2, normalize = TRUE, ...)
 }
 \arguments{
 \item{resExpo}{the results of a principal component
@@ -14,16 +14,31 @@ by  \code{ExPosition::epPCA}.}
 \item{dim2keep}{\code{(Default = 2)}
 the number of dimensions to keep.}
 
+\item{normalize}{(\code{default = TRUE}).
+Passed to \code{\link[stats]{varimax}}:
+logical. Should Kaiser normalization be performed?
+If so the loadings are re-scaled
+to unit length before rotation,
+and scaled back afterwards.}
+
 \item{...}{stuff to pass to \code{varimax}.}
 }
 \value{
 A list with 6 elements:
 \enumerate{
-\item \code{rotationMatrix:} the rotation matrix
-\item \code{rotated.I:} the rotated factor scores (I-set).
-\item \code{rotated.J:} the loadings (J-set).
+\item \code{rotationMatrix:} the rotation matrix.
+\item \code{scaled.rotationMatrix:}
+the scaled rotation matrix
+(differs from \code{rotationMatrix}
+only when \code{normalize = TRUE}), see
+\code{\link[stats]{varimax}}
+for more.
+\item \code{rotated.I:} the rotated factor scores
+(\eqn{I}-set).
+\item \code{rotated.J:} the loadings (\eqn{J}-set).
 \item \code{rotated.eigs:} the rotated pseudo-eigenvalues.
-\item \code{rotated.t:} the rotated percentage of explained inertia.
+\item \code{rotated.t:}
+the rotated percentage of explained inertia.
 }
 }
 \description{
@@ -32,15 +47,17 @@ Varimax rotation on loadings and factor scores.
 \code{epVari} is based on \code{stats::varimax}
 (with parameters \code{normalize = TRUE, eps = 1e-6}), but
 gives also the rotated factor scores, pseudo eigenvalues
-and explained percentage of inertia for the rotated dimensions.
+and explained percentage
+of inertia for the rotated dimensions.
 }
 \details{
-\code{epVar} is a wraper around stats::varimax.
+\code{epVar} is a wrapper
+around \code{stats::varimax}.
 }
 \examples{
 data(iris)
 library(ExPosition)
-resPCA <- ExPosition::epPCA(iris[,1:4], graphs = FALSE)
+resPCA    <- ExPosition::epPCA(iris[,1:4], graphs = FALSE)
 iris.Vari <-  epVari(resPCA)
 }
 \seealso{
