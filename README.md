@@ -1,4 +1,4 @@
-
+	
 # data4PCCAR
 
 An `R`-package containing a collection of data sets and 
@@ -38,6 +38,13 @@ devtools::install_github("HerveAbdi/data4PCCAR") # install data4PCCAR
 
 The average consumption of 4 types of alcoholic beverages in 22 European countries and neighboring countries.
 To be used to illustrate the use of CA and Hellinger analysis.
+
+### blindSortingWines
+Wine experts and wine novices 
+(blind) sorted red, rosé, and white wines.
+Can they make the difference?
+To be used for 
+multidimensional scaling methods  (MDS, Procrustean,  or DISTATIS).
 
 ### colorsOfMusic
 
