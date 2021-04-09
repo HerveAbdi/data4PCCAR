@@ -2,18 +2,19 @@
 # data set blindSortingWines
 # for data4PCCAR
 # Hervé Abdi: April 06, 2021.
-# Data to be used for Chapter MDS for SAGE
+# Data to be used for Chapter MDS for SAGE (2022).
 # 
 #  Préambule ----
 # blindSortingWines
 #' @title Wine experts and panelists
 #' (blind) sorted red, rosé, and white wines.
-#' These data can be used for 
-#' multidimensional scaling (MDS or DISTATIS).
+#' These data can be used to illustrate
+#' multidimensional scaling methods 
+#' (e.g., MDS or DISTATIS).
 #' 
 #' @description
 #' \code{blindSortingWines}
-#' 26 wine Experts and 19 Panelists
+#' 26 wine Experts and 19 Panelists (i.e., novices)
 #' blind sorted 18 wines 
 #' (6 red, 6 rosé, and 6 white).
 #' 
@@ -32,7 +33,7 @@
 #' describing the 18 wines. The colors
 #' are coded \code{P, R, W} 
 #' (Rosé, Red, and White).
-#' * \code{distance.Experts:} the 18 by  18
+#' * \code{distance.Experts:} the 18 by 18
 #' distance matrix derived from the
 #' sorting of the 26 wine Experts. 
 #' * \code{distance.Panelists:} the 18 by  18
