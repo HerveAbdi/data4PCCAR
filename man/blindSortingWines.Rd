@@ -5,8 +5,9 @@
 \alias{blindSortingWines}
 \title{Wine experts and panelists
 (blind) sorted red, rosé, and white wines.
-These data can be used for
-multidimensional scaling (MDS or DISTATIS).}
+These data can be used to illustrate
+multidimensional scaling methods
+(e.g., MDS or DISTATIS).}
 \format{
 A list containing
 five data frames
@@ -15,7 +16,7 @@ five data frames
 describing the 18 wines. The colors
 are coded \code{P, R, W}
 (Rosé, Red, and White).
-\item \code{distance.Experts:} the 18 by  18
+\item \code{distance.Experts:} the 18 by 18
 distance matrix derived from the
 sorting of the 26 wine Experts.
 \item \code{distance.Panelists:} the 18 by  18
@@ -50,7 +51,7 @@ data("blindSortingWines")
 }
 \description{
 \code{blindSortingWines}
-26 wine Experts and 19 Panelists
+26 wine Experts and 19 Panelists (i.e., novices)
 blind sorted 18 wines
 (6 red, 6 rosé, and 6 white).
 
