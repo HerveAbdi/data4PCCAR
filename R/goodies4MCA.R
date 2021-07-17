@@ -94,7 +94,7 @@ BinQuant <- function(x, nClass = 4, stem = '', levelNames = NULL){
 #' library(ExPosition)
 #' data(mca.wine)
 #' resMCA    <- epMCA(mca.wine$data, graphs = FALSE)
-#  contriVar <- ctr4Variables(resMCA$ExPosition.Data$cj)
+#' contriVar <- ctr4Variables(resMCA$ExPosition.Data$cj)
 #' @seealso \code{\link{getVarNames}}
 #' @rdname ctr4Variables
 #' @export
