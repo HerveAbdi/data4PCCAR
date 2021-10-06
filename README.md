@@ -23,12 +23,12 @@ and Multi-Dimensional Scaling (MDS).
 
 To install `data4PCCAR` from `Github` 
 use the function `install_github()`  
-from the package `devtools`:
+from the package `remotes`:
 
 ```{r}
 #install.packages("devtools") 
 #decomment the line above if the package devtools is not yet intalled
-devtools::install_github("HerveAbdi/data4PCCAR") # install data4PCCAR
+remotes::install_github("HerveAbdi/data4PCCAR") # install data4PCCAR
 ```
 
 
@@ -99,7 +99,8 @@ To be used to illustrate non-normalized (a.k.a. covariance based) PCA.
 
 ### foodOfTheWorld
 
-26 world cuisines are described by their cooking ingredients.
+Twenty-six world cuisines 
+are described by their (82) cooking ingredients.
 To be used to illustrate CA. 
 
 ### graduatingInUSA
@@ -120,14 +121,24 @@ and the other half ot the questions concern mental imagery
 for spatial locations. 
 To be used to illustrate PCA, Varimax rotation, and also MCA.
 
-### sixFaces
-
-The (230 by 240 = 55,200 pixels) pictures of six faces (3 men and 3 women). To be used to illustrate PCA or PLS on images.
 
 ### sixAuthorsPunctuated
 
 The punctuation used by 6 classical French Writers (Rousseau, Chateaubrian, Hugo, Zola, Proust, Giraudoux)
 *plus* the punctuation of one chapter of Abdi's *Les Réseaux de Neurones*. A classic example for CA.
+
+### sixBeers12Descriptors10Judges
+
+Ten tasters evaluated the intensity of twelve descriptors for six beers. 
+These data can be used to illustrate: 
+un-normed (or normed) Principal Component Analysis (PCA)
+ or Correspondence Analysis (CA).
+
+
+### sixFaces
+
+The (230 by 240 = 55,200 pixels) pictures of six faces (3 men and 3 women). To be used to illustrate PCA or PLS on images.
+
 
 ### twentyWines
 
