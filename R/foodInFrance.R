@@ -46,12 +46,12 @@
 #'
 #'   The concatenated data are given in
 #'
-#'    Lebart, L., Morinreau,, A., & Fenelon, J.P. (1982).
+#'    Lebart, L., Morineau,, A., & Fenelon, J.P. (1982).
 #'    \emph{Traitement des Données Statistiques}. Paris: Dunod.
 #'
 #'    These data are also used in:
 #'
-#'    Abdi, H, & Willaims, L.A. (2010).
+#'    Abdi, H, & Williams, L.A. (2010).
 #'    Principal component analysis.
 #'    \emph{Wiley Interdisciplinary Reviews: Computational Statistics, 2},
 #'    433-459.

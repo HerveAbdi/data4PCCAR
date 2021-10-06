@@ -42,6 +42,7 @@ is performed with the function
 library(ExPosition)
 data(mca.wine)
 resMCA    <- epMCA(mca.wine$data, graphs = FALSE)
+contriVar <- ctr4Variables(resMCA$ExPosition.Data$cj)
 }
 \seealso{
 \code{\link{getVarNames}}
