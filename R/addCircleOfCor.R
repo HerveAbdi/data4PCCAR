@@ -149,13 +149,16 @@ addArrows <- function(X, axis1 = 1, axis2 = 2,
                       center = c(0,0),
                       arrowLength = .3){
   X = data.frame(X)
-  zeArrows <- ggplot2::annotate("segment", x = center[1], y = center[2],
-                                xend = X[,axis1],
-                                yend = X[,axis2],
-                                color = color,
-                                alpha = alpha,
-                                size = size,
-                                arrow = arrow(length = unit(.3, "cm") ) )
+  zeArrows <- ggplot2::annotate("segment", 
+              x = center[1], y = center[2],
+              xend = X[,axis1],
+             yend = X[,axis2],
+             color = color,
+             alpha = alpha,
+             size = size,
+            arrow = 
+        arrow(length = unit(arrowLength, "cm")) 
+        ) # end of zeArrows 
   return(zeArrows)
 }
 # End addArrows ----

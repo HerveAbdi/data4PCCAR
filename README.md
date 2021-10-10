@@ -3,7 +3,7 @@
 
 An `R`-package containing a collection of data sets and 
 `R`-functions to accompagny and complement:
-Abdi, H., & Beaton, D. (to appear, 2021).
+Abdi, H., & Beaton, D. (to appear, 2022).
 *Principal Component and Correspondence Analyses Using R*.
 New York: Springer Verlag. 
 
@@ -26,8 +26,8 @@ use the function `install_github()`
 from the package `remotes`:
 
 ```{r}
-#install.packages("devtools") 
-#decomment the line above if the package devtools is not yet intalled
+#install.packages("remotes") 
+#decomment the line above if the package `remotes` is not yet intalled
 remotes::install_github("HerveAbdi/data4PCCAR") # install data4PCCAR
 ```
 
@@ -36,7 +36,7 @@ remotes::install_github("HerveAbdi/data4PCCAR") # install data4PCCAR
 
 ### alcoholInEurope
 
-The average consumption of 4 types of alcoholic beverages in 22 European countries and neighboring countries.
+The average consumption of 4 types of alcoholic beverages in 22 European and neighboring countries.
 To be used to illustrate the use of CA and Hellinger analysis.
 
 ### blindSortingWines
