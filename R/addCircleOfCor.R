@@ -9,25 +9,35 @@
 #_____________________________________________________________________
 # addCircleOfCor()  -----
 #' @title Add a Circle of Correlation to a PCA-like map
-#' of correlation produced by \code{createFactorMap()} \emph{et alia.}
+#' of correlation produced by 
+#' \code{createFactorMap()} \emph{et alia.}
 #' @description
 #' \code{addCircleOfCor}:
 #' Add a Circle of Correlation to a PCA-like map
-#' of correlation produced by \code{createFactorMap} \emph{et alia}.
+#' of correlation produced by
+#'  \code{createFactorMap} \emph{et alia}.
 #'
-#' @param color  (\code{Default: 'darkorchid'}) color for the circle.
-#' @param alpha  (\code{Default: 0.3}) transparency for the circle,
+#' @param color  (\code{Default: 'darkorchid'})
+#'  color for the circle.
+#' @param alpha  (\code{Default: 0.3}) 
+#' transparency for the circle,
 #' should be between 0 (completely transparent) and 1
 #' (no transparent).
-#' @param size (\code{Default: 1}) thickness of the line of the circle.
-#' @param center (\code{Default: c(0, 0)}) center of the circle.
-#' @param radius (\code{Default: 1}) radius of the circle.
-#' @param nPoints (\code{Default: 100}) the number of points used to
+#' @param size (\code{Default: 1})
+#'  thickness of the line of the circle.
+#' @param center (\code{Default: c(0, 0)}) 
+#' center of the circle.
+#' @param radius (\code{Default: 1}) 
+#' radius of the circle.
+#' @param nPoints (\code{Default: 100}) 
+#' the number of points used to
 #' draw the circle.
 #' @return nothing
-#' @details The map should should be first created by, for example,
+#' @details The map should should be first created by,
+#'  for example,
 #' \code{createFactorMap()} (or equivalent functions from
-#' \code{PTCA4CATA}), and then the circle of correlation is added
+#' \code{PTCA4CATA}), and then the circle 
+#' of correlation is added
 #' (see example).
 #' @import ggplot2
 #' @author Herve Abdi
@@ -90,7 +100,8 @@ addCircleOfCor <- function(color = 'darkorchid', # color of the circle
 #' @title Add arrows to a factorial map
 #' (best with a circle of Correlation).
 #'
-#' @description  \code{addArrows}: Add arrows to a factorial map
+#' @description  \code{addArrows}: 
+#' Add arrows to a factorial map
 #' (i.e., a PCA-like map),
 #' most likely  a plot of correlation produced by
 #' \code{createFactorMap} \emph{et alia}.
@@ -124,7 +135,9 @@ addCircleOfCor <- function(color = 'darkorchid', # color of the circle
 #' (see example).  \code{addArrows} is typically used
 #' with \code{\link{addCircleOfCor}}.
 #' @seealso
-#'  \code{\link[ggplot2]{annotate}} \code{\link{addCircleOfCor}} \code{\link[PTCA4CATA]{createFactorMap}}
+#'  \code{\link[ggplot2]{annotate}} 
+#'  \code{\link{addCircleOfCor}} 
+#'  \code{\link[PTCA4CATA]{createFactorMap}}
 #' @examples
 #' \dontrun{
 #' # Some PCA-like correlations

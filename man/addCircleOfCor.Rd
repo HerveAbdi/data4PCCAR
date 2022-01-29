@@ -3,7 +3,8 @@
 \name{addCircleOfCor}
 \alias{addCircleOfCor}
 \title{Add a Circle of Correlation to a PCA-like map
-of correlation produced by \code{createFactorMap()} \emph{et alia.}}
+of correlation produced by
+\code{createFactorMap()} \emph{et alia.}}
 \usage{
 addCircleOfCor(
   color = "darkorchid",
@@ -15,19 +16,25 @@ addCircleOfCor(
 )
 }
 \arguments{
-\item{color}{(\code{Default: 'darkorchid'}) color for the circle.}
+\item{color}{(\code{Default: 'darkorchid'})
+color for the circle.}
 
-\item{alpha}{(\code{Default: 0.3}) transparency for the circle,
+\item{alpha}{(\code{Default: 0.3})
+transparency for the circle,
 should be between 0 (completely transparent) and 1
 (no transparent).}
 
-\item{size}{(\code{Default: 1}) thickness of the line of the circle.}
+\item{size}{(\code{Default: 1})
+thickness of the line of the circle.}
 
-\item{center}{(\code{Default: c(0, 0)}) center of the circle.}
+\item{center}{(\code{Default: c(0, 0)})
+center of the circle.}
 
-\item{radius}{(\code{Default: 1}) radius of the circle.}
+\item{radius}{(\code{Default: 1})
+radius of the circle.}
 
-\item{nPoints}{(\code{Default: 100}) the number of points used to
+\item{nPoints}{(\code{Default: 100})
+the number of points used to
 draw the circle.}
 }
 \value{
@@ -36,12 +43,15 @@ nothing
 \description{
 \code{addCircleOfCor}:
 Add a Circle of Correlation to a PCA-like map
-of correlation produced by \code{createFactorMap} \emph{et alia}.
+of correlation produced by
+\code{createFactorMap} \emph{et alia}.
 }
 \details{
-The map should should be first created by, for example,
+The map should should be first created by,
+for example,
 \code{createFactorMap()} (or equivalent functions from
-\code{PTCA4CATA}), and then the circle of correlation is added
+\code{PTCA4CATA}), and then the circle
+of correlation is added
 (see example).
 }
 \examples{

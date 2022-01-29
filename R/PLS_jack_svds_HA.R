@@ -15,7 +15,7 @@
 # First version  : Lei Xuan 2012
 # Current Version: Hervé Abdi. 06/28/2016 / 
 #       revisited: 08.04/2020 
-#   fix problem with X and Y needed tobe df:
+#   fix problem with X and Y needed to be df:
 #       01/28/2021.
 #
 
@@ -28,54 +28,71 @@
 #         Yori_rec,Yjack,R2_X,R2_Y,RESS,PRESS,
 #         Q2,r2_random,rv_random
 #
-# NIPALS version of PLS regression using svds instead of NIPALS per se
+# NIPALS version of PLS regression using ]
+#       svds instead of NIPALS per se
 #       (faster for large data sets).
-# X matrix of predictors, Y: matrix of dependent variables
+# X matrix of predictors, 
+# Y: matrix of dependent variables
 # nfact = number of latent variables to keep 
 # [current default rank(X)-1]
-# NB: for large datasets keeping nfact small improves performance a lot!
+# NB: for large datasets keeping nfact 
+#     small improves performance a lot!
 # GOAL:
-# Compute the PLS regression coefficients/decomposition
-# X = T*P' Y = T*B*C' = X*Bpls  X and Y being Z-scores
-#                          B = diag(b)
-#    Y = X * Bpls_star with X being augmented with a col of ones
-#                       and Y and X having their original units
+# Compute the PLS regression 
+#      coefficients/decomposition
+# X = T*P' Y = T*B*C' = X*Bpls  
+#              X and Y being Z-scores
+#              B = diag(b)
+#    Y = X * Bpls_star 
+#   with X being augmented with a col of ones
+#    and Y and X having their original units
 #    Yjack is the jackknifed (LOO) estimation of Y
 # T'*T = I (NB normalization <> than SAS)
 # W'*W = I
 # C is unit normalized,           
 # U, P are not normalized 
 # For notations: see Abdi (2003, 2007, 2010),
-#         available from \code{\url{personal.utdallas.edu/~herve}}
+#         available from 
+#      \code{\url{personal.utdallas.edu/~herve}}
 # 
 #  Xhat,Yhat: reconstituted matrices from PLSR 
-#    with nfact latent variables (i.e., fixed effect).
+#    with nfact latent variables 
+#            (i.e., fixed effect).
 #  Yjack: reconstituted Y from jackknife 
-#   with nfact latent variables (i.e., random effect).
+#   with nfact latent variables 
+#   (i.e., random effect).
 # R2x, R2y: Proportion of variance of X, Y 
 #         explained by each latent variable. 
 # RESSy is the residual sum of squares:
-#       RESSy=\sum_{i,k} (y_{i,k} - \hat{y}_{i.k})^2.
+#   RESSy=\sum_{i,k} (y_{i,k} - \hat{y}_{i.k})^2.
 # PRESSy is the PREDICTED residual sum of squares
-#       RESSy=\sum_{i,k} (y_{i,k} - \hat{y}_{-(i.k)})^2
-#       where \hat{y}_{-(i.k)} is the value obtained
-#       without including y_{i,j} in the analysis
+# RESSy=\sum_{i,k} (y_{i,k} - \hat{y}_{-(i.k)})^2
+#  where \hat{y}_{-(i.k)} is the value obtained
+#  without including y_{i,j} in the analysis
 # Q2 = 1 - PRESSy(n)/(RESSy(n-1))
-#   ->  Used to choose # of variable keep factor n if Q2_n > limit
-#       rule of thumb:  limit =.05 for # observation<100, 0 otherwise
-# r2y_random/rv_random: Vector of r2/rv between Y and Yjack 
-#                       for each # of latent variables
-# Yhat4Press: array of the nfactor Y Jackknifed matrices used to compute PRESS
-# Yhat4Ress : array of the nfactor Y (fixed effect) matrices used to compute RESS
+#   ->  Used to choose 
+# # of variable keep factor n if Q2_n > limit
+#       rule of thumb:  
+# limit =.05 for # observation<100, 0 otherwise
+# r2y_random/rv_random: 
+#       Vector of r2/rv between Y and Yjack 
+#             for each # of latent variables
+# Yhat4Press: array of the nfactor
+#    Y Jackknifed matrices used to compute PRESS
+# Yhat4Ress : array of the nfactor Y 
+#   (fixed effect) matrices used to compute RESS
 # 
 #
-# Hervé Abdi original Matlab version 2003. Modifications: 
+# Hervé Abdi original Matlab version 2003. 
+#     Modifications: 
 #   ->  June 2007  (minimize memory storage)
-#   ->  July 2007 Add RESS and PRESS (not optimized for that!)
-#   ->  September 2008 add svds instead of standard NIPALS
-#                Rewrite jackknife for faster results.
+#   ->  July 2007 
+#    Add RESS and PRESS (not optimized for that!)
+#   ->  September 2008 
+#          add svds instead of standard NIPALS
+#             Rewrite jackknife for faster results.
 #  WARNING:  Computation of RESS and PRESS 
-#                     have not been thoroughly checked.
+#                have not been thoroughly checked.
 # Prelude to PLSR_SVD ----
 #' @title  PLS regression  (PLSR) using the Singular
 #' Value Decomposition instead of the original NIPALS
@@ -83,67 +100,99 @@
 #' @description \code{PLSR_SVD}: 
 #'  PLS regression (PLSR) 
 #' computed using the Singular
-#' Value Decomposition (SVD) instead of the original \code{NIPALS}.
-#'       (faster for large data sets). This version is an \code{R}
-#' version of the original \code{MATLAB} code used in Abdi (2010).
+#' Value Decomposition (SVD) 
+#' instead of the original \code{NIPALS}.
+#'       (faster for large data sets). 
+#'       This version is an \code{R}
+#' version of the original \code{MATLAB} 
+#' code used in Abdi (2010).
 
-#' @param X The \eqn{N} observations by \eqn{I} variables
+#' @param X 
+#' The \eqn{N} observations by \eqn{I} variables
 #' matrix (**X**) of the predictors.
-#' @param Y The \eqn{N} observations by \eqn{J} variables
+#' @param Y 
+#' The \eqn{N} observations by \eqn{J} variables
 #' matrix (**Y**) to be predicted.
-#' @param nfactor Number of factors (a.k.a., \emph{latent variables})
+#' @param nfactor 
+#' Number of factors 
+#' (a.k.a., \emph{latent variables})
 #' to be used for the prediction. 
 #' Note that the solution in PLSR
-#' is strongly dependent upon the number of factors to keep.
-#' @param inference  when \code{TRUE} (default) 
+#' is strongly dependent 
+#' upon the number of factors to keep.
+#' @param inference  
+#' when \code{TRUE} (default) 
 #' run the jackknife based inference battery.
-#' Note that this step can be very time consuming for large data sets.
-#' @param displayJack if \code{TRUE} (default) 
+#' Note that this step can be very time consuming 
+#' for large data sets.
+#' @param displayJack 
+#' if \code{TRUE} (default) 
 #' display the current iteration when
-#' performing jackknife, worth setting it to \code{FALSE}
-#' for large data sets because it is quite time consuming.
+#' performing jackknife, 
+#' worth setting it to \code{FALSE}
+#' for large data sets because 
+#' it is quite time consuming.
 #' 
 #'
 #' @return 
-#' A (long) list with results for the fixed and random effects (if
+#' A (long) list with results 
+#' for the fixed and random effects (if
 #' \code{inference = TRUE})
 #'  
 #' Fixed effects results:  
 #' \itemize{
-#' \item{Xhat: }{reconstituted **X** matrix from PLSR 
-#' (with \code{nfact} latent variables: fixed effect).} 
-#' \item{Yhat: }{reconstituted **Y** matrix from PLSR
-#' (with \code{nfact} latent variables: fixed effect).} 
-#'  \item{Yjack: }{reconstituted Y from jackknife 
-#'   (with \code{nfact} latent variables: fixed effect).}
-#'  \item{R2x, R2y: }{Proportion of variance of **X**, **Y** 
+#' \item{Xhat: }{reconstituted **X** 
+#' matrix from PLSR 
+#' (with \code{nfact} latent variables: 
+#' fixed effect).} 
+#' \item{Yhat: }{reconstituted **Y**
+#'  matrix from PLSR
+#' (with \code{nfact} latent variables: 
+#' fixed effect).} 
+#'  \item{Yjack: }{reconstituted **Y** 
+#'  from jackknife 
+#'   (with \code{nfact} latent variables: 
+#'   fixed effect).}
+#'  \item{R2x, R2y: }{Proportion of variance 
+#'  of **X**, **Y** 
 #'   explained by each latent variable.} 
-#' \item{RESSy: }{ the residual sum of squares:
-#'       \eqn{RESSy = \sum_{i,k} (y_{i,k} - \hat{y}_{i.k})^2} }
+#' \item{RESSy: }{ the residual 
+#'    sum of squares:
+#'       \eqn{RESSy = 
+#'     \sum_{i,k} (y_{i,k} - \hat{y}_{i.k})^2} }
 #' \item{Yhat4Ress :}{
-#'  array of the \code{nfactor} **Y** (fixed effect) 
+#'  array of the \code{nfactor} **Y** 
+#'  (fixed effect) 
 #'  matrices used to compute \code{RESS}.}
 #'}
 #'If 
 #' \code{inference = TRUE},
 #'these random effect results are also returned:  
 #' \itemize{
-#' \item{PRESSy: }{the PREDICTED residual sum of squares: 
-#'       \code{RESSy} = \eqn{\sum_{i,k} (y_{i,k} - \hat{y}_{-(i.k)})^2}
-#'       where \eqn{\hat{y}_{-(i.k)}} is the value obtained
-#'       without including \eqn{y_{i,j}} in the analysis}
+#' \item{PRESSy: }{the PREDICTED 
+#'   residual sum of squares: 
+#'       \code{RESSy} = \eqn{\sum_{i,k} (y_{i,k} 
+#'       - \hat{y}_{-(i.k)})^2}
+#'       where \eqn{\hat{y}_{-(i.k)}} 
+#'       is the value obtained
+#'       without including \eqn{y_{i,j}} 
+#'       in the analysis}
 #' \item{Q2: }{Values of the \eqn{Q^2} parameter
 #'       \eqn{Q^2 = 1 - PRESSy(n)/(RESSy(n-1))}
 #' \code{Q2}  is used to choose the number
 #' of latent variables to  keep with the rule:
-#' keep latent variable \emph{\eqn{n} if \eqn{Q2_n} > some limit}.
+#' keep latent variable 
+#' \emph{\eqn{n} if \eqn{Q2_n} > some limit}.
 #'       Rule of thumb:  limit =.05 for 
 #' number of observations < 100, 0 otherwise}
-#' \item{r2y_random,  rv_random: }{Vector of \eqn{R^2} 
-#' and \eqn{R_V} coefficients between **Y** and **Y**jack 
-#'                       for each number of latent variable solutions.}
+#' \item{r2y_random,  rv_random: }{
+#' Vector of \eqn{R^2} 
+#' and \eqn{R_V} coefficients 
+#' between **Y** and **Y**jack 
+#'  for each number of latent variable solutions.}
 #' \item{Yhat4Press: }{
-#' array of the \code{nfactor} **Y** Jackknifed matrices 
+#' array of the \code{nfactor} **Y** 
+#' Jackknifed matrices 
 #' used to compute \code{PRESS}.
 #' }
 #' }
@@ -152,14 +201,16 @@
 #' @details 
 #' GOAL:
 #' 
-#' Compute the PLS regression coefficients/decomposition
+#' Compute the PLS regression 
+#' coefficients/decomposition
 #' \itemize{
 #' \item{}{**Zx** = **T** * **P**'.}
 #'\item{}{
 #' **Zy** = **T** * **B** * **C**' =  **Zx** * **B**pls}  
 #' \item{with}{}
 #' \item{}{**Zx** 
-#'     and **Zy** being matrices storing the \eqn{Z}-scores version of
+#'     and **Zy** being matrices 
+#'     storing the \eqn{Z}-scores version of
 #'     **X** and **Y**. }
 #' \item{}{**B** = diag(**b**)}
 #'\item{}{    **Y** = **X**  * **B**pls_star} 
@@ -191,7 +242,8 @@
 #    with nfact latent variables (i.e., fixed effect)
 #  Yjack: reconstituted Y from jackknife 
 #   with nfact latent variables (i.e., random effect)
-# R2x, R2y: Proportion of variance of X, Y explained by each latent variable 
+# R2x, R2y: Proportion of variance of **X**, 
+#  **Y** explained by each latent variable 
 # RESSy is the residual sum of squares:
 #       RESSy=\sum_{i,k} (y_{i,k} - \hat{y}_{i.k})^2
 # PRESSy is the PREDICTED residual sum of squares
@@ -226,7 +278,8 @@
 #' Ymat <- fiveWines4Rotation$Ymat.Sensory
 #' resPLSR <- PLSR_SVD(Xmat, Ymat, 3)
 #' }
-#' @seealso \code{\link{PLS4jack}} \code{\link{corrcoef4mat}} 
+#' @seealso \code{\link{PLS4jack}} 
+#' \code{\link{corrcoef4mat}} 
 #' \code{\link{normaliz}}
 #' @importFrom MASS ginv
 #' @importFrom stats sd
@@ -237,20 +290,25 @@
 #' (see also \code{https://personal.utdallas.edu/~herve/})
 #' 1. Abdi, H. (2010). 
 #'      Partial least square regression, 
-#'     projection on latent structure regression, PLS-Regression. 
-#'    \emph{Wiley Interdisciplinary Reviews: Computational Statistics, 
+#'     projection on latent structure regression, 
+#'     PLS-Regression. 
+#'    \emph{Wiley Interdisciplinary Reviews: 
+#'    Computational Statistics, 
 #'     2}, 97-106.
 #'  2. Abdi, H. (2007). 
-#'     Partial least square regression (PLS regression). 
+#'     Partial least square regression 
+#'     (PLS regression). 
 #'     In N.J. Salkind (Ed.):  
-#'     \emph{Encyclopedia of Measurement and Statistics}. 
+#'     \emph{Encyclopedia of Measurement 
+#'     and Statistics}. 
 #'     Thousand Oaks (CA): Sage. pp. 740-744.
 #'  3. Abdi. H. (2003).
-#'     Partial least squares regression (PLS-regression). 
-#'     In M. Lewis-Beck, A. Bryman, T. Futing (Eds):  
+#'     Partial least squares regression 
+#'     (PLS-regression). 
+#'  In M. Lewis-Beck, A. Bryman, T. Futing (Eds):  
 #'     \emph{Encyclopedia 
-#'     for Research Methods for the Social Sciences}. 
-#'     Thousand Oaks (CA): Sage. pp. 792-795. 
+#'  for Research Methods for the Social Sciences}. 
+#'   Thousand Oaks (CA): Sage. pp. 792-795. 
 #'
 #
 # Change for repmat call the local function
@@ -266,7 +324,8 @@ PLSR_SVD <- function(X, Y,
   #___________________________________________________________________
 	X <- as.data.frame(X) # fixes a strange error
   Y <- as.data.frame(Y)
-  X <- as.matrix(X) # Make sure that we are dealing with matrices
+  X <- as.matrix(X) 
+  # Make sure that we are dealing with matrices
 	Y <- as.matrix(Y)
 	obs.names  <- rownames(X)
 	Xvar.names <- colnames(X)
@@ -291,7 +350,8 @@ PLSR_SVD <- function(X, Y,
 		stop("Incompatible # of rows for X and Y")
 		return(NULL)
 	}
-	# Precision for Convergence. not used in this version
+	# Precision for Convergence. 
+	# not used in this version
   #	epsilon<-.Machine$double.eps
 	# num of components kept
 	# Initialization ----

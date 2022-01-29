@@ -50,7 +50,8 @@ scatterplot / map (typically created by
 \code{createFactorMap()}).
 }
 \description{
-\code{addArrows}: Add arrows to a factorial map
+\code{addArrows}:
+Add arrows to a factorial map
 (i.e., a PCA-like map),
 most likely  a plot of correlation produced by
 \code{createFactorMap} \emph{et alia}.
@@ -78,5 +79,7 @@ ggMapWithCircle <- MapCor$zeMap +  addArrows(corXY) + addCircleOfCor()
 }
 }
 \seealso{
-\code{\link[ggplot2]{annotate}} \code{\link{addCircleOfCor}} \code{\link[PTCA4CATA]{createFactorMap}}
+\code{\link[ggplot2]{annotate}}
+\code{\link{addCircleOfCor}}
+\code{\link[PTCA4CATA]{createFactorMap}}
 }
