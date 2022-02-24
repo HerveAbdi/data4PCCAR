@@ -122,10 +122,18 @@ addCircleOfCor <- function(color = 'darkorchid', # color of the circle
 #' the alpha (transparency) for the arrows, should be between 1
 #' (no transparency) and 0 (completely transparent).
 #' @param center  (\code{Default: c(0, 0)}) the center of the graph
-#' @param arrowLength (\code{Default: 0.3}), the lenth (in cm.) of
+#' @param arrowLength (\code{Default: 0.3}), 
+#' the length (in cm.) of
 #' the terminal arrow.
-#' @param size (\code{Default = 1}), the thickness of the
+#' @param size (\code{Default = 1}), 
+#' the thickness of the
 #' segment
+#' @param linetype (\code{Default = 1} = solid),
+#' the type of the line; should match 
+#' \code{ggplots2 linetype}
+#' or basic \code{R, lty} 
+#' (e.g., 2 = dashed, 3 = dotted).
+#'
 #' @return a \code{ggplot2} component to be added to a
 #' scatterplot / map (typically created by
 #' \code{createFactorMap()}).
@@ -160,17 +168,18 @@ addArrows <- function(X, axis1 = 1, axis2 = 2,
                       alpha  = .6,
                       size = 1,
                       center = c(0,0),
-                      arrowLength = .3){
+                      arrowLength = .3,
+                      linetype = 1){
   X = data.frame(X)
   zeArrows <- ggplot2::annotate("segment", 
-              x = center[1], y = center[2],
-              xend = X[,axis1],
+             x = center[1], y = center[2],
+             xend = X[,axis1],
              yend = X[,axis2],
              color = color,
              alpha = alpha,
              size = size,
-            arrow = 
-        arrow(length = unit(arrowLength, "cm")) 
+        arrow = arrow(length = unit(arrowLength, "cm")),
+        linetype = linetype
         ) # end of zeArrows 
   return(zeArrows)
 }

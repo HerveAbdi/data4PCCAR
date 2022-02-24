@@ -13,7 +13,8 @@ addArrows(
   alpha = 0.6,
   size = 1,
   center = c(0, 0),
-  arrowLength = 0.3
+  arrowLength = 0.3,
+  linetype = 1
 )
 }
 \arguments{
@@ -36,13 +37,21 @@ the number of arrows  to plot.
 the alpha (transparency) for the arrows, should be between 1
 (no transparency) and 0 (completely transparent).}
 
-\item{size}{(\code{Default = 1}), the thickness of the
+\item{size}{(\code{Default = 1}),
+the thickness of the
 segment}
 
 \item{center}{(\code{Default: c(0, 0)}) the center of the graph}
 
-\item{arrowLength}{(\code{Default: 0.3}), the lenth (in cm.) of
+\item{arrowLength}{(\code{Default: 0.3}),
+the length (in cm.) of
 the terminal arrow.}
+
+\item{linetype}{(\code{Default = 1} = solid),
+the type of the line; should match
+\code{ggplots2 linetype}
+or basic \code{R, lty}
+(e.g., 2 = dashed, 3 = dotted).}
 }
 \value{
 a \code{ggplot2} component to be added to a
