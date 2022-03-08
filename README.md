@@ -129,7 +129,8 @@ The punctuation used by 6 classical French Writers (Rousseau, Chateaubrian, Hugo
 
 ### sixBeers12Descriptors10Judges
 
-Ten tasters evaluated the intensity of twelve descriptors for six beers. 
+   The average data obtained from ten tasters 
+who evaluated the intensity of twelve descriptors for six wheat-based beers. 
 These data can be used to illustrate: 
 un-normed (or normed) Principal Component Analysis (PCA)
  or Correspondence Analysis (CA).
@@ -139,6 +140,13 @@ un-normed (or normed) Principal Component Analysis (PCA)
 
 The (230 by 240 = 55,200 pixels) pictures of six faces (3 men and 3 women). To be used to illustrate PCA or PLS on images.
 
+
+### sixteenGums4Descriptors
+  
+  The average data obtained from ten tasters who evaluated
+   the intensity of four descriptors
+   for  sixteen chewing-gums. These data can be used to illustrate:
+    normed Principal Component Analysis (PCA) or Multiple Correspondence Analysis (MCA).
 
 ### twentyWines
 
