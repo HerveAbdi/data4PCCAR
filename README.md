@@ -48,13 +48,13 @@ multidimensional scaling methods  (MDS, Procrustean,  or DISTATIS).
 
 ### colorsOfMusic
 
-12 children and 10 adults picked up the color that best describes
+A set of 12 children and 10 adults picked up the color that best describes
 each of 9 pieces of music.
 To be used to illustrate CA and Partial Triadic CA (a variant of CA, a.k.a. PTCA).
 
 ### colorsOfVowels
 
-133 (French) participants associated 6 colors to 6 vowels (data from Chastaing, 1961).
+A set of 133 (French) participants associated 6 colors to 6 vowels (data from Chastaing, 1961).
 To be used to illustrate CA.
 
 ### deadInTheUSA
@@ -107,7 +107,7 @@ To be used to illustrate CA.
 
 A set of contingency tables showing the number of university graduates in the USA from 1966 to 2001 by fields.
 The grand contingency table gives the The 34 years * 8 fields results. The partial contingency tables
-subset the grand contigency table by gender (women vs men) and by levels (Bachelor, Master, and Ph.D.).
+subset the grand contingency table by gender (women vs men) and by levels (Bachelor, Master, and Ph.D.).
 To  be used to illustrate CA, PTCA, and variations of these methods.
 
 ### mentalImageryOSIQ
@@ -124,8 +124,10 @@ To be used to illustrate PCA, Varimax rotation, and also MCA.
 
 ### sixAuthorsPunctuated
 
-The punctuation used by 6 classical French Writers (Rousseau, Chateaubrian, Hugo, Zola, Proust, Giraudoux)
-*plus* the punctuation of one chapter of Abdi's *Les Réseaux de Neurones*. A classic example for CA.
+The punctuation used by 6 classical French Writers 
+(Rousseau, Chateaubrian, Hugo, Zola, Proust, Giraudoux)
+*plus* the punctuation of one chapter of Abdi's *Les Réseaux de Neurones*. 
+A classic example for CA.
 
 ### sixBeers12Descriptors10Judges
 
@@ -138,7 +140,8 @@ un-normed (or normed) Principal Component Analysis (PCA)
 
 ### sixFaces
 
-The (230 by 240 = 55,200 pixels) pictures of six faces (3 men and 3 women). To be used to illustrate PCA or PLS on images.
+The (230 by 240 = 55,200 pixels) pictures of six faces (3 men and 3 women). 
+To be used to illustrate PCA or PLS on images.
 
 
 ### sixteenGums4Descriptors
@@ -155,8 +158,11 @@ To be used to illustrate PCA.
 
 ### winesOf3Colors
 
-36 wines (from Argentina, Canada, and the USA) are described by a variety of variables (descriptors, chemistry, and sensory). 
-To be used to illustrate PCA with supplementary variables (could also be used for two table methods such as CCCA, PLSC),
+A set of 36 wines (from Argentina, Canada, and the USA) 
+are described by a variety of variables 
+(descriptors, chemistry, and sensory). 
+To be used to illustrate PCA with supplementary variables 
+(could also be used for two table methods such as CCCA, PLSC),
 PLSCA, and PLSR).
 
 ## Current functions 
@@ -164,23 +170,24 @@ PLSCA, and PLSR).
 
 ### addArrows
 
-add arrows to a factorial map
+Adds arrows to a factorial map
 (best with a circle of correlation as created, e.g., by `addCircleOfCor`). 
 Used for loadings for PCA maps.
 
 ### addArrowsAndNames
-Compute the biplot coordinates of variables
+Computes the biplot coordinates of variables
 for a PCA computed with `ExPosition::epPCA`.
 
 ### addCircleOfCor
 
-add a *Circle of Correlation* to a PCA-like map
-#' of correlation produced by `createFactorMap` 
-*et alia.* Used for loadings for PCA maps.
+Adds a *Circle of Correlation* to a PCA-like map
+ of correlation produced by `createFactorMap` 
+*et alia.* Used for loadings (when seen as correlation between factors and variables)
+or cosines for PCA maps.
 
 ### addLines4MCA
 
- a `ggplot2` based function that
+ A `ggplot2` based function that
 adds lines to join the levels of
 the qualitative variables in a factorial
  map of an MCA (e.g., computed with
@@ -189,20 +196,20 @@ the qualitative variables in a factorial
 
 ### BinQuant
 
- creates (roughly) balanced
+ Creates (roughly) balanced
 factors from quantitative variables.
 Used to create nominal variables from
 quantitative variables for MCA.
 
 ### boot.eigen
 
-generates
+Generates
 a bootstrap distribution of eigenvalues
 for a given (rectangular) matrix.
 
 ### Boot4CCA
 
-creates a Bootstrap Cube for CCA (Canonical Correlation Analysis):
+Creates a Bootstrap Cube for CCA (Canonical Correlation Analysis):
 Creates Bootstrap Cubes for the I and J sets
 of a CCA
 obtained from bootstraping the rows
@@ -211,7 +218,7 @@ Companion function of  `tepCCA`.  Note: This function is still in the beta stage
 
 ### Boot4PLSC 
 
-creates a Bootstrap Cube for PLSC (partial least square correlation):
+Creates a Bootstrap Cube for PLSC (partial least square correlation):
 Creates Bootstrap Cubes for the I and J sets
 of a PLSC
 obtained from bootstraping the rows
@@ -224,21 +231,22 @@ Used to create BR-like histogram comparable to BR such as computed in PCA.
 
 ### buildRandomImage4PCA
  
-makes a random image (with similar PCA loadings) 
+Makes a random image (with similar PCA loadings) 
  of a matrix of integer data such as Likert scale data.
  Uses two helper functions: `getRandomFS` and `recode2Integer`:
  
 
 ### coloringLevels
 
-creates a vector of color names for the levels
+Creates a vector of color names for the levels
  of an MCA from the color names of the variables.
  Used for creating mqps in MCA.
 
 
 ### compS
 
-a helper function for the functions `perm4PLSC` and `Boot4PLSC`, computes the cross-product
+A helper function for the functions `perm4PLSC` and `Boot4PLSC`, 
+computes the cross-product
 of two comformable matrices
 using various types of normalization and centering.
 
@@ -249,7 +257,7 @@ RV coefficient between 2 comformable matrices.
 
 ### ctr4Variables
 
- computes contributions (or squared cosines)
+ Computes contributions (or squared cosines)
 for (qualitatitve)  variables from the contributions
 of the levels of the qualitative variables.
 Used to get contributions in MCA. 
@@ -265,14 +273,14 @@ of a data matrix suitable for CA
 
 ### epVari
 
-a Varimax rotation on loadings and factor scores.
+A Varimax rotation on loadings and factor scores.
 Also gives the pseudo-eigenvalues and percentage of inertia.
 Used post-PCA to get nice clean components.
-`epiVari` Requires an a-priori number of dimensions.
+`epiVari` requires an a-priori number of dimensions.
 
 ### fastBoot4CA
 
-used
+Used
 for  Correspondence Analysis
 (CA), creates   a Bootstrap Cube 
 obtained from bootstrapping the observations
@@ -281,7 +289,7 @@ from a true contingency table. `fastBoot4CA` is based  on the base
 
 ### fastPerm4CA 
 
-used
+Used
 for  Correspondence Analysis
 (CA),
 computes a permutation test
@@ -311,7 +319,7 @@ for a PCA computed with  `ExPosition::epPCA`.
 
 ### getImportantCtr.12
 
-gets the items with contributions important for a factorial plane.
+Gets the items with contributions important for a factorial plane.
 `getImportantCtr.12` gives the contributions of the items 
 to the plane, the items important for the plane, 
 and the items important for the plane or 
@@ -319,7 +327,7 @@ for at least one dimension of the plane.
 
 ### getRandomFS
 
-generates multivariate random observations (i.e., factor scores)
+Generates multivariate random observations (i.e., factor scores)
     that match the variance/eigenvalues 
     of the dimensions (as defined by their loadings). 
 
@@ -334,7 +342,7 @@ the asymptotic Chi2 values and their associated
 
 ### monteCarlo.eigen
 
-a Monte Carlo generation of (random) eigenvalues to match
+A Monte Carlo generation of (random) eigenvalues to match
 a data matrix. 
 Used to implement the *parallel* test
 for the number of reliable eigenvalues.
@@ -348,19 +356,19 @@ for CA (i.e., a matrix with non negative elements).
 
 ### nameExpositionResults
 
-adds dimension names to the results of analyses performed with` ExPosition`
+Adds dimension names to the results of analyses performed with` ExPosition`
 (recall that column names are needed for plots created with `ggplot2` when
 using `aes()`). Note that if there is a space is a name (as is the case by default),
 `aes_string()` may, in some contexts,  have to be used in lieu of `aes()`.
 
 ### normaliz
 
-normalizes a matrix  by column
+Normalizes a matrix  by column
 (i.e., each column vector has a norm of 1).
 
 
 ###  perm4CCA
-computes a permutation test for Canonical Correlation Analysis 
+Computes a permutation test for Canonical Correlation Analysis 
 (CCA,  (as implemented
  in `tepCCA`).
 Computes an omnibus permutation test and
@@ -368,7 +376,7 @@ specific tests for the eigenvalues when
 performing a CCA.
 
 ###  perm4PLSC
-computes a permutation test for PLSC (as implemented
+Computes a permutation test for PLSC (as implemented
  in `TExPosition::tepPLS`.
 Computes an omnibus permutation test and
 specific tests for the eigenvalues when
@@ -376,7 +384,7 @@ performing a PLSC.
 
 ### phi2CT
 
-a fast function to compute the $\phi^2$  correlation 
+A fast function to compute the $\phi^2$  correlation 
 coefficient for a contingency table.
 Used for CA and MCA and
 as a helper function
@@ -385,7 +393,7 @@ by function `phi2Mat4BurtTable`.
  
 ###  phi2Mat4BurtTable
 
-computes the $\phi^2$ (correlation) matrix
+Computes the $\phi^2$ (correlation) matrix
 and Burt table
 for data tables suitable for
 MCA. 
@@ -395,7 +403,7 @@ Also a helper function,
  used for MCA.
  
  ### PLS4jack
- in PLS regression compute a
+ In PLS regression  `PLS4jack` compute a
  supplementary projection for a jackknifed estimation of
  one supplementary element.
  `PLS4jack` is mainly used  by
@@ -409,7 +417,7 @@ Also a helper function,
 
 ### projSupplementaryObservations4PLSC
 
-computes latent variables / factor scores for supplementary
+Computes latent variables / factor scores for supplementary
 observations in a  `PLSC` analysis. 
 Note: `projSupplementaryObservations4PLSC` is mostly used
  as a preparatory step for
@@ -417,18 +425,18 @@ Note: `projSupplementaryObservations4PLSC` is mostly used
 
 ### recode2Integer
 
-recodes a vector of real values to integers matching 
+Recodes a vector of real values to integers matching 
     a given distribution for the integers.
  
  ### renormInertiaExPo
  
- renorms
-the output of an `ExPosition` function (e.g., 
+ Renorms
+ the output of an `ExPosition` function (e.g., 
 `epCA, epPCA, epMCA`) to a given constant.
  
  ### scale0
 
-centers and normalizes a vector to norm 1 or to norm
+Centers and normalizes a vector to norm 1 or to norm
 $(N - 1)$. The function
 `scale0` gives the same results as `scale`
 except
@@ -440,7 +448,7 @@ a vector of `NaN` (because of a division by 0 error),
 whereas `scale0` gives back a vector of `0`.
 
 ### supplementary4Vari
-computes the projection of supplementary elements 
+Computes the projection of supplementary elements 
  (rows or columns) for a PCA (computed with
  `ExPosition::epPCA`)
  followed by a `Varimax` rotation 
@@ -449,26 +457,26 @@ computes the projection of supplementary elements
  
  ### supplementaryObservations4PLSC
  
- compute the value  of the latent variables for
+ Computes the value  of the latent variables for
   supplementary observations for a PLSC model 
   from `TExPosition::PLS`.
   
 ### supplementaryObservations4PLSCA
   
-  compute the value  of the latent variables for
+  Computes the value  of the latent variables for
    supplementary observations for a PLSCA model 
    from `TExPosition::PLSCA`.
 
 ### supplementaryVariables4PLSC
 
-projects supplementary variables (columns) 
+Projects supplementary variables (columns) 
  for a PLSC analysis 
  (computed with  `TExPosition::tepPLS`.
- Includes the internal funciton `projOnDualSet4PLSC`.
+ Includes the internal function `projOnDualSet4PLSC`.
 
 ### supplementaryVariables4PLSCA
 
-projects supplementary variables (columns) 
+Projects supplementary variables (columns) 
  for a PLSCA  analysis 
  (computed with  `TExPosition::tepPLSCA)`.
  
