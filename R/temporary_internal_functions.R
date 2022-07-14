@@ -427,42 +427,42 @@ corePCA2 <- function (DATA, M = NULL, W = NULL,
   #print(pdq_results$Dv)
   #print(pdq_results$p)
   
-  if (is.diagMat(M)){
-    fi <- matrix(M, nrow(pdq_results$p), ncol(pdq_results$p)) * 
-      pdq_results$p * matrix(pdq_results$Dv, nrow(pdq_results$p), 
-                             ncol(pdq_results$p), byrow = TRUE)
-    ci <- matrix(1/M, nrow(fi), ncol(fi), byrow = FALSE) *
-      (fi^2)/matrix(pdq_results$Dv^2,
-                    nrow(fi), ncol(fi), byrow = TRUE)
-  } else {
+  # if (is.diagMat(M)){ # THIS IS NOT SUPPOSED TO WORK
+  #   fi <- matrix(M, nrow(pdq_results$p), ncol(pdq_results$p)) * 
+  #     pdq_results$p * matrix(pdq_results$Dv, nrow(pdq_results$p), 
+  #                            ncol(pdq_results$p), byrow = TRUE)
+  #   ci <- matrix(1/M, nrow(fi), ncol(fi), byrow = FALSE) *
+  #     (fi^2)/matrix(pdq_results$Dv^2,
+  #                   nrow(fi), ncol(fi), byrow = TRUE)
+  # } else {
     fi <- M %*%  pdq_results$p *
       matrix(pdq_results$Dv, nrow(pdq_results$p), 
              ncol(pdq_results$p), byrow = TRUE)
     ci <- matrix.exponent(M, power = -1) %*% 
       (fi^2)/matrix(pdq_results$Dv^2, 
                     nrow(fi), ncol(fi), byrow = TRUE)
-  }
+  # }
   rownames(fi) <- rownames(DATA)
   di <- rowSums(fi^2)
   ri <- matrix(1/di, nrow(fi), ncol(fi)) * (fi^2)
   ri <- replace(ri, is.nan(ri), 0)
   ci <- replace(ci, is.nan(ci), 0)
   di <- as.matrix(di)
-  if (is.diagMat(W)){
-    fj <- matrix(W, nrow(pdq_results$q), ncol(pdq_results$q)) * 
-      pdq_results$q * matrix(pdq_results$Dv, nrow(pdq_results$q), 
-                             ncol(pdq_results$q), byrow = TRUE)
-    cj <- matrix(1/W, nrow(pdq_results$q), ncol(pdq_results$q), 
-                 byrow = FALSE) * (fj^2)/matrix(pdq_results$Dv^2, nrow(fj), 
-                                                ncol(fj), byrow = TRUE)
-  } else {
+  # if (is.diagMat(W)){ # THIS IS NOT SUPPOSED TO WORK
+  #   fj <- matrix(W, nrow(pdq_results$q), ncol(pdq_results$q)) * 
+  #     pdq_results$q * matrix(pdq_results$Dv, nrow(pdq_results$q), 
+  #                            ncol(pdq_results$q), byrow = TRUE)
+  #   cj <- matrix(1/W, nrow(pdq_results$q), ncol(pdq_results$q), 
+  #                byrow = FALSE) * (fj^2)/matrix(pdq_results$Dv^2, nrow(fj), 
+  #                                               ncol(fj), byrow = TRUE)
+  # } else {
     fj <- W %*% pdq_results$q * 
       matrix(pdq_results$Dv, nrow(pdq_results$q), 
              ncol(pdq_results$q), byrow = TRUE)
     cj <- matrix.exponent(W, power = -1) %*% 
       (fj^2)/matrix(pdq_results$Dv^2, nrow(fj), 
                     ncol(fj), byrow = TRUE)         
-  }
+  # }
   rownames(fj) <- colnames(DATA)
   dj <- rowSums(fj^2)
   rj <- matrix(1/dj, nrow(fj), ncol(fj)) * (fj^2)
