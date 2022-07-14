@@ -489,6 +489,15 @@ Projects supplementary variables (columns)
  soon-to-be-released-on-CRAN package `GSVD` (see `Github`: 
  `derekbeaton/GSVD` for details`). Note that this version is still under development.
 
+### tepRA
+
+ A  `TExPosition`-like version of Redundancy Analysis.  
+ Inputs and outputs are the same as `TExPosition::tepPLS`.
+ Current version uses a clone of `GSVD` from Derek Beaton's 
+ soon-to-be-released-on-CRAN package `GSVD` (see `Github`: 
+ `derekbeaton/GSVD` for details`). 
+ Note that this version is still under development.
+
 ### theme_ptca2()
 A `ggplot2` theme that matches the defaults of the factorial figures in `PTCA4CATA`.
 `theme_ptca2` is, a (slightly smarter) cousin of `PTCA4CATA::theme_ptca` (which will be deprecated in the
