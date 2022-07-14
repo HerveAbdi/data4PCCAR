@@ -46,7 +46,8 @@
 #' and several vectors:
 #' * \code{ratingsIntensity: } 
 #' A data frame of dimension 
-#' \eqn{I = }16 rows (Beers) by \eqn{J = }4 columns
+#' \eqn{I = }16 rows (Beers) by 
+#' \eqn{J = }4 columns
 #' (descriptors) with
 #' the average intensity ratings  performed using 
 #' different scales per variables 
