@@ -67,7 +67,6 @@
 #' New York: Springer Verlag.
 #' @importFrom ExPosition epGPCA
 #' @import TExPosition
-#' @import data4PCCAR
 # #' @importFrom TExPosition tepGraphs
 #' @export
 #' @examples
