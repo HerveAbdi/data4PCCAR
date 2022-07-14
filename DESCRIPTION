@@ -1,7 +1,7 @@
 Package: data4PCCAR
 Type: Package
 Title: Some data sets and R-functions for PCA and CA to accompany Abdi & Beaton (2019) Principal Component and Correspondence Analysis with R
-Version: 0.1.0
+Version: 0.1.1
 Author: Herve Abdi & Derek Beaton
 Maintainer: Herve Abdi  <herve@utdallas.edu>
 Description: data4PCCAR is  a collection of data files that can be used for
@@ -17,4 +17,4 @@ VignetteBuilder: utils
 URL: http://github.com/HerveAbdi/data4PCCAR
 BugReports: http://github.com/HerveAbdi/data4PCCAR/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0

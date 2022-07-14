@@ -578,11 +578,13 @@ genPDQ2 <- function (datain, M = NULL, W = NULL, is.mds = FALSE, decomp.approach
 # sqrt.mat from ExPosition 
 sqrt.mat <- function (X) 
 {
+  if (is.null(dim(X))) stop("X should be a matrix")
   if (!isSymmetric.matrix(X)) {
     stop("Weight/Mass matrix is not symmetric")
   }
   if (isDiagonal.matrix(X)) {
-    return(sqrt(diag(X)))
+    # return(sqrt(diag(X))) # This did not work
+    return(diag(sqrt(diag(X))))
   }
   else {
     A <- eigen(X)

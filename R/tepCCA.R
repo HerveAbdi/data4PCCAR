@@ -138,6 +138,8 @@ tepCCA <- function (DATA1, DATA2,
   res$ly <- ExPosition::supplementalProjection(DATA2, res$fj, Dv = res$pdq$Dv)$f.out
   class(res) <- c("tepPLS", "list")
   #
+  res$u <- Mm1 %*% res$pdq$p
+  res$v <- Wm1 %*% res$pdq$q
   tepPlotInfo <- TExPosition::tepGraphs(res = res, 
                                         DESIGN = DESIGN, main = main, 
                                         graphs = graphs)
