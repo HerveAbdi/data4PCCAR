@@ -2,11 +2,15 @@
 % Please edit documentation in R/temporary_internal_functions.R
 \name{gsvd}
 \alias{gsvd}
-\title{GSVD, authored by Derek Beaton. Cf. package GSVD on GitHub, soon available on the CRAN}
+\title{GSVD, authored by Derek Beaton.
+Cf. package GSVD on GitHub,
+soon available on the CRAN}
 \usage{
 gsvd(DAT, LW, RW, k = 0, tol = .Machine$double.eps)
 }
 \description{
-GSVD, authored by Derek Beaton. Cf. package GSVD on GitHub, soon available on the CRAN
+GSVD, authored by Derek Beaton.
+Cf. package GSVD on GitHub,
+soon available on the CRAN
 }
 \keyword{internal}

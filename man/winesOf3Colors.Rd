@@ -3,7 +3,7 @@
 \docType{data}
 \name{winesOf3Colors}
 \alias{winesOf3Colors}
-\title{36  + 1 wines are evaluated on several dimensions organized in 4 blocks.}
+\title{36 plus 1 wines are evaluated on several dimensions organized in 4 blocks.}
 \format{
 A list with
 one data frame with four blocks of data:

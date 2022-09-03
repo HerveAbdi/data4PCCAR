@@ -2,5 +2,7 @@
 ^\.Rproj\.user$
 ^.*\.DS_Store$
 R/.DS_Store
+.DS_Stor
+^\.DS_Store$e
 man/.DS_Store
 ^data-raw$

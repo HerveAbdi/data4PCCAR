@@ -45,7 +45,9 @@
 #' @param k number of components to return.
 #' @author Vincent Guillemot, Derek Beaton, Hervé Abdi
 #' @return
-#' See \code{ExPosition::epGPCA} (and also \code{ExPosition::corePCA}) 
+#' See  #\code{ExPosition::epGPCA} 
+#'   \code{ExPosition::corePCA}) and
+#'   \code{TExPosition}
 #' for details on what is returned. 
 #' In addition to the values returned:
 #' \code{tepCCA} returns  
@@ -65,7 +67,7 @@
 #' In R. Alhajj and J. Rokne (Eds.), 
 #' \emph{Encyclopedia of Social Networks and Mining (2nd Edition)}. 
 #' New York: Springer Verlag. 
-#' @importFrom ExPosition epGPCA
+#  @importFrom ExPosition epGPCA
 #' @import TExPosition
 # #' @importFrom TExPosition tepGraphs 
 #' @export

@@ -45,7 +45,9 @@
 #' @param k number of components to return.
 #' @author Vincent Guillemot, Derek Beaton, Hervé Abdi
 #' @return
-#' See \code{ExPosition::epGPCA} (and also \code{ExPosition::corePCA})
+#' See #\code{ExPosition::epGPCA} 
+#'  \code{ExPosition::corePCA} ad
+#'  \code{TExPosition}
 #' for details on what is returned.
 #' In addition to the values returned:
 #' \code{tepRA} returns
@@ -65,7 +67,7 @@
 #' In R. Alhajj and J. Rokne (Eds.),
 #' \emph{Encyclopedia of Social Networks and Mining (2nd Edition)}.
 #' New York: Springer Verlag.
-#' @importFrom ExPosition epGPCA
+# @importFrom ExPosition epGPCA # not there anymore
 #' @import TExPosition
 # #' @importFrom TExPosition tepGraphs
 #' @export
@@ -111,9 +113,9 @@ tepRA <- function (DATA1, DATA2,
     DATA2 <- ExPosition::expo.scale(DATA2, scale = scale2, center = center2)
     R <- t(DATA1) %*% DATA2
     M <- t(DATA1) %*% DATA1
-    Mm1 <- data4PCCAR:::matrix.exponent(M, power = -1)
+    Mm1 <-  matrix.exponent(M, power = -1)
     W <- Wm1 <- diag(ncol(DATA2))
-    res <- data4PCCAR:::epGPCA2(DATA = R,
+    res <-  epGPCA2(DATA = R,
                    k = k,
                    graphs = FALSE,
                    masses = Mm1,

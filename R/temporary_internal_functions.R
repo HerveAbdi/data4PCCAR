@@ -1,10 +1,14 @@
 # Utilities for GSVD. All from Derek Beaton
 # Github DerekBeaton
 # Will be soon moved to CRAN.
-# Put together on October 31, 2019. by Vincent Guillemot and Hervé
-# Last Modification. Hervé 11/03/2019.
+# Put together on October 31, 2019. 
+# by Vincent Guillemot and Hervé
+#    Modification. Hervé 11/03/2019.
+#    Hervé 09/03/2022
 
-#' GSVD, authored by Derek Beaton. Cf. package GSVD on GitHub, soon available on the CRAN
+#' GSVD, authored by Derek Beaton. 
+#' Cf. package GSVD on GitHub, 
+#' soon available on the CRAN
 #'
 #' @keywords internal
 
@@ -168,7 +172,9 @@ gsvd <- function(DAT,   # Data
 }
 
 
-#' matrix.exponent, authored by Derek Beaton. Cf. package GSVD on GitHub, soon available on the CRAN
+#' matrix.exponent, authored by Derek Beaton. 
+#' Cf. package GSVD on GitHub, 
+#' soon available on the CRAN
 #'
 #' @keywords internal
 
@@ -392,7 +398,7 @@ epGPCA2 <- function (DATA, scale = TRUE, center = TRUE, DESIGN = NULL,
   res <- corePCA2(DATA, M = masses, W = weights, k = k)
   res$center <- this.center
   res$scale <- this.scale
-  class(res) <- c("epGPCA", "list")
+  class(res) <- c("epGPCA2", "list")
   epPlotInfo <- epGraphs(res = res, DESIGN = DESIGN, main = main, 
                          graphs = graphs)
   return(epOutputHandler(res = res, epPlotInfo = epPlotInfo))

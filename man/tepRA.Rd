@@ -62,7 +62,9 @@ graphs and plots are provided
 \item{k}{number of components to return.}
 }
 \value{
-See \code{ExPosition::epGPCA} (and also \code{ExPosition::corePCA})
+See #\code{ExPosition::epGPCA}
+\code{ExPosition::corePCA} ad
+\code{TExPosition}
 for details on what is returned.
 In addition to the values returned:
 \code{tepRA} returns

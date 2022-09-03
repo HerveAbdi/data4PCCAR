@@ -3,8 +3,7 @@
 # Revisited July 26, 2020. (add mysteryWine)
 #
 #  winesOf3Colors Preambule ----
-#' @title 36  + 1 wines are evaluated on several dimensions organized in 4 blocks.
-#'
+#' @title 36 plus 1 wines are evaluated on several dimensions organized in 4 blocks.
 #'
 #' @description
 #'  \code{winesOf3Colors}:

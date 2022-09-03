@@ -2,11 +2,15 @@
 % Please edit documentation in R/temporary_internal_functions.R
 \name{matrix.exponent}
 \alias{matrix.exponent}
-\title{matrix.exponent, authored by Derek Beaton. Cf. package GSVD on GitHub, soon available on the CRAN}
+\title{matrix.exponent, authored by Derek Beaton.
+Cf. package GSVD on GitHub,
+soon available on the CRAN}
 \usage{
 matrix.exponent(x, power = 1, k = 0, ...)
 }
 \description{
-matrix.exponent, authored by Derek Beaton. Cf. package GSVD on GitHub, soon available on the CRAN
+matrix.exponent, authored by Derek Beaton.
+Cf. package GSVD on GitHub,
+soon available on the CRAN
 }
 \keyword{internal}

@@ -3,8 +3,7 @@
 \docType{data}
 \name{fiveWines4Rotation}
 \alias{fiveWines4Rotation}
-\title{5 wines are described by
-Sensory and Chemistry variables.}
+\title{5 wines are described by sensory and chemistry variables.}
 \format{
 A list with two matrices:
 \itemize{

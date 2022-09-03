@@ -2,10 +2,7 @@
 # Hervé Abdi: Apri 14, 2018.
 #
 #   twentyWines Preambule ----
-#' @title 20 red wines (10 French, 10 American) 
-#' were rated by an expert
-#' on multiple dimensions.
-#'
+#' @title 20 red wines (10 French, 10 American) were rated by an expert on multiple dimensions.
 #'
 #' @description
 #'  \code{twentyWines}:

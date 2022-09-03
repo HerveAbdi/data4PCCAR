@@ -3,9 +3,7 @@
 \docType{data}
 \name{twentyWines}
 \alias{twentyWines}
-\title{20 red wines (10 French, 10 American)
-were rated by an expert
-on multiple dimensions.}
+\title{20 red wines (10 French, 10 American) were rated by an expert on multiple dimensions.}
 \format{
 A list containing 3 data frames:
 \itemize{

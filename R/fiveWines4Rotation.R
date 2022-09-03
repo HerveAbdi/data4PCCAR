@@ -3,9 +3,7 @@
 # Revisited July 26, 2020. (add mysteryWine)
 #
 #  fiveWines4Rotation Preamble ----
-#' @title 5 wines are described by 
-#' Sensory and Chemistry variables.
-#'
+#' @title 5 wines are described by sensory and chemistry variables.
 #'
 #' @description
 #'  \code{fiveWines4Rotation}: Five
