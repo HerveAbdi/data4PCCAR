@@ -1,6 +1,6 @@
 Package: data4PCCAR
 Type: Package
-Title: Some data sets and R-functions for PCA and CA to accompany Abdi & Beaton (2023) Principal Component and Correspondence Analysis with R
+Title: Some data sets and R-functions for PCA and CA to accompany Abdi & Beaton (to appear, 2023) Principal Component and Correspondence Analysis with R
 Version: 0.1.1
 Author: Herve Abdi & Derek Beaton
 Maintainer: Herve Abdi  <herve@utdallas.edu>

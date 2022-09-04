@@ -8,10 +8,11 @@
 A list with
 one data frame with four blocks of data:
 \itemize{
-\item \code{1} The descriptors (origin, color, varietal): columns  1 to 3.
+\item \code{1} The descriptors (origin, color, varietal):
+columns  1 to 3.
 \item \code{2} The price (in Dollars): column 4.
 \item \code{3} The chemistry properties: columns 5 to 8
-\item \code{4} The sensory properties: columns 9 to 17
+\item \code{4} The sensory properties: columns 9 to 17.
 }
 }
 \usage{
@@ -25,8 +26,10 @@ An additional mystery wine is provided
 }
 \details{
 The (fictitious) wines come from 3 countries
-Argentina, Canada, and the USA. They also come in three different
-colors: Red, Rosé, and White. They are described by
+Argentina, Canada, and the USA.
+They also come in three different
+colors: Red, Rosé, and White.
+They are described by
 their characteristics, chemistry, and sensory properties.
 The mystery wine is a French red pinot noir that
 could be though as a "\emph{Bourgogne Rouge}".

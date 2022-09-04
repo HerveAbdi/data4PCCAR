@@ -3,7 +3,7 @@
 
 An `R`-package containing a collection of data sets and 
 `R`-functions to accompagny and complement:
-Abdi, H., & Beaton, D. (to appear, 2022).
+Abdi, H., & Beaton, D. (to appear, 2023).
 *Principal Component and Correspondence Analyses Using R*.
 New York: Springer Verlag. 
 
@@ -13,7 +13,7 @@ and the resulting figures.
 ## Introduction
 
 `data4PCCAR` is a collection of _data sets_  and `R`-_functions_ 
-that are used (or could have been used, should have been used, or might be used) 
+that are used (or could have been used, should have been used, or might have been used) 
 to illustrate Principal Component Analysis (PCA), 
 Correspondence Analysis (CA), and related techniques 
 such as Multiple Correspondence Analysis (MCA), 
@@ -88,6 +88,7 @@ To be used to illustrate
 how to use MCA with "fuzzy coding" with rating scales.
 
 ### fiveWines4Rotation
+
 Five (rather fictitious) wines are described by their Sensory and Chemistry variables.
 These wines are used to illustrate `Varimax` rotation and partiall least square regression (PLSR).
 
