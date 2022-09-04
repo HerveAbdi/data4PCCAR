@@ -46,6 +46,7 @@ NULL
 #' @param x a list: the data set: \code{graduatingUSA}
 #' @param ... the rest
 #' @author Herve Abdi
+#' @keywords internal
 #' @export
 print.graduatingUSA <- function(x, ...){
   ndash = 78 # How many dashes for separation lines

@@ -3,7 +3,7 @@
 \name{print.wines3Colors}
 \alias{print.wines3Colors}
 \title{Change the print function for the data set:
-\code{wines3Colors}
+\code{winesOf3Colors}
 #'
 Change the print function for the data set:
 \code{wines3Colors}.}
@@ -17,7 +17,7 @@ Change the print function for the data set:
 }
 \description{
 Change the print function for the data set:
-\code{wines3Colors}
+\code{winesOf3Colors}
 #'
 Change the print function for the data set:
 \code{wines3Colors}.
@@ -25,3 +25,4 @@ Change the print function for the data set:
 \author{
 Herve Abdi
 }
+\keyword{internal}

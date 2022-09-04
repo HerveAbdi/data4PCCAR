@@ -11,6 +11,7 @@
 #' inherited/passed arguments for
 #' \code{S3} print method(s).)
 #' @author Derek Beaton, Cerise Chin-Fatt, Herve Abdi
+#' @keywords internal
 #' @export
 print.epGPCA2 <- function (x, ...) 
 {

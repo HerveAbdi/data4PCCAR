@@ -17,3 +17,4 @@ Change the print function for the data set: 'str_colorsOfMusic'
 \author{
 Hervé Abdi
 }
+\keyword{internal}

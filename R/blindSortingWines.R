@@ -93,6 +93,7 @@ NULL
 #'  the data set \code{blindSortingWines}.
 #' @param ... the rest.
 #' @author Hervé Abdi
+#' @keywords internal
 #' @export
 print.blindSortingWines <- function(x, ...){
   ndash = 78 # How many dashes for separation lines

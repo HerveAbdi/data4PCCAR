@@ -90,6 +90,7 @@ NULL
 #' \code{sixteenGums}.
 #' @param ... the rest.
 #' @author Hervé Abdi
+#' @keywords internal
 #' @export
 print.sixteenGums <- function(x, ...){
   ndash = 78 # How many dashes for separation lines

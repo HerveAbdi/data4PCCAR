@@ -12,12 +12,13 @@
 #' (to be projected as supplementary observation).
 #'
 #' @details The (fictitious) wines come from 3 countries
-#' Argentina, Canada, and the USA. They also come in three different
-#' colors: Red, Rosé, and White. They are described by
+#' Argentina, Canada, and the USA. 
+#' They also come in three different
+#' colors: Red, Rosé, and White. 
+#' They are described by
 #' their characteristics, chemistry, and sensory properties.
 #' The mystery wine is a French red pinot noir that
 #' could be though as a "\emph{Bourgogne Rouge}".
-
 #'
 #' @name winesOf3Colors
 #' @usage data("winesOf3Colors")
@@ -25,10 +26,11 @@
 #' @format
 #' A list with
 #' one data frame with four blocks of data:
-#' * \code{1} The descriptors (origin, color, varietal): columns  1 to 3.
+#' * \code{1} The descriptors (origin, color, varietal): 
+#' columns  1 to 3.
 #' * \code{2} The price (in Dollars): column 4.
 #' * \code{3} The chemistry properties: columns 5 to 8
-#' * \code{4} The sensory properties: columns 9 to 17
+#' * \code{4} The sensory properties: columns 9 to 17.
 #' @md
 #' @keywords datasets data4PCCAR
 #' @author Hervé Abdi and Dominique Valentin
@@ -54,11 +56,11 @@
 NULL
 # End of winesOf3Colors
 #_____________________________________________________________________
-# Print function winesOf3Colors  ----
+# Print function wines3Colors  ----
 #_____________________________________________________________________
 #_____________________________________________________________________
 #' Change the print function for the data set:
-#' \code{wines3Colors}
+#' \code{winesOf3Colors}
 #' #'
 #' Change the print function for the data set:
 #' \code{wines3Colors}.
@@ -66,6 +68,7 @@ NULL
 #' @param x a list: the data set: {wines3Colors}
 #' @param ... the rest
 #' @author Herve Abdi
+#' @keywords internal
 #' @export
 print.wines3Colors <- function(x, ...){
   ndash = 78 # How many dashes for separation lines
@@ -78,8 +81,8 @@ print.wines3Colors <- function(x, ...){
   cat("\n",rep("-", ndash), sep = "")
   cat("\n")
   invisible(x)
-} # end of function print.twentyWines
-# end print.twentyWines ----
+} # end of function print.wines3Colors
+# end print.wine3Color ----
 #_____________________________________________________________________
 
 #'

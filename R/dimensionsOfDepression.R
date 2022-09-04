@@ -74,6 +74,7 @@ NULL
 #' @param x a list: the data set: \code{dimDepression}
 #' @param ... the rest
 #' @author Herve Abdi
+#' @keywords internal
 #' @export
 print.dimDepression <- function(x, ...){
   ndash = 78 # How many dashes for separation lines

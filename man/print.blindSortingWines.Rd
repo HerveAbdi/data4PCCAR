@@ -26,3 +26,4 @@ Change the print function for the data set:
 \author{
 Hervé Abdi
 }
+\keyword{internal}

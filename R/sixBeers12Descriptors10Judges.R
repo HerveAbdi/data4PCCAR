@@ -98,6 +98,7 @@ NULL
 #' \code{sixBeers12Descriptors}.
 #' @param ... the rest.
 #' @author Hervé Abdi
+#' @keywords internal
 #' @export
 print.sixBeers12Descriptors <- function(x, ...){
   ndash = 78 # How many dashes for separation lines

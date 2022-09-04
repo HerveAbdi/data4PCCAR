@@ -77,6 +77,7 @@ NULL
 #' @param x a list: the data set: {foodInFrance}
 #' @param ... the rest
 #' @author Herve Abdi
+#' @keywords internal
 #' @export
 print.foodInFrance <- function(x, ...){
   ndash = 78 # How many dashes for separation lines

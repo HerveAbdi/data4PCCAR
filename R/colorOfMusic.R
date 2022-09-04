@@ -8,6 +8,7 @@
 #' @param x a list: the data set: 'str_colorsOfMusic'
 #' @param ... the rest
 #' @author Hervé Abdi
+#' @keywords internal
 #' @export
 print.str_colorsOfMusic <- function (x, ...) {
   ndash = 78 # How many dashes for separation lines

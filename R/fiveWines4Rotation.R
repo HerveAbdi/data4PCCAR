@@ -61,6 +61,7 @@ NULL
 #' @param x a list: the data set: \code{fiveWines4Rotation}
 #' @param ... the rest
 #' @author Hervé Abdi
+#' @keywords internal
 #' @export
 print.fiveWines4Rotation <- function(x, ...){
   ndash = 78 # How many dashes for separation lines
