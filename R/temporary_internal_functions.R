@@ -398,7 +398,7 @@ epGPCA2 <- function (DATA, scale = TRUE, center = TRUE, DESIGN = NULL,
   res <- corePCA2(DATA, M = masses, W = weights, k = k)
   res$center <- this.center
   res$scale <- this.scale
-  class(res) <- c("epGPCA2", "list")
+  class(res) <- c("epGPCA", "list")
   epPlotInfo <- epGraphs(res = res, DESIGN = DESIGN, main = main, 
                          graphs = graphs)
   return(epOutputHandler(res = res, epPlotInfo = epPlotInfo))
