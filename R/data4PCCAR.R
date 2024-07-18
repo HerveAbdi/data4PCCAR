@@ -22,7 +22,7 @@
 #' (aut, cre)
 #'
 #' Maintainer: Herve Abdi <herve@@utdallas.edu>
-#' @keywords package
-NULL
+#' @keywords internal
+"_PACKAGE"
 
 

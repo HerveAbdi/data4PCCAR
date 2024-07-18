@@ -2,6 +2,7 @@
 % Please edit documentation in R/data4PCCAR.R
 \docType{package}
 \name{data4PCCAR}
+\alias{data4PCCAR-package}
 \alias{data4PCCAR}
 \title{A collection of data sets and \eqn{R}-functions to illustrate
 and complement:  Abdi, H., & Beaton, D. (2019)
@@ -20,6 +21,14 @@ The current version of data4PPCCAR needs to be installed from
 \code{Github} with the command
 `devtools::install_github('HerveAbdi/data4PCCAR')``
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{http://github.com/HerveAbdi/data4PCCAR}
+  \item Report bugs at \url{http://github.com/HerveAbdi/data4PCCAR/issues}
+}
+
+}
 \author{
 Herve Abdi (aut, com, ctb, cre),
 Vincent Guillemot (aut, cre),
@@ -28,4 +37,4 @@ Vincent Guillemot (aut, cre),
 
 Maintainer: Herve Abdi \href{mailto:herve@utdallas.edu}{herve@utdallas.edu}
 }
-\keyword{package}
+\keyword{internal}

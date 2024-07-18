@@ -1,0 +1,39 @@
+#' Flash Profile Dataset
+#'
+#' This dataset contains sensory descriptors for five different beers evaluated 
+#' by six different judges (J1 to J6). Each beer has been rated on various 
+#' attributes such as fruity, malt, phenol, persistence, sweet, strong taste, 
+#' bitter, sparkling, hop, taste intensity, alcohol, and others.
+#'
+#' @format A data frame with 5 rows and 31 variables:
+#' \describe{
+#'   \item{Beer}{Name of the beer (Sapporo, Casablanca, Page 24, Carlsberg, Tsingtao)}
+#'   \item{J1_Fruity}{Judge 1's rating for fruity characteristic (1-5)}
+#'   \item{J1_Malt}{Judge 1's rating for malt characteristic (1-5)}
+#'   \item{J1_Phenol}{Judge 1's rating for phenol characteristic (1-5)}
+#'   \item{J1_Persistence}{Judge 1's rating for persistence characteristic (1-5)}
+#'   \item{J1_Sweet}{Judge 1's rating for sweet characteristic (1-5)}
+#'   \item{J2_Strong_taste}{Judge 2's rating for strong taste characteristic (1-5)}
+#'   \item{J2_Sweet}{Judge 2's rating for sweet characteristic (1-5)}
+#'   \item{J2_Bitter}{Judge 2's rating for bitter characteristic (1-5)}
+#'   \item{J2_Malt}{Judge 2's rating for malt characteristic (1-5)}
+#'   \item{J2_Sparkling}{Judge 2's rating for sparkling characteristic (1-5)}
+#'   \item{J4_Fruity}{Judge 4's rating for fruity characteristic (1-5)}
+#'   \item{J4_Malt}{Judge 4's rating for malt characteristic (1-5)}
+#'   \item{J4_Bitter}{Judge 4's rating for bitter characteristic (1-5)}
+#'   \item{J4_Alcohol}{Judge 4's rating for alcohol characteristic (1-5)}
+#'   \item{J4_Hop}{Judge 4's rating for hop characteristic (1-5)}
+#'   \item{J5_Taste_intensity}{Judge 5's rating for taste intensity characteristic (1-5)}
+#'   \item{J5_Hop}{Judge 5's rating for hop characteristic (1-5)}
+#'   \item{J5_Malt}{Judge 5's rating for malt characteristic (1-5)}
+#'   \item{J5_Bitter}{Judge 5's rating for bitter characteristic (1-5)}
+#'   \item{J5_Alcohol}{Judge 5's rating for alcohol characteristic (1-5)}
+#'   \item{J5_Sweet}{Judge 5's rating for sweet characteristic (1-5)}
+#'   \item{J6_Hop}{Judge 6's rating for hop characteristic (1-5)}
+#'   \item{J6_Malt}{Judge 6's rating for malt characteristic (1-5)}
+#'   \item{J6_Bitter}{Judge 6's rating for bitter characteristic (1-5)}
+#'   \item{J6_Alcohol}{Judge 6's rating for alcohol characteristic (1-5)}
+#'   \item{J6_Sparkling}{Judge 6's rating for sparkling characteristic (1-5)}
+#' }
+#' @source Sensory evaluation data collected from a tasting session of five different beers.
+"FlashExample"
