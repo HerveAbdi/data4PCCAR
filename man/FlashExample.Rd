@@ -11,7 +11,7 @@ A data frame with 5 rows and 31 variables:
 \item{J1_Fruity}{Judge 1's rating for fruity characteristic (1-5)}
 \item{J1_Malt}{Judge 1's rating for malt characteristic (1-5)}
 \item{J1_Phenol}{Judge 1's rating for phenol characteristic (1-5)}
-\item{J1_Persistence}{Judge 1's rating for persistence characteristic (1-5)}
+\item{J1_Persistance}{Judge 1's rating for persistance characteristic (1-5)}
 \item{J1_Sweet}{Judge 1's rating for sweet characteristic (1-5)}
 \item{J2_Strong_taste}{Judge 2's rating for strong taste characteristic (1-5)}
 \item{J2_Sweet}{Judge 2's rating for sweet characteristic (1-5)}
@@ -54,7 +54,7 @@ for five different beers evaluated
 by six different assessors (from J1 to J6).
 Each beer was rated using various
 attributes such as
-fruity, malt, phenol, persistence,
+fruity, malt, phenol, persistance,
 sweet, strong taste,
 bitter, sparkling, hop,
 taste intensity, alcohol,
