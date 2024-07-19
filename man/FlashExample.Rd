@@ -3,7 +3,7 @@
 \docType{data}
 \name{FlashExample}
 \alias{FlashExample}
-\title{Flash Profile Dataset}
+\title{5 beers are evaluated by 6 different Judges each using their own descriptors.}
 \format{
 A data frame with 5 rows and 31 variables:
 \describe{
@@ -37,15 +37,36 @@ A data frame with 5 rows and 31 variables:
 }
 }
 \source{
-Sensory evaluation data collected from a tasting session of five different beers.
+Sensory evaluation data collected
+from a tasting session of five different beers.
 }
 \usage{
-FlashExample
+data("FlashExample")
 }
 \description{
-This dataset contains sensory descriptors for five different beers evaluated
-by six different judges (J1 to J6). Each beer has been rated on various
-attributes such as fruity, malt, phenol, persistence, sweet, strong taste,
-bitter, sparkling, hop, taste intensity, alcohol, and others.
+\code{FlashExample}:
+5 beers are evaluated by 6 different Judges
+each using their own descriptors
 }
+\details{
+This dataset contains sensory descriptors
+for five different beers evaluated
+by six different assessors (from J1 to J6).
+Each beer was rated using various
+attributes such as
+fruity, malt, phenol, persistence,
+sweet, strong taste,
+bitter, sparkling, hop,
+taste intensity, alcohol,
+and more.
+}
+\references{
+These data have been used to illustrate
+Multiple Factor Analysis (MFA), STATIS, and DiSTATIS.
+(papers available from \url{https://personal.utdallas.edu/~herve/})
+}
+\author{
+Herve Abdi, Vincent Guillemot, Dominique Valentin, and Sylvie Chollet
+}
+\keyword{data4PCCAR}
 \keyword{datasets}

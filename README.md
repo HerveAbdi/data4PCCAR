@@ -1,21 +1,23 @@
-	
 # data4PCCAR
 
 An `R`-package containing a collection of data sets and 
 `R`-functions to accompagny and complement:
-Abdi, H., & Beaton, D. (to appear, 2023).
+Abdi, H., & Beaton, D. (to appear, 2025).
 *Principal Component and Correspondence Analyses Using R*.
 New York: Springer Verlag. 
 
-In time, `data4PCCAR` will also contain the code used in the book 
+In time, `data4PCCAR` will also contain 
+the code used in the book 
 and the resulting figures.
 
 ## Introduction
 
-`data4PCCAR` is a collection of _data sets_  and `R`-_functions_ 
-that are used (or could have been used, should have been used, or might have been used) 
+`data4PCCAR` is a collection of _data sets_  
+and `R`-_functions_ 
+that are used (or could have been used, 
+should have been used, or might have been used) 
 to illustrate Principal Component Analysis (PCA), 
-Correspondence Analysis (CA), and related techniques 
+Correspondence Analysis (CA), and related methods
 such as Multiple Correspondence Analysis (MCA), 
 and Multi-Dimensional Scaling (MDS).
 
@@ -36,35 +38,46 @@ remotes::install_github("HerveAbdi/data4PCCAR") # install data4PCCAR
 
 ### alcoholInEurope
 
-The average consumption of 4 types of alcoholic beverages in 22 European and neighboring countries.
-To be used to illustrate the use of CA and Hellinger analysis.
+The average consumption of 4 types of alcoholic
+beverages in 22 European and neighboring countries.
+To be used to illustrate 
+the use of CA and Hellinger analysis.
 
 ### blindSortingWines
 Wine experts and wine novices 
 (blind) sorted red, rosé, and white wines.
 Can they make the difference?
 To be used for 
-multidimensional scaling methods  (MDS, Procrustean,  or DISTATIS).
+multidimensional scaling methods 
+(MDS, Procrustean,  or DISTATIS).
 
 ### colorsOfMusic
 
-A set of 12 children and 10 adults picked up the color that best describes
+A set of 12 children and 10 adults picked
+up the color that best describes
 each of 9 pieces of music.
-To be used to illustrate CA and Partial Triadic CA (a variant of CA, a.k.a. PTCA).
+To be used to illustrate CA and 
+Partial Triadic CA
+(a variant of CA, a.k.a. PTCA).
 
 ### colorsOfVowels
 
-A set of 133 (French) participants associated 6 colors to 6 vowels (data from Chastaing, 1961).
+A set of 133 (French) participants 
+associated 6 colors to 6 vowels 
+(data from Chastaing, 1961).
 To be used to illustrate CA.
 
 ### deadInTheUSA
 
-A contingency table storing the causes of death as a function of age in the USA in 2001.
+A contingency table storing the 
+causes of death as a function of
+age in the USA in 2001.
 To be used to illustrate CA.
 
 ### dimensionsOfDepression
 
-The similarity (measured on a scale from 0 to 1000, with bigger numbers
+The similarity (measured on a scale 
+from 0 to 1000, with bigger numbers
 meaning more similar)
 between 15 psychometric instruments (i.e. scales)
  measuring depression.
@@ -82,20 +95,43 @@ STATIS,  or Distatis.
 
 ### fiveBeersHedonics
 
-Five tasters evaluated (using a 10 point rating scale)
+Five tasters evaluated 
+(using a 10 point rating scale)
 how much they liked five beers.
 To be used to illustrate 
-how to use MCA with "fuzzy coding" with rating scales.
+how to use MCA with 
+"fuzzy coding" with rating scales.
 
 ### fiveWines4Rotation
 
-Five (rather fictitious) wines are described by their Sensory and Chemistry variables.
-These wines are used to illustrate `Varimax` rotation and partiall least square regression (PLSR).
+Five (rather fictitious) wines are described 
+by their Sensory and Chemistry variables.
+These wines are used to illustrate `Varimax`
+rotation and 
+partial least square regression (PLSR).
+
+### FlashExample
+
+Data from a flash profile
+where
+5 different beers are evaluated 
+by 6 different assessors each using their
+own descriptors. 
+To be used to 
+illustrate 
+(among others) 
+Multiple Factor Analysis,
+STATIS, or DiSTATIS.
+
+
 
 ### foodInFrance
 
-How much 12 typical French families spent on different types of food (including Wine!) in the 1950's.
-To be used to illustrate non-normalized (a.k.a. covariance based) PCA.
+How much 12 typical French families spent 
+on different types of food (including Wine!) 
+in the 1950's.
+To be used to illustrate non-normalized 
+(a.k.a. covariance based) PCA.
 
 
 ### foodOfTheWorld
@@ -106,10 +142,17 @@ To be used to illustrate CA.
 
 ### graduatingInUSA
 
-A set of contingency tables showing the number of university graduates in the USA from 1966 to 2001 by fields.
-The grand contingency table gives the The 34 years * 8 fields results. The partial contingency tables
-subset the grand contingency table by gender (women vs men) and by levels (Bachelor, Master, and Ph.D.).
-To  be used to illustrate CA, PTCA, and variations of these methods.
+A set of contingency tables showing 
+the number of university graduates
+in the USA from 1966 to 2001 by fields.
+The grand contingency table gives 
+the The 34 years * 8 fields results. 
+The partial contingency tables
+subset the grand contingency table
+by gender (women vs men) and by levels 
+(Bachelor, Master, and Ph.D.).
+To  be used to illustrate CA, PTCA, 
+and variations of these methods.
 
 ### mentalImageryOSIQ
 
@@ -126,44 +169,58 @@ To be used to illustrate PCA, Varimax rotation, and also MCA.
 ### sixAuthorsPunctuated
 
 The punctuation used by 6 classical French Writers 
-(Rousseau, Chateaubrian, Hugo, Zola, Proust, Giraudoux)
-*plus* the punctuation of one chapter of Abdi's *Les Réseaux de Neurones*. 
+(Rousseau, Chateaubrian, 
+Hugo, Zola, Proust, Giraudoux)
+*plus* the punctuation of one chapter 
+of Abdi's *Les Réseaux de Neurones*. 
 A classic example for CA.
 
 ### sixBeers12Descriptors10Judges
 
    The average data obtained from ten tasters 
-who evaluated the intensity of twelve descriptors for six wheat-based beers. 
+who evaluated the intensity of 
+twelve descriptors for six wheat-based beers. 
 These data can be used to illustrate: 
-un-normed (or normed) Principal Component Analysis (PCA)
+un-normed (or normed) 
+Principal Component Analysis (PCA)
  or Correspondence Analysis (CA).
 
 
 ### sixFaces
 
-The (230 by 240 = 55,200 pixels) pictures of six faces (3 men and 3 women). 
+The (230 by 240 = 55,200 pixels) pictures 
+of six faces (3 men and 3 women). 
 To be used to illustrate PCA or PLS on images.
 
 
 ### sixteenGums4Descriptors
   
-  The average data obtained from ten tasters who evaluated
+  The average data obtained 
+  from ten tasters who evaluated
    the intensity of four descriptors
-   for  sixteen chewing-gums. These data can be used to illustrate:
-    normed Principal Component Analysis (PCA) or Multiple Correspondence Analysis (MCA).
+   for  sixteen chewing-gums. 
+   These data can be used to illustrate:
+    normed Principal Component Analysis (PCA)
+    or Multiple Correspondence Analysis (MCA).
 
 ### twentyWines
 
-A baby example: 20 red wines (10 French, 10 American) are rated by an expert on multiple dimensions.
+A baby (quite fictitious) example: 
+20 red wines
+(10 French, 10 American) 
+are rated by an expert on multiple dimensions.
 To be used to illustrate PCA.
 
 ### winesOf3Colors
 
-A set of 36 wines (from Argentina, Canada, and the USA) 
+A set of 36 wines 
+(from Argentina, Canada, and the USA) 
 are described by a variety of variables 
 (descriptors, chemistry, and sensory). 
-To be used to illustrate PCA with supplementary variables 
-(could also be used for two table methods such as CCCA, PLSC),
+To be used to illustrate PCA 
+with supplementary variables 
+(could also be used for 
+two table methods such as CCCA, PLSC),
 PLSCA, and PLSR).
 
 ## Current functions 
@@ -172,7 +229,8 @@ PLSCA, and PLSR).
 ### addArrows
 
 Adds arrows to a factorial map
-(best with a circle of correlation as created, e.g., by `addCircleOfCor`). 
+(best with a circle of correlation 
+as created, e.g., by `addCircleOfCor`). 
 Used for loadings for PCA maps.
 
 ### addArrowsAndNames
@@ -183,7 +241,9 @@ for a PCA computed with `ExPosition::epPCA`.
 
 Adds a *Circle of Correlation* to a PCA-like map
  of correlation produced by `createFactorMap` 
-*et alia.* Used for loadings (when seen as correlation between factors and variables)
+*et alia.* Used for loadings 
+(when seen as correlation 
+between factors and variables)
 or cosines for PCA maps.
 
 ### addLines4MCA
@@ -210,16 +270,19 @@ for a given (rectangular) matrix.
 
 ### Boot4CCA
 
-Creates a Bootstrap Cube for CCA (Canonical Correlation Analysis):
+Creates a Bootstrap Cube for CCA 
+(Canonical Correlation Analysis):
 Creates Bootstrap Cubes for the I and J sets
 of a CCA
 obtained from bootstraping the rows
 of the two data-tables used for CCA.
-Companion function of  `tepCCA`.  Note: This function is still in the beta stage.
+Companion function of  `tepCCA`.  
+Note: This function is still in the beta stage.
 
 ### Boot4PLSC 
 
-Creates a Bootstrap Cube for PLSC (partial least square correlation):
+Creates a Bootstrap Cube for PLSC 
+(partial least square correlation):
 Creates Bootstrap Cubes for the I and J sets
 of a PLSC
 obtained from bootstraping the rows
@@ -227,39 +290,50 @@ of the two data-tables used for PLSC.
 
 ### BR4varMCA 
 
-Computes pseudo Bootstrap Ratios (BR) from pseudo-$F$ for variables in MCA.
-Used to create BR-like histogram comparable to BR such as computed in PCA.
+Computes pseudo Bootstrap Ratios (*BR*) 
+from pseudo-$F$ for variables in MCA.
+Used to create *BR*-like histogram 
+comparable to *BR* such as computed in PCA.
 
 ### buildRandomImage4PCA
  
-Makes a random image (with similar PCA loadings) 
- of a matrix of integer data such as Likert scale data.
- Uses two helper functions: `getRandomFS` and `recode2Integer`:
+Makes a random image 
+(with similar PCA loadings) 
+ of a matrix of integer data 
+ such as Likert scale data.
+ Uses two helper functions: 
+ `getRandomFS` and `recode2Integer`:
  
 
 ### coloringLevels
 
-Creates a vector of color names for the levels
- of an MCA from the color names of the variables.
+Creates a vector of color 
+names for the levels
+ of an MCA from the color
+ names of the variables.
  Used for creating mqps in MCA.
 
 
 ### compS
 
-A helper function for the functions `perm4PLSC` and `Boot4PLSC`, 
+A helper function for the functions 
+`perm4PLSC` and `Boot4PLSC`, 
 computes the cross-product
-of two comformable matrices
-using various types of normalization and centering.
+of two conformable matrices
+using various types of 
+normalization and centering.
 
 ### corrcoef4mat
 
-An efficient routine to compute squared correlation and
-RV coefficient between 2 comformable matrices.
+An efficient routine to compute 
+squared correlation and
+RV coefficient between 2 conformable matrices.
 
 ### ctr4Variables
 
  Computes contributions (or squared cosines)
-for (qualitatitve)  variables from the contributions
+for (qualitative) variables 
+from the contributions
 of the levels of the qualitative variables.
 Used to get contributions in MCA. 
 
@@ -270,14 +344,17 @@ the eigenvalues
 (and possibly the row and column factor scores)
 of the Correspondence Analysis (CA)
 of a data matrix suitable for CA
-(i.e., a matrix whose all entries are non-negative).
+(i.e., a matrix whose all 
+entries are non-negative).
 
 ### epVari
 
 A Varimax rotation on loadings and factor scores.
-Also gives the pseudo-eigenvalues and percentage of inertia.
+Also gives the pseudo-eigenvalues
+and percentage of inertia.
 Used post-PCA to get nice clean components.
-`epiVari` requires an a-priori number of dimensions.
+`epiVari` requires 
+an a-priori number of dimensions.
 
 ### fastBoot4CA
 
@@ -285,7 +362,8 @@ Used
 for  Correspondence Analysis
 (CA), creates   a Bootstrap Cube 
 obtained from bootstrapping the observations
-from a true contingency table. `fastBoot4CA` is based  on the base
+from a true contingency table.
+`fastBoot4CA` is based  on the base
 `R` function `rmultinom`.
 
 ### fastPerm4CA 
@@ -303,8 +381,10 @@ on a true contingency table.
 
  Changes the sign of the values of the columns 
  in one matrix or two matrices 
-according to the sign of the elements in the first line 
- of the first matrix.  Used to standardize an eigenvector matrix 
+according to the sign 
+of the elements in the first line 
+ of the first matrix.  
+ Used to standardize an eigenvector matrix 
  ortwo matched  singular vector matrices.
  
  ### firstpos4ExPo
@@ -320,47 +400,62 @@ for a PCA computed with  `ExPosition::epPCA`.
 
 ### getImportantCtr.12
 
-Gets the items with contributions important for a factorial plane.
-`getImportantCtr.12` gives the contributions of the items 
+Gets the items with 
+contributions important for a factorial plane.
+`getImportantCtr.12` 
+gives the contributions of the items 
 to the plane, the items important for the plane, 
 and the items important for the plane or 
 for at least one dimension of the plane.
 
 ### getRandomFS
 
-Generates multivariate random observations (i.e., factor scores)
-    that match the variance/eigenvalues 
-    of the dimensions (as defined by their loadings). 
+Generates multivariate random observations 
+(i.e., factor scores)
+that match the variance/eigenvalues 
+of the dimensions (as defined by their loadings). 
 
 
 ### malinvaudQ4CA.perm 
 
 Computes the Malinvaud / Saporta test for
 the omnibus and dimensions of a correspondence 
-analysis (CA). `malinvaudQ4CA.perm` gives
-the asymptotic Chi2 values and their associated 
-*p*-value under the usual assumptions and from a permutation test.
+analysis (CA). `malinvaudQ4CA.perm` 
+gives
+the asymptotic Chi2 values 
+and their associated 
+*p*-value under the usual 
+assumptions and from a permutation test.
 
 ### monteCarlo.eigen
 
-A Monte Carlo generation of (random) eigenvalues to match
+A Monte Carlo generation of 
+(random) eigenvalues to match
 a data matrix. 
 Used to implement the *parallel* test
 for the number of reliable eigenvalues.
 
 ###  multinomCV4CA 
 
-A very fast function that computes the permuted and bootstrapped eigenvalues
-of the correspondence analysis (CA) of a matrix suitable
-for CA (i.e., a matrix with non negative elements).
+A very fast function that computes 
+the permuted and bootstrapped eigenvalues
+of the correspondence analysis (CA) 
+of a matrix suitable
+for CA (i.e., a matrix
+with non negative elements).
 
 
 ### nameExpositionResults
 
-Adds dimension names to the results of analyses performed with` ExPosition`
-(recall that column names are needed for plots created with `ggplot2` when
-using `aes()`). Note that if there is a space is a name (as is the case by default),
-`aes_string()` may, in some contexts,  have to be used in lieu of `aes()`.
+Adds dimension names to the results of analyses
+performed with` ExPosition`
+(recall that column names are needed 
+for plots created with `ggplot2` when
+using `aes()`). Note that 
+if there is a space is a name 
+(as is the case by default),
+`aes_string()` may, in some contexts, 
+have to be used in lieu of `aes()`.
 
 ### normaliz
 
@@ -369,7 +464,8 @@ Normalizes a matrix  by column
 
 
 ###  perm4CCA
-Computes a permutation test for Canonical Correlation Analysis 
+Computes a permutation test 
+for Canonical Correlation Analysis 
 (CCA,  (as implemented
  in `tepCCA`).
 Computes an omnibus permutation test and
@@ -377,7 +473,8 @@ specific tests for the eigenvalues when
 performing a CCA.
 
 ###  perm4PLSC
-Computes a permutation test for PLSC (as implemented
+Computes a permutation test for PLSC 
+(as implemented
  in `TExPosition::tepPLS`.
 Computes an omnibus permutation test and
 specific tests for the eigenvalues when
@@ -385,7 +482,8 @@ performing a PLSC.
 
 ### phi2CT
 
-A fast function to compute the $\phi^2$  correlation 
+A fast function to compute the $\phi^2$  
+correlation 
 coefficient for a contingency table.
 Used for CA and MCA and
 as a helper function
@@ -405,7 +503,8 @@ Also a helper function,
  
  ### PLS4jack
  In PLS regression  `PLS4jack` compute a
- supplementary projection for a jackknifed estimation of
+ supplementary projection 
+ for a jackknifed estimation of
  one supplementary element.
  `PLS4jack` is mainly used  by
  `PLSR_SVD` for computing jackknifed estimates.
@@ -413,20 +512,24 @@ Also a helper function,
  ### PLSR_SVD
  
   PLS regression  (PLSR) using the Singular
- Value Decomposition (SVD) instead of the original NIPALS
+ Value Decomposition (SVD)
+ instead of the original NIPALS
  (faster for large data sets).
 
 ### projSupplementaryObservations4PLSC
 
-Computes latent variables / factor scores for supplementary
+Computes latent variables /
+factor scores for supplementary
 observations in a  `PLSC` analysis. 
-Note: `projSupplementaryObservations4PLSC` is mostly used
+Note: `projSupplementaryObservations4PLSC` 
+is mostly used
  as a preparatory step for
 `supplementaryObservations4PLSC`.
 
 ### recode2Integer
 
-Recodes a vector of real values to integers matching 
+Recodes a vector of real values 
+to integers matching 
     a given distribution for the integers.
  
  ### renormInertiaExPo
@@ -441,11 +544,13 @@ Centers and normalizes a vector to norm 1 or to norm
 $(N - 1)$. The function
 `scale0` gives the same results as `scale`
 except
-1)  for the option `'SS1'` (`scale0` normalizes to 1); 
+1)  for the option `'SS1'`
+(`scale0` normalizes to 1); 
 when `x`
 comprises all identical values and 2) when the
 parameter `scale = TRUE`, `scale` gives back
-a vector of `NaN` (because of a division by 0 error),
+a vector of `NaN` 
+(because of a division by 0 error),
 whereas `scale0` gives back a vector of `0`.
 
 ### supplementary4Vari
@@ -458,13 +563,15 @@ Computes the projection of supplementary elements
  
  ### supplementaryObservations4PLSC
  
- Computes the value  of the latent variables for
+ Computes the value  of
+ the latent variables for
   supplementary observations for a PLSC model 
   from `TExPosition::PLS`.
   
 ### supplementaryObservations4PLSCA
   
-  Computes the value  of the latent variables for
+  Computes the value 
+  of the latent variables for
    supplementary observations for a PLSCA model 
    from `TExPosition::PLSCA`.
 
@@ -473,7 +580,8 @@ Computes the projection of supplementary elements
 Projects supplementary variables (columns) 
  for a PLSC analysis 
  (computed with  `TExPosition::tepPLS`.
- Includes the internal function `projOnDualSet4PLSC`.
+ Includes the internal function 
+ `projOnDualSet4PLSC`.
 
 ### supplementaryVariables4PLSCA
 
@@ -484,24 +592,38 @@ Projects supplementary variables (columns)
 
 ### tepCCA
 
- A  `TExPosition`-like version of Canonical Correlation
- Analysis (CCA).  Inputs and outputs are the same as `TExPosition::tepPLS`.
- Current version uses a clone of `GSVD` from Derek Beaton's 
- soon-to-be-released-on-CRAN package `GSVD` (see `Github`: 
- `derekbeaton/GSVD` for details`). Note that this version is still under development.
+ A  `TExPosition`-like version of 
+ Canonical Correlation
+ Analysis (CCA). 
+ Inputs and outputs are the same 
+ as `TExPosition::tepPLS`.
+ Current version uses a clone 
+ of `GSVD` from Derek Beaton's 
+ soon-to-be-released-on-CRAN package
+ `GSVD` (see `Github`: 
+ `derekbeaton/GSVD` for details`). 
+ Note that this version is still
+ under development.
 
 ### tepRA
 
- A  `TExPosition`-like version of Redundancy Analysis.  
- Inputs and outputs are the same as `TExPosition::tepPLS`.
- Current version uses a clone of `GSVD` from Derek Beaton's 
- soon-to-be-released-on-CRAN package `GSVD` (see `Github`: 
+ A  `TExPosition`-like version of
+ Redundancy Analysis.  
+ Inputs and outputs are the same 
+ as `TExPosition::tepPLS`.
+ Current version uses a clone of `GSVD`
+ from Derek Beaton's 
+ soon-to-be-released-on-CRAN package 
+ `GSVD` (see `Github`: 
  `derekbeaton/GSVD` for details`). 
  Note that this version is still under development.
 
 ### theme_ptca2()
-A `ggplot2` theme that matches the defaults of the factorial figures in `PTCA4CATA`.
-`theme_ptca2` is, a (slightly smarter) cousin of `PTCA4CATA::theme_ptca` (which will be deprecated in the
+A `ggplot2` theme that matches the defaults 
+of the factorial figures in `PTCA4CATA`.
+`theme_ptca2` is, a (slightly smarter)
+cousin of `PTCA4CATA::theme_ptca`
+(which will be deprecated in the
 near future).
 
  

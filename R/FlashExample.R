@@ -1,11 +1,33 @@
-#' Flash Profile Dataset
-#'
-#' This dataset contains sensory descriptors for five different beers evaluated 
-#' by six different judges (J1 to J6). Each beer has been rated on various 
-#' attributes such as fruity, malt, phenol, persistence, sweet, strong taste, 
-#' bitter, sparkling, hop, taste intensity, alcohol, and others.
-#'
-#' @format A data frame with 5 rows and 31 variables:
+# Description for file FlashExample example for data4PCCAR
+# Hervé Abdi & Vincent Guillemot: July 18, 2024.
+# Provided (we think) 
+# by Sylvie Chollet & Dominique Valentin
+
+#  FlashExample Preambule ----
+# Flash Profile Dataset
+#'@title 5 beers are evaluated by 6 different Judges each using their own descriptors.
+#' 
+#' @description
+#'  \code{FlashExample}:
+#' 5 beers are evaluated by 6 different Judges 
+#' each using their own descriptors
+#' 
+#' @details This dataset contains sensory descriptors 
+#' for five different beers evaluated 
+#' by six different assessors (from J1 to J6). 
+#' Each beer was rated using various 
+#' attributes such as 
+#' fruity, malt, phenol, persistence, 
+#' sweet, strong taste, 
+#' bitter, sparkling, hop, 
+#' taste intensity, alcohol, 
+#' and more.
+#' 
+#' @name FlashExample
+#' @usage data("FlashExample")
+#' @docType data
+#' @format 
+#' A data frame with 5 rows and 31 variables:
 #' \describe{
 #'   \item{Beer}{Name of the beer (Sapporo, Casablanca, Page 24, Carlsberg, Tsingtao)}
 #'   \item{J1_Fruity}{Judge 1's rating for fruity characteristic (1-5)}
@@ -35,5 +57,20 @@
 #'   \item{J6_Alcohol}{Judge 6's rating for alcohol characteristic (1-5)}
 #'   \item{J6_Sparkling}{Judge 6's rating for sparkling characteristic (1-5)}
 #' }
-#' @source Sensory evaluation data collected from a tasting session of five different beers.
-"FlashExample"
+#' @md
+#' @source Sensory evaluation data collected 
+#' from a tasting session of five different beers.
+#' @keywords datasets data4PCCAR
+#' @author Herve Abdi, Vincent Guillemot, Dominique Valentin, and Sylvie Chollet
+#' @references These data have been used to illustrate
+#' Multiple Factor Analysis (MFA), STATIS, and DiSTATIS.
+#' (papers available from \url{https://personal.utdallas.edu/~herve/})
+#'
+#'
+NULL
+# End of FlashExample
+# Still left to do: print function for FlashExample
+#
+
+
+
