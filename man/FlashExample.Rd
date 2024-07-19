@@ -7,7 +7,7 @@
 \format{
 A data frame with 5 rows and 31 variables:
 \describe{
-\item{Beer}{Name of the beer (Sapporo, Casablanca, Page 24, Carlsberg, Tsingtao)}
+\item{Descriptors}{Name of the beer (Sapporo, Casablanca, Page 24, Carlsberg, Tsingtao)}
 \item{J1_Fruity}{Judge 1's rating for fruity characteristic (1-5)}
 \item{J1_Malt}{Judge 1's rating for malt characteristic (1-5)}
 \item{J1_Phenol}{Judge 1's rating for phenol characteristic (1-5)}
