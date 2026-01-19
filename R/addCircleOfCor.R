@@ -25,6 +25,9 @@
 #' (no transparent).
 #' @param size (\code{Default: 1})
 #'  thickness of the line of the circle.
+#' NB: In the code \code{size} is now replaced
+#' by \code{linewidth} to accomodate \code{ggplot2}
+#' new name as of version \code{3.4.0}.
 #' @param center (\code{Default: c(0, 0)}) 
 #' center of the circle.
 #' @param radius (\code{Default: 1}) 
@@ -83,7 +86,7 @@ addCircleOfCor <- function(color = 'darkorchid', # color of the circle
   x <- y <- NULL # needed to appease the parser that
                  # thinks that x and y are glocal undefined variables
   aCircle <- geom_path(data = dat, mapping = aes(x = x, y = y),
-                       color = color , alpha = alpha, size = size)
+                       color = color , alpha = alpha, linewidth = linewidth)
   return(aCircle)
 
 } # end addCircleOfCor ----
@@ -166,7 +169,7 @@ addCircleOfCor <- function(color = 'darkorchid', # color of the circle
 addArrows <- function(X, axis1 = 1, axis2 = 2,
                       color  = 'darkorchid',
                       alpha  = .6,
-                      size = 1,
+                      linewidth = 1, # size = 1,
                       center = c(0,0),
                       arrowLength = .3,
                       linetype = 1){
@@ -177,7 +180,8 @@ addArrows <- function(X, axis1 = 1, axis2 = 2,
              yend = X[,axis2],
              color = color,
              alpha = alpha,
-             size = size,
+             linewidth = linewidth, # was size                   
+             # size = size,
         arrow = arrow(length = unit(arrowLength, "cm")),
         linetype = linetype
         ) # end of zeArrows 
