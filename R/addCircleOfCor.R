@@ -23,8 +23,9 @@
 #' transparency for the circle,
 #' should be between 0 (completely transparent) and 1
 #' (no transparent).
-#' @param size (\code{Default: 1})
-#'  thickness of the line of the circle.
+#' @param linewidth = (\code{Default: 1})
+#' (NB: used to \code{size})
+#' thickness of the line of the circle.
 #' NB: In the code \code{size} is now replaced
 #' by \code{linewidth} to accomodate \code{ggplot2}
 #' new name as of version \code{3.4.0}.
@@ -66,7 +67,7 @@
 #_____________________________________________________________________
 addCircleOfCor <- function(color = 'darkorchid', # color of the circle
                            alpha = .3,
-                           size  = 1,
+                           linewidth = 1, # size  = 1,
                            center = c(0,0),
                            radius = 1,
                            nPoints = 100){
